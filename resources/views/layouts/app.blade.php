@@ -1,11 +1,14 @@
 <!doctype html>
-<html class="no-js" lang="">
-
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <title>Promarket.lv</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Promarket.lv - НАЧНИТЕ РЕМОНТ СВОЕГО УСТРОЙСТВА ПРЯМО СЕЙЧАС.
+') }}</title>
 
     <meta property="og:title" content="">
     <meta property="og:type" content="">
@@ -16,26 +19,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=f6d19d9a-bfbb-488c-b7ef-7f434633c6a7" type="text/javascript"></script>
 
     <meta name="theme-color" content="#fafafa">
 </head>
-
 <body>
 
 <header class="header">
     <div class="container">
         <div class="d-flex align-items-center">
             <div class="header-burger">
-                <img src="{{ asset('assets/img/burger.svg') }}" alt="">
-                <img src="{{ asset('assets/img/open.svg') }}" alt="">
+                <img src="{{ asset('assets/img/burger.svg')}}" data-src="{{ asset('assets/img/burger.svg')}}" alt="">
+                <img src="{{ asset('assets/img/open.svg')}}" data-src="{{ asset('assets/img/open.svg') }}" alt="">
             </div>
-            <a href="{{route('main-page')}}" class="logotype">
-                <img src="{{ asset('assets/img/common/logo.svg') }}" alt="">
+            <a href="#" class="logotype">
+                <img src="{{ asset('assets/img/common/logo.svg')}}" alt="">
             </a>
             <div class="header_navigation">
                 <nav>
                     <ul class="header_navigation_wrapper d-flex align-items-center">
-                        <li><a href="{{ route('fixing') }}">Ремонт</a></li>
+                        <li><a href="#">Ремонт</a></li>
                         <li class="header__shop__link">
                             <a href="#" class="header__collapse">Магазин</a>
                             <div class="shop-dropdown-wrapper">
@@ -47,15 +50,15 @@
                                                     <a href="#">
                                                         Запчасти для моб. телефонов
                                                         <span class="shop__drop__down-chevron-right">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                  <g opacity="0.54">
-                                  <path d="M8.58984 16.59L13.1698 12L8.58984 7.41L9.99984 6L15.9998 12L9.99984 18L8.58984 16.59Z"
-                                        fill="#202020"/>
-                                  </g>
-                                  </svg>
+                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                      <g opacity="0.54">
+                                                                      <path d="M8.58984 16.59L13.1698 12L8.58984 7.41L9.99984 6L15.9998 12L9.99984 18L8.58984 16.59Z"
+                                                                            fill="#202020"/>
+                                                                      </g>
+                                                                      </svg>
 
-                          </span>
+                                                        </span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -114,14 +117,14 @@
                                                 <div class="shop__drop__down-content">
                                                     <div class="shop__drop__down-content-side-header">
                                                 <span class="chevron">
-                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.54">
-<path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#202020"/>
-</g>
-</svg>
+                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g opacity="0.54">
+                                                    <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#202020"/>
+                                                    </g>
+                                                    </svg>
 
 
-                    </span>
+                          </span>
                                                         Запчасти для моб. телефонов
                                                     </div>
                                                     <div class="menu-wrap">
@@ -194,13 +197,13 @@
                                                     <div class="shop__drop__down-content-side-header">
                     <span class="chevron">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.54">
-<path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#202020"/>
-</g>
-</svg>
+                                <g opacity="0.54">
+                                <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#202020"/>
+                                </g>
+                                </svg>
 
 
-                    </span>
+                                            </span>
                                                         Запчасти для моб. телефонов
                                                     </div>
                                                     <div class="menu-wrap">
@@ -248,13 +251,13 @@
                                                     <div class="shop__drop__down-content-side-header">
                     <span class="chevron">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.54">
-<path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#202020"/>
-</g>
-</svg>
+                        <g opacity="0.54">
+                        <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#202020"/>
+                        </g>
+                        </svg>
 
 
-                    </span>
+                                                    </span>
                                                         Запчасти для моб. телефонов
                                                     </div>
                                                     <div class="menu-wrap">
@@ -302,10 +305,10 @@
                                                     <div class="shop__drop__down-content-side-header">
                     <span class="chevron">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.54">
-<path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#202020"/>
-</g>
-</svg>
+                                        <g opacity="0.54">
+                                        <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#202020"/>
+                                        </g>
+                                        </svg>
 
 
                     </span>
@@ -357,9 +360,9 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="{{route('about')}}">о компании</a></li>
-                        <li><a href="{{route('delivery')}}">доставка</a></li>
-                        <li><a href="{{route('contacts-page')}}">контакты</a></li>
+                        <li><a href="#">о компании</a></li>
+                        <li><a href="#">доставка</a></li>
+                        <li><a href="#">контакты</a></li>
                     </ul>
                     <!-- <div class="mobile-social-links">
                          <div class="mobile-social-link">
@@ -389,10 +392,10 @@
                         <input placeholder="Поиск" type="text" class="form_control">
                     </label>
                     <button type="button" class="search_form_submit">
-                        <img src="{{ asset('/assets/img/common/search.svg') }}" alt="">
+                        <img src="{{ asset('assets/img/common/search.svg')}}" alt="">
                     </button>
                     <button type="button" class="close_form_search">
-                        <img src="{{ asset('/assets/img/common/close-search.svg') }}" alt="">
+                        <img src="{{ asset('assets/img/common/close-search.svg') }}" alt="">
                     </button>
                 </form>
             </div>
@@ -401,7 +404,7 @@
                     <p>
                         RU
                     </p>
-                    <img src="{{ asset('assets/img/common/drop.svg') }}" alt="">
+                    <img src="img/common/drop.svg" alt="">
                 </div>
                 <div class="language-dropdown">
                     <ul>
@@ -434,7 +437,7 @@
                     <div class="header__cart_commodities">
                         <div class="d-flex header_cart_commodity">
                             <div class="header__cart_img">
-                                <img src="{{ asset('assets/img/cart-img.png') }}" alt="">
+                                <img src="img/cart-img.png" alt="">
                             </div>
                             <div class="header__cart_body">
                                 <div class="header__cart_second_col">
@@ -445,7 +448,7 @@
                                         <label>
                                             <input type="number" value="1">
                                         </label>
-                                        <img src="{{ asset('assets/img/common/drop.svg') }}" alt="">
+                                        <img src="img/common/drop.svg" alt="">
                                         <a href="#" class="commodity_reset_btn">
                                             Обновить
                                         </a>
@@ -453,17 +456,18 @@
                                 </div>
                                 <div class="header__cart_third_col">
                                     <a href="#" class="delete-button">
-                                        <img src="{{ asset('assets/img/common/close.svg') }}" alt="">
+                                        <img src="img/common/close.svg" alt="">
                                     </a>
                                     <div class="header__cart_price">
                                         44.50 €
+                                        <span class="commodity-card-additional-price">39.99 € excl.VAT</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex header_cart_commodity">
                             <div class="header__cart_img">
-                                <img src="{{ asset('assets/img/cart-img.png') }}" alt="">
+                                <img src="img/cart-img.png" alt="">
                             </div>
                             <div class="header__cart_body">
                                 <div class="header__cart_second_col">
@@ -474,7 +478,7 @@
                                         <label>
                                             <input type="number" value="1">
                                         </label>
-                                        <img src="{{ asset('assets/img/common/drop.svg') }}" alt="">
+                                        <img src="img/common/drop.svg" alt="">
                                         <a href="#" class="commodity_reset_btn">
                                             Обновить
                                         </a>
@@ -482,10 +486,11 @@
                                 </div>
                                 <div class="header__cart_third_col">
                                     <a href="#" class="delete-button">
-                                        <img src="{{ asset('assets/img/common/close.svg') }}" alt="">
+                                        <img src="img/common/close.svg" alt="">
                                     </a>
                                     <div class="header__cart_price">
                                         44.50 €
+                                        <span class="commodity-card-additional-price">39.99 € excl.VAT</span>
                                     </div>
                                 </div>
                             </div>
@@ -499,6 +504,9 @@
                                     44.50 €
                                 </b>
                             </p>
+                            <p>
+                                <span class="commodity-card-additional-price">39.99 € excl.VAT</span>
+                            </p>
                         </div>
                         <a href="#" class="default-button">
                             перейти в корзину
@@ -508,7 +516,7 @@
                 </div>
 
             </div>
-            <a href="{{ route('register') }}" class="header_profile">
+            <a href="{{route('login')}}" class="header_profile">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g opacity="">
                         <path
@@ -517,14 +525,45 @@
                 </svg>
 
             </a>
+             <ul class="navbar-nav ml-auto" style="display: none;"> 
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </ul>
         </div>
         <button class="reload-the-page" onclick="document.location.reload()"></button>
     </div>
 </header>
 
-
-@yield('content')
-
+<main id="app" class="main">
+        @yield('content')
+</main>
 
 <div class="quantity-drop-down-wrapper">
     <ul>
@@ -544,17 +583,17 @@
         <div class="row">
             <div class="col-lg-3">
                 <a href="#" class="footer-logotype">
-                    <img src="{{ asset('assets/img/common/logo.svg') }}" alt="">
+                    <img src="img/common/logo.svg" alt="">
                 </a>
                 <div class="footer-first-cols-wrap">
                     <div class="footer-first-column-wrapper">
                         <div class="d-flex footer-items-wrapper align-items-center justify-content-between">
                             <div class="d-flex footer-item align-items-center">
-                                <img src="{{ asset('assets/img/common/pin.svg') }}" alt="">
+                                <img src="img/common/pin.svg" alt="">
                                 <span>Ģertrudes 77</span>
                             </div>
                             <div class="d-flex footer-item align-items-center">
-                                <img src="{{ asset('assets/img/common/phone.svg') }}" alt="">
+                                <img src="img/common/phone.svg" alt="">
                                 <span>25519270</span>
                             </div>
                         </div>
@@ -568,11 +607,11 @@
                     <div class="footer-first-column-wrapper">
                         <div class="d-flex footer-items-wrapper align-items-center justify-content-between">
                             <div class="d-flex footer-item align-items-center">
-                                <img src="{{ asset('assets/img/common/pin.svg') }}" alt="">
+                                <img src="img/common/pin.svg" alt="">
                                 <span>Anniņmuižas 17</span>
                             </div>
                             <div class="d-flex footer-item align-items-center">
-                                <img src="{{ asset('assets/img/common/phone.svg') }}" alt="">
+                                <img src="img/common/phone.svg" alt="">
                                 <span>25519951</span>
                             </div>
                         </div>
@@ -590,9 +629,9 @@
                     Ремонт
                 </h3>
                 <ul>
-                    <li><a href="{{ route('fixing-type', 'mobile') }}">Мобильных телефонов</a></li>
-                    <li><a href="{{ route('fixing-type', 'tablet') }}">Планшетов</a></li>
-                    <li><a href="{{ route('fixing-type', 'laptop') }}">Ноутбуков</a></li>
+                    <li><a href="#">Мобильных телефонов</a></li>
+                    <li><a href="#">Планшетов</a></li>
+                    <li><a href="#">Ноутбуков</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-4">
@@ -609,9 +648,9 @@
                     информация
                 </h3>
                 <ul>
-                    <li><a href="{{route('about')}}">О компании</a></li>
-                    <li><a href="{{route('delivery')}}">Доставка</a></li>
-                    <li><a href="{{route('contacts-page')}}">Контакты</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Доставка</a></li>
+                    <li><a href="#">Контакты</a></li>
                 </ul>
                 <div class="social-websites">
                     <a href="#" class="social-fb">
@@ -642,20 +681,15 @@
                 © Promarket SIA 2011-2020
             </p>
             <div class="copyright-links">
-                <a href="{{route('responsibility')}}">Ограничение ответственности</a>
-                <a href="{{route('guarantee')}}">Условия гарантии</a>
+                <a href="#">Ограничение ответственности</a>
+                <a href="#">Условия гарантии</a>
             </div>
         </div>
     </div>
 </div>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="{{ asset('assets/js/script.js')}}"></script>
 
-<script src="{{ asset('assets/js/script.js') }}"></script>
-
-<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=<your API-key>" type="text/javascript"></script>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
     window.ga = function () {
@@ -670,5 +704,4 @@
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
-
 </html>

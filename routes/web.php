@@ -45,3 +45,10 @@ Route::get('/fixing-brand/{type}/{brand}/{model}/order', 'FixingController@fixin
 
 Route::post('/fixingOrder', 'FixingController@fixingDetailOrderRequest')->name('handle-fixing');
 
+
+Auth::routes(['verify' => true]);
+
+Route::get('/home', 'MainController@main')->name('home');
+
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('/profile', 'ProfileController@myprofile')->name('profile.index');
