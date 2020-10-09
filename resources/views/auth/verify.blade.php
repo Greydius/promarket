@@ -22,7 +22,7 @@
           <button type="submit" class="submit-form default-button">
             OK
           </button>
-        </form>
+      </form>
     </div>
   </div>
 </section>
