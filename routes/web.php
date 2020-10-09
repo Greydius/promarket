@@ -52,3 +52,4 @@ Route::get('/home', 'MainController@main')->name('home');
 
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
 Route::get('/profile', 'ProfileController@myprofile')->name('profile.index');
+Route::get('/reset-password', 'Auth\ResetPasswordController@resetPassword')->name('reset.password');
