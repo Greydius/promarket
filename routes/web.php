@@ -45,3 +45,14 @@ Route::get('/fixing-brand/{type}/{brand}/{model}/order', 'FixingController@fixin
 
 Route::post('/fixingOrder', 'FixingController@fixingDetailOrderRequest')->name('handle-fixing');
 
+Route::get('/market/{category}/{subcategory}', 'MarketController@shopMain')->name('shop-main');
+
+Route::get('/market/{category}/{subcategory}/{modelCode}', 'MarketController@shopInner')->name('shop-inner');
+
+Route::get('/cart', 'OrderController@cart')->name('cart');
+
+Route::get('/cart/add/{id}', 'OrderController@addToCart')->name('add-cart');
+
+Route::get('/cart/remove/{id}', 'OrderController@removeFromCart')->name('remove-cart');
+
+Route::get('/cart/decrease/{id}', 'OrderController@decreaseFromCart')->name('decrease-from-cart');
