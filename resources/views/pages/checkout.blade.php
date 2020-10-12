@@ -3,8 +3,17 @@
 @section('content')
 
     <main class="main">
+       
         <section class="cart-content pt-4">
             <div class="container">
+                <div class="alert">
+                 @if(session()->has('success'))
+                    <p class="alert alert-success text-center">{{session()->get('success')}}</p>
+                @endif
+                @if(session()->has('error'))
+                <p class="alert alert-error alert-danger text-center">{{session()->get('error')}}</p>
+                @endif
+                </div>
                 <div class="small-title">
                     КОРЗИНА (4 продукта)
                 </div>
@@ -83,6 +92,9 @@
 
         <section class="authorization-content mb-5">
             <div class="container">
+
+                @if (!Auth::check())
+                  
                 <div class="small-title text-center my-4 hide-for-mobile">
                     Авторизуйтесь для совершения заказа
                 </div>
@@ -99,19 +111,23 @@
                         <div class="small-title mb-4">войдите в аккаунт</div>
                         <button class="enter-via-facebook show-for-mobile">Войти через Facebook</button>
                         <button class="enter-via-gmail show-for-mobile">Войти через Google</button>
-                        <form action="POST">
-                            <input type="email" placeholder="Электронная почта" name="email">
-                            <input type="text" placeholder="Пароль" email="password">
+                         <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                            <input type="email" placeholder="Электронная почта" name="email" name="email">
+                             @if ($errors->has('email'))
+                                <span class="error">{{ $errors->first('email') }}</span>
+                              @endif 
+                            <input type="password" placeholder="Пароль" name="password" >
                             <p class="my-3">Я забыл пароль! <a href="#"> Восстановить его скорее</a></p>
                             <p class="my-3">Нет аккаунта? <a href="#"> Зарегистрироваться</a></p>
-                            <a href="#" class="default-button mt-4">
+                            <button type="submit" class="default-button mt-4">
                                 войти
-                            </a>
+                            </button>
                         </form>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 buy-without-registration p-5">
                         <div class="small-title mb-4">купите без регистрации</div>
-                        <input type="email" placeholder="Электронная почта" name="email">
+                        <input type="email" placeholder="Электронная почта" name="email" name="email">
                         <form action="POST">
                             <p class="my-3">Сможете зарегистрироваться и после
                                 совершения покупки.</p>
@@ -121,6 +137,7 @@
                         </form>
                     </div>
                 </div>
+                @endif
                 <div class="small-title text-center mb-4">ДОСТАВКА</div>
                 <div class="delivery-tabs">
                     <div class="row delivery-blocks">
@@ -166,26 +183,28 @@
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
                                     <div class="small-title text-center mb-4 mt-5">ДАННЫЕ ПОКУПАТЕЛЯ</div>
-                                    <form action="POST" class="user-data">
+                                    <form action="{{ route('confirm.order') }}" method="POST" class="user-data">
+                                        @csrf
+                                        <input type="hidden" name="delivery" value="Самовывоз">
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type">
+                                                <input type="radio" name="identification-type" value=" Физическое лицо">
                                                 <span>
                                             Физическое лицо
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type">
+                                                <input type="radio" name="identification-type" value=" Юридическое лицо">
                                                 <span>
                                             Юридическое лицо
                                         </span>
                                             </label>
                                         </div>
-                                        <input type="text" placeholder="Имя">
-                                        <input type="text" placeholder="Фамилия">
-                                        <input type="email" placeholder="Электронная почта">
-                                        <input type="tel" placeholder="Ваш телефон">
-                                        <textarea name="comments" id="comments" class="show-for-mobile" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
+                                        <input type="text" placeholder="Имя" name="name">
+                                        <input type="text" placeholder="Фамилия" name="firstname">
+                                        <input type="email" placeholder="Электронная почта" name="email">
+                                        <input type="tel" placeholder="Ваш телефон" name="telephone">
+                                        <textarea name="comment" id="comment" class="show-for-mobile" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
 
                                         <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
                                         <div class="payment-drop-down-wrapper">
@@ -202,11 +221,11 @@
                                         </div>
                                         <div class="small-title justify-content-center d-flex">
                                             ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> 344.50 €
-                <span class="commodity-card-price-muted">39.99 € excl.VAT</span></span>
+                                            <span class="commodity-card-price-muted">39.99 € excl.VAT</span></span>
                                         </div>
-                                        <a href="#" class="default-button mt-5">
+                                        <button type="submit" class="default-button mt-5">
                                             Сделать заказ
-                                        </a>
+                                        </button>
                                     </form>
                                 </div>
                             </div>
@@ -215,7 +234,9 @@
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
                                     <div class="small-title text-center mb-4 mt-5">АДРЕС ДОСТАВКИ</div>
-                                    <form action="POST" class="user-data">
+                                    <form action="{{ route('confirm.order') }}" method="POST" class="user-data">
+                                        @csrf
+                                         <input type="hidden" name="delivery" value="Забрать почтомате">
                                         <div class="city-drop-down-wrapper">
                                             <div class="city-drop-down-trigger">
                                                 <div class="changing">Латвия</div>
@@ -232,23 +253,23 @@
                                         <div class="small-title text-center mb-4 mt-5">ДАННЫЕ ПОКУПАТЕЛЯ</div>
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type">
+                                             <input type="radio" name="identification-type" value=" Физическое лицо">
                                                 <span>
                                             Физическое лицо
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type">
+                                                <input type="radio" name="identification-type" value=" Юридическое лицо">
                                                 <span>
                                             Юридическое лицо
                                         </span>
                                             </label>
                                         </div>
-                                        <input type="text" placeholder="Имя">
-                                        <input type="text" placeholder="Фамилия">
-                                        <input type="email" placeholder="Электронная почта">
-                                        <input type="tel" placeholder="Ваш телефон">
-                                        <textarea name="comments" id="comments" class="show-for-mobile" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
+                                        <input type="text" placeholder="Имя" name="name">
+                                        <input type="text" placeholder="Фамилия" name="firstname">
+                                        <input type="email" placeholder="Электронная почта" name="email">
+                                        <input type="tel" placeholder="Ваш телефон" name="telephone">
+                                        <textarea name="comment" id="comment" class="show-for-mobile" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
 
                                         <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
                                         <div class="payment-drop-down-wrapper">
@@ -265,20 +286,22 @@
                                         </div>
                                         <div class="small-title justify-content-center d-flex">
                                             ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> 344.50 €
-                <span class="commodity-card-price-muted">39.99 € excl.VAT</span></span>
+                                            <span class="commodity-card-price-muted">39.99 € excl.VAT</span></span>
                                         </div>
-                                        <a href="#" class="default-button mt-5">
+                                       <button type="submit" class="default-button mt-5">
                                             Сделать заказ
-                                        </a>
+                                        </button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                         <div class="delivery-tab-content">
+                            <form action="{{ route('confirm.order') }}" method="POST" class="user-data">
+                                @csrf
+                                <input type="hidden" name="delivery" value="Доставить по указанному адресу">
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
                                     <div class="small-title text-center mb-4 mt-5">АДРЕС ДОСТАВКИ</div>
-                                    <form action="POST" class="user-data">
                                         <div class="city-drop-down-wrapper">
                                             <div class="city-drop-down-trigger">
                                                 <div class="changing">Латвия</div>
@@ -293,35 +316,33 @@
                                             </div>
                                         </div>
                                         <input type="text" placeholder="Город" name="city">
-                                        <input type="text" placeholder="Адрес доставки" name="destination">
-                                        <input type="email" placeholder="Почтовый индекс" name="index">
-                                        <textarea name="comments" id="comments" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
-                                    </form>
+                                        <input type="text" placeholder="Адрес доставки" name="delivery_address">
+                                        <input type="text" placeholder="Почтовый индекс" name="postcode">
+                                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
                                     <div class="small-title text-center mb-4 mt-5">ДАННЫЕ ПОКУПАТЕЛЯ</div>
-                                    <form action="POST" class="user-data">
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type">
+                                                <input type="radio" name="identification-type" value="Физическое лицо">
                                                 <span>
                                             Физическое лицо
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type">
+                                                <input type="radio" name="identification-type" value=" Юридическое лицо">
                                                 <span>
                                             Юридическое лицо
                                         </span>
                                             </label>
                                         </div>
-                                        <input type="text" placeholder="Имя">
-                                        <input type="text" placeholder="Фамилия">
-                                        <input type="email" placeholder="Электронная почта">
-                                        <input type="tel" placeholder="Ваш телефон">
-                                        <textarea name="comments" id="comments" class="show-for-mobile" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
+                                        <input type="text" placeholder="Имя" name="name">
+                                        <input type="text" placeholder="Фамилия" name="firstname">
+                                        <input type="email" placeholder="Электронная почта" name="email">
+                                        <input type="tel" placeholder="Ваш телефон" name="telephone">
+                                        <textarea name="comment" id="comment" class="show-for-mobile" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
 
                                         <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
                                         <div class="payment-drop-down-wrapper">
@@ -338,14 +359,15 @@
                                         </div>
                                         <div class="small-title justify-content-center d-flex">
                                             ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> 344.50 €
-                <span class="commodity-card-price-muted">39.99 € excl.VAT</span></span>
+                                            <span class="commodity-card-price-muted">39.99 € excl.VAT</span></span>
                                         </div>
-                                        <a href="#" class="default-button mt-5">
+                                        <button type="submit" class="default-button mt-5">
                                             Сделать заказ
-                                        </a>
-                                    </form>
+                                        </button>
                                 </div>
                             </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use Illuminate\Support\Facades\Auth;
+
 class OrderController extends Controller
 {
     public function cart() {
@@ -73,4 +75,34 @@ class OrderController extends Controller
         $orderRow->save();
         return 'decreased';
     }
+
+    public function confirmOrder(Request $request)
+    {
+        $orderId = session('orderId');
+        if(is_null($orderId)){
+            return false;
+        }
+        if (Auth::check()) {
+            $userid = Auth::id();
+        }else{
+            $userid = null;
+        }
+        $order = Order::find($orderId);
+        $inputs = $request->all();
+        $result = $order->update($inputs);
+        $order->fio = $inputs['name'] .' '.$inputs['firstname'];
+        $order->specification = $inputs['identification-type'];
+        $order->status = '1';
+
+        $order->user_id = $userid;
+        $save = $order->save();
+        if($save){
+            session()->flash('success','Ваш заказ принят в обработку!');
+        }else{
+            session()->flash('error','Случилос ошибка!');
+        }
+
+        return redirect()->route('checkout');
+    }
+
 }

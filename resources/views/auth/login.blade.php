@@ -38,9 +38,15 @@
             </div>
             <label>
               <input class="auth_control" placeholder="Электронная почта" type="email" name="email">
+              @if ($errors->has('email'))
+                <span class="error">{{ $errors->first('email') }}</span>
+              @endif 
             </label>
             <label>
               <input class="auth_control" placeholder="Пароль" type="password" name="password">
+              @if ($errors->has('password'))
+                <span class="error">{{ $errors->first('password') }}</span>
+              @endif
             </label>
             <button type="submit" class="submit-form default-button">
               OK

@@ -175,6 +175,7 @@
                 </svg>
                 <span class="header_cart_count">2</span>
                 <div class="header__cart__inner dropping__element__wrapper">
+                @if(isset($order->products))
                     <h3 class="inner__cart__title">
                         продуктов в корзине: {{count($order->products)}}
                     </h3>
@@ -212,6 +213,7 @@
                         @endforeach
 
                     </div>
+                @endif
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="cart__price__wrapper">
                             <p>

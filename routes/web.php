@@ -68,3 +68,4 @@ Route::get('/profile', 'ProfileController@myprofile')->name('profile.index');
 Route::get('/reset-password', 'Auth\ResetPasswordController@resetPassword')->name('reset.password');
 
 Route::get('/checkout', 'OrderController@ckeckout')->name('checkout');
+Route::post('confirm-order','OrderController@confirmOrder')->name('confirm.order');
