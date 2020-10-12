@@ -18,7 +18,7 @@
                     <div class="col-xl-12">
                         @foreach($order->products as $product)
                             <div class="cart-item d-flex align-items-center justify-content-between my-3"
-                                 style="background-image: url(./img/cart/Rectangle\ 74.svg);">
+                                 style="background-image: url({{asset('assets/./img/cart/Rectangle\ 74.svg')}});">
                                 <div class="remove-cart-item-tablet"><a href="#" class="remove-cart-item"><img
                                             src="./img/cart/Vector.svg" alt="icon"></a></div>
                                 <div class="cart-changing">
