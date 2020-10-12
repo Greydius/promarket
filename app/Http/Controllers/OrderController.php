@@ -16,6 +16,16 @@ class OrderController extends Controller
         return view('pages.cart', compact('order'));
     }
 
+    public function ckeckout() {
+        $orderId = session('orderId');
+        if(is_null($orderId)){
+            return redirect()->route('main-page');
+        }
+        $order = Order::find($orderId);
+        $orderProducts = $order->products;
+        return view('pages.checkout', compact('order'));
+    }
+
     public function addToCart($product_id) {
         $orderId = session('orderId');
         // dd($orderId);

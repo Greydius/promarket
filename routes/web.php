@@ -67,3 +67,4 @@ Route::get('email/verify', 'Auth\VerificationController@show')->name('verificati
 Route::get('/profile', 'ProfileController@myprofile')->name('profile.index');
 Route::get('/reset-password', 'Auth\ResetPasswordController@resetPassword')->name('reset.password');
 
+Route::get('/checkout', 'OrderController@ckeckout')->name('checkout');
