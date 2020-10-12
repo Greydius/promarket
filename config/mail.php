@@ -72,6 +72,13 @@ return [
         ],
     ],
 
+    'stream' => [
+        'ssl' => [
+            'allow_self_signed' => true,
+            'verify_peer'       => false,
+            'verify_peer_name'  => false,
+        ],
+    ],
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
@@ -82,11 +89,12 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
+    'from' => ['address' => 'raval_himanshu@live.in', 'name' => 'Himanshu Raval'],
 
-    'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
-    ],
+    // 'from' => [
+    //     'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+    //     'name' => env('MAIL_FROM_NAME', 'Example'),
+    // ],
 
     /*
     |--------------------------------------------------------------------------
@@ -106,5 +114,16 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'host' => env('MAIL_HOST', 'smtp.yandex.ru'),
+    'port' => env('MAIL_PORT', 587),
+    'from' => [
+        'address' => 'gmirzaboyev@yandex.ru',
+        'name' => 'Type What You Want',
+    ],
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'username' => env('MAIL_USERNAME', 'gmirzaboyev@yandex.ru'),
+    'password' => env('MAIL_PASSWORD', 'webman123!'),
 
 ];

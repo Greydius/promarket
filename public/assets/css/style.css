@@ -2757,7 +2757,6 @@ button:focus {
   border-radius: 50%;
   background-color: #C4C4C4;
   margin: 0 auto;
-  overflow:hidden;
 }
 
 .office-card-info {
@@ -4008,7 +4007,7 @@ main {
 .sidebar-item a {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .sidebar-item a span:hover {
@@ -4448,9 +4447,7 @@ main {
   padding: 20px 20px 0 24px;
   width: 400px;
 }
-.main-banner-col{
-    display: block;
-}
+
 .shop__drop__down-tabs-side-container li {
   margin-right: 0;
   transition: 0.3s linear all;
@@ -4758,7 +4755,7 @@ main {
 
 .reservation-form .radio-buttons-row .radio-type input:checked ~ span:after {
   left: 5px;
-  top: calc(50% - 5px);
+  top: 19px;
 }
 
 .reservation-form .radio-buttons-row .radio-type span {

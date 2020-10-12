@@ -45,6 +45,7 @@ Route::get('/fixing-brand/{type}/{brand}/{model}/order', 'FixingController@fixin
 
 Route::post('/fixingOrder', 'FixingController@fixingDetailOrderRequest')->name('handle-fixing');
 
+
 Route::get('/market/{category}/{subcategory}', 'MarketController@shopMain')->name('shop-main');
 
 Route::get('/market/{category}/{subcategory}/{modelCode}', 'MarketController@shopInner')->name('shop-inner');
@@ -56,3 +57,13 @@ Route::get('/cart/add/{id}', 'OrderController@addToCart')->name('add-cart');
 Route::get('/cart/remove/{id}', 'OrderController@removeFromCart')->name('remove-cart');
 
 Route::get('/cart/decrease/{id}', 'OrderController@decreaseFromCart')->name('decrease-from-cart');
+
+
+Auth::routes(['verify' => true]);
+
+Route::get('/home', 'MainController@main')->name('home');
+
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('/profile', 'ProfileController@myprofile')->name('profile.index');
+Route::get('/reset-password', 'Auth\ResetPasswordController@resetPassword')->name('reset.password');
+
