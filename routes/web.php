@@ -61,6 +61,13 @@ Route::get('/cart/decrease/{id}', 'OrderController@decreaseFromCart')->name('dec
 
 Auth::routes(['verify' => true]);
 
+Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider')
+    ->name('social.login');
+Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')
+    ->name('social.callback');
+
+
+
 Route::get('/home', 'MainController@main')->name('home');
 
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
