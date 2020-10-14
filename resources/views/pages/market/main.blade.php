@@ -253,7 +253,6 @@
                         </div>
 
                     </div>
-
                     <div class="col-lg-9 col-md-12">
                         <div class="shop-main-wrapper brand-product">
                             <div class="collapsing-control">
