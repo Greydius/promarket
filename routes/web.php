@@ -72,6 +72,10 @@ Route::get('/home', 'MainController@main')->name('home');
 
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
 Route::get('/profile', 'ProfileController@myprofile')->name('profile.index');
+Route::get('/profile/order/{id}', 'ProfileController@oneOrder')->name('user.order');
+Route::post('/profile/edit','ProfileController@edit')->name('profile.edit');
+Route::post('/profile/avatar','ProfileController@avatarStore')->name('avatarStore');
+
 Route::get('/reset-password', 'Auth\ResetPasswordController@resetPassword')->name('reset.password');
 
 Route::get('/checkout', 'OrderController@ckeckout')->name('checkout');

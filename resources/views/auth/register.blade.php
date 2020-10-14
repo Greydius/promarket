@@ -1,6 +1,7 @@
 @extends('system.master')
 
 @section('content')
+<main class="main">
  <div class="auth-container">
         <section class="login login-secondary-page registration-primary-page auth-reduced-width">
             <div class="container">
@@ -48,4 +49,5 @@
             </div>
         </section>
     </div>
+</main>
 @endsection

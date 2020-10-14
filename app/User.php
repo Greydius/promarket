@@ -12,15 +12,8 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     use SoftDeletes;
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'username', 'email', 'password',
-    ];
-
+    
+    protected $guarded = [];  
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -48,5 +41,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function setEmailAttribute($value)
     {
       $this->attributes['email'] = strtolower($value);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }

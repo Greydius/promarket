@@ -1,7 +1,7 @@
 @extends('system.master')
 
 @section('content')
-
+    <main class="main">
 <div class="auth-container">
 <section class="login secondary-auth-page">
   <div class="container">
@@ -27,4 +27,5 @@
   </div>
 </section>
 </div>
+</main>
 @endsection

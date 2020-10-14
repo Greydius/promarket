@@ -1,6 +1,7 @@
 @extends('system.master')
 
 @section('content')
+<main class="main">
  <div class="auth-container">
     <section class="login login-primary-page">
       <div class="container">
@@ -21,7 +22,7 @@
             Войти в систему
           </h1>
           <form method="POST" action="{{ route('login') }}">
-              @csrf
+            @csrf
             <div class="outer-service-auth-wrapper">
               @foreach(['facebook', 'google'] as $provider)
                   <a class="btn btn-link {{ $provider }}-auth outer-service-auth" href="{{ route('social.login', ['provider' => $provider]) }}">
@@ -30,14 +31,6 @@
                 Войти через {{ ucwords($provider)}}
               </span></a>
               @endforeach
-              @if ($errors->any())
-                  <div class="alert alert-danger">
-                      @foreach ($errors->all() as $error)
-                          <div>{{ $error }}</div>
-                      @endforeach
-                  </div>
-              @endif
-
             </div>
             <label>
               <input class="auth_control" placeholder="Электронная почта" type="email" name="email">
@@ -73,5 +66,5 @@
       </div>
     </section>
   </div>
-
+</main>
 @endsection
