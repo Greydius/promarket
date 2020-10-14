@@ -48,17 +48,17 @@ class ProfileController extends Controller
 
  	public function avatarStore(Request $request)
     {
-        $image = $request->file('file');
-        $imageName = $image->getClientOriginalName();
-        $image->move(public_path('/uploads/avatar/'),$imageName);
         $user = Auth::user();
         $path=public_path().'/uploads/avatar/'.$user->avatar;
         if (file_exists($path)) {
             unlink($path);
         }
+        $image = $request->file('file');
+        $imageName = $image->getClientOriginalName();
+        $image->move(public_path('/uploads/avatar/'),$imageName);
    		$save = $user->update([
    			'avatar' => $imageName,
    		]);
-        return response()->json(['success'=>$imageName]);
+        return $imageName;
     }
 }

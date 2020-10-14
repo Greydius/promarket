@@ -9,7 +9,7 @@
                     <div class="sidebar-profile-overview">
                         <div class="d-flex align-items-center profile-overview justify-content-between">
                             <div class="profile-photo">
-                                <img src="" alt="">
+                                <img src="{{ asset('/uploads/avatar/') }}/{{Auth::user()->avatar}}" alt="">
                             </div>
                             <div class="profile-name">                                
                                 {{ Auth::user()->username }}
@@ -151,13 +151,15 @@
                                     <div class="profile-details">
                                         <div class="profile-details-photo">
                                             <img src="{{ asset('/uploads/avatar/') }}/{{Auth::user()->avatar}}" class="user_avatar" alt="" style="width: auto; height: inherit;">
-                                           
+
+                                        <label for="avatar">
                                             <div class="profile-change-photo-icon">
-                                                <form method="post" action="{{url('/profile/avatar')}}" class="dropzone" id="dropzone">
-                                                    @csrf
-                                                     <img src="{{ asset('assets/img/lk/change-photo') }}.svg" class="" alt="" >
-                                                </form>   
+                                                    
+                                           <input id="avatar" type="file" name="file" style="z-index: -1;opacity: 0;width: 0;" />
+                                             <img src="{{ asset('assets/img/lk/change-photo') }}.svg" class="" alt="" >
+                                              
                                             </div>
+                                                </label>
                                         </div>
                                         <div class="profile-details-name">
                                             {{ Auth::user()->username }}
@@ -277,27 +279,28 @@
     </div>
 </main>
 <script type="text/javascript">
-        Dropzone.options.dropzone =
-         {
-            maxFilesize: 1,
-};
+$('#avatar').change(function(){    
+    //on change event  
+    formdata = new FormData();
+    if($(this).prop('files').length > 0)
+    {
+        file =$(this).prop('files')[0];
+        formdata.append("file", file);
+    }
+    // alert(formdata);
+    jQuery.ajax({
+    url: '/profile/avatar',
+    type: "POST",
+    data: formdata,
+    processData: false,
+    contentType: false,
+    success: function (result) {
+         console.log(result);
+         $(".user_avatar").attr("src","uploads/avatar/" + result);
+         // play the audio file
+    }
+});
+});
 </script>
-<style type="text/css">
-    
-form#dropzone {
-    width: 100%;
-    height: auto;
-    background: unset;
-    font-size: 0;
-    border: unset;
-}
 
-.dz-preview.dz-error.dz-complete.dz-image-preview {
-    width: 0;
-    opacity: 0;
-}
-.dz-preview {
-    opacity: 0;
-}
-</style>    
 @endsection
