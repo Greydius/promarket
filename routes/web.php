@@ -52,7 +52,7 @@ Route::get('/market/{category}/{subcategory}/{modelCode}', 'MarketController@sho
 
 Route::get('/cart', 'OrderController@cart')->name('cart');
 
-Route::get('/cart/add/{id}', 'OrderController@addToCart')->name('add-cart');
+Route::post('/cart', 'OrderController@addToCart')->name('add-cart');
 
 Route::get('/cart/remove/{id}', 'OrderController@removeFromCart')->name('remove-cart');
 

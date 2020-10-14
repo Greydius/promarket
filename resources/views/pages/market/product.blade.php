@@ -35,7 +35,8 @@
 
                                     <a href="{{asset('assets/img/market/slide.svg')}}" data-fslightbox="displays">
                                         <img class="swiper-slide" src="{{asset('assets/img/market/slide.svg')}}"
-                                             data-large="{{asset('assets/img/market/slide.svg')}}" alt="alt" title="Фото">
+                                             data-large="{{asset('assets/img/market/slide.svg')}}" alt="alt"
+                                             title="Фото">
                                     </a>
                                 </div>
                                 <div class="swiper-pagination"></div>
@@ -84,26 +85,33 @@
 
                                         </div>
                                         <div class="col-6">
-                                            <div class="quantity-drop product-inner-page-quantity-drop">
-                                                <div class="quantity-view-wrapper align-items-center d-flex">
-                                                    <div class="quantity-input-wrapper">
-                                                        <label>
-                                                            <input value="1" type="text" class="quantity-input">
-                                                        </label>
-                                                    </div>
-                                                    <div class="quantity-trigger-wrapper">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <g opacity="0.54">
-                                                                <path d="M7 10L12 15L17 10H7Z" fill="#202020"></path>
-                                                            </g>
-                                                        </svg>
+                                            <form method="post" action="{{route('add-cart')}}"
+                                                  class="add-to-cart-form-submittion">
+                                                <div class="quantity-drop product-inner-page-quantity-drop">
+                                                    @csrf
+                                                    <div class="quantity-view-wrapper align-items-center d-flex">
+                                                        <div class="quantity-input-wrapper">
+                                                            <label>
+                                                                <input name="quantity" value="1" type="text" class="quantity-input">
+                                                            </label>
+                                                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                                                        </div>
+                                                        <div class="quantity-trigger-wrapper">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <g opacity="0.54">
+                                                                    <path d="M7 10L12 15L17 10H7Z"
+                                                                          fill="#202020"></path>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <a href="{{route('add-cart', $product)}}" class="submit-form default-button add-to-cart">
-                                                в корзину
-                                            </a>
+                                                <a href="{{route('add-cart', $product)}}"
+                                                   class="submit-form default-button add-to-cart">
+                                                    в корзину
+                                                </a>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

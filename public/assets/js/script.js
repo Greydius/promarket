@@ -3459,12 +3459,39 @@ flatpickr(".timepicker", {
 });
 
 
-let cartButton = document.querySelectorAll('.add-to-cart');
+let cartButton = document.querySelectorAll('.add-to-cart-form-submittion');
 let removeButton = document.getElementsByClassName('pull-right');
 
 Array.from(cartButton).forEach(btn => {
-    btn.addEventListener('click', cartManipulations)
+    btn.addEventListener('submit', addCommodityToCart)
 })
+
+
+function addCommodityToCart (e) {
+    e.preventDefault();
+    let link = this.getAttribute('action');
+    let formData = new FormData(this);
+    axios
+        .post(link, formData)
+        .then((response) => {
+            if(!!response === true) {
+                $.fancybox.open({
+                    src  : `#${response.data}`,
+                    type : 'inline',
+                    opts : {
+                        afterShow : function( instance, current ) {
+                            setTimeout(() => {
+                                $.fancybox.close(true);
+                            }, 2000)
+                        }
+                    }
+                });
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
 Array.from(removeButton).forEach(btn => {
     btn.addEventListener('click', cartManipulations)
 })
@@ -3552,3 +3579,5 @@ function fetchFromDataLink(el) {
 
         })
 }
+
+

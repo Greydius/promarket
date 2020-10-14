@@ -28,7 +28,9 @@ class OrderController extends Controller
         return view('pages.checkout', compact('order'));
     }
 
-    public function addToCart($product_id) {
+    public function addToCart(Request $request) {
+        $product_id = $request->product_id;
+        $quantity = $request->quantity;
         $orderId = session('orderId');
         // dd($orderId);
         if(is_null($orderId)){
@@ -44,10 +46,14 @@ class OrderController extends Controller
         if($order->products->contains($product_id)){
             $orderRow = $order->products()
                 ->where('product_id', $product_id)->first()->pivot;
-            $orderRow->count++;
+            $orderRow->count += intval($quantity);
             $orderRow->update();
         } else {
             $order->products()->attach($product_id);
+            $orderRow = $order->products()
+                ->where('product_id', $product_id)->first()->pivot;
+            $orderRow->count = intval($quantity);
+            $orderRow->update();
         }
         return 'added_good';
     }

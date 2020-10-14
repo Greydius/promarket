@@ -392,7 +392,7 @@
 </div>
 
 
-<div id="added_good">
+<div id="added_good"  style="display: none;">
     Товар был успешно добавлен в корзину
 </div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
