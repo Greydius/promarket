@@ -33,9 +33,9 @@
                             <div class="swiper-container product-top-slider ">
                                 <div class="swiper-wrapper">
 
-                                    <a href="{{$product->img}}" data-fslightbox="displays">
-                                        <img class="swiper-slide" src="{{$product->img}}"
-                                             data-large="/img/third-page/mini-slider.png" alt="alt" title="Фото">
+                                    <a href="{{asset('assets/img/market/slide.svg')}}" data-fslightbox="displays">
+                                        <img class="swiper-slide" src="{{asset('assets/img/market/slide.svg')}}"
+                                             data-large="{{asset('assets/img/market/slide.svg')}}" alt="alt" title="Фото">
                                     </a>
                                 </div>
                                 <div class="swiper-pagination"></div>
@@ -72,22 +72,7 @@
                                     <div class="row align-items-end">
                                         <div class="col-6">
                                             <div class="commodity-card-parameter commodity-card-inner-parameter">
-                                                @if($product->quantity > 2)
-                                                    <img src="img/common/tick.svg" alt="">
-                                                    <span>
-                                                       В наличии
-                                                    </span>
-                                                @elseif ($product->quantity > 0)
-                                                    <img src="img/common/low.svg" alt="">
-                                                    <span>
-                                                            1  в наличии
-                                                        </span>
-                                                @else
-                                                    <img src="img/common/order.svg" alt="">
-                                                    <span>
-                                                            Под заказ
-                                                        </span>
-                                                @endif
+                                                @include('components.common.in-stock', ['quantity' => $product->quantity])
                                             </div>
                                             <div class="commodity-card-price mb-2">
                                                 {{$product->price}} €
@@ -116,9 +101,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="submit-form default-button">
+                                            <a href="{{route('add-cart', $product)}}" class="submit-form default-button add-to-cart">
                                                 в корзину
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

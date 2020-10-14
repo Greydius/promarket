@@ -16,23 +16,7 @@
                 {{$product->name}}
             </a>
             <div class="commodity-card-parameter">
-                @if($product->quantity > 2)
-                    <img src="img/common/tick.svg" alt="">
-                    <span>
-                                                       В наличии
-                                                    </span>
-                @elseif ($product->quantity > 0)
-                    <img src="img/common/low.svg" alt="">
-                    <span>
-                                                            1  в наличии
-                                                        </span>
-                @else
-                    <img src="img/common/order.svg" alt="">
-                    <span>
-                                                            Под заказ
-                                                        </span>
-                @endif
-
+                   @include('components.common.in-stock', ['quantity' => $product->quantity])
             </div>
             <div class="commodity-card-price-row">
                 <div class="commodity-card-price">
@@ -60,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{route('add-cart', $product)}}" class="default-button">
+                <a href="{{route('add-cart', $product)}}" data-link="{{route('add-cart', $product)}}" class="default-button add-to-cart">
                     в корзину
                 </a>
             </div>

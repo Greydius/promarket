@@ -3459,3 +3459,96 @@ flatpickr(".timepicker", {
 });
 
 
+let cartButton = document.querySelectorAll('.add-to-cart');
+let removeButton = document.getElementsByClassName('pull-right');
+
+Array.from(cartButton).forEach(btn => {
+    btn.addEventListener('click', cartManipulations)
+})
+Array.from(removeButton).forEach(btn => {
+    btn.addEventListener('click', cartManipulations)
+})
+
+function cartManipulations(e){
+    e.preventDefault();
+    let link = this.getAttribute('data-link');
+    axios
+        .get(link)
+        .then((response) => {
+            if(!!response === true) {
+                $.fancybox.open({
+                    src  : `#${response.data}`,
+                    type : 'inline',
+                    opts : {
+                        afterShow : function( instance, current ) {
+                            setTimeout(() => {
+                                $.fancybox.close(true);
+                            }, 2000)
+                        }
+                    }
+                });
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+
+// увеличение и уменьшение товаров в корзине
+
+let buttonsIncDec = document.getElementsByClassName('product-qty');
+Array.from(buttonsIncDec).forEach(btn => {
+    btn.addEventListener('click', manupulateCartQuantity);
+})
+
+
+
+function manupulateCartQuantity(e) {
+    let input = this.querySelector('input');
+    let inputValue = input.value
+    let plusButton = Array.from(e.path).find(el => {
+        try{
+            return el.classList.contains('inc')
+        } catch(e) {
+            void (e)
+        }
+    })
+    if(plusButton) {
+        inputValue++
+        input.value = inputValue;
+        fetchFromDataLink(plusButton);
+        return false
+    }
+    let minutButton = Array.from(e.path).find(el => {
+        try{
+            return el.classList.contains('dec')
+        } catch(e) {
+            void (e)
+        }
+    })
+    if(minutButton) {
+        if(inputValue < 2) {
+            return false
+        }
+        inputValue--
+        input.value = inputValue
+        fetchFromDataLink(minutButton);
+        return false
+    }
+}
+
+
+function fetchFromDataLink(el) {
+    let link = el.getAttribute('data-link');
+    axios
+
+        .get(link)
+
+        .then((response) => {
+
+        })
+
+        .catch(err => {
+
+        })
+}
