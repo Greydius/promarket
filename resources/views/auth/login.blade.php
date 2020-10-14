@@ -33,10 +33,10 @@
               @endforeach
             </div>
             <label>
-              <input class="auth_control" placeholder="Электронная почта" type="email" name="email"  required="required">
               @if ($errors->has('email'))
                 <span class="error">{{ $errors->first('email') }}</span>
               @endif 
+              <input class="auth_control" placeholder="Электронная почта" type="email" name="email"  required="required">
             </label>
             <label>
               <input class="auth_control" minlength="8" placeholder="Пароль" type="password" name="password" required="required">

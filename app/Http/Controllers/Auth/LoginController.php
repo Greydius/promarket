@@ -39,6 +39,19 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+     /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,NULL,id,deleted_at,NULL'],
+            'password' => ['required', 'string', 'min:8'],
+        ]);
+    }
 
     public function redirectToProvider(string $provider)
     {
@@ -109,7 +122,7 @@ class LoginController extends Controller
     }
     public function socialLogin(User $user)
     {
-            auth()->loginUsingId($user->id);
+    auth()->loginUsingId($user->id);
     return redirect($this->redirectTo);
     }
 }

@@ -18,7 +18,7 @@
                 <ul class="lk-tabs-changers">
                     <li class="sidebar-item active">
                         <a href="#">
-                            <img src="img/lk/orders_icon.svg" alt="">
+                            <img src="{{ asset('/assets/img/lk/orders_icon.svg') }}" alt="">
                             <span>
                                 Ваши заказы
                             </span>
@@ -26,7 +26,7 @@
                     </li>
                     <li class="sidebar-item">
                         <a href="#">
-                            <img src="img/lk/account_icon.svg" alt="">
+                            <img src="{{ asset('/assets/img/lk/account_icon.svg') }}" alt="">
                             <span>
                                 Настройки аккаунта
                             </span>
@@ -34,7 +34,7 @@
                     </li>
                     <li class="sidebar-item">
                         <a href="#">
-                            <img src="img/lk/quit_icon.svg" alt="">
+                            <img src="{{ asset('/assets/img/lk/quit_icon.svg') }}" alt="">
                             <span>
                                 Выйти из системы
                             </span>
