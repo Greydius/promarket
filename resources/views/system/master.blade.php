@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
 
     <meta name="theme-color" content="#fafafa">
 </head>
@@ -76,9 +76,11 @@
                                                     <div class="shop__drop__down-content">
                                                         <div class="shop__drop__down-content-side-header">
                                                 <span class="chevron">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
                                         <g opacity="0.54">
-                                        <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#202020"/>
+                                        <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
+                                              fill="#202020"/>
                                         </g>
                                         </svg>
 
@@ -175,83 +177,83 @@
                     </g>
                 </svg>
                 <span class="header_cart_count">2</span>
-                <div class="header__cart__inner dropping__element__wrapper">
-                @if(isset($order->products))
-                    <h3 class="inner__cart__title">
-                        продуктов в корзине: {{count($order->products)}}
-                    </h3>
-                    <div class="header__cart_commodities">
-                        @foreach($order->products as $product)
-                            <div class="d-flex header_cart_commodity">
-                                <div class="header__cart_img">
-                                    <img src="{{ asset('assets/img/cart-img.png') }}" alt="">
-                                </div>
-                                <div class="header__cart_body">
-                                    <div class="header__cart_second_col">
-                                        <div class="header__cart_commodity-title">
-                                            {{$product->name}}
+                <div class="header__cart_outer-wrapper">
+                    <div class="header__cart__inner dropping__element__wrapper">
+                        @if(isset($order->products))
+                            <h3 class="inner__cart__title">
+                                продуктов в корзине: {{count($order->products)}}
+                            </h3>
+                            <div class="header__cart_commodities">
+                                @foreach($order->products as $product)
+                                    <div class="d-flex header_cart_commodity">
+                                        <div class="header__cart_img">
+                                            <img src="{{ asset('assets/img/cart-img.png') }}" alt="">
                                         </div>
-                                        <div class="header__cart_params">
-                                            <label>
-                                                <input type="number" value="{{$product->pivot->count}}">
-                                            </label>
-                                            <img src="{{ asset('assets/img/common/drop.svg') }}" alt="">
-                                            <a href="#" class="commodity_reset_btn">
-                                                Обновить
-                                            </a>
+                                        <div class="header__cart_body">
+                                            <div class="header__cart_second_col">
+                                                <div class="header__cart_commodity-title">
+                                                    {{$product->name}}
+                                                </div>
+                                                <div class="header__cart_params">
+                                                    <label>
+                                                        <input type="number" value="{{$product->pivot->count}}">
+                                                    </label>
+                                                    <img src="{{ asset('assets/img/common/drop.svg') }}" alt="">
+                                                    <a href="#" class="commodity_reset_btn">
+                                                        Обновить
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="header__cart_third_col">
+                                                <a href="#" class="delete-button">
+                                                    <img src="{{ asset('assets/img/common/close.svg') }}" alt="">
+                                                </a>
+                                                <div class="header__cart_price">
+                                                    {{$product->price}} €
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="header__cart_third_col">
-                                        <a href="#" class="delete-button">
-                                            <img src="{{ asset('assets/img/common/close.svg') }}" alt="">
-                                        </a>
-                                        <div class="header__cart_price">
-                                            {{$product->price}} €
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
-                        @endforeach
-
-                    </div>
-                @endif
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div class="cart__price__wrapper">
-                            <p>
-                                Итого:
-                                <b>
-                                    44.50 €
-                                </b>
-                            </p>
+                        @endif
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="cart__price__wrapper">
+                                <p>
+                                    Итого:
+                                    <b>
+                                        44.50 €
+                                    </b>
+                                </p>
+                            </div>
+                            <a href="{{route('cart')}}" class="default-button">
+                                перейти в корзину
+                            </a>
                         </div>
-                        <a href="{{route('cart')}}" class="default-button">
-                            перейти в корзину
-                        </a>
                     </div>
-
                 </div>
 
             </div>
-        @guest
-            <a href="{{ route('login') }}" class="header_profile">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g opacity="">
-                        <path
-                            d="M19 5V19H5V5H19ZM19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM12 12C10.35 12 9 10.65 9 9C9 7.35 10.35 6 12 6C13.65 6 15 7.35 15 9C15 10.65 13.65 12 12 12ZM12 8C11.45 8 11 8.45 11 9C11 9.55 11.45 10 12 10C12.55 10 13 9.55 13 9C13 8.45 12.55 8 12 8ZM18 18H6V16.47C6 13.97 9.97 12.89 12 12.89C14.03 12.89 18 13.97 18 16.47V18ZM8.31 16H15.69C15 15.44 13.31 14.88 12 14.88C10.69 14.88 8.99 15.44 8.31 16Z"/>
-                    </g>
-                </svg>
-            </a>
-        @endguest
-        @auth
-        <a href="{{ route('profile.index') }}" class="header_profile">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g opacity="">
-                    <path
-                        d="M19 5V19H5V5H19ZM19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM12 12C10.35 12 9 10.65 9 9C9 7.35 10.35 6 12 6C13.65 6 15 7.35 15 9C15 10.65 13.65 12 12 12ZM12 8C11.45 8 11 8.45 11 9C11 9.55 11.45 10 12 10C12.55 10 13 9.55 13 9C13 8.45 12.55 8 12 8ZM18 18H6V16.47C6 13.97 9.97 12.89 12 12.89C14.03 12.89 18 13.97 18 16.47V18ZM8.31 16H15.69C15 15.44 13.31 14.88 12 14.88C10.69 14.88 8.99 15.44 8.31 16Z"/>
-                </g>
-            </svg>
-        </a>
-        @endauth
+            @guest
+                <a href="{{ route('login') }}" class="header_profile">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="">
+                            <path
+                                d="M19 5V19H5V5H19ZM19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM12 12C10.35 12 9 10.65 9 9C9 7.35 10.35 6 12 6C13.65 6 15 7.35 15 9C15 10.65 13.65 12 12 12ZM12 8C11.45 8 11 8.45 11 9C11 9.55 11.45 10 12 10C12.55 10 13 9.55 13 9C13 8.45 12.55 8 12 8ZM18 18H6V16.47C6 13.97 9.97 12.89 12 12.89C14.03 12.89 18 13.97 18 16.47V18ZM8.31 16H15.69C15 15.44 13.31 14.88 12 14.88C10.69 14.88 8.99 15.44 8.31 16Z"/>
+                        </g>
+                    </svg>
+                </a>
+            @endguest
+            @auth
+                <a href="{{ route('profile.index') }}" class="header_profile">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="">
+                            <path
+                                d="M19 5V19H5V5H19ZM19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM12 12C10.35 12 9 10.65 9 9C9 7.35 10.35 6 12 6C13.65 6 15 7.35 15 9C15 10.65 13.65 12 12 12ZM12 8C11.45 8 11 8.45 11 9C11 9.55 11.45 10 12 10C12.55 10 13 9.55 13 9C13 8.45 12.55 8 12 8ZM18 18H6V16.47C6 13.97 9.97 12.89 12 12.89C14.03 12.89 18 13.97 18 16.47V18ZM8.31 16H15.69C15 15.44 13.31 14.88 12 14.88C10.69 14.88 8.99 15.44 8.31 16Z"/>
+                        </g>
+                    </svg>
+                </a>
+            @endauth
 
         </div>
         <button class="reload-the-page" onclick="document.location.reload()"></button>
@@ -386,7 +388,7 @@
 </div>
 
 
-<div id="added_good"  style="display: none;">
+<div id="added_good" style="display: none;">
     Товар был успешно добавлен в корзину
 </div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

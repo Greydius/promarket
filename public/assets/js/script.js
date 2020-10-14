@@ -3188,11 +3188,6 @@ let menuBurger = new Burger(
     '.header-burger',
     '.header_navigation',
 )
-let headerCartDrop = new Burger(
-    '.header_cart',
-    '.header__cart__inner'
-)
-
 try {
     let deliveryTabs = new ProgramTabs(
         document.querySelectorAll('.delivery-blocks .col-lg-4'),

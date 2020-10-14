@@ -6145,6 +6145,31 @@ input[type=number] {
 .additional-commodities-wrapper .commodity-card-body{
     cursor: default;
 }
+.header__cart__inner{
+    top: 100%;
+    position: static;
+}
+.header__cart_outer-wrapper{
+    padding-top: 45px;
+    position: absolute;
+    top: 100%;
+    border-radius: 6px;
+    right: -55px;
+    width: 486px;
+    opacity: 0;
+    transition: 0.3s linear all;
+    pointer-events: none;
+    z-index: -2;
+}
+.header_cart:hover .header__cart_outer-wrapper{
+    pointer-events: all;
+    opacity: 1;
+    z-index: 2;
+}
+.header_cart:hover .header__cart__inner{
+    pointer-events: all;
+    opacity: 1;
+}
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }

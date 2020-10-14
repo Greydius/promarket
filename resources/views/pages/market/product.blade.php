@@ -107,10 +107,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a href="{{route('add-cart', $product)}}"
+                                                <button type="submit"
                                                    class="submit-form default-button add-to-cart">
                                                     в корзину
-                                                </a>
+                                                </button>
                                             </form>
                                         </div>
                                     </div>
