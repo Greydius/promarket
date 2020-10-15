@@ -8,6 +8,11 @@ use App\Order;
 
 class ProfileController extends Controller
 {
+   public function __construct()
+   {
+    $this->middleware(['auth', 'verified']);
+   }
+
     public function myprofile()
     {
     	return view('profile.index');

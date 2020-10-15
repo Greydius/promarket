@@ -33,16 +33,16 @@
               @endforeach
             </div>
             <label>
-              @if ($errors->has('email'))
-                <span class="error">{{ $errors->first('email') }}</span>
-              @endif 
-              <input class="auth_control" placeholder="Электронная почта" type="email" name="email"  required="required">
+              <span class=" error help-block">
+                                <strong>{{ $errors->first('email') }}</strong>
+              </span>
+              <input class="auth_control" placeholder="Электронная почта" type="email" name="email" >
             </label>
             <label>
-              <input class="auth_control" minlength="8" placeholder="Пароль" type="password" name="password" required="required">
-              @if ($errors->has('password'))
-                <span class="error">{{ $errors->first('password') }}</span>
-              @endif
+               <span class=" error help-block">
+                  <strong>{{ $errors->first('password') }}</strong>
+              </span>
+              <input class="auth_control" minlength="8" placeholder="Пароль" type="password" name="password">
             </label>
             <button type="submit" class="submit-form default-button">
               OK
@@ -67,4 +67,81 @@
     </section>
   </div>
 </main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function() {
+
+        var app = {
+            DOM: {},
+            init: function () {
+
+                // only applies to register form
+                if (window.location.pathname == '/login') {
+
+                    this.DOM.form = $('form');
+                    this.DOM.form.email = this.DOM.form.find('input[name="email"]');
+                    this.DOM.form.pwd   = this.DOM.form.find('input[name="password"]');
+
+
+                    this.DOM.form.email.group = this.DOM.form.email.prev('span.error');
+                    this.DOM.form.pwd.group = this.DOM.form.pwd.prev('span.error');
+                    this.DOM.form.submit( function(e) {
+                        e.preventDefault();
+
+                        var self = this; // native form object
+
+                        error = {};
+
+                        app.DOM.form.email.group.find('strong').text('');
+                        app.DOM.form.pwd.group.find('strong').text('');
+
+                        app.DOM.form.email.group.removeClass('has-error');
+                        app.DOM.form.pwd.group.removeClass('has-error');
+
+                        var user = {};
+                        user.email = app.DOM.form.email.val();
+                        user.password = app.DOM.form.pwd.val();
+
+                        var request = $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            url: '/login',
+                            type: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify(user)
+                        });
+                        request.done( function(data)
+                        {
+                            // native form submit
+                            self.submit();
+                        });
+                        request.fail( function(jqXHR)
+                        {
+                            error = jqXHR.responseJSON;
+                            // alert(error.errors.email);
+                            console.log(error.errors);
+                            
+                            if (error.errors.email) {
+                                app.DOM.form.email.group.find('strong').text(error.errors.email[0]);
+                                app.DOM.form.email.group.addClass('has-error');
+                            }
+                            if (error.errors.password) {
+                                app.DOM.form.pwd.group.find('strong').text(error.errors.password[0]);
+                                app.DOM.form.pwd.group.addClass('has-error');
+                            }
+
+                        });
+
+                    });
+                }
+            }
+        }
+
+        app.init();
+
+    });
+    </script>
+
 @endsection
