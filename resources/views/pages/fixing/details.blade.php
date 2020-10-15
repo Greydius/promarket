@@ -10,34 +10,7 @@
 
                     <div class="col-lg-9">
                         <div class="product-fixing-container brand-product service-inner-page">
-                            <div class="bread-crumbs">
-                                <ul class="d-flex">
-                                    <li class="bread-crumb-link">
-                                        <a href="#">
-                                            Магазин
-                                        </a>
-                                    </li>
-                                    <li class="bread-crumb-link">
-                                        <a href="#">
-                                            Ремонт
-                                        </a>
-                                    </li>
-                                    <li class="bread-crumb-link">
-                                        <a href="#">
-                                            Apple
-                                        </a>
-                                    </li>
-                                    <li class="bread-crumb-link bread-crumb-link-prev">
-                                        <a href="#">
-                                            iPhone 11
-                                        </a>
-                                    </li>
-
-                                    <li class="bread-crumb-link-active">
-                                        Замена компонентов
-                                    </li>
-                                </ul>
-                            </div>
+                            {{ Breadcrumbs::render('fixing-order-detail', $details) }}
                             @foreach($details as $detail)
                                 <div class="detail-block-wrapper"
                                      @if(count($detail->detailQuality) != 0)

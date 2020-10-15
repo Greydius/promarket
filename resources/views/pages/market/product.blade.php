@@ -5,25 +5,7 @@
     <main class="main">
         <section class="display-content">
             <div class="container">
-                <div class="bread-crumbs">
-                    <ul class="d-flex">
-                        <li class="bread-crumb-link">
-                            <a href="#">
-                                Магазин
-                            </a>
-                        </li>
-                        <li class="bread-crumb-link bread-crumb-link-prev">
-                            <a href="#">
-                                Комп. моб. телефонов
-                            </a>
-                        </li>
-                        <li class="bread-crumb-link">
-                            <a href="#">
-                                Дисплеи
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                {{ Breadcrumbs::render('product', $product) }}
                 <div class="row mt-4">
                     <div class="col-lg-12 row center-mobile-margins">
                         <div class="col-md-4 center-mobile-paddings">

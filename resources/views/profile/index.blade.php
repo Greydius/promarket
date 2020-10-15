@@ -11,7 +11,7 @@
                             <div class="profile-photo">
                                 <img src="{{ asset('/uploads/avatar/') }}/{{Auth::user()->avatar}}" alt="">
                             </div>
-                            <div class="profile-name">                                
+                            <div class="profile-name">
                                 {{ Auth::user()->username }}
                                 {{ Auth::user()->firstname }}
                             </div>
@@ -51,23 +51,7 @@
 
                 <div class="col-lg-9 col-md-8 lk-container">
                     <div class="lk-profile-bread-crumbs">
-                        <div class="bread-crumbs">
-                            <ul class="d-flex">
-                                <li class="bread-crumb-link">
-                                    <a href="#">
-                                        Магазин
-                                    </a>
-                                </li>
-                                <li class="bread-crumb-link bread-crumb-link-prev">
-                                    <a href="#">
-                                        Мой аккаунт
-                                    </a>
-                                </li>
-                                <li class="bread-crumb-link ">
-                                    Список заказов
-                                </li>
-                            </ul>
-                        </div>
+                        {{ Breadcrumbs::render('account') }}
                     </div>
                     <div class="alert">
                          @if(session()->has('success'))
@@ -108,7 +92,7 @@
                                         </div>
                                     </div>
                                     <?php $orders = Auth::user()->orders; ?>
-                                    @foreach($orders as $order)                                    
+                                    @foreach($orders as $order)
                                     <a href="/profile/order/{{$order->id}}" class="lk-row d-flex">
                                         <div class="lk-first-col">
                                             {{ date('d.m.Y', strtotime($order->created_at)) }}
@@ -154,10 +138,10 @@
 
                                         <label for="avatar">
                                             <div class="profile-change-photo-icon">
-                                                    
+
                                            <input id="avatar" type="file" name="file" style="z-index: -1;opacity: 0;width: 0;" />
                                              <img src="{{ asset('assets/img/lk/change-photo') }}.svg" class="" alt="" >
-                                              
+
                                             </div>
                                                 </label>
                                         </div>
@@ -182,7 +166,7 @@
                                 </h3>
                                 <div class="profile-additional-data-form">
                                     <form action="{{ route('profile.edit') }}" method="POST">
-                                     <!-- 
+                                     <!--
                                         <input type="file" id="avatar" name="avatar" style="width: 0;height: 0;opacity: 0;"> -->
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
@@ -279,8 +263,8 @@
     </div>
 </main>
 <script type="text/javascript">
-$('#avatar').change(function(){    
-    //on change event  
+$('#avatar').change(function(){
+    //on change event
     formdata = new FormData();
     if($(this).prop('files').length > 0)
     {

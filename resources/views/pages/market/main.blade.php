@@ -257,18 +257,7 @@
                         <div class="shop-main-wrapper brand-product">
                             <div class="collapsing-control">
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <div class="bread-crumbs">
-                                        <ul class="d-flex">
-                                            <li class="bread-crumb-link bread-crumb-link-prev">
-                                                <a href="#">
-                                                    Магазин
-                                                </a>
-                                            </li>
-                                            <li class="bread-crumb-link">
-                                                {{ $category->name }}
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    {{ Breadcrumbs::render('category', $category) }}
                                     <div class="market_sorting-wrapper">
                                         <div class="market_sorting d-flex align-items-center">
                                             <a href="#" class="market-sorting-trigger">
