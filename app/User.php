@@ -22,7 +22,19 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
-
+    /**
+     * Get the validation rules that apply to the user.
+     *
+     * @return array
+        */
+    public function rules()
+    {
+        return [
+            'username' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:8|confirmed',
+        ];
+    }
     /**
      * The attributes that should be cast to native types.
      *

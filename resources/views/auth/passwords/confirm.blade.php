@@ -14,10 +14,10 @@
                 @csrf
 
             <label>
-              <input class="auth_control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Введите новый пароль" type="password" >
+              <input class="auth_control @error('password') is-invalid @enderror" name="password" autocomplete="current-password" placeholder="Введите новый пароль" type="password" >
             </label>
             <label>
-               <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Введите новый пароль ещё раз">
+               <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password" placeholder="Введите новый пароль ещё раз">
 
                 @error('password')
                     <span class="invalid-feedback" role="alert">
