@@ -89,12 +89,12 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
-    'from' => ['address' => 'raval_himanshu@live.in', 'name' => 'Himanshu Raval'],
+    // 'from' => ['address' => 'raval_himanshu@live.in', 'name' => 'Himanshu Raval'],
 
-    // 'from' => [
-    //     'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-    //     'name' => env('MAIL_FROM_NAME', 'Example'),
-    // ],
+    'from' => [
+         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+         'name' => env('MAIL_FROM_NAME', 'Example'),
+     ],
 
     /*
     |--------------------------------------------------------------------------
