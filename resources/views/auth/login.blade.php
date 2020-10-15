@@ -5,18 +5,7 @@
  <div class="auth-container">
     <section class="login login-primary-page">
       <div class="container">
-        <div class="bread-crumbs">
-          <ul class="d-flex">
-            <li class="bread-crumb-link">
-              <a href="#">
-                Магазин
-              </a>
-            </li>
-            <li class="bread-crumb-link">
-              Вход
-            </li>
-          </ul>
-        </div>
+          {{ Breadcrumbs::render('auth') }}
         <div class="login-content">
           <h1 class="main-title">
             Войти в систему
@@ -33,10 +22,12 @@
               @endforeach
             </div>
             <label>
+
               <span class=" error help-block">
                                 <strong>{{ $errors->first('email') }}</strong>
               </span>
               <input class="auth_control" placeholder="Электронная почта" type="email" name="email" >
+
             </label>
             <label>
                <span class=" error help-block">

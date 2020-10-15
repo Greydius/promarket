@@ -23,8 +23,6 @@ Route::get('/responsibility', 'MainController@responsibility')->name('responsibi
 
 Route::get('/guarantee', 'MainController@guarantee')->name('guarantee');
 
-Route::get('/responsibility', 'MainController@responsibility')->name('responsibility');
-
 Route::get('/delivery', 'MainController@delivery')->name('delivery');
 
 Route::get('/fixing', 'FixingController@fixing')->name('fixing');

@@ -18,28 +18,7 @@
                     <div class="col-lg-9">
                         <div class="brand-product">
                             <div class="brand-product-container">
-                                <div class="bread-crumbs">
-                                    <ul class="d-flex">
-                                        <li class="bread-crumb-link">
-                                            <a href="#">
-                                                Магазин
-                                            </a>
-                                        </li>
-                                        <li class="bread-crumb-link">
-                                            <a href="#">
-                                                Ремонт
-                                            </a>
-                                        </li>
-                                        <li class="bread-crumb-link bread-crumb-link-prev">
-                                            <a href="#">
-                                                Ремонт мобильных телефонов
-                                            </a>
-                                        </li>
-                                        <li class="bread-crumb-link-active">
-                                            Apple
-                                        </li>
-                                    </ul>
-                                </div>
+                                {{ Breadcrumbs::render('fixing-type-with-brand-model', $model) }}
                                 <h1 class="main-title">
                                     {{$model->title}}
                                 </h1>

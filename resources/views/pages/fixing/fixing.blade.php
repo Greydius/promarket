@@ -1,17 +1,17 @@
 @extends('system.master')
 
 @section('content')
-    
+
 <main class="main">
     <div class="fixing-container">
       <div class="container">
         <div class="row">
           @include('components.fixing-sidebar')
-  
+
           <div class="col-lg-9">
             <div class="fixing-main-banner fixing-main-page-banner">
               <img src="{{ asset('assets/img/fixing/fix-banner.jpg') }}" class=" fixing-banner-background" alt="">
-              <div class="bread-crumbs">
+              {{--<div class="bread-crumbs">
               <ul class="d-flex">
                 <li class="bread-crumb-link bread-crumb-link-prev">
                   <a href="#">
@@ -22,17 +22,18 @@
                   Ремонт
                 </li>
               </ul>
-            </div>
+            </div>--}}
+                {{ Breadcrumbs::render('fixing') }}
               <h1 class="main-title">
                 Более 15 лет мы помогаем нашим клиентам, быстро и качественно ремонтировать бытовую и проф. электронику.
               </h1>
-  
+
             </div>
             <div class="main-fixing-page-wrapper brand-product">
               <h3 class="small-title">
                 Топовые запчасти
               </h3>
-  
+
               <div class="row main-banner-row">
                 <div class="col-lg-4 main-banner-col">
                   <a href="{{ route('fixing-type', 'mobile') }}" class="fixing-category-card">
@@ -80,5 +81,5 @@
       </div>
     </div>
   </main>
-    
+
 @endsection

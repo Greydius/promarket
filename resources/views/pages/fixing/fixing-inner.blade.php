@@ -11,18 +11,8 @@
                 <div class="col-lg-9">
                     <div class="fixing-main-banner fixing-main-banner-inner">
                         <img src="{{$fixingType->background_image}}" class="fixing-banner-background" alt="">
-                        <div class="bread-crumbs">
-                            <ul class="d-flex">
-                                <li class="bread-crumb-link bread-crumb-link-prev">
-                                    <a href="#">
-                                        Ремонт
-                                    </a>
-                                </li>
-                                <li class="bread-crumb-link">
-                                    {{$fixingType->breadcrumb}}
-                                </li>
-                            </ul>
-                        </div>
+                        {{ Breadcrumbs::render('fixing-type', $fixingType) }}
+
                         <h1 class="main-title">
                             {{$fixingType->title}}
                         </h1>

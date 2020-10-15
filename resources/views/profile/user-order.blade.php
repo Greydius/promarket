@@ -44,23 +44,7 @@
             </div>
             <div class="col-lg-9 lk-container lk-inner-container">
                 <div class="lk-profile-bread-crumbs">
-                    <div class="bread-crumbs">
-                        <ul class="d-flex">
-                            <li class="bread-crumb-link">
-                                <a href="/">
-                                    Магазин
-                                </a>
-                            </li>
-                            <li class="bread-crumb-link bread-crumb-link-prev">
-                                <a href="/profile">
-                                    Мой аккаунт
-                                </a>
-                            </li>
-                            <li class="bread-crumb-link ">
-                                Список заказов
-                            </li>
-                        </ul>
-                    </div>
+                    {{ Breadcrumbs::render('account') }}
                 </div>
                 <div class="lk-tabs-wrapper">
                     <div class="lk-table-container lk-inner-table-container active">
@@ -101,7 +85,7 @@
                                 <div class="d-flex lk-innercard-wrap">
                                     <div class="lk-text-wrapper">
                                         <div class="lk-card-title">
-                                        	{{$product->name}}, {{$product->color}} 
+                                        	{{$product->name}}, {{$product->color}}
                                         </div>
                                         <a href="#" class="lk-card-link">
                                             Удалить
