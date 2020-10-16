@@ -55,7 +55,7 @@ class OrderController extends Controller
             $orderRow->count = intval($quantity);
             $orderRow->update();
         }
-        return 'added_good';
+        return $order->products;
     }
 
     public function removeFromCart($product_id)
