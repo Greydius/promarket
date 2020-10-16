@@ -7533,7 +7533,14 @@ function addCommodityToCart (e) {
                     }
                 });
             }
-            console.log(response)
+            console.log(response.data)
+
+            let headerCartOuter = document.querySelector('.header__cart_outer-wrapper');
+            console.log(headerCartOuter);
+            headerCartOuter.innerHTML = response.data;
+
+
+
         })
         .catch((err) => {
             console.log(err);

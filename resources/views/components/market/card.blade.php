@@ -33,7 +33,7 @@
                         <div class="quantity-view-wrapper align-items-center d-flex">
                             <div class="quantity-input-wrapper">
                                 <label>
-                                    <input value="1" type="text" name="quantity" class="quantity-input">
+                                    <input value="1" type="number" name="quantity" class="quantity-input">
                                 </label>
                                 <input type="hidden" name="product_id" value="{{$product->id}}">
                             </div>
