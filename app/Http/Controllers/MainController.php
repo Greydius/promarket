@@ -11,7 +11,9 @@ class MainController extends Controller
     }
     public function contacts()
     {
-        return view('pages.contacts');
+        $our_teams = \DB::table('our_team')->get();
+
+        return view('pages.contacts', compact('our_teams'));
     }
     public function about()
     {

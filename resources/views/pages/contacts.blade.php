@@ -62,27 +62,33 @@
                     <div class="row">
                         <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto">
                             <div class="call-back-form">
-                                <form>
+
+                                <div id="result" style="text-align: center; margin-bottom: 15px;"><h3></h3> </div>
+                                <form action="{{ url('/send-feedback') }}" method="POST" class="feedback">
+                                    @csrf
                                     <div class="call-back-form-wrapper">
                                         <label>
-                                            <input type="text" placeholder="Имя" class="auth_control">
+                                            <span class="errormessage"></span>
+                                            <input type="text" placeholder="Имя" class="auth_control" name="name">
                                         </label>
                                         <label>
-                                            <input type="email" placeholder="Электронная почта"
+                                            <span class="errormessage"></span>
+                                            <input type="email" placeholder="Электронная почта" name="email" 
                                                    class="auth_control">
                                         </label>
                                         <label>
-                                            <input type="number" placeholder="Ваш телефон" class="auth_control">
+                                            <span class="errormessage"></span>
+                                            <input type="number" name="phone" placeholder="Ваш телефон" class="auth_control">
                                         </label>
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                                <input type="radio" name="call-back-option">
+                                                <input type="radio" checked="checked" name="call_back_option" value="Свяжитесь со мной по телефону">
                                                 <span>
                                             Свяжитесь со мной по телефону
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="call-back-option">
+                                                <input type="radio" name="call_back_option" value="Свяжитесь со мной по телефону">
                                                 <span>
                                             Свяжитесь со мной по email
                                         </span>
@@ -90,7 +96,7 @@
                                         </div>
                                         <label class="textarea-label">
                                     <textarea placeholder="Комментарий к заказу"
-                                              class="auth_control"></textarea>
+                                              class="auth_control" name="message"></textarea>
                                         </label>
                                         <button class="default-button call-back-form-button" type="submit">
                                             отправить
@@ -108,44 +114,90 @@
                             наша команда
                         </div>
                         <div class= "our-team d-flex justify-content-center">
+                            @foreach($our_teams as $team)
                             <div class="our-team-employee">
                                 <div class="employee-photo">
-                                    <img src="" alt="">
+                                    <img src="{{ asset('/uploads/our_team/')}}/{{$team->image}}" alt="">
                                 </div>
                                 <div class="our-team-employee-name">
-                                    Sed accumsan
+                                   {{$team->fullname}}
                                 </div>
                                 <div>
-                                    magna sit amet sodales ullamcorper
+                                  {{$team->description}}
                                 </div>
                             </div>
-                            <div class="our-team-employee">
-                                <div class="employee-photo">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="our-team-employee-name">
-                                    Sed accumsan
-                                </div>
-                                <div>
-                                    magna sit amet sodales ullamcorper
-                                </div>
-                            </div>
-                            <div class="our-team-employee">
-                                <div class="employee-photo">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="our-team-employee-name">
-                                    Sed accumsan
-                                </div>
-                                <div>
-                                    magna sit amet sodales ullamcorper
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </main>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+ $('span.close').click(function(){
+    $("#myModal").css('display',"none");
+ })
+
+$.extend($.validator.messages, {
+    required: "Это поле обязательно для заполнения",   
+    minlength: $.validator.format("Введите не менее {0} символов."), 
+    email: "Пожалуйста, введите действительный адрес электронной почты.",
+    min: $.validator.format("Введите значение больше или равное {0}.")
+});
+
+$("form.feedback").validate({
+    rules: {
+      name : {
+        required: true,
+        minlength: 3
+      },
+      phone: {
+        required: true,
+        number: true,
+        min: 7
+      },
+      email: {
+        required: true,
+        email: true
+      }
+    }, 
+    ignore: [],
+    errorPlacement: function (error, element) {
+               $(error).insertAfter(element.prev(".errormessage"));
+           },
+    submitHandler: function(form) {
+      $(form).on("submit", function(event){
+
+        event.preventDefault();
+ 
+        var formValues= $(this).serialize();
+  
+        $.post("/send-feedback", formValues).done(function(data) {
+                $("#myModal").css('display', "block");
+                $("#myModal p").html(data);
+                $("form.feedback")[0].reset();
+            })
+            .fail(function() {
+                $("#result h3").html('Получилось какое то ошибка!');
+            });
+    });
+    }
+});
+    
+});
+</script>
 
 @endsection
