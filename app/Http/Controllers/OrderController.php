@@ -55,7 +55,7 @@ class OrderController extends Controller
             $orderRow->count = intval($quantity);
             $orderRow->update();
         }
-        return $order->products;
+        return view('components.common.cart-commodity', compact('order'));
     }
 
     public function removeFromCart($product_id)
