@@ -3,7 +3,8 @@
 @section('content')
 
     <main class="main contacts-page">
-        <div id="map"></div>
+        <div id="map"><div class="mapouter"><div class="gmap_canvas">
+            <iframe id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23244.437420257153!2d24.070642910864382!3d56.9366946393719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eece373d982dff%3A0xc342d8303b60f4d4!2sPromarket.lv!5e0!3m2!1sru!2sus!4v1602848444684!5m2!1sru!2sus" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div><style>.mapouter{position:relative;text-align:right;height:400px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:100%;}</style></div></div>
         <div class="auth-container">
             <section class="office-contacts">
                 <div class="container">
