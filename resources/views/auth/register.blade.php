@@ -106,6 +106,7 @@
                         {
                             // native form submit
                             self.submit();
+                            window.location.href = '/email/verify'; //relative to domain
                         });
                         request.fail( function(jqXHR)
                         {
