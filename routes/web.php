@@ -79,7 +79,7 @@ Route::get('/reset-password', 'Auth\ResetPasswordController@resetPassword')->nam
 Route::get('/checkout', 'OrderController@ckeckout')->name('checkout');
 Route::post('confirm-order','OrderController@confirmOrder')->name('confirm.order');
 
-Route::post('send-feedback', function () {
+Route::post('/send-feedback', function () {
    
    // dd(request()->all());
     $details = request()->all();

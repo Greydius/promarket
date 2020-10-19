@@ -29,15 +29,26 @@
                             <input class="auth_control" placeholder="Пароль" type="password" name="password" minlength="8" >
                         </label>
                         <label class="form-group">
+                            <span class=" error help-block">
+                                <strong>{{ $errors->first('password_confirmation') }}</strong>
+                            </span>
                             <input class="auth_control" placeholder="Пароль ещё раз" type="password"  name="password_confirmation" minlength="8" >
                         </label>
                         <div class="auth-checkboxes-wrapper">
+                            <span class=" error help-block">
+                            <strong>{{ $errors->first('agreement') }}</strong>
+                            </span>
                             <label class="auth-checkbox checkbox-label">
+                                <input type='hidden' value='' name='agreement'>
                                 <input type="checkbox" name="agreement">
                                 <span>Я согласен на обработку моих данных компанией Promarket</span>
                             </label>
+                            <span class=" error help-block">
+                            <strong>{{ $errors->first('agreement2') }}</strong>
+                            </span>
                             <label class="auth-checkbox checkbox-label">
-                                <input type="checkbox" name="agreement">
+                                <input type='hidden' value='' name='agreement2'>
+                                <input type="checkbox" name="agreement2">
                                 <span> Я согласен на обработку моих данных компанией Promarket </span>
                             </label>
                         </div>
@@ -67,10 +78,15 @@
                     this.DOM.form.email = this.DOM.form.find('input[name="email"]');
                     this.DOM.form.pwd   = this.DOM.form.find('input[name="password"]');
                     this.DOM.form.pwdc  = this.DOM.form.find('input[name="password_confirmation"]');
+                    this.DOM.form.agreement  = this.DOM.form.find('input[name="agreement"]');
+                    this.DOM.form.agreement2  = this.DOM.form.find('input[name="agreement2"]');
 
                     this.DOM.form.username.group = this.DOM.form.username.prev('span.error');
                     this.DOM.form.email.group = this.DOM.form.email.prev('span.error');
                     this.DOM.form.pwd.group = this.DOM.form.pwd.prev('span.error');
+                    this.DOM.form.pwdc.group = this.DOM.form.pwdc.prev('span.error');
+                    this.DOM.form.agreement.group = this.DOM.form.agreement.parent().prev('span.error');
+                    this.DOM.form.agreement2.group = this.DOM.form.agreement2.parent().prev('span.error');
                     // console.log(this.DOM.form.email.prev('span.error'));
                     this.DOM.form.submit( function(e) {
                         e.preventDefault();
@@ -82,16 +98,24 @@
                         app.DOM.form.username.group.find('strong').text('');
                         app.DOM.form.email.group.find('strong').text('');
                         app.DOM.form.pwd.group.find('strong').text('');
+                        app.DOM.form.pwdc.group.find('strong').text('');
+                        app.DOM.form.agreement.group.find('strong').text('');
+                        app.DOM.form.agreement2.group.find('strong').text('');
 
                         app.DOM.form.username.group.removeClass('has-error');
                         app.DOM.form.email.group.removeClass('has-error');
                         app.DOM.form.pwd.group.removeClass('has-error');
+                        app.DOM.form.pwdc.group.removeClass('has-error');
+                        app.DOM.form.agreement.group.removeClass('has-error');
+                        app.DOM.form.agreement2.group.removeClass('has-error');
 
                         var user = {};
                         user.username = app.DOM.form.username.val();
                         user.email = app.DOM.form.email.val();
                         user.password = app.DOM.form.pwd.val();
                         user.password_confirmation = app.DOM.form.pwdc.val();
+                        user.agreement = app.DOM.form.agreement.val();
+                        user.agreement2 = app.DOM.form.agreement2.val();
 
                         var request = $.ajax({
                             headers: {
@@ -125,6 +149,18 @@
                             if (error.errors.password) {
                                 app.DOM.form.pwd.group.find('strong').text(error.errors.password[0]);
                                 app.DOM.form.pwd.group.addClass('has-error');
+                            }
+                            if (error.errors.password_confirmation) {
+                                app.DOM.form.pwdc.group.find('strong').text(error.errors.password_confirmation[0]);
+                                app.DOM.form.pwdc.group.addClass('has-error');
+                            }
+                            if (error.errors.agreement) {
+                                app.DOM.form.agreement.group.find('strong').text(error.errors.agreement[0]);
+                                app.DOM.form.agreement.group.addClass('has-error');
+                            }
+                            if (error.errors.agreement2) {
+                                app.DOM.form.agreement2.group.find('strong').text(error.errors.agreement2[0]);
+                                app.DOM.form.agreement2.group.addClass('has-error');
                             }
 
                         });

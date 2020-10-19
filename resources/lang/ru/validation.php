@@ -12,7 +12,7 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-    'accepted' => 'The :attribute must be accepted.',
+    'accepted' => ':attribute должно быть принято.',
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',
     'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
@@ -95,7 +95,7 @@ return [
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'Поле обязательно для заполнения.',
+    'required' => 'Поле :attribute обязательно для заполнения.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -148,6 +148,9 @@ return [
 
     'attributes' => [
         'password' => 'Пароль',
+        'password_confirmation' => 'Подтверждение пароля',
+        'agreement' => 'Соглашение',
+        'agreement2' => 'Соглашение',
         'email' => 'Почта',
         'username' => 'Имя'
 
