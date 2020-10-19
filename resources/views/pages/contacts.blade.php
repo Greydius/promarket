@@ -12,48 +12,30 @@
                         сервисные центры
                     </div>
                     <div class="office-cards d-flex justify-content-center">
+                        @foreach($service_centers as $center)
+                       
                         <div class="office-card">
                             <div class="office-photo">
                                 <img src="" alt="">
                             </div>
                             <div class="office-card-info">
                                 <img src="{{ asset('assets/img/offices/pin.svg') }}" alt="pin">
-                                <span>Anniņmuižas 17</span>
+                                <span>{{$center->address}}</span>
                             </div>
                             <div class="office-card-info">
                                 <img src="{{asset('assets/img/offices/phone-24px 1.svg')}}" alt="tel">
-                                <span>25519951</span>
+                                <span>{{$center->phone}}</span>
                             </div>
                             <div class="office-card-info">
                                 <img src="{{asset('assets/img/offices/alternate_email-24px 1.svg')}}" alt="mail">
-                                <span>info@promarket.lv</span>
+                                <span>{{$center->email}}</span>
                             </div>
                             <div class="office-card-info">
                                 <img src="{{asset('assets/img/offices/local_parking-24px 2.svg')}}" alt="parking">
-                                <span>Бесплатная парковка</span>
+                                <span>{{$center->info}}</span>
                             </div>
                         </div>
-                        <div class="office-card">
-                            <div class="office-photo">
-                                <img src="" alt="">
-                            </div>
-                            <div class="office-card-info">
-                                <img src="{{asset('assets/img/offices/pin.svg')}}" alt="pin">
-                                <span>Ģertrudes 77</span>
-                            </div>
-                            <div class="office-card-info">
-                                <img src="{{asset('assets/img/offices/phone-24px 1.svg')}}" alt="tel">
-                                <span>25519270</span>
-                            </div>
-                            <div class="office-card-info">
-                                <img src="{{asset('assets/img/offices/alternate_email-24px 1.svg')}}" alt="mail">
-                                <span>info@promarket.lv</span>
-                            </div>
-                            <div class="office-card-info">
-                                <img src="{{asset('assets/img/offices/local_parking-24px 2.svg')}}" alt="parking">
-                                <span>Бесплатная парковка</span>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="small-title mt-5 mb-3">
                         Форма обратной связи

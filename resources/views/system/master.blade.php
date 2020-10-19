@@ -137,9 +137,9 @@
                 </nav>
             </div>
             <div class="header_form_search">
-                <form action="" method="POST">
+                <form action="{{ route('search') }}" method="GET">
                     <label>
-                        <input placeholder="Поиск" type="text" class="form_control">
+                        <input placeholder="Поиск" type="text" class="form_control" name="query">
                     </label>
                     <button type="button" class="search_form_submit">
                         <img src="{{ asset('/assets/img/common/search.svg') }}" alt="">

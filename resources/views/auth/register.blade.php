@@ -73,7 +73,7 @@
                 // only applies to register form
                 if (window.location.pathname == '/register') {
 
-                    this.DOM.form = $('form');
+                    this.DOM.form = $('.login-content form');
                     this.DOM.form.username  = this.DOM.form.find('input[name="username"]');
                     this.DOM.form.email = this.DOM.form.find('input[name="email"]');
                     this.DOM.form.pwd   = this.DOM.form.find('input[name="password"]');

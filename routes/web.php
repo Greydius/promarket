@@ -88,3 +88,5 @@ Route::post('/send-feedback', function () {
    
     return 'Сообщение успешно отправлено.';
 });
+
+Route::get('/search', 'MainController@search')->name('search');

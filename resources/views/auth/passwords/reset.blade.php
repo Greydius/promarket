@@ -9,7 +9,7 @@
           <h1 class="main-title">
             Новый пароль
           </h1>
-            <form method="POST" action="{{ route('password.update') }}">
+            <form method="POST" action="{{ route('password.update') }}" class="reset_pass">
             @csrf
 
             <input type="hidden" name="token" value="{{ $token }}">
@@ -45,5 +45,32 @@
     </section>
   </div>
 
+<script type="text/javascript">
+  $(document).ready(function(){
 
+  $.extend($.validator.messages, {
+      required: "Это поле обязательно для заполнения",   
+      email: "Пожалуйста, введите действительный адрес электронной почты."
+});
+
+$("form.reset_pass").validate({
+    rules: {
+
+      email: {
+        required: true,
+        email: true
+      }
+    }, 
+    ignore: [],
+    errorPlacement: function (error, element) {
+               $(error).insertAfter(element.prev(".errormessage"));
+           },
+    submitHandler: function(form) {
+      // do other things for a valid form
+      $(form).submit();
+    }
+});
+    
+});
+</script>
 @endsection
