@@ -80,13 +80,16 @@ Route::get('/checkout', 'OrderController@ckeckout')->name('checkout');
 Route::post('confirm-order','OrderController@confirmOrder')->name('confirm.order');
 
 Route::post('/send-feedback', function () {
-   
+
    // dd(request()->all());
     $details = request()->all();
-   
+
     \Mail::to('giyosiddinmirzaboyev@gmail.com')->send(new \App\Mail\FeedbackMail($details));
-   
+
     return 'Сообщение успешно отправлено.';
 });
 
 Route::get('/search', 'MainController@search')->name('search');
+
+
+Route::post('/update-cart', 'OrderController@updateProductQuantity')->name('update-cart');

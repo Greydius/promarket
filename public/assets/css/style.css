@@ -6170,6 +6170,16 @@ input[type=number] {
     pointer-events: all;
     opacity: 1;
 }
+.commodity_reset_btn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s linear all;
+}
+.commodity_reset_btn:hover{
+    color: #CC2830;
+}
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }

@@ -28,6 +28,23 @@ class OrderController extends Controller
         return view('pages.checkout', compact('order'));
     }
 
+    public function updateProductQuantity(Request $request)
+    {
+        $product_id = $request->product_id;
+        $quantity = $request->quantity;
+        $orderId = session('orderId');
+        $order = Order::find($orderId);
+        $orderRow = $order->products()
+            ->where('product_id', $product_id)->first()->pivot;
+        $orderRow->count = intval($quantity);
+        $orderRow->update();
+
+
+
+        $order = Order::find($orderId);
+        return view('components.common.cart-commodity', compact('order'));
+    }
+
     public function addToCart(Request $request) {
         $product_id = $request->product_id;
         $quantity = $request->quantity;
