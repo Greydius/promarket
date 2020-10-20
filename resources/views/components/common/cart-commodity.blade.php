@@ -15,7 +15,8 @@
                                 {{$product->name}}
                             </div>
                             <div class="header__cart_params">
-                                <form method="POST" action="{{route('update-cart')}}" class="update-cart-form-submittion">
+                                <form method="POST" action="{{route('update-cart')}}"
+                                      class="update-cart-form-submittion">
                                     @csrf
                                     <input name="product_id" type="hidden" value="{{$product->id}}">
                                     <label>
@@ -29,9 +30,13 @@
                             </div>
                         </div>
                         <div class="header__cart_third_col">
-                            <a href="#" class="delete-button header__cart__delete-button" data-id="{{$product->id}}">
-                                <img src="{{ asset('assets/img/common/close.svg') }}" alt="">
-                            </a>
+                            <form action="{{route('remove-cart')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <a href="#" class="delete-button header__cart__delete-button">
+                                    <img src="{{ asset('assets/img/common/close.svg') }}" alt="">
+                                </a>
+                            </form>
                             <div class="header__cart_price">
                                 {{$product->price * $product->pivot->count}} €
                             </div>

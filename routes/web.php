@@ -52,7 +52,7 @@ Route::get('/cart', 'OrderController@cart')->name('cart');
 
 Route::post('/cart', 'OrderController@addToCart')->name('add-cart');
 
-Route::get('/cart/remove/{id}', 'OrderController@removeFromCart')->name('remove-cart');
+Route::post('/cart/remove', 'OrderController@removeFromCart')->name('remove-cart');
 
 Route::get('/cart/decrease/{id}', 'OrderController@decreaseFromCart')->name('decrease-from-cart');
 

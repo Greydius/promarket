@@ -22,11 +22,24 @@
                             Выберите категории:
                         </h3>
                         <div class="row main-banner-row">
-                            @foreach($fixingTypes as $type)
-                                <a href="{{ route('fixing-type', $type->code) }}" class="col-lg-4 main-banner-col">
-                                    @include('components.fixing.fixing-category-card', $type);
+                            <div class="col-lg-4 main-banner-col">
+                                <a href="{{ route('fixing-type', 'mobile') }}" class="fixing-category-card">
+                                    <img src="{{ asset('assets/img/common/smartphone.svg') }}" alt="">
+                                    <span>Ремонт телефона</span>
                                 </a>
-                            @endforeach
+                            </div>
+                            <div class="col-lg-4 main-banner-col">
+                                <a href="{{ route('fixing-type', 'tablet') }}" class="fixing-category-card">
+                                    <img src="{{ asset('assets/img/common/tablet.svg') }}" alt="">
+                                    <span>Ремонт планшета</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 main-banner-col">
+                                <a href="{{ route('fixing-type', 'laptop') }}" class="fixing-category-card">
+                                    <img src="{{ asset('assets/img/common/laptop.svg') }}" alt="">
+                                    <span>Ремонт ноутбука</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

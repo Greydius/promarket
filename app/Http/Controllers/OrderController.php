@@ -77,15 +77,19 @@ class OrderController extends Controller
         return view('components.common.cart-commodity', compact('order'));
     }
 
-    public function removeFromCart($product_id)
+    public function removeFromCart(Request $request)
     {
+        $product_id = $request->product_id;
         $orderId = session('orderId');
         if(is_null($orderId)){
             return false;
         }
         $order = Order::find($orderId);
         $order->products()->detach($product_id);
-        return true;
+
+        $order = Order::find($orderId);
+        return view('components.common.cart-commodity', compact('order'));
+
     }
 
     public function decreaseFromCart($product_id)

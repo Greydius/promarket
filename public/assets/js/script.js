@@ -10098,7 +10098,6 @@ try {
 
 
 let cartButton = document.querySelectorAll('.add-to-cart-form-submittion');
-let removeButton = document.getElementsByClassName('pull-right');
 
 Array.from(cartButton).forEach(btn => {
     btn.addEventListener('submit', addCommodityToCart)
@@ -10145,36 +10144,6 @@ function addCommodityToCart(e) {
 }
 
 
-Array.from(removeButton).forEach(btn => {
-    btn.addEventListener('click', cartManipulations)
-})
-
-function cartManipulations(e) {
-    e.preventDefault();
-    let link = this.getAttribute('data-link');
-    axios
-        .get(link)
-        .then((response) => {
-            if (!!response === true) {
-                $.fancybox.open({
-                    src: `#${response.data}`,
-                    type: 'inline',
-                    opts: {
-                        afterShow: function (instance, current) {
-                            setTimeout(() => {
-                                $.fancybox.close(true);
-                            }, 2000)
-                        }
-                    }
-                });
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-}
-
-
 let headerCart = document.querySelectorAll('.header_cart')
 Array.from(headerCart).forEach(cart => {
     cart.addEventListener('click', manupulateWithCart)
@@ -10188,29 +10157,29 @@ function manupulateWithCart(e) {
     let target = e.target
     if (target.matches('.commodity_reset_btn')) {
         let updateCart = updateCartQuantity.bind(target.closest('form'));
+        updateCart();
     }
     if(
         Array.from(path).filter(el => el.matches('.header__cart__delete-button'))
     ){
-        let updateCart =
+        let updateCart = updateCartQuantity.bind(
+            Array.from(path).find(el => el.matches('.header__cart__delete-button')).closest('form')
+        )
+        updateCart();
     }
 
-
-    updateCart();
 
 
 }
 
-function
-
-function returnCartData() {
+function updateCartQuantity() {
     let link = this.getAttribute('action');
     let formData = new FormData(this);
     axios
         .post(link, formData)
         .then((response) => {
             if (!!response === true) {
-                return response
+                changeCartInnerHTML(response)
             }
         })
         .catch((err) => {
