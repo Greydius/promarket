@@ -29,7 +29,7 @@
                                 <img src="{{ asset('assets/img/common/close.svg') }}" alt="">
                             </a>
                             <div class="header__cart_price">
-                                {{$product->price}} €
+                                {{$product->price * $product->pivot->count}} €
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
             <p>
                 Итого:
                 <b>
-                    44.50 €
+                    {{$order->getFullPrice()}} €
                 </b>
             </p>
         </div>

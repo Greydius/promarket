@@ -32,7 +32,6 @@ class OrderController extends Controller
         $product_id = $request->product_id;
         $quantity = $request->quantity;
         $orderId = session('orderId');
-        // dd($orderId);
         if(is_null($orderId)){
             $order = Order::create();
             session(['orderId' => $order->id]);
@@ -55,6 +54,9 @@ class OrderController extends Controller
             $orderRow->count = intval($quantity);
             $orderRow->update();
         }
+
+        $order = Order::find($orderId);
+
         return view('components.common.cart-commodity', compact('order'));
     }
 

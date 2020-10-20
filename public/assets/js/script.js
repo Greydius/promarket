@@ -7516,6 +7516,7 @@ Array.from(cartButton).forEach(btn => {
 function addCommodityToCart (e) {
     e.preventDefault();
     let link = this.getAttribute('action');
+
     let formData = new FormData(this);
     axios
         .post(link, formData)
@@ -7533,12 +7534,13 @@ function addCommodityToCart (e) {
                     }
                 });
             }
-            console.log(response.data)
-
             let headerCartOuter = document.querySelector('.header__cart_outer-wrapper');
-            console.log(headerCartOuter);
             headerCartOuter.innerHTML = response.data;
-
+            let headerCartCommodityQuantity = Array.from(headerCartOuter
+                .querySelectorAll('.header_cart_commodity')).length;
+            let headerCartCount = document
+                .querySelector('.header_cart_count');
+            headerCartCount.innerHTML = headerCartCommodityQuantity;
 
 
         })

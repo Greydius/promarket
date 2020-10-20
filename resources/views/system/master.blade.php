@@ -178,61 +178,9 @@
                             d="M15.55 13C16.3 13 16.96 12.59 17.3 11.97L20.88 5.48C21.25 4.82 20.77 4 20.01 4H5.21L4.27 2H1V4H3L6.6 11.59L5.25 14.03C4.52 15.37 5.48 17 7 17H19V15H7L8.1 13H15.55ZM6.16 6H18.31L15.55 11H8.53L6.16 6ZM7 18C5.9 18 5.01 18.9 5.01 20C5.01 21.1 5.9 22 7 22C8.1 22 9 21.1 9 20C9 18.9 8.1 18 7 18ZM17 18C15.9 18 15.01 18.9 15.01 20C15.01 21.1 15.9 22 17 22C18.1 22 19 21.1 19 20C19 18.9 18.1 18 17 18Z"/>
                     </g>
                 </svg>
-                <span class="header_cart_count">2</span>
+                <span class="header_cart_count">{{count($order->products)}}</span>
                 <div class="header__cart_outer-wrapper">
-                    <div class="header__cart__inner dropping__element__wrapper">
-                        @if(isset($order->products))
-                            <h3 class="inner__cart__title">
-                                продуктов в корзине: {{count($order->products)}}
-                            </h3>
-                            <div class="header__cart_commodities">
-                                @foreach($order->products as $product)
-                                    <div class="d-flex header_cart_commodity">
-                                        <div class="header__cart_img">
-                                            <img src="{{ asset('assets/img/cart-img.png') }}" alt="">
-                                        </div>
-                                        <div class="header__cart_body">
-                                            <div class="header__cart_second_col">
-                                                <div class="header__cart_commodity-title">
-                                                    {{$product->name}}
-                                                </div>
-                                                <div class="header__cart_params">
-                                                    <label>
-                                                        <input type="number" value="{{$product->pivot->count}}">
-                                                    </label>
-                                                    <img src="{{ asset('assets/img/common/drop.svg') }}" alt="">
-                                                    <a href="#" class="commodity_reset_btn">
-                                                        Обновить
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="header__cart_third_col">
-                                                <a href="#" class="delete-button">
-                                                    <img src="{{ asset('assets/img/common/close.svg') }}" alt="">
-                                                </a>
-                                                <div class="header__cart_price">
-                                                    {{$product->price}} €
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endif
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="cart__price__wrapper">
-                                <p>
-                                    Итого:
-                                    <b>
-                                        44.50 €
-                                    </b>
-                                </p>
-                            </div>
-                            <a href="{{route('cart')}}" class="default-button">
-                                перейти в корзину
-                            </a>
-                        </div>
-                    </div>
+                    @include('components.common.cart-commodity', compact('order'))
                 </div>
 
             </div>
