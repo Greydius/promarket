@@ -22,10 +22,11 @@ class FixingDetail extends Model implements Searchable
     {
         // $url = route('fixing-order-detail', $this->id);
         $url = '#';
-
+        $price = $this->price;
         return new SearchResult(
             $this,
             $this->name,
+            $price,
             $url
          );
     }

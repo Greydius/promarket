@@ -77,7 +77,7 @@ Route::post('/profile/avatar','ProfileController@avatarStore')->name('avatarStor
 Route::get('/reset-password', 'Auth\ResetPasswordController@resetPassword')->name('reset.password');
 
 Route::get('/checkout', 'OrderController@ckeckout')->name('checkout');
-Route::post('confirm-order','OrderController@confirmOrder')->name('confirm.order');
+Route::post('/confirm-order','OrderController@confirmOrder')->name('confirm.order');
 
 Route::post('/send-feedback', function () {
 
@@ -90,6 +90,7 @@ Route::post('/send-feedback', function () {
 });
 
 Route::get('/search', 'MainController@search')->name('search');
+Route::get('/search-ajax', 'MainController@searchAjax')->name('search.ajax');
 
 
 Route::post('/update-cart', 'OrderController@updateProductQuantity')->name('update-cart');

@@ -15,7 +15,7 @@
             <div class="outer-service-auth-wrapper">
               @foreach(['facebook', 'google'] as $provider)
                   <a class="btn btn-link {{ $provider }}-auth outer-service-auth" href="{{ route('social.login', ['provider' => $provider]) }}">
-                  <img src="{{ asset('assets/img/common/fb.svg') }}" alt="">
+                  <img src="{{ asset('assets/img/common/') }}/{{$provider}}_login.svg" alt="">
                 <span>
                 Войти через {{ ucwords($provider)}}
               </span></a>

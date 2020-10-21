@@ -16,10 +16,12 @@ class Product extends Model  implements Searchable
     public function getSearchResult(): SearchResult
     {
         $url = route('shop-inner', ['','', $this->code]);
+        $price = $this->price;
 
         return new SearchResult(
             $this,
             $this->name,
+            $price,
             $url
         );
     }

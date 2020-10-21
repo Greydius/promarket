@@ -137,9 +137,9 @@
                 </nav>
             </div>
             <div class="header_form_search">
-                <form action="{{ route('search') }}" method="GET">
+                <form action="{{ route('search') }}" method="GET" class="search_form">
                     <label>
-                        <input placeholder="Поиск" type="text" class="form_control" name="query">
+                        <input placeholder="Поиск" type="text" class="form_control" name="query" id="search_text" >
                     </label>
                     <button type="button" class="search_form_submit">
                         <img src="{{ asset('/assets/img/common/search.svg') }}" alt="">
@@ -148,6 +148,9 @@
                         <img src="{{ asset('/assets/img/common/close-search.svg') }}" alt="">
                     </button>
                 </form>
+                <div id="search_list">
+                   
+                </div>
             </div>
             <div class="language-selection-drop-down">
                 <div class="language-selected-text d-flex">
@@ -365,6 +368,34 @@
     ga('set', 'anonymizeIp', true);
     ga('set', 'transport', 'beacon');
     ga('send', 'pageview')
+
+$(document).ready(function() {
+    src = "{{ route('search') }}";
+
+        $('#search_text').on('keyup',function() {
+            var query = $(this).val(); 
+            $.ajax({
+               
+                url:"{{ route('search.ajax') }}",
+          
+                type:"GET",
+               
+                data:{'query':query},
+               
+                success:function (data) {
+                    $('#search_list').html("");        
+                    $('#search_list').html(data);
+                }
+            })
+            // end of ajax call
+        });
+
+
+        $(document).on('click', window, function(){
+
+            $('#search_list').html("");
+        });
+});
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>

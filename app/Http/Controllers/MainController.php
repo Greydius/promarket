@@ -45,4 +45,17 @@ class MainController extends Controller
 
         return view('components.search', compact('searchResults'));
     }
+
+    public function searchAjax(Request $request){
+        
+        if($request->ajax()) {
+          
+            $data = (new Search())
+            ->registerModel(Product::class, 'name')
+            ->registerModel(FixingDetail::class, 'name')
+            ->perform($request->input('query'));
+
+            return view('components.search-ajax',compact('data'));
+        }
+    }
 }

@@ -42,69 +42,6 @@
     </section>
   </div>
 <script>
-    // $(function() {
-
-    //     var app = {
-    //         DOM: {},
-    //         init: function () {
-
-    //             // only applies to register form
-    //             if (window.location.pathname == '/register') {
-
-    //                 this.DOM.form = $('form');
-    //                 this.DOM.form.email = this.DOM.form.find('input[name="email"]');
-
-    //                 this.DOM.form.email.group = this.DOM.form.email.prev('span.error');
-    //                 // console.log(this.DOM.form.email.prev('span.error'));
-    //                 this.DOM.form.submit( function(e) {
-    //                     e.preventDefault();
-
-    //                     var self = this; // native form object
-
-    //                     error = {};
-
-    //                     app.DOM.form.email.group.find('strong').text('');
-
-    //                     app.DOM.form.email.group.removeClass('has-error');
-
-    //                     var user = {};
-    //                     user.email = app.DOM.form.email.val();
-
-    //                     var request = $.ajax({
-    //                         headers: {
-    //                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //                         },
-    //                         url: '/register',
-    //                         type: 'POST',
-    //                         contentType: 'application/json',
-    //                         data: JSON.stringify(user)
-    //                     });
-    //                     request.done( function(data)
-    //                     {
-    //                         // native form submit
-    //                         self.submit();
-    //                     });
-    //                     request.fail( function(jqXHR)
-    //                     {
-    //                         error = jqXHR.responseJSON;
-    //                         // alert(error.errors.email);
-    //                         console.log(error.errors);
-    //                         if (error.errors.email) {
-    //                             app.DOM.form.email.group.find('strong').text(error.errors.email[0]);
-    //                             app.DOM.form.email.group.addClass('has-error');
-    //                         }
-
-    //                     });
-
-    //                 });
-    //             }
-    //         }
-    //     }
-
-    //     app.init();
-
-    // });
-
 $(document).ready(function(){
 
   $.extend($.validator.messages, {

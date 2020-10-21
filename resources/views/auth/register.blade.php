@@ -39,16 +39,14 @@
                             <strong>{{ $errors->first('agreement') }}</strong>
                             </span>
                             <label class="auth-checkbox checkbox-label">
-                                <input type='hidden' value='' name='agreement'>
-                                <input type="checkbox" name="agreement">
+                                <input type="checkbox" name="agreement" class="accepted" value="">
                                 <span>Я согласен на обработку моих данных компанией Promarket</span>
                             </label>
                             <span class=" error help-block">
                             <strong>{{ $errors->first('agreement2') }}</strong>
                             </span>
                             <label class="auth-checkbox checkbox-label">
-                                <input type='hidden' value='' name='agreement2'>
-                                <input type="checkbox" name="agreement2">
+                                <input type="checkbox" name="agreement2" class="accepted" value="">
                                 <span> Я согласен на обработку моих данных компанией Promarket </span>
                             </label>
                         </div>
@@ -65,7 +63,14 @@
 
 <script>
     $(function() {
-
+  $('.accepted').change(function() {
+        console.log(this);
+        if ($(this).is(':checked')) {
+            $(this).val('1');
+        }else{
+            $(this).val('');
+        }
+    });
         var app = {
             DOM: {},
             init: function () {

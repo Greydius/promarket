@@ -12175,3 +12175,15 @@ input[type=number] {
 .modal-content p {
     margin-top: 40px;
 }
+div.search-result {
+    position: absolute;
+    background: #fff;
+    width: auto;
+    padding: 15px;
+}
+
+.search-result>div {
+    width: 50%;
+    float: left;
+    display: block;
+}
