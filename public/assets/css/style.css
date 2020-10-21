@@ -6180,6 +6180,9 @@ input[type=number] {
 .commodity_reset_btn:hover{
     color: #CC2830;
 }
+.header__cart__inner:after{
+    top: 37px;
+}
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }
