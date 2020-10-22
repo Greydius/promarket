@@ -10,7 +10,7 @@
           <h1 class="main-title">
             Войти в систему
           </h1>
-          <form method="POST" action="{{ route('login') }}">
+          <form method="POST" action="{{ route('login') }}" class="login_form">
             @csrf
             <div class="outer-service-auth-wrapper">
               @foreach(['facebook', 'google'] as $provider)
@@ -61,78 +61,110 @@
 
 
 <script>
-    $(function() {
+    // $(function() {
 
-        var app = {
-            DOM: {},
-            init: function () {
+    //     var app = {
+    //         DOM: {},
+    //         init: function () {
 
-                // only applies to register form
-                if (window.location.pathname == '/login') {
+    //             // only applies to register form
+    //             if (window.location.pathname == '/login') {
 
-                    this.DOM.form = $('form');
-                    this.DOM.form.email = this.DOM.form.find('input[name="email"]');
-                    this.DOM.form.pwd   = this.DOM.form.find('input[name="password"]');
+    //                 this.DOM.form = $('form');
+    //                 this.DOM.form.email = this.DOM.form.find('input[name="email"]');
+    //                 this.DOM.form.token = this.DOM.form.find('input[name="_token"]');
+    //                 this.DOM.form.pwd   = this.DOM.form.find('input[name="password"]');
 
 
-                    this.DOM.form.email.group = this.DOM.form.email.prev('span.error');
-                    this.DOM.form.pwd.group = this.DOM.form.pwd.prev('span.error');
-                    this.DOM.form.submit( function(e) {
-                        e.preventDefault();
+    //                 this.DOM.form.email.group = this.DOM.form.email.prev('span.error');
+    //                 this.DOM.form.pwd.group = this.DOM.form.pwd.prev('span.error');
+    //                 this.DOM.form.submit( function(e) {
+    //                     e.preventDefault();
 
-                        var self = this; // native form object
+    //                     var self = this; // native form object
 
-                        error = {};
+    //                     error = {};
 
-                        app.DOM.form.email.group.find('strong').text('');
-                        app.DOM.form.pwd.group.find('strong').text('');
+    //                     app.DOM.form.email.group.find('strong').text('');
+    //                     app.DOM.form.pwd.group.find('strong').text('');
 
-                        app.DOM.form.email.group.removeClass('has-error');
-                        app.DOM.form.pwd.group.removeClass('has-error');
+    //                     app.DOM.form.email.group.removeClass('has-error');
+    //                     app.DOM.form.pwd.group.removeClass('has-error');
 
-                        var user = {};
-                        user.email = app.DOM.form.email.val();
-                        user.password = app.DOM.form.pwd.val();
+    //                     var user = {};
+    //                     user.email = app.DOM.form.email.val();
+    //                     user.token = app.DOM.form.token.val();
+    //                     user.password = app.DOM.form.pwd.val();
 
-                        var request = $.ajax({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            url: '/login',
-                            type: 'POST',
-                            contentType: 'application/json',
-                            data: JSON.stringify(user)
-                        });
-                        request.done( function(data)
-                        {
-                            // native form submit
-                            self.submit();
-                        });
-                        request.fail( function(jqXHR)
-                        {
-                            error = jqXHR.responseJSON;
-                            // alert(error.errors.email);
-                            console.log(error.errors);
+    //                     var request = $.ajax({
+    //                         headers: {
+    //                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //                         },
+    //                         url: '/login',
+    //                         type: 'POST',
+    //                         contentType: 'application/json',
+    //                         data: JSON.stringify(user)
+    //                     });
+    //                     request.done( function(data)
+    //                     {
+    //                         // native form submit
+    //                         self.submit();
+    //                     });
+    //                     request.fail( function(jqXHR)
+    //                     {
+    //                         error = jqXHR.responseJSON;
+    //                         // alert(error.errors.email);
+    //                         console.log(error.errors);
                             
-                            if (error.errors.email) {
-                                app.DOM.form.email.group.find('strong').text(error.errors.email[0]);
-                                app.DOM.form.email.group.addClass('has-error');
-                            }
-                            if (error.errors.password) {
-                                app.DOM.form.pwd.group.find('strong').text(error.errors.password[0]);
-                                app.DOM.form.pwd.group.addClass('has-error');
-                            }
+    //                         if (error.errors.email) {
+    //                             app.DOM.form.email.group.find('strong').text(error.errors.email[0]);
+    //                             app.DOM.form.email.group.addClass('has-error');
+    //                         }
+    //                         if (error.errors.password) {
+    //                             app.DOM.form.pwd.group.find('strong').text(error.errors.password[0]);
+    //                             app.DOM.form.pwd.group.addClass('has-error');
+    //                         }
 
-                        });
+    //                     });
 
-                    });
-                }
-            }
-        }
+    //                 });
+    //             }
+    //         }
+    //     }
 
-        app.init();
+    //     app.init();
 
-    });
+    // });
+
+$(document).ready(function(){
+
+  $.extend($.validator.messages, {
+      required: "Это поле обязательно для заполнения",   
+      email: "Пожалуйста, введите действительный адрес электронной почты."
+});
+
+$("form.login_form").validate({
+    rules: {
+
+      email: {
+        required: true,
+        email: true
+      },
+      password: {
+        required: true
+      }
+    }, 
+    ignore: [],
+    errorPlacement: function (error, element) {
+               $(error).insertAfter(element.prev(".error"));
+           },
+    submitHandler: function(form) {
+      // do other things for a valid form
+      $(form).submit();
+    }
+});
+    
+});
     </script>
 
 @endsection

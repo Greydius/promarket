@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/send-feedback', function () {
+
+   // dd(request()->all());
+    $details = request()->all();
+
+    \Mail::to('giyosiddinmirzaboyev@gmail.com')->send(new \App\Mail\FeedbackMail($details));
+
+    return 'Сообщение успешно отправлено.';
+});
+
 Route::get('/', 'MainController@main')->name('main-page');
 
 Route::get('/contacts', 'MainController@contacts')->name('contacts-page');
@@ -78,16 +88,6 @@ Route::get('/reset-password', 'Auth\ResetPasswordController@resetPassword')->nam
 
 Route::get('/checkout', 'OrderController@ckeckout')->name('checkout');
 Route::post('/confirm-order','OrderController@confirmOrder')->name('confirm.order');
-
-Route::post('/send-feedback', function () {
-
-   // dd(request()->all());
-    $details = request()->all();
-
-    \Mail::to('giyosiddinmirzaboyev@gmail.com')->send(new \App\Mail\FeedbackMail($details));
-
-    return 'Сообщение успешно отправлено.';
-});
 
 Route::get('/search', 'MainController@search')->name('search');
 Route::get('/search-ajax', 'MainController@searchAjax')->name('search.ajax');

@@ -55,8 +55,10 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $path=public_path().'/uploads/avatar/'.$user->avatar;
-        if (file_exists($path)) {
-            unlink($path);
+       if(\File::exists(public_path('uploads/avatar/'.$user->avatar))){
+
+          \File::delete(public_path('uploads/avatar/'.$user->avatar));
+
         }
         $image = $request->file('file');
         $imageName = $image->getClientOriginalName();
