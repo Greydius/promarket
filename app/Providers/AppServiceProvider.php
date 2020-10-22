@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('*', function ($view) {
            $view->with('fixingTypes', FixingType::get());
-           $view->with('nds', 0.85);
+           $view->with('nds', 0.79);
         });
 
         View::composer('system.master', function ($view) {

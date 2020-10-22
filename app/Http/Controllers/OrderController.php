@@ -45,6 +45,8 @@ class OrderController extends Controller
         return view('components.common.cart-commodity', compact('order'));
     }
 
+
+
     public function addToCart(Request $request) {
         $product_id = $request->product_id;
         $quantity = $request->quantity;
@@ -52,11 +54,13 @@ class OrderController extends Controller
         if(is_null($orderId)){
             $order = Order::create();
             session(['orderId' => $order->id]);
+            $orderId = $order->id;
         } else {
             $order = Order::find($orderId);
             if(is_null($order)){
                 session()->forget('orderId');
-                $this->addToCart($product_id);
+                $this->addToCart($request);
+
             }
         }
         if($order->products->contains($product_id)){
@@ -92,16 +96,22 @@ class OrderController extends Controller
 
     }
 
-    public function decreaseFromCart($product_id)
+    public function removeAllProductsFromCart()
     {
         $orderId = session('orderId');
         if(is_null($orderId)){
             return false;
         }
         $order = Order::find($orderId);
-        $orderRow = $order->products()->where('product_id', $product_id)->first()->pivot;
-        $orderRow->count--;
-        $orderRow->save();
+        $allProducts = [];
+
+        foreach ($order->products as $product) {
+            array_push($allProducts, $product->id);
+        }
+
+        $order->products()->detach($allProducts);
+
+
         return 'decreased';
     }
 

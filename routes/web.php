@@ -64,7 +64,7 @@ Route::post('/cart', 'OrderController@addToCart')->name('add-cart');
 
 Route::post('/cart/remove', 'OrderController@removeFromCart')->name('remove-cart');
 
-Route::get('/cart/decrease/{id}', 'OrderController@decreaseFromCart')->name('decrease-from-cart');
+Route::get('/cart/clear', 'OrderController@removeAllProductsFromCart')->name('decrease-from-cart');
 
 
 Auth::routes(['verify' => true]);
