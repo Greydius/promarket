@@ -10151,17 +10151,18 @@ Array.from(headerCart).forEach(cart => {
 
 
 function manupulateWithCart(e) {
-    e.preventDefault();
     let path = e.path || e.composedPath;
     path = path.filter(el => el.matches);
     let target = e.target
     if (target.matches('.commodity_reset_btn')) {
+        e.preventDefault()
         let updateCart = updateCartQuantity.bind(target.closest('form'));
         updateCart();
     }
     if(
-        Array.from(path).filter(el => el.matches('.header__cart__delete-button'))
+        Array.from(path).find(el => el.matches('.header__cart__delete-button')).length !== 0
     ){
+        e.preventDefault()
         let updateCart = updateCartQuantity.bind(
             Array.from(path).find(el => el.matches('.header__cart__delete-button')).closest('form')
         )
