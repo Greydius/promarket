@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/profile/edit',
-        'profile/avatar'
+        'profile/avatar',
+        '/market/*'
     ];
 }

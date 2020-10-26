@@ -58,4 +58,14 @@ class MainController extends Controller
             return view('components.search-ajax',compact('data'));
         }
     }
+
+    public function sendFeedback()
+    {
+        $details = request()->all();
+
+        \Mail::to('giyosiddinmirzaboyev@gmail.com')->send(new \App\Mail\FeedbackMail($details));
+
+        return 'Сообщение успешно отправлено.';
+    }
+
 }

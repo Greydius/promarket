@@ -308,36 +308,29 @@
                                         </div>
                                         <div class="d-flex align-items-center sorting-filter-row">
                                             <div class="sorting-filter select-drop-down drop-down-sorting sorting">
-                                                <div class="sorting-filter-trigger">
-                                            <span class="muted changing">
-                                                Сортировать по названию
-                                            </span>
-                                                    <img src="img/common/chevron-down.svg" alt="">
-                                                </div>
-                                                <div class="sorting-filter-content dropping__element__wrapper">
-                                                    <ul>
-                                                        <li class="sorting-filter-content-changers">
-                                                            <a href="#">
-                                                                Цена по возрастанию
-                                                            </a>
-                                                        </li>
-                                                        <li class="sorting-filter-content-changers">
-                                                            <a href="#">
-                                                                Цена по убыванию
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                <select name="order" id="order" class="sorting_select sorting-filter-content dropping__element__wrapper1">
+                                                  <option value="ASC" style="padding: 10px">Цена по возрастанию</option>
+                                                  <option value="DESC">Цена по убыванию</option>
+                                                </select> 
                                             </div>
                                             <div class="sorting-filter select-drop-down drop-down-sorting showing">
-                                                <div class="sorting-filter-trigger">
-                                            <span class="muted changing">
-                                                Показать 24
-                                            </span>
-                                                    <img src="img/common/chevron-down.svg" alt="">
-                                                </div>
-                                                <div class="sorting-filter-content dropping__element__wrapper">
-                                                    <ul>
+                                               <!--  <div class="sorting-filter-trigger">
+                                                   <span class="muted changing">
+                                                        Показать 24
+                                                    </span> 
+                                                    <label for="cars">Показать 24</label>
+                                                    <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
+                                                </div> -->
+                                                <select name="per_page" id="per_page" class="sorting_select sorting-filter-content dropping__element__wrapper1">
+                                                  <option value="24">Показать 24</option>
+                                                  <option value="2">Показать 2</option>
+                                                  <option value="3">Показать 3</option>
+                                                  <option value="1">Показать 1</option>
+                                                </select>
+                                                @csrf
+                                                <!-- < div class="sorting-filter-content dropping__element__wrapper">
+
+                                                   <ul>
                                                         <li class="sorting-filter-content-changers">
                                                             <a href="#">
                                                                 24
@@ -354,7 +347,7 @@
                                                             </a>
                                                         </li>
                                                     </ul>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -363,31 +356,31 @@
                             <h3 class="small-title">
                                 {{ $category->name }}
                             </h3>
+                            <div id="sort">
+                                <div class="row additional-commodities-wrapper">
+                                    @foreach($category->products as $product)
+                                        @include('components.market.card', compact('product'))
+                                    @endforeach
+                                </div>
 
-                            <div class="row additional-commodities-wrapper">
-                                @foreach($category->products as $product)
-                                    @include('components.market.card', compact('product'))
-                                @endforeach
+                                <div class="pagination d-flex align-items-center justify-content-center">
+                                    <a href="#" class="get-back pagination-bullet">
+                                        &lt;&lt;
+                                    </a>
+                                    <a href="#" class="pagination-bullet">
+                                        1
+                                    </a>
+                                    <a href="#" class="pagination-bullet active">
+                                        2
+                                    </a>
+                                    <a href="#" class="pagination-bullet">
+                                        3
+                                    </a>
+                                    <a href="#" class="pagination-bullet get-next">
+                                        &gt;&gt;
+                                    </a>
+                                </div>
                             </div>
-
-                            <div class="pagination d-flex align-items-center justify-content-center">
-                                <a href="#" class="get-back pagination-bullet">
-                                    &lt;&lt;
-                                </a>
-                                <a href="#" class="pagination-bullet">
-                                    1
-                                </a>
-                                <a href="#" class="pagination-bullet active">
-                                    2
-                                </a>
-                                <a href="#" class="pagination-bullet">
-                                    3
-                                </a>
-                                <a href="#" class="pagination-bullet get-next">
-                                    &gt;&gt;
-                                </a>
-                            </div>
-
 
                         </div>
                     </div>
@@ -395,5 +388,29 @@
             </div>
         </div>
     </main>
+<script type="text/javascript">
+    $('.sorting_select').change(function(){
+    var url = '<?= Request::url(); ?>'; 
+    var token = $('input[name="_token"]').val();
+    var order = $('#order').children("option:selected").val();
+    var per_page = $('#per_page').children("option:selected").val();
+        var data = {
+            'order' : order,
+            'per_page' : per_page,
+            '_token' : token
+        };
+        $.ajax({
+            type : 'POST',
+            url  : url,
+            data : data
+        }).done(function(data) {
+            $('#sort').html(data);
+                // log data to the console so we can see
+                // console.log(data);
 
+                // here we will handle errors and validation messages
+            });
+
+    });
+</script>
 @endsection

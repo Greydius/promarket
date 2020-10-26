@@ -12190,3 +12190,9 @@ div.search-result {
     float: left;
     display: block;
 }
+.sorting_select{
+    background: unset;
+    border: unset;
+    font-size: 14px !important;
+    margin-bottom: 0;
+}
