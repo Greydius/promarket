@@ -65,10 +65,10 @@ $("form.reset_pass").validate({
     errorPlacement: function (error, element) {
                $(error).insertAfter(element.prev(".errormessage"));
            },
-    submitHandler: function(form) {
-      // do other things for a valid form
-      $(form).submit();
-    }
+    // submitHandler: function(form) {
+    //   // do other things for a valid form
+    //   $(form).submit();
+    // }
 });
     
 });
