@@ -27,7 +27,7 @@
                                     <label class="position-relative">
                                         <input type="text" placeholder="Поиск" class="auth_control">
                                         <button type="button" class="search_form_submit">
-                                            <img src="img/common/search.svg" alt="">
+                                            <img src="{{ asset('/assets/img/common/search.svg') }}" alt="">
                                         </button>
                                     </label>
                                 </form>
@@ -37,7 +37,7 @@
                                         <p>
                                             цена €
                                         </p>
-                                        <img src="img/common/chevron-down.svg" alt="">
+                                        <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
                                     </div>
                                     <div class="filter-content">
                                         <div class="cost-slider">
@@ -46,16 +46,16 @@
 
                                         <div class="d-flex justify-content-between align-items-center range-inputs-wrapper">
                                             <label class="d-flex align-items-center">
-                                <span>
-                                    От
-                                </span>
-                                                <input class="starting-value" placeholder="0" type="text">
+                                                <span>
+                                                    От
+                                                </span>
+                                        <input class="starting-value" placeholder="0" type="text" name="min_price">
                                             </label>
                                             <label class="d-flex align-items-center">
-                                <span>
-                                    До
-                                </span>
-                                                <input class="ending-value" placeholder="300" type="text">
+                                                <span>
+                                                    До
+                                                </span>
+                                    <input class="ending-value" placeholder="300" type="text" name="max_price">
                                             </label>
                                         </div>
 
@@ -67,17 +67,17 @@
                                         <p>
                                             наличие
                                         </p>
-                                        <img src="img/common/chevron-down.svg" alt="">
+                                        <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
                                     </div>
                                     <div class="filter-content">
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="availability" value="Есть в наличии">
                                             <span>
                                     Есть в наличии
                                 </span>
                                         </label>
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="availability" value="Под заказ">
                                             <span>
                                    Под заказ
                                 </span>
@@ -90,23 +90,23 @@
                                         <p>
                                             устройство
                                         </p>
-                                        <img src="img/common/chevron-down.svg" alt="">
+                                        <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
                                     </div>
                                     <div class="filter-content">
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="device" value="phone">
                                             <span>
                                    Телефоны
                                 </span>
                                         </label>
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="device" value="tablet">
                                             <span>
                                    Планшеты
                                 </span>
                                         </label>
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="device" value="notebook">
                                             <span>
                                    Ноутбуки
                                 </span>
@@ -119,17 +119,17 @@
                                         <p>
                                             марка
                                         </p>
-                                        <img src="img/common/chevron-down.svg" alt="">
+                                        <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
                                     </div>
                                     <div class="filter-content">
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="manufacturer" value="apple">
                                             <span>
                                    Apple
                                 </span>
                                         </label>
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="manufacturer" value="samsung">
                                             <span>
                                    Samsung
                                 </span>
@@ -142,84 +142,83 @@
                                         <p>
                                             модель
                                         </p>
-                                        <img src="img/common/chevron-down.svg" alt="">
+                                        <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
                                     </div>
                                     <div class="filter-content">
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="model" value="iphone 5">
                                             <span>
-                                  iPhone 5
-
-                                </span>
+                                              iPhone 5
+                                            </span>
                                         </label>
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="model" value="iphone 5s">
                                             <span>
-                                   iPhone 5s
-                                </span>
-                                        </label>
-
-                                        <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
-                                            <span>
-                                   iPhone 6
-                                </span>
+                                               iPhone 5s
+                                            </span>
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="model" value="iphone 6">
                                             <span>
-                                   iPhone 6s
-                                </span>
+                                               iPhone 6
+                                            </span>
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="model" value="iphone 6s">
                                             <span>
-                                   iPhone 6 Plus
-                                </span>
+                                               iPhone 6s
+                                            </span>
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="model"  value="iphone 6 plus">
                                             <span>
-                                   iPhone 6S
-                                </span>
+                                               iPhone 6 Plus
+                                            </span>
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="model"  value="iphone 6S">
                                             <span>
-                                   iPhone 6S Plus
-                                </span>
+                                               iPhone 6S
+                                            </span>
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="model" value="iphone 6S plus">
                                             <span>
-                                   iPhone 7
-                                </span>
+                                               iPhone 6S Plus
+                                            </span>
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="model" value="iphone 7">
                                             <span>
-                                   iPhone 8
-                                </span>
+                                               iPhone 7
+                                            </span>
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="model"  value="iphone 8">
                                             <span>
-                                   iPhone 10
-                                </span>
+                                               iPhone 8
+                                            </span>
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="model"  value="iphone 10">
                                             <span>
-                                   iPhone 11
-                                </span>
+                                               iPhone 10
+                                            </span>
+                                        </label>
+
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="model" value="iphone 11">
+                                            <span>
+                                               iPhone 11
+                                            </span>
                                         </label>
 
                                     </div>
@@ -230,20 +229,20 @@
                                         <p>
                                             цвет
                                         </p>
-                                        <img src="img/common/chevron-down.svg" alt="">
+                                        <img src="{{asset('/assets/img/common/chevron-down.svg')}}" alt="">
                                     </div>
                                     <div class="filter-content">
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="color" value="Белый">
                                             <span>
-                                   Белый
-                                </span>
+                                               Белый
+                                            </span>
                                         </label>
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="agreement">
+                                            <input type="checkbox" name="color" value="Чёрный">
                                             <span>
-                                   Чёрный
-                                </span>
+                                               Чёрный
+                                            </span>
                                         </label>
                                     </div>
                                 </div>
@@ -389,12 +388,13 @@
         </div>
     </main>
 <script type="text/javascript">
-    $('.sorting_select').change(function(){
     var url = '<?= Request::url(); ?>'; 
+    $('.sorting_select').change(function(){
     var token = $('input[name="_token"]').val();
     var order = $('#order').children("option:selected").val();
     var per_page = $('#per_page').children("option:selected").val();
         var data = {
+            'sorting' : '1',
             'order' : order,
             'per_page' : per_page,
             '_token' : token
@@ -412,5 +412,63 @@
             });
 
     });
+$('.filter-el input').change(function(){
+    var min_price = $('input[name="min_price"]').val();
+    var max_price = $('input[name="max_price"]').val();
+
+    var availability = [];
+    var device = [];
+    var manufacturer = [];
+    var model = [];
+    var color = [];
+    $.each($(".filter-el input[name='availability']:checked"), function(){
+        availability.push($(this).val());
+    });
+    $.each($(".filter-el input[name='device']:checked"), function(){
+        device.push($(this).val());
+    });
+    $.each($(".filter-el input[name='manufacturer']:checked"), function(){
+        manufacturer.push($(this).val());
+    });
+    $.each($(".filter-el input[name='model']:checked"), function(){
+        model.push($(this).val());
+    });
+    $.each($(".filter-el input[name='color']:checked"), function(){
+        color.push($(this).val());
+    });
+    // console.log(availability);
+    // console.log(device);
+    // console.log(manufacturer);
+    // console.log(model);
+    // console.log(color);
+
+    data = {
+        'filter' : '1',
+        'min_price' : min_price,
+        'max_price' : max_price,
+        'availability' : availability,
+        'device' : device,
+        'attrs' : {
+            'manufacturer' : manufacturer,
+            'model' : model,
+            'color' : color,
+        }
+    };
+    console.log(data);
+
+    $.ajax({
+            type : 'POST',
+            url  : url,
+            data : data
+        }).done(function(data) {
+            $('#sort').html(data);
+                // log data to the console so we can see
+                // console.log(data);
+
+                // here we will handle errors and validation messages
+            });
+});
+
+
 </script>
 @endsection

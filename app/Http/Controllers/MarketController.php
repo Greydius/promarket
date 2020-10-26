@@ -19,8 +19,23 @@ class MarketController extends Controller
     {
        $category = SubCategory::where('code', $subCategoryCode)->first();
        // dump(request()->per_page);
-
+       if(request()->sorting == 1){
        $products = $category->products()->orderBy('price',request()->order)->paginate(request()->per_page);
+       }
+       if(request()->filter == 1){
+        $products = $category->products();
+        if(isset(request()->attrs)){
+            foreach(request()->attrs as $key => $val){
+            // dd($val);
+               $products = $products->where($key, $val);
+            }
+
+        }
+        $products = $products->where('price','>=', request()->min_price);
+        $products = $products->where('price','<=', request()->max_price);
+        // dd();
+        $products = $products->paginate(9);
+       }
 
        // dd($products);
        return view('components.market.sort',compact('products'));
