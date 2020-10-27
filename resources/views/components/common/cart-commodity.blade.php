@@ -7,7 +7,7 @@
             @foreach($order->products as $product)
                 <div class="d-flex header_cart_commodity">
                     <div class="header__cart_img">
-                        <img src="{{ asset('assets/img/cart-img.png') }}" alt="">
+                        <img src="{{Voyager::image($product->img)}}" alt="">
                     </div>
                     <div class="header__cart_body">
                         <div class="header__cart_second_col">
@@ -22,7 +22,6 @@
                                     <label>
                                         <input name="quantity" type="number" value="{{$product->pivot->count}}">
                                     </label>
-                                    <img src="{{ asset('assets/img/common/drop.svg') }}" alt="">
                                     <button type="submit" class="commodity_reset_btn">
                                         Обновить
                                     </button>

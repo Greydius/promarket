@@ -7,7 +7,7 @@
 
 }}" class="fixing-detail-card">
         <div class="fixing-detail-img-wrap">
-            <img src="{{$service->img}}" alt="">
+            <img src="{{ Voyager::image($service->img) }}" alt="">
         </div>
         <div class="fixing-detail-body">
             <h4 class="card-title">

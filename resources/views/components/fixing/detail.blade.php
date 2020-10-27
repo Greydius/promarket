@@ -3,7 +3,7 @@
 @else javascript: ; @endif" class="fixing-detail-card">
     <img class="fixing-details-card-tick" src="img/common/fixing-check.svg" alt="">
     <div class="fixing-detail-img-wrap">
-        <img src="img/fixing/c1.png" alt="">
+        <img src="{{asset('assets/img/fixing/c1.png')}}" alt="">
     </div>
     <div class="fixing-detail-body">
         <h4 class="card-title">

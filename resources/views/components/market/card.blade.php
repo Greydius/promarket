@@ -5,7 +5,7 @@
     $product->subCategory->code,
     $product->code
 ])}}" class="commodity-image-wrapper">
-            <img src="{{$product->img}}" alt="">
+            <img src="{{Voyager::image($product->img)}}" alt="">
         </a>
         <div class="commodity-card-body">
             <a href="{{route('shop-inner', [

@@ -6183,6 +6183,9 @@ input[type=number] {
 .header__cart__inner:after{
     top: 37px;
 }
+.header__cart_img img{
+    object-fit: cover;
+}
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }

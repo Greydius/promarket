@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 {
     use Notifiable;
     use SoftDeletes;

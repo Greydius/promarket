@@ -11,8 +11,8 @@
         </div>
         <div class="col-xl-12">
             @foreach($order->products as $product)
-                <div class="cart-item d-flex align-items-center justify-content-between my-3"
-                     style="background-image: url({{asset('assets/./img/cart/Rectangle\ 74.svg')}});">
+                <div class="cart-item d-flex align-items-center justify-content-between my-3">
+                    <img src="{{Voyager::image($product->img)}}" class="cart-item-img"" alt="">
                     <div class="remove-cart-item-tablet"><a href="#" class="remove-cart-item"><img
                                 src="{{asset('assets/img/cart/Vector.svg')}}" alt="icon"></a></div>
                     <div class="cart-changing">
@@ -23,7 +23,6 @@
                             <div class="quantity-view-wrapper align-items-center d-flex">
                                 <div class="quantity-input-wrapper">
                                     <label>
-
                                         <input value="{{$product->pivot->count}}" type="text" class="quantity-input">
                                     </label>
                                 </div>

@@ -87,3 +87,8 @@ Route::get('/search-ajax', 'MainController@searchAjax')->name('search.ajax');
 
 
 Route::post('/update-cart', 'OrderController@updateProductQuantity')->name('update-cart');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

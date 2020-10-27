@@ -10,7 +10,7 @@
 
                 <div class="col-lg-9">
                     <div class="fixing-main-banner fixing-main-banner-inner">
-                        <img src="{{$fixingType->background_image}}" class="fixing-banner-background" alt="">
+                        <img src="{{ Voyager::image($fixingType->img) }}" class="fixing-banner-background" alt="">
                         {{ Breadcrumbs::render('fixing-type', $fixingType) }}
 
                         <h1 class="main-title">
