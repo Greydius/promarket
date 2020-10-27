@@ -158,10 +158,7 @@ $("form.login_form").validate({
     errorPlacement: function (error, element) {
                $(error).insertAfter(element.prev(".error"));
            },
-    submitHandler: function(form) {
-      // do other things for a valid form
-      $(form).submit();
-    }
+   
 });
     
 });
