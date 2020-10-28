@@ -141,7 +141,7 @@
                     <label>
                         <input placeholder="Поиск" type="text" class="form_control" name="query" id="search_text" >
                     </label>
-                    <button type="button" class="search_form_submit">
+                    <button type="submit" class="search_form_submit">
                         <img src="{{ asset('/assets/img/common/search.svg') }}" alt="">
                     </button>
                     <button type="button" class="close_form_search">
@@ -390,11 +390,14 @@ $(document).ready(function() {
             // end of ajax call
         });
 
-
         $(document).on('click', window, function(){
 
             $('#search_list').html("");
         });
+
+    $('.link_all_result a ').click(function(){
+        $('.search_form_submit').trigger('click');
+    })
 });
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async></script>
