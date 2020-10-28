@@ -51,10 +51,10 @@ class MainController extends Controller
         if($request->ajax()) {
           
             $data = (new Search())
-            ->registerModel(Product::class, 'name')
             ->registerModel(FixingDetail::class, 'name')
+            ->registerModel(Product::class, 'name')
             ->perform($request->input('query'));
-
+            
             return view('components.search-ajax',compact('data'));
         }
     }

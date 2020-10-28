@@ -8,6 +8,8 @@ use Spatie\Searchable\SearchResult;
 
 class FixingDetail extends Model implements Searchable
 {
+    public $searchableType = 'Ремонт';
+
     public function manufacturerModel() {
         return $this->belongsTo(ManufacturerModel::class);
     }
@@ -22,11 +24,9 @@ class FixingDetail extends Model implements Searchable
     {
         // $url = route('fixing-order-detail', $this->id);
         $url = '#';
-        $price = $this->price;
         return new SearchResult(
             $this,
             $this->name,
-            $price,
             $url
          );
     }
