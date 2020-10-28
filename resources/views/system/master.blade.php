@@ -18,12 +18,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
+<body class="@yield('pageClass')">
 
 <header class="header">
     <div class="container">
@@ -65,8 +65,6 @@
                                                         </a>
                                                     </li>
                                                 @endforeach
-
-
                                             </ul>
                                         </div>
                                     </div>
@@ -149,7 +147,7 @@
                     </button>
                 </form>
                 <div id="search_list">
-                   
+
                 </div>
             </div>
             <div class="language-selection-drop-down">
@@ -349,8 +347,7 @@
 <div id="added_good" style="display: none;">
     Товар был успешно добавлен в корзину
 </div>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
@@ -373,17 +370,17 @@ $(document).ready(function() {
     src = "{{ route('search') }}";
 
         $('#search_text').on('keyup',function() {
-            var query = $(this).val(); 
+            var query = $(this).val();
             $.ajax({
-               
+
                 url:"{{ route('search.ajax') }}",
-          
+
                 type:"GET",
-               
+
                 data:{'query':query},
-               
+
                 success:function (data) {
-                    $('#search_list').html("");        
+                    $('#search_list').html("");
                     $('#search_list').html(data);
                 }
             })

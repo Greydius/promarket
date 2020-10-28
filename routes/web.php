@@ -57,7 +57,7 @@ Route::post('/cart', 'OrderController@addToCart')->name('add-cart');
 
 Route::post('/cart/remove', 'OrderController@removeFromCart')->name('remove-cart');
 
-Route::get('/cart/clear', 'OrderController@removeAllProductsFromCart')->name('decrease-from-cart');
+Route::get('/cart/clear', 'OrderController@removeAllProductsFromCart')->name('clear-cart');
 
 
 Auth::routes(['verify' => true]);
@@ -87,8 +87,12 @@ Route::get('/search-ajax', 'MainController@searchAjax')->name('search.ajax');
 
 
 Route::post('/update-cart', 'OrderController@updateProductQuantity')->name('update-cart');
-
+Route::post('/commodity-quantity', 'OrderController@returnDataFromUpdatedProductQuantity')->name('update-cart-data');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/cart-state', 'OrderController@returnCartState')->name('cart-state');
+
+Route::get('/cart-data-remove/{id}', 'OrderController@returnDataFromRemovedProductInOrder')->name('remove-cart-data');

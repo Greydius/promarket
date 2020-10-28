@@ -14,6 +14,9 @@ class OrderController extends Controller
             return redirect()->route('main-page');
         };
         $order = Order::find($orderId);
+        if (count($order->products) == 0) {
+            return redirect()->route('main-page');
+        }
         $orderProducts = $order->products;
         return view('pages.cart', compact('order'));
     }
@@ -44,8 +47,6 @@ class OrderController extends Controller
         $order = Order::find($orderId);
         return view('components.common.cart-commodity', compact('order'));
     }
-
-
 
     public function addToCart(Request $request) {
         $product_id = $request->product_id;
@@ -144,4 +145,40 @@ class OrderController extends Controller
         return redirect()->route('checkout');
     }
 
+    public function returnCartState() {
+        $orderId = session('orderId');
+        $order = Order::find($orderId);
+        $orderProducts = $order->products;
+        return $order;
+    }
+
+    public function returnDataFromUpdatedProductQuantity(Request $request) {
+        $product_id = $request->product_id;
+        $quantity = $request->quantity;
+        $orderId = session('orderId');
+        $order = Order::find($orderId);
+        $orderRow = $order->products()
+            ->where('product_id', $product_id)->first()->pivot;
+        $orderRow->count = intval($quantity);
+        $orderRow->update();
+
+
+
+        $order = Order::find($orderId);
+        $order->products;
+        return $order;
+    }
+
+    public function returnDataFromRemovedProductInOrder($product_id) {
+        $orderId = session('orderId');
+        if(is_null($orderId)){
+            return false;
+        }
+        $order = Order::find($orderId);
+        $order->products()->detach($product_id);
+
+        $order = Order::find($orderId);
+        $order->products;
+        return $order;
+    }
 }

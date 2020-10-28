@@ -6191,6 +6191,12 @@ input[type=number] {
     top: 100%;
     color: red;
 }
+.active-cart .header_cart_count{
+    display: none;
+}
+.active-cart .header__cart_outer-wrapper{
+    display: none ;
+}
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }
@@ -12193,7 +12199,7 @@ div.search-result {
     width: 480px;
     left: 0%;
     right: 0%;
-    top: 0%;    
+    top: 0%;
     max-height: 335px;
     background: #FFFFFF;
     height: auto;

@@ -9507,6 +9507,8 @@ function CardCounter(trigger) {
     function changeInputValue(e) {
         let value = e.target.value || e.target.innerText;
         self.input.value = value
+        let changeEvent = new Event('change');
+        self.input.dispatchEvent(changeEvent);
         let swiperSlide = this.closest('.swiper-slide');
         if (swiperSlide) {
             let swiperWrapper = swiperSlide.closest('.swiper-container')
@@ -9527,8 +9529,8 @@ function CardCounter(trigger) {
         let topAxis = input.getBoundingClientRect().top + pageYOffset
             + input.getBoundingClientRect().height + 30;
         self.dropDownWrapper.style.cssText = `
-        left: ${leftAxis}px;
-        top: ${topAxis}px;
+            left: ${leftAxis}px;
+            top: ${topAxis}px;
         `;
         let lis = self.dropDownWrapper.querySelectorAll('li');
         if (!self.dropDownWrapper.classList.contains('active')) {
@@ -10135,6 +10137,14 @@ function addCommodityToCart(e) {
             }
             changeCartInnerHTML(response)
 
+            if (Vue !== undefined) {
+                let cartState = this.getAttribute('data-get-state');
+                fetchData(cartState)
+                    .then(res => {
+                        Vue.set(cartApp, 'orderProducts', res);
+                    })
+            }
+
 
         })
         .catch((err) => {
@@ -10142,6 +10152,13 @@ function addCommodityToCart(e) {
         })
 }
 
+async function fetchData(url) {
+    return axios
+        .get(url)
+        .then(res => {
+            return res.data.products;
+        })
+}
 
 let headerCart = document.querySelectorAll('.header_cart')
 Array.from(headerCart).forEach(cart => {
@@ -10158,16 +10175,15 @@ function manupulateWithCart(e) {
         let updateCart = updateCartQuantity.bind(target.closest('form'));
         updateCart();
     }
-    if(
+    if (
         Array.from(path).find(el => el.matches('.header__cart__delete-button')).length !== 0
-    ){
+    ) {
         e.preventDefault()
         let updateCart = updateCartQuantity.bind(
             Array.from(path).find(el => el.matches('.header__cart__delete-button')).closest('form')
         )
         updateCart();
     }
-
 
 
 }
@@ -10214,7 +10230,6 @@ $('.order-login').validate({
         }
     }
 })
-
 $('.registation-form').validate({
     rules: {
         username: {

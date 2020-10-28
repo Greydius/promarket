@@ -1,4 +1,4 @@
-<div class="col-lg-4 col-md-4 col-6">
+
     <div class="commodity-default-card">
         <a href="{{route('shop-inner', [
     $product->subCategory->category->code,
@@ -26,7 +26,7 @@
             <div class="commodity-card-additional-price">
                 <span>{{$product->price * $nds}} € excl.VAT</span>
             </div>
-            <form method="post" action="{{route('add-cart')}}" class="add-to-cart-form-submittion">
+            <form method="post" data-get-state="{{route('cart-state')}}" action="{{route('add-cart')}}" class="add-to-cart-form-submittion">
                 @csrf
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="quantity-drop">
@@ -56,4 +56,3 @@
         </div>
 
     </div>
-</div>

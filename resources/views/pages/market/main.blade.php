@@ -14,11 +14,13 @@
 
                                 <div class="cancel-filters">
                                     <span>Отменить все</span>
-                                    <svg class="close-shop-sidebar" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    <svg class="close-shop-sidebar" width="24" height="24" viewBox="0 0 24 24"
+                                         fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <g opacity="0.54">
-                                            <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
-                                                  fill="#CC2830"/>
+                                            <path
+                                                d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
+                                                fill="#CC2830"/>
                                         </g>
                                     </svg>
                                 </div>
@@ -44,18 +46,21 @@
                                             <div data-min="0" data-max="100" id="cost_slider"></div>
                                         </div>
 
-                                        <div class="d-flex justify-content-between align-items-center range-inputs-wrapper">
+                                        <div
+                                            class="d-flex justify-content-between align-items-center range-inputs-wrapper">
                                             <label class="d-flex align-items-center">
                                                 <span>
                                                     От
                                                 </span>
-                                        <input class="starting-value" placeholder="0" type="text" name="min_price">
+                                                <input class="starting-value" placeholder="0" type="text"
+                                                       name="min_price">
                                             </label>
                                             <label class="d-flex align-items-center">
                                                 <span>
                                                     До
                                                 </span>
-                                    <input class="ending-value" placeholder="300" type="text" name="max_price">
+                                                <input class="ending-value" placeholder="300" type="text"
+                                                       name="max_price">
                                             </label>
                                         </div>
 
@@ -173,14 +178,14 @@
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="model"  value="iphone 6 plus">
+                                            <input type="checkbox" name="model" value="iphone 6 plus">
                                             <span>
                                                iPhone 6 Plus
                                             </span>
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="model"  value="iphone 6S">
+                                            <input type="checkbox" name="model" value="iphone 6S">
                                             <span>
                                                iPhone 6S
                                             </span>
@@ -201,14 +206,14 @@
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="model"  value="iphone 8">
+                                            <input type="checkbox" name="model" value="iphone 8">
                                             <span>
                                                iPhone 8
                                             </span>
                                         </label>
 
                                         <label class="checkbox-label">
-                                            <input type="checkbox" name="model"  value="iphone 10">
+                                            <input type="checkbox" name="model" value="iphone 10">
                                             <span>
                                                iPhone 10
                                             </span>
@@ -291,7 +296,8 @@
                                                 <svg width="24" height="24" viewBox="0 0 24 24"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <g>
-                                                        <path d="M3 5V19H20V5H3ZM7 7V9H5V7H7ZM5 13V11H7V13H5ZM5 15H7V17H5V15ZM18 17H9V15H18V17ZM18 13H9V11H18V13ZM18 9H9V7H18V9Z"/>
+                                                        <path
+                                                            d="M3 5V19H20V5H3ZM7 7V9H5V7H7ZM5 13V11H7V13H5ZM5 15H7V17H5V15ZM18 17H9V15H18V17ZM18 13H9V11H18V13ZM18 9H9V7H18V9Z"/>
                                                     </g>
                                                 </svg>
                                             </a>
@@ -307,27 +313,30 @@
                                         </div>
                                         <div class="d-flex align-items-center sorting-filter-row">
                                             <div class="sorting-filter select-drop-down drop-down-sorting sorting">
-                                                <select name="order" id="order" class="sorting_select sorting-filter-content dropping__element__wrapper1">
-                                                  <option value="ASC" style="padding: 10px">Цена по возрастанию</option>
-                                                  <option value="DESC">Цена по убыванию</option>
-                                                </select> 
+                                                <select name="order" id="order"
+                                                        class="sorting_select sorting-filter-content dropping__element__wrapper1">
+                                                    <option value="ASC" style="padding: 10px">Цена по возрастанию
+                                                    </option>
+                                                    <option value="DESC">Цена по убыванию</option>
+                                                </select>
                                             </div>
                                             <div class="sorting-filter select-drop-down drop-down-sorting showing">
-                                               <!--  <div class="sorting-filter-trigger">
+                                            <!--  <div class="sorting-filter-trigger">
                                                    <span class="muted changing">
                                                         Показать 24
-                                                    </span> 
+                                                    </span>
                                                     <label for="cars">Показать 24</label>
                                                     <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
                                                 </div> -->
-                                                <select name="per_page" id="per_page" class="sorting_select sorting-filter-content dropping__element__wrapper1">
-                                                  <option value="24">Показать 24</option>
-                                                  <option value="2">Показать 2</option>
-                                                  <option value="3">Показать 3</option>
-                                                  <option value="1">Показать 1</option>
+                                                <select name="per_page" id="per_page"
+                                                        class="sorting_select sorting-filter-content dropping__element__wrapper1">
+                                                    <option value="24">Показать 24</option>
+                                                    <option value="2">Показать 2</option>
+                                                    <option value="3">Показать 3</option>
+                                                    <option value="1">Показать 1</option>
                                                 </select>
-                                                @csrf
-                                                <!-- < div class="sorting-filter-content dropping__element__wrapper">
+                                            @csrf
+                                            <!-- < div class="sorting-filter-content dropping__element__wrapper">
 
                                                    <ul>
                                                         <li class="sorting-filter-content-changers">
@@ -358,7 +367,9 @@
                             <div id="sort">
                                 <div class="row additional-commodities-wrapper">
                                     @foreach($category->products as $product)
-                                        @include('components.market.card', compact('product'))
+                                        <div class="col-lg-4 col-md-4 col-6">
+                                            @include('components.market.card', compact('product'))
+                                        </div>
                                     @endforeach
                                 </div>
 
@@ -387,88 +398,88 @@
             </div>
         </div>
     </main>
-<script type="text/javascript">
-    var url = '<?= Request::url(); ?>'; 
-    $('.sorting_select').change(function(){
-    var token = $('input[name="_token"]').val();
-    var order = $('#order').children("option:selected").val();
-    var per_page = $('#per_page').children("option:selected").val();
-        var data = {
-            'sorting' : '1',
-            'order' : order,
-            'per_page' : per_page,
-            '_token' : token
-        };
-        $.ajax({
-            type : 'POST',
-            url  : url,
-            data : data
-        }).done(function(data) {
-            $('#sort').html(data);
+    <script type="text/javascript">
+        var url = '<?= Request::url(); ?>';
+        $('.sorting_select').change(function () {
+            var token = $('input[name="_token"]').val();
+            var order = $('#order').children("option:selected").val();
+            var per_page = $('#per_page').children("option:selected").val();
+            var data = {
+                'sorting': '1',
+                'order': order,
+                'per_page': per_page,
+                '_token': token
+            };
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: data
+            }).done(function (data) {
+                $('#sort').html(data);
                 // log data to the console so we can see
                 // console.log(data);
 
                 // here we will handle errors and validation messages
             });
 
-    });
-$('.filter-el input').change(function(){
-    var min_price = $('input[name="min_price"]').val();
-    var max_price = $('input[name="max_price"]').val();
+        });
+        $('.filter-el input').change(function () {
+            var min_price = $('input[name="min_price"]').val();
+            var max_price = $('input[name="max_price"]').val();
 
-    var availability = [];
-    var device = [];
-    var manufacturer = [];
-    var model = [];
-    var color = [];
-    $.each($(".filter-el input[name='availability']:checked"), function(){
-        availability.push($(this).val());
-    });
-    $.each($(".filter-el input[name='device']:checked"), function(){
-        device.push($(this).val());
-    });
-    $.each($(".filter-el input[name='manufacturer']:checked"), function(){
-        manufacturer.push($(this).val());
-    });
-    $.each($(".filter-el input[name='model']:checked"), function(){
-        model.push($(this).val());
-    });
-    $.each($(".filter-el input[name='color']:checked"), function(){
-        color.push($(this).val());
-    });
-    // console.log(availability);
-    // console.log(device);
-    // console.log(manufacturer);
-    // console.log(model);
-    // console.log(color);
+            var availability = [];
+            var device = [];
+            var manufacturer = [];
+            var model = [];
+            var color = [];
+            $.each($(".filter-el input[name='availability']:checked"), function () {
+                availability.push($(this).val());
+            });
+            $.each($(".filter-el input[name='device']:checked"), function () {
+                device.push($(this).val());
+            });
+            $.each($(".filter-el input[name='manufacturer']:checked"), function () {
+                manufacturer.push($(this).val());
+            });
+            $.each($(".filter-el input[name='model']:checked"), function () {
+                model.push($(this).val());
+            });
+            $.each($(".filter-el input[name='color']:checked"), function () {
+                color.push($(this).val());
+            });
+            // console.log(availability);
+            // console.log(device);
+            // console.log(manufacturer);
+            // console.log(model);
+            // console.log(color);
 
-    data = {
-        'filter' : '1',
-        'min_price' : min_price,
-        'max_price' : max_price,
-        'availability' : availability,
-        'device' : device,
-        'attrs' : {
-            'manufacturer' : manufacturer,
-            'model' : model,
-            'color' : color,
-        }
-    };
-    console.log(data);
+            data = {
+                'filter': '1',
+                'min_price': min_price,
+                'max_price': max_price,
+                'availability': availability,
+                'device': device,
+                'attrs': {
+                    'manufacturer': manufacturer,
+                    'model': model,
+                    'color': color,
+                }
+            };
+            console.log(data);
 
-    $.ajax({
-            type : 'POST',
-            url  : url,
-            data : data
-        }).done(function(data) {
-            $('#sort').html(data);
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: data
+            }).done(function (data) {
+                $('#sort').html(data);
                 // log data to the console so we can see
                 // console.log(data);
 
                 // here we will handle errors and validation messages
             });
-});
+        });
 
 
-</script>
+    </script>
 @endsection
