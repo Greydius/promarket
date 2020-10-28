@@ -10,41 +10,27 @@
                     <h1 class="main-title">
                         Регистрация
                     </h1>
-                      <form method="POST" action="{{ route('register') }}">
+                      <form method="POST" class="registation-form" action="{{ route('register') }}" novalidate="novalidate">
                         @csrf
-                        <label class="form-group">                         
-                              <span class="error help-block"><strong> {{ $errors->first('username') }}</strong></span>
+                        <label class="form-group">
                             <input class="auth_control" placeholder="Имя" type="text" name="username" value="{{ old('username') }}">
                         </label>
                         <label class="form-group">
-                      <span class="error help-block"><strong>{{ $errors->first('email') }}</strong></span>
-                           
                             <input class="auth_control" placeholder="Электронная почта" type="email" name="email" value="{{ old('email') }}" >
                         </label>
                         <label class="form-group">
-                            <span class=" error help-block">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                            
                             <input class="auth_control" placeholder="Пароль" type="password" name="password" minlength="8" >
                         </label>
                         <label class="form-group">
-                            <span class=" error help-block">
-                                <strong>{{ $errors->first('password_confirmation') }}</strong>
-                            </span>
-                            <input class="auth_control" placeholder="Пароль ещё раз" type="password"  name="password_confirmation" minlength="8" >
+                            <input class="auth_control" placeholder="Пароль ещё раз" id="password" type="password"  name="password_confirmation" minlength="8" >
                         </label>
                         <div class="auth-checkboxes-wrapper">
-                            <span class=" error help-block">
-                            <strong>{{ $errors->first('agreement') }}</strong>
-                            </span>
+
                             <label class="auth-checkbox checkbox-label">
                                 <input type="checkbox" name="agreement" class="accepted" value="">
                                 <span>Я согласен на обработку моих данных компанией Promarket</span>
                             </label>
-                            <span class=" error help-block">
-                            <strong>{{ $errors->first('agreement2') }}</strong>
-                            </span>
+
                             <label class="auth-checkbox checkbox-label">
                                 <input type="checkbox" name="agreement2" class="accepted" value="">
                                 <span> Я согласен на обработку моих данных компанией Promarket </span>
@@ -62,7 +48,7 @@
 </main>
 
 <script>
-    $(function() {
+    /*$(function() {
   $('.accepted').change(function() {
         console.log(this);
         if ($(this).is(':checked')) {
@@ -177,7 +163,7 @@
 
         app.init();
 
-    });
+    });*/
     </script>
 
 @endsection

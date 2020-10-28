@@ -10084,7 +10084,6 @@ class InputSearch {
                 element.closest('.col-lg-4').hidden = false;
                 return false
             }
-            ;
             element.closest('.col-lg-4').hidden = true
         });
     }
@@ -10189,3 +10188,121 @@ function updateCartQuantity() {
 
 }
 
+
+$('.login_form').validate({
+    rules: {
+        password: {
+            required: true,
+            minLength: 6,
+        },
+        email: {
+            required: true,
+            email: true,
+        },
+    }
+});
+
+$('.order-login').validate({
+    rules: {
+        email: {
+            email: true,
+            required: true
+        },
+        password: {
+            minLength: 6,
+            required: true
+        }
+    }
+})
+
+$('.registation-form').validate({
+    rules: {
+        username: {
+            required: true,
+        },
+        email: {
+            required: true,
+            email: true,
+        },
+        tel: {
+            required: true,
+        },
+        address: {
+            required: true,
+        },
+        password: {
+            required: true,
+            minlength: 6,
+        },
+        password_confirmation: {
+            required: true,
+            equalTo: '#password'
+        },
+        agreement: {
+            required: true,
+        },
+        agreement2: {
+            required: true
+        }
+    },
+    ignore: []
+});
+$('.user-data-self').validate({
+    ignore: [],
+    rules: {
+        name: 'required',
+        firstname: 'required',
+        email: {
+            email: true,
+            required: true
+        },
+        telephone: 'required',
+        'identification-type': {
+            required: true
+        }
+    }
+})
+$('.user-data-omniva').validate({
+    ignore: [],
+    rules: {
+        name: 'required',
+        firstname: 'required',
+        email: {
+            email: true,
+            required: true
+        },
+        telephone: 'required',
+        'identification-type': {
+            required: true
+        }
+    }
+})
+
+$('.user-data-delivery').validate({
+    ignore: [],
+    rules: {
+        name: 'required',
+        firstname: 'required',
+        email: {
+            email: true,
+            required: true
+        },
+        telephone: 'required',
+        'identification-type': {
+            required: true
+        },
+        city: 'required',
+        delivery_address: 'required',
+        postcode: 'required',
+
+    }
+})
+
+$('.order-no-registration').validate({
+    rules: {
+        email: {
+            email: true,
+            required: true
+        }
+    }
+})

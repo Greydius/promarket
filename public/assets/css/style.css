@@ -6186,6 +6186,11 @@ input[type=number] {
 .header__cart_img img{
     object-fit: cover;
 }
+.auth-checkbox .error{
+    position: absolute;
+    top: 100%;
+    color: red;
+}
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }

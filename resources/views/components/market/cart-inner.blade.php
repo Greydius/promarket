@@ -27,7 +27,8 @@
                                     </label>
                                 </div>
                                 <div class="quantity-trigger-wrapper">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
                                         <g opacity="0.54">
                                             <path d="M7 10L12 15L17 10H7Z" fill="#202020"></path>
                                         </g>
@@ -66,9 +67,11 @@
             </div>
         </div>
         <div class="col-xl-12 text-center">
-            <button type="submit" class="submit-form default-button">
-                ОФОРМИТЬ ЗАКАЗ
-            </button>
+            <a href="{{route('checkout')}}">
+                <button type="submit" class="submit-form default-button">
+                    ОФОРМИТЬ ЗАКАЗ
+                </button>
+            </a>
         </div>
     </div>
 </div>

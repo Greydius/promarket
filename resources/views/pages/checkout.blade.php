@@ -3,98 +3,16 @@
 @section('content')
 
     <main class="main">
-       
+
         <section class="cart-content pt-4">
-            <div class="container">
-                <div class="alert">
-                 @if(session()->has('success'))
-                    <p class="alert alert-success text-center">{{session()->get('success')}}</p>
-                @endif
-                @if(session()->has('error'))
-                <p class="alert alert-error alert-danger text-center">{{session()->get('error')}}</p>
-                @endif
-                </div>
-                <div class="small-title">
-                    КОРЗИНА (4 продукта)
-                </div>
-                <div class="row justify-content-end">
-                    <div class="clean-cart">
-                <span>
-                    <img src="./img/cart/Vector.svg" alt="icon">
-                </span>
-                        Очистить корзину
-                    </div>
-                    <div class="col-xl-12">
-                        @foreach($order->products as $product)
-                            <div class="cart-item d-flex align-items-center justify-content-between my-3"
-                                 style="background-image: url({{asset('assets/./img/cart/Rectangle\ 74.svg')}});">
-                                <div class="remove-cart-item-tablet"><a href="#" class="remove-cart-item"><img
-                                            src="./img/cart/Vector.svg" alt="icon"></a></div>
-                                <div class="cart-changing">
-                                    <div>{{$product->name}}
-                                        <div><a href="#" class="remove-cart-item remove-cart-item-pc">Удалить</a></div>
-                                    </div>
-                                    <div class="quantity-drop quantity-selection-drop-down">
-                                        <div class="quantity-view-wrapper align-items-center d-flex">
-                                            <div class="quantity-input-wrapper">
-                                                <label>
-
-                                                    <input value="{{$product->pivot->count}}" type="text" class="quantity-input">
-                                                </label>
-                                            </div>
-                                            <div class="quantity-trigger-wrapper">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <g opacity="0.54">
-                                                        <path d="M7 10L12 15L17 10H7Z" fill="#202020"></path>
-                                                    </g>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="commodity-card-price commodity-card-price-mobile">
-                                        44.50 €
-                                        <div class="commodity-card-additional-price">
-                                            <span>39.99 € excl.VAT</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="commodity-card-price commodity-card-price-pc">
-                                    44.50 €
-                                    <div class="commodity-card-additional-price">
-                                        <span>39.99 € excl.VAT</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        @endforeach
-                    </div>
-                    <div class="col-xl-12 d-flex justify-content-between pt-3">
-                        <div class="small-title small-title-pc">
-                    <span>
-                        <img src="./img/cart/arrow_back-24px 1.svg" alt="icon">
-                    </span>
-                            ПРОДОЛЖИТЬ ПОКУПКИ
-                        </div>
-                        <div class="small-title d-flex">
-                            ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> 344.50 €
-                        <span class="commodity-card-price-muted">39.99 € excl.VAT</span>
-                    </span>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 text-center">
-                        <button type="submit" class="submit-form default-button">
-                            ОФОРМИТЬ ЗАКАЗ
-                        </button>
-                    </div>
-                </div>
-            </div>
+            @include('components.market.cart-inner', compact('order'))
         </section>
 
         <section class="authorization-content mb-5">
             <div class="container">
 
                 @if (!Auth::check())
-                  
+
                 <div class="small-title text-center my-4 hide-for-mobile">
                     Авторизуйтесь для совершения заказа
                 </div>
@@ -111,12 +29,12 @@
                         <div class="small-title mb-4">войдите в аккаунт</div>
                         <button class="enter-via-facebook show-for-mobile">Войти через Facebook</button>
                         <button class="enter-via-gmail show-for-mobile">Войти через Google</button>
-                         <form method="POST" action="{{ route('login') }}">
+                         <form method="POST" action="{{ route('login') }}" class="order-login">
                         @csrf
                             <input type="email" placeholder="Электронная почта" name="email" name="email">
                              @if ($errors->has('email'))
                                 <span class="error">{{ $errors->first('email') }}</span>
-                              @endif 
+                              @endif
                             <input type="password" placeholder="Пароль" name="password" >
                             <p class="my-3">Я забыл пароль! <a href="#"> Восстановить его скорее</a></p>
                             <p class="my-3">Нет аккаунта? <a href="#"> Зарегистрироваться</a></p>
@@ -127,13 +45,14 @@
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 buy-without-registration p-5">
                         <div class="small-title mb-4">купите без регистрации</div>
+                        <form action="POST" class="order-no-registration">
                         <input type="email" placeholder="Электронная почта" name="email" name="email">
-                        <form action="POST">
+
                             <p class="my-3">Сможете зарегистрироваться и после
                                 совершения покупки.</p>
-                            <a href="#" class="default-button mt-4">
+                            <button type="submit" class="default-button mt-4">
                                 войти
-                            </a>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -183,7 +102,7 @@
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
                                     <div class="small-title text-center mb-4 mt-5">ДАННЫЕ ПОКУПАТЕЛЯ</div>
-                                    <form action="{{ route('confirm.order') }}" method="POST" class="user-data">
+                                    <form action="{{ route('confirm.order') }}" method="POST" class="user-data user-data-self">
                                         @csrf
                                         <input type="hidden" name="delivery" value="Самовывоз">
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
@@ -204,7 +123,7 @@
                                         <input type="text" placeholder="Фамилия" name="firstname">
                                         <input type="email" placeholder="Электронная почта" name="email">
                                         <input type="tel" placeholder="Ваш телефон" name="telephone">
-                                        <textarea name="comment" id="comment" class="show-for-mobile" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
+                                        <textarea name="comment" id="comment" class="" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
 
                                         <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
                                         <div class="payment-drop-down-wrapper">
@@ -234,7 +153,7 @@
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
                                     <div class="small-title text-center mb-4 mt-5">АДРЕС ДОСТАВКИ</div>
-                                    <form action="{{ route('confirm.order') }}" method="POST" class="user-data">
+                                    <form action="{{ route('confirm.order') }}" method="POST" class="user-data user-data-omniva">
                                         @csrf
                                          <input type="hidden" name="delivery" value="Забрать почтомате">
                                         <div class="city-drop-down-wrapper">
@@ -269,7 +188,7 @@
                                         <input type="text" placeholder="Фамилия" name="firstname">
                                         <input type="email" placeholder="Электронная почта" name="email">
                                         <input type="tel" placeholder="Ваш телефон" name="telephone">
-                                        <textarea name="comment" id="comment" class="show-for-mobile" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
+                                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
 
                                         <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
                                         <div class="payment-drop-down-wrapper">
@@ -296,7 +215,7 @@
                             </div>
                         </div>
                         <div class="delivery-tab-content">
-                            <form action="{{ route('confirm.order') }}" method="POST" class="user-data">
+                            <form action="{{ route('confirm.order') }}" method="POST" class="user-data user-data-delivery">
                                 @csrf
                                 <input type="hidden" name="delivery" value="Доставить по указанному адресу">
                             <div class="row">
@@ -342,7 +261,7 @@
                                         <input type="text" placeholder="Фамилия" name="firstname">
                                         <input type="email" placeholder="Электронная почта" name="email">
                                         <input type="tel" placeholder="Ваш телефон" name="telephone">
-                                        <textarea name="comment" id="comment" class="show-for-mobile" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
+                                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
 
                                         <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
                                         <div class="payment-drop-down-wrapper">

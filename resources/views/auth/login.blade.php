@@ -10,7 +10,7 @@
           <h1 class="main-title">
             Войти в систему
           </h1>
-          <form method="POST" action="{{ route('login') }}" class="login_form">
+          <form novalidate="novalidate" method="POST" action="{{ route('login') }}" class="login_form">
             @csrf
             <div class="outer-service-auth-wrapper">
               @foreach(['facebook', 'google'] as $provider)
@@ -22,18 +22,10 @@
               @endforeach
             </div>
             <label>
-
-              <span class=" error help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
-              </span>
-              <input class="auth_control" placeholder="Электронная почта" type="email" name="email" >
-
+              <input class="auth_control" placeholder="Электронная почта" type="email" name="email">
             </label>
             <label>
-               <span class=" error help-block">
-                  <strong>{{ $errors->first('password') }}</strong>
-              </span>
-              <input class="auth_control" minlength="8" placeholder="Пароль" type="password" name="password">
+              <input class="auth_control" placeholder="Пароль" type="password" name="password">
             </label>
             <button type="submit" class="submit-form default-button">
               OK
@@ -115,7 +107,7 @@
     //                         error = jqXHR.responseJSON;
     //                         // alert(error.errors.email);
     //                         console.log(error.errors);
-                            
+
     //                         if (error.errors.email) {
     //                             app.DOM.form.email.group.find('strong').text(error.errors.email[0]);
     //                             app.DOM.form.email.group.addClass('has-error');
@@ -139,7 +131,7 @@
 $(document).ready(function(){
 
   $.extend($.validator.messages, {
-      required: "Это поле обязательно для заполнения",   
+      required: "Это поле обязательно для заполнения",
       email: "Пожалуйста, введите действительный адрес электронной почты."
 });
 
@@ -153,14 +145,14 @@ $("form.login_form").validate({
       password: {
         required: true
       }
-    }, 
+    },
     ignore: [],
     errorPlacement: function (error, element) {
                $(error).insertAfter(element.prev(".error"));
            },
-   
+
 });
-    
+
 });
     </script>
 
