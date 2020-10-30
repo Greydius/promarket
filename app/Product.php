@@ -9,6 +9,7 @@ use Spatie\Searchable\SearchResult;
 class Product extends Model  implements Searchable
 {
     public $searchableType = 'Магазин';
+
     public function subCategory() {
         return $this->belongsTo(SubCategory::class);
     }
@@ -16,8 +17,7 @@ class Product extends Model  implements Searchable
 
     public function getSearchResult(): SearchResult
     {
-        $url = route('shop-inner', ['','', $this->code]);
-        $price = $this->price;
+        $url = route('shop-inner', [$this->subCategory->category->code, $this->subCategory->code, $this->code]);
 
         return new SearchResult(
             $this,

@@ -392,7 +392,7 @@ $(document).ready(function() {
             $('#search_list').html("");
         });
 
-    $('.link_all_result a ').click(function(){
+    $('.link_all_result a').click(function(){
         $('.search_form_submit').trigger('click');
     })
 });

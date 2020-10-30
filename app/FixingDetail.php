@@ -22,8 +22,10 @@ class FixingDetail extends Model implements Searchable
 
      public function getSearchResult(): SearchResult
     {
-        // $url = route('fixing-order-detail', $this->id);
-        $url = '#';
+
+        
+        $url = route('fixing-order-detail', [$this->manufacturerModel->manufacturer->fixingType->code, $this->manufacturerModel->manufacturer->code, $this->manufacturerModel->code]) .'?id='.$this->id;
+
         return new SearchResult(
             $this,
             $this->name,

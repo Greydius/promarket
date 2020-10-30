@@ -12,7 +12,7 @@
                 <img src="{{ asset('/storage/'.$result->searchable->img) }}">
                 @endif
                 <p><a href="{{$result->url}}">{{$result->title}}</a>
-                <span class="price">€ {{ $result->searchable->price }}</span></p>
+                <span class="price">€ ff{{ $result->searchable->price }}</span></p>
              </li>   
              @endif
              <?php $i++; ?>
