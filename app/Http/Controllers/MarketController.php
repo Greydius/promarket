@@ -13,7 +13,8 @@ class MarketController extends Controller
     public function shopMain($categoryCode, $subCategoryCode)
     {
        $category = SubCategory::where('code', $subCategoryCode)->first();
-       return view('pages.market.main', ['category' => $category, 'nds' => 0.85]);
+       $products = $category->products()->paginate(12);
+       return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85]);
     }
     public function sortAjax($categoryCode, $subCategoryCode)
     {

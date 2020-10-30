@@ -366,30 +366,13 @@
                             </h3>
                             <div id="sort">
                                 <div class="row additional-commodities-wrapper">
-                                    @foreach($category->products as $product)
+                                    @foreach($products as $product)
                                         <div class="col-lg-4 col-md-4 col-6">
                                             @include('components.market.card', compact('product'))
                                         </div>
                                     @endforeach
                                 </div>
-
-                                <div class="pagination d-flex align-items-center justify-content-center">
-                                    <a href="#" class="get-back pagination-bullet">
-                                        &lt;&lt;
-                                    </a>
-                                    <a href="#" class="pagination-bullet">
-                                        1
-                                    </a>
-                                    <a href="#" class="pagination-bullet active">
-                                        2
-                                    </a>
-                                    <a href="#" class="pagination-bullet">
-                                        3
-                                    </a>
-                                    <a href="#" class="pagination-bullet get-next">
-                                        &gt;&gt;
-                                    </a>
-                                </div>
+                                {{$products->links('components.pagination')}}
                             </div>
 
                         </div>

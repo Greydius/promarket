@@ -48,7 +48,7 @@
 </main>
 
 <script>
-    /*$(function() {
+    $(function() {
   $('.accepted').change(function() {
         console.log(this);
         if ($(this).is(':checked')) {
@@ -57,7 +57,7 @@
             $(this).val('');
         }
     });
-        var app = {
+      /*  var app = {
             DOM: {},
             init: function () {
 
@@ -161,9 +161,9 @@
             }
         }
 
-        app.init();
+        app.init();*/
 
-    });*/
+    });
     </script>
 
 @endsection

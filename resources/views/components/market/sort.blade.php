@@ -1,6 +1,8 @@
 <div class="row additional-commodities-wrapper">
     @foreach($products as $product)
-        @include('components.market.card', compact('product'))
+	    <div class="col-lg-4 col-md-4 col-6">
+	        @include('components.market.card', compact('product'))    	
+	    </div>
     @endforeach
 </div>
 
