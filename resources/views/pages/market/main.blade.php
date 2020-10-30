@@ -308,7 +308,7 @@
                                     <div class="sorting-pages d-flex justify-content-between align-items-center">
                                         <div class="sorting-pagination">
                                     <span class="muted">
-                                        1-12 из 1046
+                                        {{$products->currentPage()}}-{{$products->count()}} из {{$products->total()}}
                                     </span>
                                         </div>
                                         <div class="d-flex align-items-center sorting-filter-row">
