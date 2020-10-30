@@ -377,7 +377,7 @@
                                 <div class="col-lg-4 col-md-4 col-6">
                                     <div class="commodity-default-card">
                                         <div class="commodity-image-wrapper">
-                                            <a href="{{route('shop-inner', [$result->url])}}">
+                                            <a href="{{$result->url}}">
                                                 <img src="{{ asset('assets/img/common/card.png') }}" alt="">
                                             </a>
                                         </div>
