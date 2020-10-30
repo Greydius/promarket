@@ -367,6 +367,7 @@
     ga('send', 'pageview')
 
 $(document).ready(function() {
+    
     src = "{{ route('search') }}";
 
         $('#search_text').on('keyup',function() {
@@ -392,9 +393,7 @@ $(document).ready(function() {
             $('#search_list').html("");
         });
 
-    $('.link_all_result a').click(function(){
-        $('.search_form_submit').trigger('click');
-    })
+
 });
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async></script>
