@@ -30,7 +30,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/profile';
-
+    
     /**
      * Create a new controller instance.
      *
@@ -40,7 +40,19 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
+       /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,NULL,id,deleted_at,NULL'],
+            'password' => ['required', 'string', 'min:8'],
+        ]);
+    }
 
 
     public function logout(Request $request)
@@ -58,19 +70,7 @@ class LoginController extends Controller
         return $this->loggedOut($request) ?: redirect('/');
     }
 
-     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,NULL,id,deleted_at,NULL'],
-            'password' => ['required', 'string', 'min:8'],
-        ]);
-    }
+  
 
     public function redirectToProvider(string $provider)
     {
