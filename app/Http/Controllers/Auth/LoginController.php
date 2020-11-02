@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Providers\RouteServiceProvider;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Socialite;
 use App\User;
 
@@ -39,6 +40,24 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+
+    public function logout(Request $request)
+    {
+       $data =  session()->get('orderId');
+
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerate();
+
+        session()->put('orderId', $data);
+
+        return $this->loggedOut($request) ?: redirect('/');
+    }
+
      /**
      * Get a validator for an incoming registration request.
      *
@@ -120,6 +139,7 @@ class LoginController extends Controller
             return redirect('login')->withErrors(['authentication_deny' => 'Login with '.ucfirst($provider).' failed. Please try again.']);
         }
     }
+
     public function socialLogin(User $user)
     {
     auth()->loginUsingId($user->id);
