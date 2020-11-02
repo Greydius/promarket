@@ -96,3 +96,5 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/cart-state', 'OrderController@returnCartState')->name('cart-state');
 
 Route::get('/cart-data-remove/{id}', 'OrderController@returnDataFromRemovedProductInOrder')->name('remove-cart-data');
+
+Route::post('/registerOnlyEmail', 'Auth\RegisterController@regOnlyEmail')->name('regOnlyEmail');

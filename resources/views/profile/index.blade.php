@@ -237,23 +237,6 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="pagination d-flex align-items-center justify-content-center">
-                                <a href="#" class="get-back pagination-bullet">
-                                    &lt;&lt;
-                                </a>
-                                <a href="#" class="pagination-bullet">
-                                    1
-                                </a>
-                                <a href="#" class="pagination-bullet active">
-                                    2
-                                </a>
-                                <a href="#" class="pagination-bullet">
-                                    3
-                                </a>
-                                <a href="#" class="pagination-bullet get-next">
-                                    &gt;&gt;
-                                </a>
-                            </div>
                         </div>
 
 

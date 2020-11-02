@@ -29,24 +29,31 @@
                         <div class="small-title mb-4">войдите в аккаунт</div>
                         <button class="enter-via-facebook show-for-mobile">Войти через Facebook</button>
                         <button class="enter-via-gmail show-for-mobile">Войти через Google</button>
-                         <form method="POST" action="{{ route('login') }}" class="order-login">
+                         <form method="POST" class="order-login">
                         @csrf
-                            <input type="email" placeholder="Электронная почта" name="email" name="email">
                              @if ($errors->has('email'))
-                                <span class="error">{{ $errors->first('email') }}</span>
+                            <span class="error">{{ $errors->first('email') }}</span>
+                              @endif
+                            <input type="email" placeholder="Электронная почта" name="email" name="email">
+                             @if ($errors->has('password'))
+                                <span class="error">{{ $errors->first('password') }}</span>
                               @endif
                             <input type="password" placeholder="Пароль" name="password" >
                             <p class="my-3">Я забыл пароль! <a href="#"> Восстановить его скорее</a></p>
                             <p class="my-3">Нет аккаунта? <a href="#"> Зарегистрироваться</a></p>
-                            <button type="submit" class="default-button mt-4">
+                            <button type="submit" class="default-button mt-4 order-login-btn">
                                 войти
                             </button>
                         </form>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 buy-without-registration p-5">
                         <div class="small-title mb-4">купите без регистрации</div>
-                        <form action="POST" class="order-no-registration">
-                        <input type="email" placeholder="Электронная почта" name="email" name="email">
+                        <form action="{{route('regOnlyEmail')}}" method="POST" class="order-no-registration">
+                            @csrf
+                            @if ($errors->has('email'))
+                                <span class="error">{{ $errors->first('email') }}</span>
+                            @endif
+                            <input type="email" placeholder="Электронная почта" name="email" name="email">
 
                             <p class="my-3">Сможете зарегистрироваться и после
                                 совершения покупки.</p>
@@ -294,5 +301,44 @@
         </section>
 
     </main>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.order-login .order-login-btn').click(function(e){
 
+            var data = $('form.order-login').serialize();
+
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url : "{{ route('login') }}",
+                data : data
+
+            }).done(function(res){
+                console.log(res);
+                location.reload();
+            }).fail(function(res){
+                console.log(res);
+            });
+        });
+        // $('.order-no-registration button').click(function(e){
+
+        //     var data = $('form.order-no-registration').serialize();
+
+        //     e.preventDefault();
+        //     $.ajax({
+        //         type: 'POST',
+        //         url : "{{ route('regOnlyEmail') }}",
+        //         data : data
+
+        //     }).done(function(res){
+        //         console.log(res);
+        //         location.reload();
+        //     }).fail(function(res){
+        //         console.log(res);
+        //     });
+        // });
+
+    });
+
+</script>
 @endsection

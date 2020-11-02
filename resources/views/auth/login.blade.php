@@ -22,9 +22,19 @@
               @endforeach
             </div>
             <label>
+              @error('email')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>  {{ $errors->first('email') }}</strong>
+                  </span>
+              @enderror
               <input class="auth_control" placeholder="Электронная почта" type="email" name="email">
             </label>
             <label>
+              @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @enderror
               <input class="auth_control" placeholder="Пароль" type="password" name="password">
             </label>
             <button type="submit" class="submit-form default-button">

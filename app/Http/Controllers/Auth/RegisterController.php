@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
+use App\User;
 
 class RegisterController extends Controller
 {
@@ -25,17 +26,6 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    // protected $redirectTo = '/email/verify';
-    protected function redirectPath()
-    {
-      return '/email/verify';
-    }
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -43,6 +33,18 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    // protected $redirectTo = '/email/verify';
+    
+    protected function redirectPath()
+    {
+      return '/email/verify';
     }
 
     /**
@@ -54,7 +56,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-        'username' => 'required|string|min:3',
+        'username' => 'string|min:3',
         'email' => 'required|string|email|max:255|unique:users,email,NULL,id,deleted_at,NULL',
         'password' => 'required|string|min:8|confirmed',
         'password_confirmation' => 'required|min:8',
@@ -76,5 +78,28 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function regOnlyEmail()
+    {
+        $email = request()->email;
+        $password = Str::random(8);
+
+        $validatedData = request()->validate([
+            'email' => 'required|string|email|max:255|unique:users,email,NULL,id,deleted_at,NULL',
+        ]);
+
+        $user = User::create([
+            'username' => ' ',
+            'email' => $email,
+            'password' => Hash::make($password),
+        ]);
+        // $send_verify = ;   
+        // if($send_verify){
+        \Mail::to($email)->send(new \App\Mail\WelcomeNewUser($password));
+        $user->sendEmailVerificationNotification();
+         return redirect()->route('verification.notice');
+        // }
+        // return 'error';
     }
 }

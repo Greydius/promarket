@@ -13,7 +13,7 @@
         <div class="col-xl-12">
             <div v-for="myProduct in orderProducts" :key="myProduct.id"
                  class="cart-item d-flex align-items-center justify-content-between my-3">
-                <img :src="appUrl + 'storage/' + myProduct.img" class="cart-item-img" alt="">
+                <img :src="appUrl + '/storage/' + myProduct.img" class="cart-item-img" alt="">
                 <div class="remove-cart-item-tablet"><a href="#" @click="removeFromCart(myProduct.id)" class="remove-cart-item"><img
                             src="{{asset('assets/img/cart/Vector.svg')}}" alt="icon"></a></div>
                 <div class="cart-changing">
