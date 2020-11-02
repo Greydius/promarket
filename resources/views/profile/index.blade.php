@@ -264,6 +264,7 @@ $('#avatar').change(function(){
     success: function (result) {
          console.log(result);
          $(".user_avatar").attr("src","uploads/avatar/" + result);
+         $(".profile-photo img").attr("src","uploads/avatar/" + result);
          // play the audio file
     }
 });

@@ -4919,6 +4919,7 @@ main {
   height: 48px;
   background: #C4C4C4;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .profile-name {
