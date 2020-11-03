@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="no-js" lang="{{ app()->getLocale() }}">
 
 <head>
     <meta charset="utf-8">
@@ -153,23 +153,20 @@
             <div class="language-selection-drop-down">
                 <div class="language-selected-text d-flex">
                     <p>
-                        RU
+                        {{app()->getLocale()}}
                     </p>
                     <img src="{{ asset('assets/img/common/drop.svg') }}" alt="">
                 </div>
                 <div class="language-dropdown">
-                    <ul>
+                  <ul>
+                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                         <li class="language-selected-text-inner">
-                            <a href="#">
-                                ENG
+                            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                {{ $properties['native'] }}
                             </a>
                         </li>
-                        <li class="language-selected-text-inner">
-                            <a href="#">
-                                LV
-                            </a>
-                        </li>
-                    </ul>
+                    @endforeach
+                    </ul>    
                 </div>
             </div>
             <div data-media-link="{{route('cart')}}" class="header_cart">
@@ -191,7 +188,7 @@
 
             </div>
             @guest
-                <a href="{{ route('login') }}" class="header_profile">
+                <a href="{{ route('login', app()->getLocale()) }}" class="header_profile">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g opacity="">
                             <path

@@ -12,8 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::post('/send-feedback', 'MainController@sendFeedback')->name('send-feedback');
+
+Route::group([
+	'prefix' => LaravelLocalization::setLocale(),
+	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+	],function (){
+
 
 Route::get('/', 'MainController@main')->name('main-page');
 
@@ -89,12 +94,17 @@ Route::get('/search-ajax', 'MainController@searchAjax')->name('search.ajax');
 Route::post('/update-cart', 'OrderController@updateProductQuantity')->name('update-cart');
 Route::post('/commodity-quantity', 'OrderController@returnDataFromUpdatedProductQuantity')->name('update-cart-data');
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
 
 Route::get('/cart-state', 'OrderController@returnCartState')->name('cart-state');
 
 Route::get('/cart-data-remove/{id}', 'OrderController@returnDataFromRemovedProductInOrder')->name('remove-cart-data');
 
 Route::post('/registerOnlyEmail', 'Auth\RegisterController@regOnlyEmail')->name('regOnlyEmail');
+
+
+   Route::get('/all-categories', 'MainController@getCategories')->name('lang-change');
+});
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

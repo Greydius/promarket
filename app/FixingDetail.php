@@ -3,11 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Searchable\Searchable;
+use TCG\Voyager\Traits\Translatable;
 use Spatie\Searchable\SearchResult;
+use Spatie\Searchable\Searchable;
 
 class FixingDetail extends Model implements Searchable
 {
+    use Translatable;
+    protected $translatable = ['name'];
+    
     public $searchableType = 'Ремонт';
 
     public function manufacturerModel() {

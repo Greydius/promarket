@@ -19,22 +19,22 @@ class FixingController extends Controller
     }
 
     public function fixingType($type) {
-        $fixingType = FixingType::where('code', $type)->first();
+        $fixingType = FixingType::where('code', $type)->with('translations')->first();
         return view('pages.fixing.fixing-inner', compact('fixingType'));
     }
 
     public function fixingBrand($type, $brand) {
-        $manufacturer = Manufacturer::where('code', $brand)->first();
+        $manufacturer = Manufacturer::where('code', $brand)->with('translations')->first();
         return view('pages.fixing.fixing-inner-brand', compact('manufacturer'));
     }
 
     public function fixingBrandModel($type, $brand, $modelName) {
-        $model = ManufacturerModel::where('code', $modelName)->first();
+        $model = ManufacturerModel::where('code', $modelName)->with('translations')->first();
         return view('pages.fixing.model', compact('model'));
     }
 
     public function fixingModelDetail($type, $brand, $modelName, $detailName) {
-        $model = ManufacturerModel::where('code', $modelName)->first();
+        $model = ManufacturerModel::where('code', $modelName)->with('translations')->first();
         return view('pages.fixing.model', compact('model'));
     }
 

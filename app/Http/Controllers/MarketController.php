@@ -13,12 +13,13 @@ class MarketController extends Controller
     public function shopMain($categoryCode, $subCategoryCode)
     {
        $category = SubCategory::where('code', $subCategoryCode)->first();
-       $products = $category->products()->paginate(12);
+       $products = $category->products()->withTranslations()->paginate(12);
+       
        return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85]);
     }
     public function sortAjax($categoryCode, $subCategoryCode)
     {
-       $category = SubCategory::where('code', $subCategoryCode)->first();
+       $category = SubCategory::where('code', $subCategoryCode)->with('translations')->first();
        // dump(request()->per_page);
        if(request()->sorting == 1){
        $products = $category->products()->orderBy('price',request()->order)->paginate(request()->per_page);
@@ -44,8 +45,8 @@ class MarketController extends Controller
 
     public function shopInner($categoryCode, $subcategoryCode, $modelCode)
     {
-        $product = Product::where('code', $modelCode)->first();
-        $product->installation = FixingDetail::where('vendor_code', $product->vendor_code)->first();
+        $product = Product::where('code', $modelCode)->with('translations')->first();
+        $product->installation = FixingDetail::where('vendor_code', $product->vendor_code)->with('translations')->first();
         return view('pages.market.product', compact('product'));
     }
 }

@@ -3,11 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Searchable\Searchable;
+use TCG\Voyager\Traits\Translatable;
 use Spatie\Searchable\SearchResult;
+use Spatie\Searchable\Searchable;
 
 class Product extends Model  implements Searchable
 {
+    use Translatable;
+    protected $translatable = ['name','installation_description','color'];
+    
     public $searchableType = 'Магазин';
 
     public function subCategory() {
