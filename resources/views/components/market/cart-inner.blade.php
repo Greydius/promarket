@@ -107,6 +107,7 @@
                     .get(this.clearCartUrl)
                     .then(res => {
                         this.orderProducts = [];
+                        document.location = this.appUrl
                     })
                     .catch(err => {
                         console.log(err);
