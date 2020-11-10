@@ -10152,7 +10152,7 @@ function addCommodityToCart(e) {
         })
 }
 
-async function fetchData(url) {
+function fetchData(url) {
     return axios
         .get(url)
         .then(res => {
@@ -10321,3 +10321,4 @@ $('.order-no-registration').validate({
         }
     }
 })
+$('.js-selectric').selectric();
