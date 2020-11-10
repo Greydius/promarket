@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Spatie\Searchable\Search;
-use App\Product;
-use App\Category;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\FixingDetail;
+use App\Category;
+use App\SubCategory;
+use App\Product;
+
 
 class MainController extends Controller
 {
@@ -69,17 +73,5 @@ class MainController extends Controller
         return 'Сообщение успешно отправлено.';
     }
 
-    public function getCategories()
-    {
-        $categories = Category::all();
-        // $categories->load('translations');
-        $categories->translate('locale', 'fallbackLocale');
-        dd($categories[0]->title);
-        foreach($categories as $category){
-        $category = $category->translate('locale', 'fallbackLocale');
-            dd($category->name);
-        }
-        return $categories;
-    }
-
+  
 }

@@ -13,7 +13,7 @@
     $product->subCategory->code,
     $product->code
 ])}}" class="commodity-card-title">
-                {{$product->name}} {{$product->getTranslatedAttribute('name', 'en', 'fallbackLocale')}}
+               {{$product->getTranslatedAttribute('name', app()->getLocale(), 'fallbackLocale')}}
             </a>
             <div class="commodity-card-parameter">
                 @include('components.common.in-stock', ['quantity' => $product->quantity])

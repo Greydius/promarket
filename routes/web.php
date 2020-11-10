@@ -105,6 +105,10 @@ Route::post('/registerOnlyEmail', 'Auth\RegisterController@regOnlyEmail')->name(
    Route::get('/all-categories', 'MainController@getCategories')->name('lang-change');
 });
 
+Route::get('/for-testing', 'MainController@forTesting')->name('forTesting');
+
+Route::get('/create-sub-categories', 'MainController@createSubCategories')->name('createSubCategories');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
