@@ -10,6 +10,12 @@
           <h1 class="main-title">
             Войти в систему
           </h1>
+          @if(session('success'))
+            <h4>
+            {{session()->get('success')}}
+             </h4>
+          @endif
+         
           <form novalidate="novalidate" method="POST" action="{{ route('login') }}" class="login_form">
             @csrf
             <div class="outer-service-auth-wrapper">

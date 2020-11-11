@@ -9,6 +9,11 @@
           <h1 class="main-title">
             Новый пароль
           </h1>
+           @if(session('error'))
+              <h4>
+              {{session()->get('error')}}
+               </h4>
+            @endif
             <form method="POST" action="{{ route('password.update') }}" class="reset_pass">
             @csrf
 
@@ -26,7 +31,7 @@
             </label>
 
             <label>
-             <input id="password" type="password" class="auth_control  @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"  placeholder="Введите новый пароль">
+             <input id="password" type="password" class="auth_control  @error('password') is-invalid @enderror" name="new_password" required autocomplete="new-password"  placeholder="Введите новый пароль">
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
