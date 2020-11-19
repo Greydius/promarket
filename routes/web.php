@@ -107,6 +107,10 @@ Route::post('/registerOnlyEmail', 'Auth\RegisterController@regOnlyEmail')->name(
 
 Route::get('/for-testing', 'MainController@forTesting')->name('forTesting');
 
+Route::get('/get-token', 'RemonlineController@getToken')->name('get-token');
+
+Route::get('/upload-prod', 'RemonlineController@uploadProductsFromWarehouses')->name('upload-products');
+
 Route::get('/create-sub-categories', 'MainController@createSubCategories')->name('createSubCategories');
 
 Route::group(['prefix' => 'admin'], function () {
