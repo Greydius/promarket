@@ -111,6 +111,8 @@ Route::get('/get-token', 'RemonlineController@getToken')->name('get-token');
 
 Route::get('/upload-prod', 'RemonlineController@uploadProductsFromWarehouses')->name('upload-products');
 
+Route::get('/upload-sub', 'RemonlineController@uploadSubCategories')->name('upload-sub');
+
 Route::get('/create-sub-categories', 'MainController@createSubCategories')->name('createSubCategories');
 
 Route::group(['prefix' => 'admin'], function () {
