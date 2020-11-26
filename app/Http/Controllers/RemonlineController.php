@@ -93,7 +93,7 @@ class RemonlineController extends Controller
         foreach ($resData as $category) {
             $bigCategory = Category::where('old_id', $category['parent_id'])->first();
             if ($bigCategory != null) {
-                $subCategory = SubCategory::find($category['id']);
+                $subCategory = SubCategory::where('old_id', $category['id'])->first();
                 if ($subCategory == null) {
                     \DB::table('sub_categories')->insert([
                         'name' => $category['title'],
@@ -133,6 +133,7 @@ class RemonlineController extends Controller
                 array_push($filteredProducts, $product);
             }
         }
+        $this->uploadProducts($products);
         $this->uploadForFixing($filteredProducts);
     }
 
@@ -240,7 +241,46 @@ class RemonlineController extends Controller
 
     }
 
-    
+    private function findSubCategory($product, $categories)
+    {
+        $returningValue = '';
+        foreach ($categories as $category) {
+            if ($category['old_id'] == $product['category']['id']) {
+                $returningValue = $category;
+            }
+            if ($category['old_id'] == $product['category']['parent_id']){
+                $returningValue = SubCategory::where('old_id', $product['category']['parent_id'])->first();
+            }
+        }
+        return $returningValue;
+    }
+
+    private function uploadProducts ($products)
+    {
+        $categories = SubCategory::get();
+        foreach ($products as $product) {
+            $productDB = Product::where('remonline_title', $product['title'])->first();
+            $subCategory = $this->findSubCategory($product, $categories);
+            if ($productDB == null) {
+                $newProd = new Product();
+                $newProd->name = $product['title'];
+                $newProd->price = $product['price']['85837'];
+                $newProd->name = $product['title'];
+                $newProd->code = Str::slug($product['title'], '_');
+                $newProd->vendor_code = 'A11213';
+                $newProd->quantity = $product['residue'];
+                $newProd->model = $product['article'];
+                $newProd->price_with_installation = $product['price']['91237'];
+                $newProd->installation_description = $product['description'];
+                $newProd->manufacturer = $product['category']['title'];
+                $newProd->color = 'melns';
+                $newProd->img = $product['image'];
+                $newProd->sub_category_id = $subCategory->id;
+                $newProd->remonline_title = $product['title'];
+                $newProd->save();
+            }
+        }
+    }
 
 
 
