@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\FixingDetail;
 
 use App\Product;
@@ -12,9 +13,15 @@ class MarketController extends Controller
 {
     public function shopMain($categoryCode, $subCategoryCode)
     {
-       $category = SubCategory::where('code', $subCategoryCode)->first();
+        $category = '';
+       $mainCategory = Category::where('code', $categoryCode)->first();
+       foreach ($mainCategory->subCategories as $sub) {
+           if ($sub->code == $subCategoryCode){
+               $category = $sub;
+           }
+       }
+
        $products = $category->products()->withTranslations()->paginate(12);
-       
        return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85]);
     }
     public function sortAjax($categoryCode, $subCategoryCode)
