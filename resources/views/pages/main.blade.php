@@ -53,18 +53,11 @@
             </h3>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
+                    @foreach($products as $product)
                     <div class="swiper-slide">
-                        @include('components.shopping-card')
+                        @include('components.market.card', compact('product'))
                     </div>
-                    <div class="swiper-slide">
-                        @include('components.shopping-card')
-                    </div>
-                    <div class="swiper-slide">
-                        @include('components.shopping-card')
-                    </div>
-                    <div class="swiper-slide">
-                        @include('components.shopping-card')
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="commodity-pagination-1 swiper-pagination"></div>
@@ -78,18 +71,11 @@
             </h3>
             <div class="">
                 <div class="row market-detail-card-row fixing-type-for-device-row">
+                    @foreach($products as $product)
                     <div class="col-6">
-                        @include('components.shopping-card')
+                        @include('components.market.card', compact('product'))
                     </div>
-                    <div class="col-6">
-                        @include('components.shopping-card')
-                    </div>
-                    <div class="col-6">
-                        @include('components.shopping-card')
-                    </div>
-                    <div class="col-6">
-                        @include('components.shopping-card')
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="commodity-pagination-1 swiper-pagination"></div>
@@ -104,18 +90,11 @@
 
             <div class="swiper-container">
                 <div class="swiper-wrapper">
+                      @foreach($products as $product)
                     <div class="swiper-slide">
-                        @include('components.shopping-card')
+                        @include('components.market.card', compact('product'))
                     </div>
-                    <div class="swiper-slide">
-                        @include('components.shopping-card')
-                    </div>
-                    <div class="swiper-slide">
-                        @include('components.shopping-card')
-                    </div>
-                    <div class="swiper-slide">
-                        @include('components.shopping-card')
-                    </div>
+                    @endforeach
                 </div>
 
             </div>
@@ -130,19 +109,11 @@
             </h3>
             <div class="">
                 <div class="row market-detail-card-row fixing-type-for-device-row">
+                     @foreach($products as $product)
                     <div class="col-6">
-                        @include('components.shopping-card')
+                        @include('components.market.card', compact('product'))
                     </div>
-                    <div class="col-6">
-                        @include('components.shopping-card')
-                    </div>
-                    <div class="col-6">
-                        @include('components.shopping-card')
-                    </div>
-                    <div class="col-6">
-                        @include('components.shopping-card')
-                    </div>
-
+                    @endforeach
                 </div>
                 <div class="commodity-pagination-1 swiper-pagination"></div>
 

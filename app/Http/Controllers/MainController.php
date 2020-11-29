@@ -15,7 +15,8 @@ use App\Product;
 class MainController extends Controller
 {
     public function main () {
-        return view('pages.main');
+        $products = Product::all()->random(10);
+        return view('pages.main', compact('products'));
     }
     public function contacts()
     {
@@ -54,13 +55,28 @@ class MainController extends Controller
     public function searchAjax(Request $request){
         
         if($request->ajax()) {
-          
+            if(request('query')){
+
             $data = (new Search())
             ->registerModel(FixingDetail::class, 'name')
             ->registerModel(Product::class, 'name')
             ->perform($request->input('query'));
             
             return view('components.search-ajax',compact('data'));
+        }elseif (request('query2')) {
+
+            $category = '';
+            $query = request('query2');
+            $mainCategory = Category::where('code', request('category'))->first();
+            foreach ($mainCategory->subCategories as $sub) {
+               if ($sub->code == request('subcategory')){
+                   $category = $sub;
+               }
+            }
+             $products = $category->products()->where('name', 'LIKE', "%$query%")->withTranslations()->paginate(12);
+             // dd($products);
+            return view('components.market.sort',compact('products'));
+        }
         }
     }
 

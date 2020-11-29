@@ -13,7 +13,7 @@ class MarketController extends Controller
 {
     public function shopMain($categoryCode, $subCategoryCode)
     {
-        $category = '';
+       $category = '';
        $mainCategory = Category::where('code', $categoryCode)->first();
        foreach ($mainCategory->subCategories as $sub) {
            if ($sub->code == $subCategoryCode){
@@ -26,24 +26,33 @@ class MarketController extends Controller
     }
     public function sortAjax($categoryCode, $subCategoryCode)
     {
-       $category = SubCategory::where('code', $subCategoryCode)->with('translations')->first();
-       // dump(request()->per_page);
+       // $category = SubCategory::where('code', $subCategoryCode)->first();
+        
+        $category = '';
+        $products = '';
+       $mainCategory = Category::where('code', $categoryCode)->first();
+       foreach ($mainCategory->subCategories as $sub) {
+           if ($sub->code == $subCategoryCode){
+               $category = $sub;
+           }
+       }
        if(request()->sorting == 1){
-       $products = $category->products()->orderBy('price',request()->order)->paginate(request()->per_page);
+          $products = $category->products()->orderBy('price',request()->order)->paginate(request()->per_page);
        }
        if(request()->filter == 1){
-        $products = $category->products();
+        // $products = $category->products();
+        // dd($products);
         if(isset(request()->attrs)){
             foreach(request()->attrs as $key => $val){
-            // dd($val);
-               $products = $products->where($key, $val);
+               $products = $category->products()->whereIn($key, $val);
             }
 
         }
-        $products = $products->where('price','>=', request()->min_price);
-        $products = $products->where('price','<=', request()->max_price);
-        // dd();
-        $products = $products->paginate(9);
+        if(isset(request()->min_price) && isset(request()->max_price)){
+          $products = $products->where('price','>=', request()->min_price);
+          $products = $products->where('price','<=', request()->max_price);
+        }
+        $products = $products->paginate(12);
        }
 
        // dd($products);
@@ -51,9 +60,21 @@ class MarketController extends Controller
     }
 
     public function shopInner($categoryCode, $subcategoryCode, $modelCode)
-    {
+    { 
+        $details='';
+        $accessuars='';
         $product = Product::where('code', $modelCode)->with('translations')->first();
         $product->installation = FixingDetail::where('vendor_code', $product->vendor_code)->with('translations')->first();
-        return view('pages.market.product', compact('product'));
+
+        $detail_cats = SubCategory::where('category_id', 18)->get();
+        foreach($detail_cats as $det){
+            $details = $det->products();
+        }
+        $access_cats = SubCategory::where('category_id', 18)->get();
+        foreach($access_cats as $acc){
+            $accessuars = $acc->products();
+        }
+
+        return view('pages.market.product', compact('product','details','accessuars'));
     }
 }
