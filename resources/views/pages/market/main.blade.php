@@ -87,10 +87,10 @@
                                                 </div> -->
                                                 <select name="per_page" id="per_page"
                                                         class="sorting_select sorting-filter-content dropping__element__wrapper1">
+                                                    <option value="12">Показать 12</option>
                                                     <option value="24">Показать 24</option>
-                                                    <option value="2">Показать 2</option>
-                                                    <option value="3">Показать 3</option>
-                                                    <option value="1">Показать 1</option>
+                                                    <option value="48">Показать 48</option>
+                                                    <option value="120">Показать 120</option>
                                                 </select>
                                             @csrf
                                             <!-- < div class="sorting-filter-content dropping__element__wrapper">
@@ -143,25 +143,53 @@
      var url = '<?= Request::url(); ?>';
         $('.sorting_select').change(function () {
             var token = $('input[name="_token"]').val();
+            var min_price = $('input[name="min_price"]').val();
+            var max_price = $('input[name="max_price"]').val();
             var order = $('#order').children("option:selected").val();
             var per_page = $('#per_page').children("option:selected").val();
-            console.log('')
-            var data = {
-                'sorting': '1',
+            console.log(order);
+            console.log(per_page);
+            var quantity = [];
+            var device = [];
+            var manufacturer = [];
+            var model = [];
+            var color = [];
+            $.each($(".filter-el input[name='quantity']:checked"), function () {
+                quantity.push($(this).val());
+            });
+            $.each($(".filter-el input[name='device']:checked"), function () {
+                device.push($(this).val());
+            });
+            $.each($(".filter-el input[name='manufacturer']:checked"), function () {
+                manufacturer.push($(this).val());
+            });
+            $.each($(".filter-el input[name='model']:checked"), function () {
+                model.push($(this).val());
+            });
+            $.each($(".filter-el input[name='color']:checked"), function () {
+                color.push($(this).val());
+            });
+
+            data = {
+                'filter': '1',
+                'min_price': min_price,
+                'max_price': max_price,
                 'order': order,
                 'per_page': per_page,
-                '_token': token
+                'attrs': {
+                    'quantity': quantity,
+                    'manufacturer': manufacturer,
+                    'model': model,
+                    'color': color,
+                }
             };
+            console.log(data);
             $.ajax({
                 type: 'POST',
                 url: url,
                 data: data
             }).done(function (data) {
                 $('#sort').html(data);
-                // log data to the console so we can see
-                // console.log(data);
-
-                // here we will handle errors and validation messages
             });
 
         });

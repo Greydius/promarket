@@ -36,12 +36,8 @@ class MarketController extends Controller
            }
        }
         $products = $category->products();
-       if(request()->sorting == 1){
-          $products = $products->orderBy('price',request()->order)->paginate(request()->per_page);
-       }
-       if(request()->filter == 1){
-        // $products = $category->products();
-        // dd($products);
+      
+       // if(request()->filter == 1){
         if(isset(request()->attrs)){
             foreach(request()->attrs as $key => $val){
                $products = $products->whereIn($key, $val);
@@ -52,8 +48,11 @@ class MarketController extends Controller
           $products = $products->where('price','>=', request()->min_price);
           $products = $products->where('price','<=', request()->max_price);
         }
-        $products = $products->paginate(12);
-       }
+        // $products = $products->paginate(12);
+       // } 
+       // if(request()->sorting == 1){
+          $products = $products->orderBy('price',request()->order)->paginate(request()->per_page);
+       // }
 
        // dd($products);
        return view('components.market.sort',compact('products'));

@@ -172,7 +172,10 @@
         $('.filter-el input').change(function () {
             var min_price = $('input[name="min_price"]').val();
             var max_price = $('input[name="max_price"]').val();
-
+            var order = $('#order').children("option:selected").val();
+            var per_page = $('#per_page').children("option:selected").val();
+            console.log(order);
+            console.log(per_page);
             var quantity = [];
             var device = [];
             var manufacturer = [];
@@ -193,17 +196,13 @@
             $.each($(".filter-el input[name='color']:checked"), function () {
                 color.push($(this).val());
             });
-            // console.log(quantity);
-            // console.log(device);
-            // console.log(manufacturer);
-            // console.log(model);
-            // console.log(color);
 
             data = {
                 'filter': '1',
                 'min_price': min_price,
                 'max_price': max_price,
-                'device': device,
+                'order': order,
+                'per_page': per_page,
                 'attrs': {
 	                'quantity': quantity,
                     'manufacturer': manufacturer,
