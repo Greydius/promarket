@@ -29,22 +29,22 @@ class MarketController extends Controller
        // $category = SubCategory::where('code', $subCategoryCode)->first();
         
         $category = '';
-        $products = '';
        $mainCategory = Category::where('code', $categoryCode)->first();
        foreach ($mainCategory->subCategories as $sub) {
            if ($sub->code == $subCategoryCode){
                $category = $sub;
            }
        }
+        $products = $category->products();
        if(request()->sorting == 1){
-          $products = $category->products()->orderBy('price',request()->order)->paginate(request()->per_page);
+          $products = $products->orderBy('price',request()->order)->paginate(request()->per_page);
        }
        if(request()->filter == 1){
         // $products = $category->products();
         // dd($products);
         if(isset(request()->attrs)){
             foreach(request()->attrs as $key => $val){
-               $products = $category->products()->whereIn($key, $val);
+               $products = $products->whereIn($key, $val);
             }
 
         }
