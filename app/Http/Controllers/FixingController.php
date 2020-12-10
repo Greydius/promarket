@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DetailColor;
+use App\DetailQuality;
 use App\FixingDetail;
 use App\FixingType;
 use App\Manufacturer;
@@ -14,31 +16,37 @@ use App\Mail\FixingMailInfoToManager;
 
 class FixingController extends Controller
 {
-    public function fixing() {
+    public function fixing()
+    {
         return view('pages.fixing.fixing');
     }
 
-    public function fixingType($type) {
+    public function fixingType($type)
+    {
         $fixingType = FixingType::where('code', $type)->with('translations')->first();
         return view('pages.fixing.fixing-inner', compact('fixingType'));
     }
 
-    public function fixingBrand($type, $brand) {
+    public function fixingBrand($type, $brand)
+    {
         $manufacturer = Manufacturer::where('code', $brand)->with('translations')->first();
         return view('pages.fixing.fixing-inner-brand', compact('manufacturer'));
     }
 
-    public function fixingBrandModel($type, $brand, $modelName) {
+    public function fixingBrandModel($type, $brand, $modelName)
+    {
         $model = ManufacturerModel::where('code', $modelName)->with('translations')->first();
         return view('pages.fixing.model', compact('model'));
     }
 
-    public function fixingModelDetail($type, $brand, $modelName, $detailName) {
+    public function fixingModelDetail($type, $brand, $modelName, $detailName)
+    {
         $model = ManufacturerModel::where('code', $modelName)->with('translations')->first();
         return view('pages.fixing.model', compact('model'));
     }
 
-    public function fixingDetailOrder(Request $request, $type, $brand, $model) {
+    public function fixingDetailOrder(Request $request, $type, $brand, $model)
+    {
         $details = FixingDetail::find(explode(',', $request->id));
         return view('pages.fixing.details', compact('details'));
     }
@@ -47,7 +55,7 @@ class FixingController extends Controller
     {
 
         $details = json_decode($request->details);
-        foreach($details as $detail) {
+        foreach ($details as $detail) {
             $detailObject = FixingDetail::find($detail->id);
             $detail->name = $detailObject->manufacturerModel->name . ' ' . $detailObject->name;
         }
@@ -63,6 +71,51 @@ class FixingController extends Controller
     {
         $service = Service::where('code', $serviceCode)->first();
         return view('pages.fixing.service-inner', compact('service'));
+    }
+
+    public function deleteColorForCommodity(Request $req)
+    {
+        $color = DetailColor::find($req->id);
+
+        $color->delete();
+
+        return back();
+    }
+
+    public function createColorForCommodity(Request $req)
+    {
+        $color = new DetailColor();
+
+        $color->color = $req->color;
+        $color->fixing_detail_id = $req->fixing_detail_id;
+        $color->name = $req->name;
+        $color->quantity = $req->quantity;
+        $color->save();
+
+        return back();
+
+    }
+
+    public function createQualityForCommodity(Request $req)
+    {
+
+        $quality = new DetailQuality();
+
+        $quality->fixing_detail_id = $req->fixing_detail_id;
+        $quality->name = $req->name;
+        $quality->quantity = $req->quantity;
+        $quality->cost = $req->cost;
+        $quality->save();
+
+        return back();
+    }
+    public function deleteQualityForCommodity(Request $req)
+    {
+        $quality = DetailQuality::find($req->id);
+
+        $quality->delete();
+
+        return back();
     }
 
 }

@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Category;
+use App\DetailColor;
+use App\DetailQuality;
 use App\FixingType;
 use App\Order;
 use Illuminate\Support\Facades\View;
@@ -36,6 +38,11 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categories', Category::get());
             $view->with('order', Order::find(session('orderId')));
         });
+
+        /*View::composer('vendor\voyager\Fixing-details\edit-add', function ($view) {
+            $view->with('colors', DetailColor::get());
+            $view->with('qualities', DetailQuality::get());
+        });*/
 
     }
 }

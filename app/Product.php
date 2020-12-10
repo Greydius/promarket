@@ -11,11 +11,11 @@ class Product extends Model  implements Searchable
 {
     use Translatable;
     protected $translatable = ['name','installation_description','color'];
-    
+
     public $searchableType = 'Магазин';
 
     public function subCategory() {
-        return $this->belongsTo(SubCategory::class);
+        return $this->belongsToMany(SubCategory::class);
     }
 
 

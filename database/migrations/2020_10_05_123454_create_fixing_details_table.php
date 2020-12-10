@@ -13,7 +13,7 @@ class CreateFixingDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fixing_details', function (Blueprint $table) {
+        Schema::create('Fixing-details', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('code');
@@ -35,6 +35,6 @@ class CreateFixingDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fixing_details');
+        Schema::dropIfExists('Fixing-details');
     }
 }

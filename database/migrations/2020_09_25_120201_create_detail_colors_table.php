@@ -18,7 +18,7 @@ class CreateDetailColorsTable extends Migration
             $table->string('color');
             $table->string('name');
             $table->integer('quantity');
-            $table->foreignId('fixing_detail_id')->constrained('fixing_details')->onDelete('cascade');
+            $table->foreignId('fixing_detail_id')->constrained('Fixing-details')->onDelete('cascade');
             $table->timestamps();
         });
     }

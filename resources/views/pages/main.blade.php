@@ -71,11 +71,11 @@
             </h3>
             <div class="">
                 <div class="row market-detail-card-row fixing-type-for-device-row">
-                    @foreach($products as $product)
+                    {{--@foreach($products as $product)
                     <div class="col-6">
                         @include('components.market.card', compact('product'))
                     </div>
-                    @endforeach
+                    @endforeach--}}
                 </div>
             </div>
             <div class="commodity-pagination-1 swiper-pagination"></div>
@@ -90,11 +90,11 @@
 
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                      @foreach($products as $product)
+                     {{-- @foreach($products as $product)
                     <div class="swiper-slide">
                         @include('components.market.card', compact('product'))
                     </div>
-                    @endforeach
+                    @endforeach--}}
                 </div>
 
             </div>
@@ -109,11 +109,11 @@
             </h3>
             <div class="">
                 <div class="row market-detail-card-row fixing-type-for-device-row">
-                     @foreach($products as $product)
+                    {{-- @foreach($products as $product)
                     <div class="col-6">
                         @include('components.market.card', compact('product'))
                     </div>
-                    @endforeach
+                    @endforeach--}}
                 </div>
                 <div class="commodity-pagination-1 swiper-pagination"></div>
 

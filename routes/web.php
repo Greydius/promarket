@@ -111,6 +111,13 @@ Route::get('/get-token', 'RemonlineController@getToken')->name('get-token');
 
 Route::get('/upload-prod', 'RemonlineController@uploadProductsFromWarehouses')->name('upload-products');
 
+Route::post('/detail/color', 'FixingController@createColorForCommodity')->name('detail-color');
+
+Route::delete('/detail/color', 'FixingController@deleteColorForCommodity')->name('delete-detail-color');
+
+Route::post('/detail/quality', 'FixingController@createQualityForCommodity')->name('detail-quality');
+
+Route::delete('/detail/quality', 'FixingController@deleteQualityForCommodity')->name('delete-detail-quality');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
