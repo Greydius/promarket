@@ -1,18 +1,16 @@
 
- {{--   <div class="commodity-default-card">
-        <a href="{{route('shop-inner', [
+ <div class="commodity-default-card">
+ <!-- { { route('shop-inner', [
     $product->subCategory->category->code,
     $product->subCategory->code,
     $product->code
-])}}" class="commodity-image-wrapper">
+])}} -->
+
+        <a href="" class="commodity-image-wrapper">
             <img src="{{Voyager::image($product->img)}}" alt="">
         </a>
         <div class="commodity-card-body">
-            <a href="{{route('shop-inner', [
-    $product->subCategory->category->code,
-    $product->subCategory->code,
-    $product->code
-])}}" class="commodity-card-title">
+            <a href="" class="commodity-card-title">
                {{$product->getTranslatedAttribute('name', app()->getLocale(), 'fallbackLocale')}}
             </a>
             <div class="commodity-card-parameter">
@@ -55,4 +53,4 @@
             </form>
         </div>
 
-    </div>--}}
+    </div>

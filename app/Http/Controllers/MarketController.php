@@ -22,6 +22,7 @@ class MarketController extends Controller
        }
 
        $products = $category->products()->withTranslations()->paginate(12);
+       // dd($products);
        return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85]);
     }
     public function sortAjax($categoryCode, $subCategoryCode)
