@@ -1,5 +1,6 @@
 <div class="commodity-default-card">
     <a href="{{route('shop-inner', [
+
     $product->subCategory[0]->category->code,
     $product->subCategory[0]->code,
     $product->code
@@ -56,3 +57,4 @@
     </div>
 
 </div>
+

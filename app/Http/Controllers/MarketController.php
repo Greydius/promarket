@@ -21,8 +21,8 @@ class MarketController extends Controller
            }
        }
 
-       $products = $category->products()->withTranslations()->paginate(10);
 
+       $products = $category->products()->withTranslations()->paginate(10);
 
        return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85]);
     }

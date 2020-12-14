@@ -15,7 +15,7 @@ use App\Product;
 class MainController extends Controller
 {
     public function main () {
-        $products = Product::all();/*->random(10);*/
+        $products = Product::all()->random(1);
         return view('pages.main', compact('products'));
     }
     public function contacts()
