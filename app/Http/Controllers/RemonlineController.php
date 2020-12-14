@@ -119,8 +119,6 @@ class RemonlineController extends Controller
 
     public function uploadProductsFromWarehouses()
     {
-        ini_set('max_execution_time', 1000);
-
         $token = $this->getToken();
         $page = 1;
         $products = [];
