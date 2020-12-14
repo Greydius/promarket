@@ -9,7 +9,8 @@
                     <div class="col-lg-3 shop-sidebar login-content sidebar">
 
                         <div class="shop-sidebar-wrapper">
-                            <x-filter category="{{request()->route()->parameters['category']}}" :subcategory="request()->route()->parameters['subcategory']"/>
+
+                            {{--<x-filter category="{{request()->route()->parameters['category']}}" :subcategory="request()->route()->parameters['subcategory']"/>--}}
 
                         </div>
 
@@ -124,7 +125,7 @@
                             <div id="sort">
                                 <div class="row additional-commodities-wrapper">
                                     @foreach($products as $product)
-                                    
+
                                         <div class="col-lg-4 col-md-4 col-6">
                                             @include('components.market.card', compact('product'))
                                         </div>

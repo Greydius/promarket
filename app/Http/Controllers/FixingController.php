@@ -48,7 +48,30 @@ class FixingController extends Controller
     public function fixingDetailOrder(Request $request, $type, $brand, $model)
     {
         $details = FixingDetail::find(explode(',', $request->id));
+
+
+        foreach ($details as $detail) {
+            $has = array();
+            $colors = array();
+            foreach ($detail->products as $product) {
+                if (!in_array($product['color'], $has)) {
+                    $has[] = $product['color'];
+                    $colors[] = $product;
+                }
+            }
+            $detail->allColors = $colors;
+            $detail->color;
+        }
         return view('pages.fixing.details', compact('details'));
+    }
+
+    public function fixingDetailOrderColor($detail_id, $color_id)
+    {
+        $detail = FixingDetail::find($detail_id);
+        $detail->products()->where('color_id', $color_id);
+
+        return view('components.fixing.detail_quality', compact('detail'));
+
     }
 
     public function fixingDetailOrderRequest(Request $request)
@@ -109,6 +132,7 @@ class FixingController extends Controller
 
         return back();
     }
+
     public function deleteQualityForCommodity(Request $req)
     {
         $quality = DetailQuality::find($req->id);

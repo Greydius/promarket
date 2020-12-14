@@ -119,6 +119,10 @@ Route::post('/detail/quality', 'FixingController@createQualityForCommodity')->na
 
 Route::delete('/detail/quality', 'FixingController@deleteQualityForCommodity')->name('delete-detail-quality');
 
+Route::get('/detail/{detailId}/{colorId}', 'FixingController@fixingDetailOrderColor')->name('get-detail-qualities');
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::get('/empty-products','MainController@gravy');
 });

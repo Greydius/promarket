@@ -16,7 +16,6 @@
                     @include('components.fixing-sidebar')
 
                     <div class="col-lg-9">
-
                         <div class="brand-product product-page">
                             <div class="product-fixing-container ">
                                 {{ Breadcrumbs::render('fixing-type-service', $service) }}

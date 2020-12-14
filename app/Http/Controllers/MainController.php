@@ -15,7 +15,7 @@ use App\Product;
 class MainController extends Controller
 {
     public function main () {
-        $products = Product::all()->random(10);
+        $products = Product::all();/*->random(10);*/
         return view('pages.main', compact('products'));
     }
     public function contacts()
@@ -53,7 +53,7 @@ class MainController extends Controller
     }
 
     public function searchAjax(Request $request){
-        
+
         if($request->ajax()) {
             if(request('query')){
 
@@ -61,7 +61,7 @@ class MainController extends Controller
             ->registerModel(FixingDetail::class, 'name')
             ->registerModel(Product::class, 'name')
             ->perform($request->input('query'));
-            
+
             return view('components.search-ajax',compact('data'));
         }elseif (request('query2')) {
 
@@ -89,5 +89,11 @@ class MainController extends Controller
         return 'Сообщение успешно отправлено.';
     }
 
-  
+    public function gravy()
+    {
+        $products = Product::where('color_id', null)->orWhere('quality_id', null)->get();
+        return view('vendor.voyager.EmptyProducts.gravy', compact('products'));
+    }
+
+
 }

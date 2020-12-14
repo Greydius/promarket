@@ -10,15 +10,15 @@
                     <div class="col-lg-12 row center-mobile-margins">
                         <div class="col-md-4 center-mobile-paddings">
                             <h1 class="main-title hidden-for-tablet">
-                                 {{$product->installation_description}}
+                                {{$product->name}}
                             </h1>
                             <div class="swiper-container product-top-slider ">
                                 <div class="swiper-wrapper">
 
-                                    <a href="{{asset('assets/img/market/slide.svg')}}" data-fslightbox="displays">
-                                        <img class="swiper-slide" src="{{asset('assets/img/market/slide.svg')}}"
-                                             data-large="{{asset('assets/img/market/slide.svg')}}" alt="alt"
-                                             title="Фото">
+                                    <a href="{{$product->img}}" data-fslightbox="displays">
+                                        <img class="swiper-slide" src="{{$product->img}}"
+                                             data-large="{{$product->img}}" alt="{{$product->name}}"
+                                             title="{{$product->name}}">
                                     </a>
                                 </div>
                                 <div class="swiper-pagination"></div>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-8">
                             <h1 class="main-title hidden-for-mobile">
-                                 {{$product->installation_description}}
+                                {{$product->name}}
                             </h1>
                             <div class="row align-items-end additional-product-parameters">
                                 <div class="col-xl-6 col-lg-6 col-md-12 delivery-conditions-list">
@@ -74,9 +74,11 @@
                                                     <div class="quantity-view-wrapper align-items-center d-flex">
                                                         <div class="quantity-input-wrapper">
                                                             <label>
-                                                                <input name="quantity" value="1" type="text" class="quantity-input">
+                                                                <input name="quantity" value="1" type="text"
+                                                                       class="quantity-input">
                                                             </label>
-                                                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                                                            <input type="hidden" name="product_id"
+                                                                   value="{{$product->id}}">
                                                         </div>
                                                         <div class="quantity-trigger-wrapper">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -90,7 +92,7 @@
                                                     </div>
                                                 </div>
                                                 <button type="submit"
-                                                   class="submit-form default-button add-to-cart">
+                                                        class="submit-form default-button add-to-cart">
                                                     в корзину
                                                 </button>
                                             </form>
@@ -113,19 +115,20 @@
                                                         КУПИТЬ С УСТАНОВКОЙ
                                                     </div>
                                                     <ul>
-                                                        {{$product->installation->description}}
+                                                        {{$product->fixingDetail->description}}
                                                     </ul>
                                                 </div>
                                                 <div class="col-lg-3 col-md-6 md-text-center col-5">
                                                     <div class="commodity-card-price">
-                                                        {{$product->installation->price}} €
+                                                        {{$product->price_with_installation}} €
                                                     </div>
                                                 </div>
+
                                                 <div class=" col-lg-3 col-md-12 col-7">
                                                     <a href="{{route('fixing-order-detail', [
-$product->installation->manufacturerModel->manufacturer->fixingType->code,
-$product->installation->manufacturerModel->manufacturer->code,
-$product->installation->manufacturerModel->code])}}?id={{$product->installation->id}}" type="submit"
+$product->fixingDetail->manufacturerModel->manufacturer->fixingType->code,
+$product->fixingDetail->manufacturerModel->manufacturer->code,
+$product->fixingDetail->manufacturerModel->code])}}?id={{$product->fixingDetail->id}}" type="submit"
                                                        class="submit-form default-button">
                                                         Заявка
                                                     </a>
@@ -184,8 +187,6 @@ $product->installation->manufacturerModel->code])}}?id={{$product->installation-
                                             </table>
                                         </div>
                                     </div>
-
-                                    {{$product->installation_description}}
                                 </div>
                             </div>
                         </div>
@@ -197,16 +198,15 @@ $product->installation->manufacturerModel->code])}}?id={{$product->installation-
         <section class="commodity commodity-slider commodity-slider-2 commodity-2">
             <div class="container">
                 <h3 class="small-title">
-                    запчасти для  {{$product->installation_description}}
+                    запчасти для {{$product->model}}
                 </h3>
 
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        @foreach($details as $detail)
-                        <?php $product = $detail; ?>
-                        <div class="swiper-slide">
-                            @include('components.market.card', compact('product'))
-                        </div>
+                        @foreach($product->subCategory[0]->category->products($product->model) as $product)
+                            <div class="swiper-slide">
+                                @include('components.market.card', compact('product'))
+                            </div>
                         @endforeach
                     </div>
 
@@ -218,38 +218,38 @@ $product->installation->manufacturerModel->code])}}?id={{$product->installation-
         <section class="commodity commodity-no-slider">
             <div class="container">
                 <h3 class="small-title">
-                    запчасти для  {{$product->installation_description}}
+                    запчасти для {{$product->model}}
                 </h3>
                 <div class="">
-                    <div class="row market-detail-card-row fixing-type-for-device-row">
-                         @foreach($details as $detail)
-                        <div class="col-6">
-                            <?php $product = $detail; ?>
-                            @include('components.market.card', compact('product'))
-                        </div>
-                        @endforeach
-                        
-                    </div>
+                    {{-- <div class="row market-detail-card-row fixing-type-for-device-row">
+                          @foreach($details as $detail)
+                         <div class="col-6">
+                             <?php $product = $detail; ?>
+                             @include('components.market.card', compact('product'))
+                         </div>
+                         @endforeach
+
+                     </div>--}}
                 </div>
                 <div class="commodity-pagination-1 swiper-pagination"></div>
 
             </div>
         </section>
-        <section class="commodity commodity-slider commodity-slider-2 commodity-2">
+        {{--<section class="commodity commodity-slider commodity-slider-2 commodity-2">
             <div class="container">
                 <h3 class="small-title">
-                    аксессуары для  {{$product->installation_description}}
+                    аксессуары для {{$product->installation_description}}
                 </h3>
 
                 <div class="swiper-container">
-                    <div class="swiper-wrapper">
+                    --}}{{--<div class="swiper-wrapper">
                         @foreach($accessuars as $accessuar)
                         <?php $product = $accessuar; ?>
                         <div class="swiper-slide">
                             @include('components.market.card', compact('product'))
                         </div>
                         @endforeach
-                    </div>
+                    </div>--}}{{--
 
                 </div>
 
@@ -259,22 +259,22 @@ $product->installation->manufacturerModel->code])}}?id={{$product->installation-
         <section class="commodity commodity-no-slider">
             <div class="container">
                 <h3 class="small-title">
-                    аксессуары для  {{$product->installation_description}}
+                    аксессуары для {{$product->installation_description}}
                 </h3>
                 <div class="">
-                    <div class="row market-detail-card-row fixing-type-for-device-row">
+                    --}}{{--<div class="row market-detail-card-row fixing-type-for-device-row">
                          @foreach($accessuars as $accessuar)
                         <div class="col-6">
                             <?php $product = $accessuar; ?>
                             @include('components.market.card', compact('product'))
                         </div>
                         @endforeach
-                    </div>
+                    </div>--}}{{--
                 </div>
                 <div class="commodity-pagination-1 swiper-pagination"></div>
 
             </div>
-        </section>
+        </section>--}}
     </main>
 
 @endsection

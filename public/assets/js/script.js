@@ -9954,6 +9954,7 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
     let self = this;
     this.colorChangers = document.querySelectorAll('.color-changing-card');
     this.costChangers = document.querySelectorAll('.commodity-default-card');
+    this.chooseQualityBlock = document.querySelector('.choose-quality-block');
 
 
     Array.from(this.detailCards).forEach(detail => {
@@ -9977,6 +9978,26 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
     function changeTheColor() {
         let colorName = this.getAttribute('data-color-name');
         this.closest(fixingElementSelector).setAttribute('data-color', colorName);
+
+        uploadCostChangers(this.getAttribute('data-route'));
+
+    }
+
+    function uploadCostChangers(url, context) {
+        axios
+            .get(url)
+            .then(res => {
+                self.chooseQualityBlock.innerHTML = res.data;
+                self.chooseQualityBlock.closest('.choose-quality').classList.add('active');
+                this.costChangers = document.querySelectorAll('.commodity-default-card');
+                Array.from(this.costChangers).forEach(costChanger => {
+                    costChanger.addEventListener('click', changeCost);
+                })
+                new ChooseOne(this.costChangers);
+            })
+            .catch(err => {
+                alert(err);
+            })
     }
 
     function changeCostElementsValue() {
@@ -9985,6 +10006,7 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
     }
 
     function changeCost() {
+        console.log(this);
         let cost = this.getAttribute('data-cost');
         self.allCosts[this.getAttribute('data-id')] = cost
         self.cost = 0;

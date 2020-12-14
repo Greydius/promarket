@@ -6198,6 +6198,16 @@ input[type=number] {
 .active-cart .header__cart_outer-wrapper{
     display: none ;
 }
+.choose-quality{
+    display: none;
+    opacity: 0;
+    transition: 0.3s linear all;
+}
+.choose-quality.active{
+    display: block;
+    opacity: 1;
+}
+
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }

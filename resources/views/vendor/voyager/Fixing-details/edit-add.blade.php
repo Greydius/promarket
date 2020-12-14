@@ -103,7 +103,7 @@
                             @yield('submit-buttons')
                         </div>
                     </form>
-                    <div class="panel-body">
+                    {{--<div class="panel-body">
                         <div class="row">
                             @php
 
@@ -252,7 +252,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                     <iframe id="form_target" name="form_target" style="display:none"></iframe>
                     <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
                           enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">

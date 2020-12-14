@@ -11,7 +11,7 @@ class FixingDetail extends Model implements Searchable
 {
     use Translatable;
     protected $translatable = ['name'];
-    
+
     public $searchableType = 'Ремонт';
 
     public function manufacturerModel() {
@@ -23,11 +23,30 @@ class FixingDetail extends Model implements Searchable
     public function detailQuality() {
         return $this->hasMany(DetailQuality::class);
     }
+    public function products() {
+        return $this->hasMany(Product::class);
+    }
+    public function cheapest() {
+        $products = $this->products()->get();
+        $prices = array();
+        foreach ($products as $product) {
+            $prices[] = $product->price_with_installation;
+        }
+        return min($prices);
+    }
+    public function mostExpensive() {
+        $products = $this->products()->get();
+        $prices = array();
+        foreach ($products as $product) {
+            $prices[] = $product->price_with_installation;
+        }
+        return max($prices);
+    }
 
      public function getSearchResult(): SearchResult
     {
 
-        
+
         $url = route('fixing-order-detail', [$this->manufacturerModel->manufacturer->fixingType->code, $this->manufacturerModel->manufacturer->code, $this->manufacturerModel->code]) .'?id='.$this->id;
 
         return new SearchResult(

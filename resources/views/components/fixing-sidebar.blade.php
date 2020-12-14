@@ -9,7 +9,7 @@
         </a>
       </li>
       <li class="sidebar-item">
-        <a href="{{ route('fixing-type', 'mobile') }}">
+        <a href="{{ route('fixing-type', 'mobilo_telefonu_detalas') }}">
           <img src="{{ asset('assets/img/fixing/phone.svg') }}" alt="">
           <span>
           телефоны
@@ -17,7 +17,7 @@
         </a>
       </li>
       <li class="sidebar-item">
-        <a href="{{ route('fixing-type', 'tablet') }}">
+        <a href="{{ route('fixing-type', 'planšetdatoru_detaļas') }}">
           <img src="{{ asset('assets/img/fixing/tablet.svg') }}" alt="">
           <span>
           плашеты
@@ -25,7 +25,7 @@
         </a>
       </li>
       <li class="sidebar-item">
-        <a href="{{ route('fixing-type', 'laptop') }}">
+        <a href="{{ route('fixing-type', 'gudro_pulksteņu_detaļas') }}">
           <img src="{{ asset('assets/img/fixing/laptop.svg') }}" alt="">
           <span>
           ноутбуки

@@ -35,24 +35,24 @@
               </h3>
 
               <div class="row main-banner-row">
-                <div class="col-lg-4 main-banner-col">
-                  <a href="{{ route('fixing-type', 'mobile') }}" class="fixing-category-card">
-                    <img src="{{ asset('assets/img/common/smartphone.svg') }}" alt="">
-                    <span>Ремонт телефона</span>
-                  </a>
-                </div>
-                <div class="col-lg-4 main-banner-col">
-                  <a href="{{ route('fixing-type', 'tablet') }}" class="fixing-category-card">
-                    <img src="{{ asset('assets/img/common/tablet.svg') }}" alt="">
-                    <span>Ремонт планшета</span>
-                  </a>
-                </div>
-                <div class="col-lg-4 main-banner-col">
-                  <a href="{{ route('fixing-type', 'laptop') }}" class="fixing-category-card">
-                    <img src="{{ asset('assets/img/common/laptop.svg') }}" alt="">
-                    <span>Ремонт ноутбука</span>
-                  </a>
-                </div>
+                  <div class="col-lg-4 main-banner-col">
+                      <a href="{{ route('fixing-type', 'mobilo_telefonu_detalas') }}" class="fixing-category-card">
+                          <img src="{{ asset('assets/img/common/smartphone.svg') }}" alt="">
+                          <span>Ремонт телефона</span>
+                      </a>
+                  </div>
+                  <div class="col-lg-4 main-banner-col">
+                      <a href="{{ route('fixing-type', 'planšetdatoru_detaļas') }}" class="fixing-category-card">
+                          <img src="{{ asset('assets/img/common/tablet.svg') }}" alt="">
+                          <span>Ремонт планшета</span>
+                      </a>
+                  </div>
+                  <div class="col-lg-4 main-banner-col">
+                      <a href="{{ route('fixing-type', 'gudro_pulksteņu_detaļas') }}" class="fixing-category-card">
+                          <img src="{{ asset('assets/img/common/laptop.svg') }}" alt="">
+                          <span>Ремонт ноутбука</span>
+                      </a>
+                  </div>
               </div>
               <div class="fixing-text-content">
                 <h3 class="small-title">

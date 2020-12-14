@@ -11,7 +11,10 @@
                     <div class="col-lg-9">
                         <div class="product-fixing-container brand-product service-inner-page">
                             {{ Breadcrumbs::render('fixing-order-detail', $details) }}
+
                             @foreach($details as $detail)
+
+
                                 <div class="detail-block-wrapper"
                                      @if(count($detail->detailQuality) != 0)
                                      data-start-cost="{{$detail->detailQuality[0]->cost}}"
@@ -21,14 +24,14 @@
                                      @endif
                                      data-id="{{$detail->id}}"
                                      @if(count($detail->detailColors) != 0)
-                                        data-color="{{$detail->detailColors[0]->name}}"
-                                     @endif
+                                     data-color="{{$detail->detailColors[0]->name}}"
+                                    @endif
                                 >
                                     <h1 class="main-title title-for-mobile">{{$detail->name}} {{$detail->manufacturerModel->name}}</h1>
 
                                     <div class="row top-card">
                                         <div class="col-lg-4 col-md-4 col-sm-5">
-                                            <img src="img/fixing/Rectangle 83.png" alt="" class="img-for-pc">
+                                            <img src="{{$detail->products[0]->img}}" alt="" class="img-for-pc">
                                         </div>
                                         <div class="col-lg-8 col-md-7 col-sm-7">
                                             <h1 class="main-title title-for-pc">{{$detail->name}} {{$detail->manufacturerModel->name}} </h1>
@@ -50,67 +53,37 @@
                                             @endif
                                         </div>
                                     </div>
-                                    @if(count($detail->detailColors) != 0)
+                                    <div class="banner-categories-block banner-categories-block-phone11 mt-5">
+                                        <h3 class="small-title">
+                                            выберите цвет:
+                                        </h3>
+                                        <div class="row choosing-color-row main-banner-row">
+                                            @foreach($detail->allColors as $detailColor)
+                                                @if($detailColor->color)
+                                                <div class="col-lg-4 col-md-4 main-banner-col">
 
-                                        <div class="banner-categories-block banner-categories-block-phone11 mt-5">
-                                            <h3 class="small-title">
-                                                выберите цвет:
-                                            </h3>
-                                            <div class="row choosing-color-row main-banner-row">
-                                                @foreach($detail->detailColors as $color)
-                                                    <div class="col-lg-4 col-md-4 main-banner-col">
-                                                        <div data-color-name="{{$color->name}}" class="fixing-category-card color-changing-card">
-                                                            <div class="color-to-choose"
-                                                                 style="background: {{$color->color}}"></div>
-                                                            <span>{{$color->name}}</span>
-                                                        </div>
+                                                    <div data-route="{{route('get-detail-qualities', [$detail->id, $detailColor->color->id])}}" data-color-name="{{$detailColor->color->name}}"
+                                                         class="fixing-category-card color-changing-card">
+                                                        <div class="color-to-choose"
+                                                             style="background: {{$detailColor->color->color_code}}"></div>
+                                                        <span>{{$detailColor->color->name}}</span>
                                                     </div>
-                                                @endforeach
+                                                </div>
+                                                @endif
+                                            @endforeach
 
-                                            </div>
                                         </div>
+                                    </div>
 
-                                    @else
-                                        <div class="mt-5"></div>
 
-                                    @endif
+                                    <div class="commodity choose-quality">
+                                        <h3 class="small-title">
+                                            выберите качество детали
+                                        </h3>
+                                        <div class="choose-quality-block">
 
-                                    @if(count($detail->detailQuality) != 0)
-                                        <div class="commodity">
-                                            <h3 class="small-title">
-                                                выберите качество детали
-                                            </h3>
-                                            <div class="row choosing-detail-row">
-                                                @foreach($detail->detailQuality as $quality)
-
-                                                    <div class="col-lg-4 col-md-4">
-                                                        <div
-                                                            data-cost="{{$quality->cost}}"
-                                                            data-id="{{$detail->id}}"
-                                                            class="commodity-default-card commodity-default-card-short">
-                                                            <div class="commodity-card-body">
-                                                                <h4 class="commodity-card-title">
-                                                                    {{$quality->name}}
-                                                                </h4>
-                                                                <div class="commodity-card-parameter">
-                                                                    <img src="img/common/tick.svg" alt="">
-                                                                    <span>
-                                                                      Есть в наличии
-                                                                    </span>
-                                                                </div>
-                                                                <div
-                                                                    class="commodity-card-last-row d-flex align-items-center justify-content-between">
-                                                                    <div class="commodity-card-price">
-                                                                        € {{$quality->cost}}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
                                         </div>
-                                    @endif
+                                    </div>
                                 </div>
                             @endforeach
 
@@ -160,7 +133,8 @@
                             </div>--}}
 
                             <div id="reservation-form" class="text-center">
-                                <form novalidate method="POST" data-url="{{route('handle-fixing')}}" class="reservation-form">
+                                <form novalidate method="POST" data-url="{{route('handle-fixing')}}"
+                                      class="reservation-form">
                                     @csrf
                                     <div class="container">
                                         <div class="row justify-content-center">
@@ -173,7 +147,8 @@
                                                            name="name">
                                                 </label>
                                                 <label>
-                                                    <input type="text" placeholder="Адрес электронной почты" class="form-control"
+                                                    <input type="text" placeholder="Адрес электронной почты"
+                                                           class="form-control"
                                                            name="email">
                                                 </label>
                                                 <input type="tel" class="form-control"

@@ -71,10 +71,10 @@ Breadcrumbs::for('category', function ($trail, $category) {
 });
 
 Breadcrumbs::for('product', function ($trail, $product) {
-    $trail->parent('shop', $product->subCategory);
+    $trail->parent('shop', $product->subCategory[0]);
     $trail->push($product->name, route('shop-inner', [
-        $product->subCategory->category->code,
-        $product->subCategory->code,
+        $product->subCategory[0]->category->code,
+        $product->subCategory[0]->code,
         $product->code
     ]));
 });
