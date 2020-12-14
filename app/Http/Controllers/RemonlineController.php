@@ -305,6 +305,7 @@ class RemonlineController extends Controller
         foreach ($categories as $category) {
             if ($category['old_id'] == $product['category']['parent_id']) {
                 $returningValue = SubCategory::where('old_id', $product['category']['parent_id'])->first();
+                return $returningValue;
             } else {
                 $parentCategory = '';
                 foreach ($allCategories as $category) {
