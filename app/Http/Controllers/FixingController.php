@@ -36,6 +36,8 @@ class FixingController extends Controller
     public function fixingBrandModel($type, $brand, $modelName)
     {
         $model = ManufacturerModel::where('code', $modelName)->with('translations')->first();
+        $accessories = ManufacturerModel::where('model_name',$model->model_name)->get();
+        // dd($accessories);
         return view('pages.fixing.model', compact('model'));
     }
 

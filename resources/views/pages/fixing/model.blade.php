@@ -45,9 +45,12 @@
                             </div>
                             <div class="additional-commodities-wrapper">
                                 <h3 class="small-title">
-                                    аксессуары для Apple iPhone 11
+                                    аксессуары для {{ $model->title }}
                                 </h3>
-
+                                <?php 
+                                    // $model->accessories = $model->model_name;
+                                // dd($model->products($model->model_name));
+                                 ?>
                                 <div class="row">
                                     <div class="col-lg-4 col-6">
                                         <div class="commodity-default-card">
@@ -62,8 +65,8 @@
                                                 <div class="commodity-card-parameter">
                                                     <img src="img/common/tick.svg" alt="">
                                                     <span>
-                                       В наличии
-                                    </span>
+                                                       В наличии
+                                                    </span>
                                                 </div>
                                                 <div class="commodity-card-price-row">
                                                     <div class="commodity-card-price">
@@ -114,8 +117,8 @@
                                                 <div class="commodity-card-parameter">
                                                     <img src="img/common/tick.svg" alt="">
                                                     <span>
-                                       В наличии
-                                    </span>
+                                                       В наличии
+                                                    </span>
                                                 </div>
                                                 <div class="commodity-card-price-row">
                                                     <div class="commodity-card-price">
@@ -166,8 +169,8 @@
                                                 <div class="commodity-card-parameter">
                                                     <img src="img/common/tick.svg" alt="">
                                                     <span>
-                                       В наличии
-                                    </span>
+                                                       В наличии
+                                                    </span>
                                                 </div>
                                                 <div class="commodity-card-price-row">
                                                     <div class="commodity-card-price">
@@ -218,8 +221,8 @@
                                                 <div class="commodity-card-parameter">
                                                     <img src="img/common/tick.svg" alt="">
                                                     <span>
-                                       В наличии
-                                    </span>
+                                                       В наличии
+                                                    </span>
                                                 </div>
                                                 <div class="commodity-card-price-row">
                                                     <div class="commodity-card-price">
@@ -270,8 +273,8 @@
                                                 <div class="commodity-card-parameter">
                                                     <img src="img/common/tick.svg" alt="">
                                                     <span>
-                                       В наличии
-                                    </span>
+                                                       В наличии
+                                                    </span>
                                                 </div>
                                                 <div class="commodity-card-price-row">
                                                     <div class="commodity-card-price">
@@ -322,8 +325,8 @@
                                                 <div class="commodity-card-parameter">
                                                     <img src="img/common/tick.svg" alt="">
                                                     <span>
-                                       В наличии
-                                    </span>
+                                                       В наличии
+                                                    </span>
                                                 </div>
                                                 <div class="commodity-card-price-row">
                                                     <div class="commodity-card-price">
