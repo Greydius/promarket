@@ -349,7 +349,7 @@ class RemonlineController extends Controller
                 $newProd->quantity = $product['residue'];
             }
 
-            $newProd->model = $product['article'];
+            $newProd->model = $product['category']['title'];
             $newProd->price_with_installation = $product['price']['91237'];
             $newProd->installation_description = $product['description'];
             $newProd->manufacturer = $product['category']['title'];
@@ -367,6 +367,9 @@ class RemonlineController extends Controller
             } else {
                 $productDB->quantity = $product['residue'];
             }
+            $productDB->model = $product['category']['title'];
+            $productDB->price_with_installation = $product['price']['91237'];
+            $productDB->update();
         }
         return $productDB;
 
