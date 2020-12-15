@@ -148,7 +148,7 @@ class RemonlineController extends Controller
             }*/
             $allCategories = $this->getCategories();
             foreach ($products as $product) {
-                $fixingModel = $this->uploadForFixing($product);
+                $fixingModel = $this->uploadForFixing($product, $allCategories);
                 if ($fixingModel != null) {
                     $this->uploadProducts($product, $fixingModel, $allCategories, $warehouse);
                 }
@@ -156,10 +156,9 @@ class RemonlineController extends Controller
         }
     }
 
-    private function uploadForFixing($product)
+    private function uploadForFixing($product, $categories)
     {
-        $categories = $this->getCategories();
-
+        
         $upperCategory = $this->findUpperCategory($product, $categories);
         if ($upperCategory !== null) {
             $parentCategory = $this->createUpperCategory($upperCategory);
