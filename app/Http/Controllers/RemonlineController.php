@@ -120,7 +120,6 @@ class RemonlineController extends Controller
     public function uploadProductsFromWarehouses()
     {
         foreach ($this->warehouses as $warehouse) {
-            dump($warehouse);
             $token = $this->getToken();
             $page = 1;
             $products = [];
@@ -137,6 +136,16 @@ class RemonlineController extends Controller
                 sleep(0.125);
 
             }
+
+            /*$filteredForDevProducts = array_slice($products, 0, 10);*/
+            /*$existingIds = [];
+            $filteredProducts = [];
+            foreach ($products as $product) {
+                if (!in_array($product['article'], $existingIds)) {
+                    array_push($existingIds, $product['article']);
+                    array_push($filteredProducts, $product);
+                }
+            }*/
             $allCategories = $this->getCategories();
             foreach ($products as $product) {
                 $fixingModel = $this->uploadForFixing($product);
@@ -145,7 +154,6 @@ class RemonlineController extends Controller
                 }
             }
         }
-
     }
 
     private function uploadForFixing($product)
@@ -319,7 +327,7 @@ class RemonlineController extends Controller
         return $returningValue;
     }
 
-    private function uploadProducts($product, $fixingModel, $allCategories, $warehouse)
+    private function uploadProducts($product, $fixingModel, $allCategories, $warehouse = 63647)
     {
         $categories = SubCategory::get();
         $productDB = Product::where('remonline_title', $product['title'])->first();
