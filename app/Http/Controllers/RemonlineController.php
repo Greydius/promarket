@@ -123,7 +123,7 @@ class RemonlineController extends Controller
         $page = 1;
         $products = [];
         while ($page) {
-            $productsQuery = Http::get("https://api.remonline.ru/warehouse/goods/63647?token=$token&page=$page");
+            $productsQuery = Http::get("https://api.remonline.ru/warehouse/goods/43086?token=$token&page=$page");
             try {
                 $productsQuery['data'];
                 $pageProducts = $productsQuery['data'];
@@ -149,7 +149,7 @@ class RemonlineController extends Controller
         foreach ($products as $product) {
             $fixingModel = $this->uploadForFixing($product);
             if ($fixingModel != null) {
-                $this->uploadProducts($product, $fixingModel, $allCategories);
+                $this->uploadProducts($product, $fixingModel, $allCategories, 43086);
             }
         }
 
@@ -326,7 +326,7 @@ class RemonlineController extends Controller
         return $returningValue;
     }
 
-    private function uploadProducts($product, $fixingModel, $allCategories)
+    private function uploadProducts($product, $fixingModel, $allCategories, $warehouse = 63647)
     {
         $categories = SubCategory::get();
         $productDB = Product::where('remonline_title', $product['title'])->first();
@@ -341,7 +341,12 @@ class RemonlineController extends Controller
             $newProd->name = $product['title'];
             $newProd->code = Str::slug($product['title'], '_');
             $newProd->vendor_code = 'A11213';
-            $newProd->quantity = $product['residue'];
+            if ($warehouse = 43086) {
+                $newProd->quantity_XO = $product['residue'];
+            } else {
+                $newProd->quantity = $product['residue'];
+            }
+
             $newProd->model = $product['article'];
             $newProd->price_with_installation = $product['price']['91237'];
             $newProd->installation_description = $product['description'];
@@ -354,6 +359,12 @@ class RemonlineController extends Controller
             $newProd->save();
             $subCategory->products()->attach($newProd->id);
             return $newProd;
+        } else {
+            if ($warehouse = 43086) {
+                $productDB->quantity_XO = $product['residue'];
+            } else {
+                $productDB->quantity = $product['residue'];
+            }
         }
         return $productDB;
 
