@@ -39,7 +39,6 @@ class RemonlineController extends Controller
     {
         $token = $this->getToken();
         $res2 = Http::get("https://api.remonline.ru/warehouse/categories/?token=$token");
-        sleep(0.05);
         return $res2['data'];
     }
 
@@ -48,8 +47,8 @@ class RemonlineController extends Controller
         $res2 = Http::post("https://api.remonline.ru/token/new", [
             'api_key' => $this->api_key,
         ]);
-        $token = ($res2['token']);
-        return $token;
+        dump($res2['token']);
+        return $res2['token'];
     }
 
     public function uploadCategories()
