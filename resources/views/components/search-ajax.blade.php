@@ -9,7 +9,7 @@
 	           @if($i <= 3)
              <li class="result_item">
                 @if(isset($result->searchable->img))
-                <img src="{{ asset('/storage/'.$result->searchable->img) }}">
+                <img src="{{ $result->searchable->img }}">
                 @endif
                 <p><a href="{{$result->url}}">{{$result->title}}</a>
                 <span class="price">€ {{ $result->searchable->price }}</span></p>

@@ -9,7 +9,9 @@
                 @include('components.fixing-sidebar')
 
                 <div class="col-lg-9">
+                    @if($fixingType)
                     <div class="fixing-main-banner fixing-main-banner-inner">
+                        
                         <img src="{{ Voyager::image($fixingType->img) }}" class="fixing-banner-background" alt="">
                         {{ Breadcrumbs::render('fixing-type', $fixingType) }}
 
@@ -44,6 +46,7 @@
                             </p>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

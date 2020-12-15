@@ -33,7 +33,7 @@ class Product extends Model  implements Searchable
 
     public function getSearchResult(): SearchResult
     {
-        $url = route('shop-inner', [$this->subCategory->category->code, $this->subCategory->code, $this->code]);
+        $url = route('shop-inner', [$this->subCategory[0]->category->code, $this->subCategory[0]->code, $this->code]);
 
         return new SearchResult(
             $this,
