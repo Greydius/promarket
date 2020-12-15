@@ -10,7 +10,8 @@
 
                         <div class="shop-sidebar-wrapper">
 
-                            {{--<x-filter category="{{request()->route()->parameters['category']}}" :subcategory="request()->route()->parameters['subcategory']"/>--}}
+
+                            <x-filter category="{{request()->route()->parameters['category']}}" :subcategory="request()->route()->parameters['subcategory']"/>
 
                         </div>
 

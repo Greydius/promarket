@@ -66,10 +66,10 @@
         <label class="checkbox-label">
             <input type="checkbox" name="quantity" value="{{$quantity->quantity}}">
             <span>
-            	@if($quantity->quantity == 10)
-            		Есть в наличии
-            	@else
+            	@if($quantity->quantity == 0)
             		Под заказ
+            	@else
+            		Есть в наличии
             	@endif
 			</span>
         </label>
@@ -114,6 +114,7 @@
         <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
     </div>
     <div class="filter-content">
+        <div class="pol_content">
         @foreach($manufacturer as $manufacturer)
         <label class="checkbox-label">
             <input type="checkbox" name="manufacturer" value="{{$manufacturer->manufacturer}}">
@@ -122,6 +123,8 @@
 			</span>
         </label>
         @endforeach
+        </div>
+        <button class="view_all">Еше</button>
     </div>
 </div>
 
@@ -133,6 +136,7 @@
         <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
     </div>
     <div class="filter-content">
+    <div class="pol_content">
        @foreach($models as $model)
         <label class="checkbox-label">
             <input type="checkbox" name="model" value="{{$model->model}}">
@@ -141,6 +145,8 @@
 			</span>
         </label>
         @endforeach
+    </div>
+        <button class="view_all">Еше</button>
 
     </div>
 </div>
@@ -252,6 +258,22 @@ $(document).ready(function() {
         //     $('#sort div').html("");
         // });
 
-
+$('button.view_all').click(function(e){
+$(this).prev('.pol_content').toggleClass('full');
+})
 });
     </script>
+<style type="text/css">
+    .filter-content .pol_content {
+    height: 340px;
+}
+button.view_all {
+    background: none;
+    border: none;
+    float: right;
+    padding-top: 21px;
+}
+.pol_content.full {
+    height: 100%;
+}
+</style>
