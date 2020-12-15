@@ -158,7 +158,7 @@ class RemonlineController extends Controller
 
     private function uploadForFixing($product, $categories)
     {
-        
+
         $upperCategory = $this->findUpperCategory($product, $categories);
         if ($upperCategory !== null) {
             $parentCategory = $this->createUpperCategory($upperCategory);
@@ -332,7 +332,8 @@ class RemonlineController extends Controller
         $productDB = Product::where('remonline_title', $product['title'])->first();
         $subCategory = $this->findSubCategory($product, $categories, $allCategories);
         if ($subCategory == null) {
-            dd($product);
+           dump('not fixed');
+           return 'nothing';
         }
         if ($productDB == null) {
             $newProd = new Product();
