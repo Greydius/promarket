@@ -132,6 +132,7 @@ class RemonlineController extends Controller
             } catch (\Exception $err) {
                 break;
             }
+            dd($products);
             sleep(0.125);
 
         }
