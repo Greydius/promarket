@@ -24,7 +24,9 @@
                             </h3>
                             <div class="row fixing-brand-card-row">
                                 @foreach($manufacturer->models as $model)
-                                    @include('components.fixing.model', $model)
+                                    @if($model->is_popular)
+                                        @include('components.fixing.model', $model)
+                                    @endif
                                 @endforeach
                             </div>
 
@@ -33,16 +35,14 @@
                             </h3>
 
                             <div class="row fixing-brand-card-row">
-                                <a href="#" class="col-lg-4 col-md-4 col-6">
-                                    <div class="fixing-brand-card">
-                                        <p>
-                                            iPhone 6
-                                        </p>
-                                    </div>
-                                </a>
+                                @foreach($manufacturer->models as $model)
+                                    @if(!$model->is_popular)
+                                        @include('components.fixing.model', $model)
+                                    @endif
+                                @endforeach
                             </div>
 
-                            <div class="pagination d-flex align-items-center justify-content-center">
+                            {{--<div class="pagination d-flex align-items-center justify-content-center">
                                 <a href="#" class="get-back pagination-bullet">
                                     &lt;&lt;
                                 </a>
@@ -58,7 +58,7 @@
                                 <a href="#" class="pagination-bullet get-next">
                                     &gt;&gt;
                                 </a>
-                            </div>
+                            </div>--}}
 
                         </div>
                     </div>

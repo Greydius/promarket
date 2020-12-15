@@ -23,19 +23,22 @@
                         </h3>
                         <div class="row main-banner-row">
                             <div class="col-lg-4 main-banner-col">
-                                <a href="{{ route('fixing-type', 'mobilo_telefonu_detalas') }}" class="fixing-category-card">
+                                <a href="{{ route('fixing-type', 'mobilo_telefonu_detalas') }}"
+                                   class="fixing-category-card">
                                     <img src="{{ asset('assets/img/common/smartphone.svg') }}" alt="">
                                     <span>Ремонт телефона</span>
                                 </a>
                             </div>
                             <div class="col-lg-4 main-banner-col">
-                                <a href="{{ route('fixing-type', 'planšetdatoru_detaļas') }}" class="fixing-category-card">
+                                <a href="{{ route('fixing-type', 'planšetdatoru_detaļas') }}"
+                                   class="fixing-category-card">
                                     <img src="{{ asset('assets/img/common/tablet.svg') }}" alt="">
                                     <span>Ремонт планшета</span>
                                 </a>
                             </div>
                             <div class="col-lg-4 main-banner-col">
-                                <a href="{{ route('fixing-type', 'gudro_pulksteņu_detaļas') }}" class="fixing-category-card">
+                                <a href="{{ route('fixing-type', 'gudro_pulksteņu_detaļas') }}"
+                                   class="fixing-category-card">
                                     <img src="{{ asset('assets/img/common/laptop.svg') }}" alt="">
                                     <span>Ремонт ноутбука</span>
                                 </a>
@@ -46,78 +49,52 @@
             </div>
         </div>
     </section>
-    <section class="commodity commodity-slider commodity-slider-1 commodity-1">
-        <div class="container">
-            <h3 class="small-title">
-                Топовые запчасти
-            </h3>
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    @foreach($products as $product)
-                    <div class="swiper-slide">
-                        @include('components.market.card', compact('product'))
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-            <div class="commodity-pagination-1 swiper-pagination"></div>
 
-        </div>
-    </section>
-    <section class="commodity commodity-no-slider">
-        <div class="container">
-            <h3 class="small-title">
-                Топовые запчасти
-            </h3>
-            <div class="">
-                <div class="row market-detail-card-row fixing-type-for-device-row">
-                    {{--@foreach($products as $product)
-                    <div class="col-6">
-                        @include('components.market.card', compact('product'))
+    @foreach($popularCategories as $category)
+        @php
+            if (count($category->allProducts()->toArray()) > 4) {
+                $products = $category->allProducts()->random(4);
+            } else {
+                $products = $category->allProducts();
+            }
+        @endphp
+        <section
+            class="commodity commodity-slider commodity-slider-{{$loop->index + 1}} commodity-{{$loop->index + 1}}">
+            <div class="container">
+                <h3 class="small-title">
+                    ТОПОВЫЕ {{$category->name}}
+                </h3>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        @foreach($products as $product)
+                            <div class="swiper-slide">
+                                @include('components.market.card', compact('product'))
+                            </div>
+                        @endforeach
                     </div>
-                    @endforeach--}}
                 </div>
-            </div>
-            <div class="commodity-pagination-1 swiper-pagination"></div>
-
-        </div>
-    </section>
-    <section class="commodity commodity-slider commodity-slider-2 commodity-2">
-        <div class="container">
-            <h3 class="small-title">
-                Топовые запчасти
-            </h3>
-
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                     {{-- @foreach($products as $product)
-                    <div class="swiper-slide">
-                        @include('components.market.card', compact('product'))
-                    </div>
-                    @endforeach--}}
-                </div>
+                <div class="commodity-pagination-{{$loop->index + 1}} swiper-pagination"></div>
 
             </div>
-
-            <div class="commodity-pagination-2 swiper-pagination"></div>
-        </div>
-    </section>
-    <section class="commodity commodity-no-slider">
-        <div class="container">
-            <h3 class="small-title">
-                Топовые запчасти
-            </h3>
-            <div class="">
-                <div class="row market-detail-card-row fixing-type-for-device-row">
-                    {{-- @foreach($products as $product)
-                    <div class="col-6">
-                        @include('components.market.card', compact('product'))
+        </section>
+        <section class="commodity commodity-no-slider">
+            <div class="container">
+                <h3 class="small-title">
+                    {{$category->name}}
+                </h3>
+                <div class="">
+                    <div class="row market-detail-card-row fixing-type-for-device-row">
+                        @foreach($products as $product)
+                            <div class="col-6">
+                                @include('components.market.card', compact('product'))
+                            </div>
+                        @endforeach
                     </div>
-                    @endforeach--}}
                 </div>
                 <div class="commodity-pagination-1 swiper-pagination"></div>
 
             </div>
-    </section>
+        </section>
+    @endforeach
 
 @endsection

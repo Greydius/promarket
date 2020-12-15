@@ -8,18 +8,34 @@ use TCG\Voyager\Traits\Translatable;
 
 class Category extends Model
 {
-	use Translatable;
-    protected $translatable = ['name','title','breadcrumbs'];
+    use Translatable;
 
-    public function subCategories () {
+    protected $translatable = ['name', 'title', 'breadcrumbs'];
+
+    public function subCategories()
+    {
         return $this->hasMany(SubCategory::class);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public function products($model)
     {
         $products = new Collection();
-        foreach($this->subCategories as $subCategory)
-        {
+        foreach ($this->subCategories as $subCategory) {
             $products = $products->merge($subCategory->products->where('model', $model));
+        }
+        return $products;
+    }
+
+    public function allProducts()
+    {
+        $products = new Collection();
+        foreach ($this->subCategories as $subCategory) {
+            $products = $products->merge($subCategory->products);
         }
         return $products;
     }

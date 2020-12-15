@@ -15,8 +15,8 @@ use App\Product;
 class MainController extends Controller
 {
     public function main () {
-        $products = Product::all()->random(1);
-        return view('pages.main', compact('products'));
+        $popularCategories = Category::where('is_popular', 1)->get();
+        return view('pages.main', compact('popularCategories'));
     }
     public function contacts()
     {
