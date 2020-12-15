@@ -47,7 +47,6 @@ class RemonlineController extends Controller
         $res2 = Http::post("https://api.remonline.ru/token/new", [
             'api_key' => $this->api_key,
         ]);
-        dump($res2['token']);
         return $res2['token'];
     }
 
