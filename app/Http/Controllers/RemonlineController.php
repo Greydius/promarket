@@ -120,6 +120,7 @@ class RemonlineController extends Controller
     public function uploadProductsFromWarehouses()
     {
         foreach ($this->warehouses as $warehouse) {
+            dump($warehouse);
             $token = $this->getToken();
             $page = 1;
             $products = [];
@@ -335,6 +336,14 @@ class RemonlineController extends Controller
            dump('not fixed');
            return 'nothing';
         }
+        $manufacturerId = $product['category']['parent_id'];
+        $manufacturer = '';
+        foreach ($allCategories as $cat) {
+            if ($manufacturerId == $cat['id']) {
+                $manufacturer = $cat['title'];
+            }
+        }
+
         if ($productDB == null) {
             $newProd = new Product();
             $newProd->name = $product['title'];
@@ -348,10 +357,10 @@ class RemonlineController extends Controller
                 $newProd->quantity = $product['residue'];
             }
 
-            $newProd->model = $product['article'];
+            $newProd->model = $product['category']['title'];
             $newProd->price_with_installation = $product['price']['91237'];
             $newProd->installation_description = $product['description'];
-            $newProd->manufacturer = $product['category']['title'];
+            $newProd->manufacturer = $manufacturer;
             $newProd->img = $product['image'];
             $newProd->remonline_title = $product['title'];
             if ($fixingModel != null) {
@@ -366,6 +375,9 @@ class RemonlineController extends Controller
             } else {
                 $productDB->quantity = $product['residue'];
             }
+            $productDB->model = $product['category']['title'];
+            $productDB->manufacturer = $manufacturer;
+            $productDB->update();
         }
         return $productDB;
 
