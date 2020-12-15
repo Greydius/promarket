@@ -39,8 +39,8 @@ class RemonlineController extends Controller
     {
         $token = $this->getToken();
         $res2 = Http::get("https://api.remonline.ru/warehouse/categories/?token=$token");
-        $categories = $res2['data'];
-        return $categories;
+        sleep(0.05);
+        return $res2['data'];
     }
 
     public function getToken()
