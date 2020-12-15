@@ -123,7 +123,7 @@ class RemonlineController extends Controller
         $page = 1;
         $products = [];
         while ($page) {
-            $productsQuery = Http::get("https://api.remonline.ru/warehouse/goods/43086?token=$token&page=$page");
+            $productsQuery = Http::get("https://api.remonline.ru/warehouse/goods/63647?token=$token&page=$page");
             try {
                 $productsQuery['data'];
                 $pageProducts = $productsQuery['data'];
