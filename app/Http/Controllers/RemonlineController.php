@@ -119,38 +119,29 @@ class RemonlineController extends Controller
 
     public function uploadProductsFromWarehouses()
     {
-        $token = $this->getToken();
-        $page = 1;
-        $products = [];
-        while ($page) {
-            $productsQuery = Http::get("https://api.remonline.ru/warehouse/goods/63647?token=$token&page=$page");
-            try {
-                $productsQuery['data'];
-                $pageProducts = $productsQuery['data'];
-                $products = array_merge($products, $pageProducts);
-                $page++;
-            } catch (\Exception $err) {
-                break;
-            }
-            dd($products);
-            sleep(0.125);
+        foreach ($this->warehouses as $warehouse) {
+            $token = $this->getToken();
+            $page = 1;
+            $products = [];
+            while ($page) {
+                $productsQuery = Http::get("https://api.remonline.ru/warehouse/goods/$warehouse?token=$token&page=$page");
+                try {
+                    $productsQuery['data'];
+                    $pageProducts = $productsQuery['data'];
+                    $products = array_merge($products, $pageProducts);
+                    $page++;
+                } catch (\Exception $err) {
+                    break;
+                }
+                sleep(0.125);
 
-        }
-
-        /*$filteredForDevProducts = array_slice($products, 0, 10);*/
-        /*$existingIds = [];
-        $filteredProducts = [];
-        foreach ($products as $product) {
-            if (!in_array($product['article'], $existingIds)) {
-                array_push($existingIds, $product['article']);
-                array_push($filteredProducts, $product);
             }
-        }*/
-        $allCategories = $this->getCategories();
-        foreach ($products as $product) {
-            $fixingModel = $this->uploadForFixing($product);
-            if ($fixingModel != null) {
-                $this->uploadProducts($product, $fixingModel, $allCategories, 43086);
+            $allCategories = $this->getCategories();
+            foreach ($products as $product) {
+                $fixingModel = $this->uploadForFixing($product);
+                if ($fixingModel != null) {
+                    $this->uploadProducts($product, $fixingModel, $allCategories, $warehouse);
+                }
             }
         }
 
@@ -327,7 +318,7 @@ class RemonlineController extends Controller
         return $returningValue;
     }
 
-    private function uploadProducts($product, $fixingModel, $allCategories, $warehouse = 63647)
+    private function uploadProducts($product, $fixingModel, $allCategories, $warehouse)
     {
         $categories = SubCategory::get();
         $productDB = Product::where('remonline_title', $product['title'])->first();
@@ -342,7 +333,7 @@ class RemonlineController extends Controller
             $newProd->name = $product['title'];
             $newProd->code = Str::slug($product['title'], '_');
             $newProd->vendor_code = 'A11213';
-            if ($warehouse = 43086) {
+            if ($warehouse == 63647) {
                 $newProd->quantity_XO = $product['residue'];
             } else {
                 $newProd->quantity = $product['residue'];
@@ -361,7 +352,7 @@ class RemonlineController extends Controller
             $subCategory->products()->attach($newProd->id);
             return $newProd;
         } else {
-            if ($warehouse = 43086) {
+            if ($warehouse == 63647) {
                 $productDB->quantity_XO = $product['residue'];
             } else {
                 $productDB->quantity = $product['residue'];
