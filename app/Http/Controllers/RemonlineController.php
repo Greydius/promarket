@@ -120,6 +120,7 @@ class RemonlineController extends Controller
     public function uploadProductsFromWarehouses()
     {
         foreach ($this->warehouses as $warehouse) {
+            dump($warehouse);
             $token = $this->getToken();
             $page = 1;
             $products = [];
