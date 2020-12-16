@@ -236,9 +236,15 @@
 $(document).ready(function() {
 
     src = "{{ route('search') }}";
-
+        $(".sidebar-search").submit(function(e){
+            return false;
+        });
         $('#search_text2').on('keyup',function() {
+            if( $(this).val().length === 0 ) {
+            var query = 0;
+            }else{
             var query = $(this).val();
+            }
             $.ajax({
 
                 url:"{{ route('search.ajax') }}",
@@ -260,10 +266,28 @@ $(document).ready(function() {
         //     $('#sort div').html("");
         // });
 
-$('button.view_all').click(function(e){
-$(this).prev('.pol_content').toggleClass('full');
-})
+        $('button.view_all').click(function(e){
+            $(this).prev('.pol_content').toggleClass('full');
+        })
 });
+
+/* Ajax pagination js code */
+$(document).ajaxComplete(function() {
+    $('.pagination a').click(function(e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+            query = $('#search_text2').val();
+        $.ajax({
+            url: url,
+            data: {'query2':query,'category':'<?= request()->route()->parameters['category'] ?>', 'subcategory':'<?= request()->route()->parameters['subcategory'] ?>'},
+            success: function(data) {
+                console.log(data);
+                $('#sort').html(data);
+            }
+        });
+    });
+});
+
     </script>
 <style type="text/css">
     .filter-content .pol_content {
