@@ -62,18 +62,20 @@
         <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
     </div>
     <div class="filter-content">
-    	   @foreach($quantity as $quantity)
+    	   <!-- @ foreach($quantity as $quantity) -->
         <label class="checkbox-label">
-            <input type="checkbox" name="quantity" value="{{$quantity->quantity}}">
+            <input type="checkbox" name="quantity" value="0">
             <span>
-            	@if($quantity->quantity == 0)
             		Под заказ
-            	@else
-            		Есть в наличии
-            	@endif
 			</span>
         </label>
-        @endforeach
+        <label class="checkbox-label">
+            <input type="checkbox" name="quantity" value="1">
+            <span>
+                    Есть в наличии
+            </span>
+        </label>
+        <!-- @ endforeach -->
     </div>
 </div>
 
@@ -161,9 +163,9 @@
     <div class="filter-content">
     	@foreach($color as $color)
         <label class="checkbox-label">
-            <input type="checkbox" name="color" value="{{$color->color}}">
+            <input type="checkbox" name="color" value="{{$color->id}}">
             <span>
-               {{$color->color}}
+               {{$color->name}}
             </span>
         </label>
         @endforeach
@@ -209,11 +211,11 @@
                 'max_price': max_price,
                 'order': order,
                 'per_page': per_page,
+                'quantity': quantity,
+                'color': color,
                 'attrs': {
-	                'quantity': quantity,
                     'manufacturer': manufacturer,
                     'model': model,
-                    'color': color,
                 }
             };
             console.log(data);

@@ -46,6 +46,25 @@ class MarketController extends Controller
             }
 
         }
+        if(isset(request()->color)){
+               $products = $products->whereIn('color_id', request()->color);
+        }
+        if(isset(request()->quantity)){
+        $c=count(request()->quantity);
+          if($c == 1){
+            foreach(request()->quantity as $quantity){
+              if($quantity == 0){
+                $products = $products->where('quantity', 0);
+
+              }else{
+                // dd($quantity);
+              $products = $products->where('quantity','>=', $quantity);
+              }
+            }
+          }else{
+              $products = $products->where('quantity','>=', 0);
+          }
+        }
         if(isset(request()->min_price) && isset(request()->max_price)){
           $products = $products->where('price','>=', request()->min_price);
           $products = $products->where('price','<=', request()->max_price);
