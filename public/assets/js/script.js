@@ -9706,7 +9706,18 @@ try {
         let endingValueInput = document.getElementsByClassName('ending-value')[0];
         startingValueInput.value = +(startingValue).toFixed();
         endingValueInput.value = +(endingValue).toFixed();
-    });
+
+
+        });
+    costSlider.on('change', function (values) {
+        let startingValue = +values[0];
+        let endingValue = +values[1];
+        let startingValueInput = document.getElementsByClassName('starting-value')[0];
+        let endingValueInput = document.getElementsByClassName('ending-value')[0];
+        const changeEvent = new Event('change');
+        startingValueInput.dispatchEvent(changeEvent);
+        endingValueInput.dispatchEvent(changeEvent);
+    })
 } catch (e) {
     void e
 }
