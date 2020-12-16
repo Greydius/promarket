@@ -53,7 +53,7 @@ class MainController extends Controller
     }
 
     public function searchAjax(Request $request){
-
+            // dd(request('query2'));
         if($request->ajax()) {
             if(request('query')){
 
@@ -63,8 +63,8 @@ class MainController extends Controller
             ->perform($request->input('query'));
 
             return view('components.search-ajax',compact('data'));
-        }elseif (request('query2')) {
-
+        }elseif(request('query2')) {
+            // dd(request('query2'));
             $category = '';
             $query = request('query2');
             $mainCategory = Category::where('code', request('category'))->first();
@@ -73,7 +73,11 @@ class MainController extends Controller
                    $category = $sub;
                }
             }
+            // if($query == 0){
+             // $products = $category->products()->withTranslations()->paginate(12);
+            // }else{
              $products = $category->products()->where('name', 'LIKE', "%$query%")->withTranslations()->paginate(12);
+            // }
              // dd($products);
             return view('components.market.sort',compact('products'));
         }
