@@ -5,7 +5,7 @@
             &lt;&lt;
         </a>
         @else
-            <li><a href="{{ $paginator->previousPageUrl() }}"  class="get-back pagination-bullet" rel="prev"> &lt;&lt;</a></li>
+        <a href="{{ $paginator->previousPageUrl() }}"  class="get-back pagination-bullet" rel="prev"> &lt;&lt;</a>
         @endif
           
         @foreach ($elements as $element)
@@ -36,3 +36,63 @@
 </div>  
 
 @endif
+
+<script type="text/javascript">
+  function ajaxSort(url){
+
+            var query = $('#search_text2').val();
+            var min_price = $('input[name="min_price"]').val();
+            var max_price = $('input[name="max_price"]').val();
+            var order = $('#order').children("option:selected").val();
+            var per_page = $('#per_page').children("option:selected").val();
+            var quantity = [];
+            var manufacturer = [];
+            var model = [];
+            var color = [];
+            $.each($(".filter-el input[name='quantity']:checked"), function () {
+                quantity.push($(this).val());
+            });
+            $.each($(".filter-el input[name='manufacturer']:checked"), function () {
+                manufacturer.push($(this).val());
+            });
+            $.each($(".filter-el input[name='model']:checked"), function () {
+                model.push($(this).val());
+            });
+            $.each($(".filter-el input[name='color']:checked"), function () {
+                color.push($(this).val());
+            });
+
+            data = {
+                'filter': '1',
+                'min_price': min_price,
+                'max_price': max_price,
+                'order': order,
+                'per_page': per_page,
+                'quantity': quantity,
+                'color': color,
+                'query2': query,
+                'attrs': {
+                    'manufacturer': manufacturer,
+                    'model': model,
+                }
+            };
+            // console.log(data);
+
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: data
+            }).done(function (data) {
+                $('#sort').html(data);
+            });
+        };    
+    
+
+    $('.pagination a').on('click', function(e) {
+        e.preventDefault();
+        alert(this);
+        var url = $(this).attr('href');
+        ajaxSort(url);
+
+    });
+</script>
