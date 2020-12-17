@@ -64,7 +64,6 @@ Route::group([
 
     Route::get('/cart/clear', 'OrderController@removeAllProductsFromCart')->name('clear-cart');
 
-
     Auth::routes(['verify' => true]);
 
     Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider')
@@ -80,13 +79,13 @@ Route::group([
     Route::get('/profile/order/{id}', 'ProfileController@oneOrder')->name('user.order')->middleware('verified');
     Route::post('/profile/edit', 'ProfileController@edit')->name('profile.edit')->middleware('verified');
     Route::post('/profile/avatar', 'ProfileController@avatarStore')->name('avatarStore')->middleware('verified');
-
+    Route::match(['post','get'],'/profile/new-password', 'ProfileController@newPass')->name('profile.new-password')->middleware('verified');
     Route::get('/reset-password', 'Auth\ResetPasswordController@resetPassword')->name('reset.password');
 
     Route::get('/checkout', 'OrderController@ckeckout')->name('checkout');
     Route::post('/confirm-order', 'OrderController@confirmOrder')->name('confirm.order');
 
-    Route::get('/search', 'MainController@search')->name('search');
+    Route::match(['post', 'get'],'/search', 'MainController@search')->name('search');
     Route::get('/search-ajax', 'MainController@searchAjax')->name('search.ajax');
 
 

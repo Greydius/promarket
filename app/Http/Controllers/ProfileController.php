@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Auth;
 use App\Order;
+use App\User;
 
 class ProfileController extends Controller
 {
@@ -67,5 +69,21 @@ class ProfileController extends Controller
    			'avatar' => $imageName,
    		]);
         return $imageName;
+    }
+
+    public function newPass()
+    {
+      if(request()->isMethod('post')){
+        request()->validate([
+            'new_password' => ['required'],
+            'password_confirmation' => ['same:new_password'],
+        ]);
+
+        User::find(auth()->user()->id)->update(['password'=> Hash::make(request('new_password'))]);
+
+        return redirect()->route('profile.index')->with('status', 'Успешно сохранено!');
+      }else{
+       return view('profile.new-password');
+      }
     }
 }

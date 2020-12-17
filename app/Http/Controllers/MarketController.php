@@ -22,15 +22,15 @@ class MarketController extends Controller
        }
 
 
-       $products = $category->products()->withTranslations()->paginate(10);
+       $products = $category->products()->withTranslations()->paginate(12);
 
        return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85]);
     }
     public function sortAjax($categoryCode, $subCategoryCode)
     {
        // $category = SubCategory::where('code', $subCategoryCode)->first();
-        $query = request('query2');
-        $category = '';
+      $query = request('query2');
+      $category = '';
        $mainCategory = Category::where('code', $categoryCode)->first();
        foreach ($mainCategory->subCategories as $sub) {
            if ($sub->code == $subCategoryCode){

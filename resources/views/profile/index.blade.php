@@ -60,6 +60,11 @@
                         @if(session()->has('error'))
                         <p class="alert alert-error alert-danger text-center">{{session()->get('error')}}</p>
                         @endif
+                      @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     </div>
                     <div class="lk-tabs-wrapper">
                         <div class="lk-table-container active">
@@ -154,7 +159,7 @@
                                         <div>
                                             замена пароля
                                         </div>
-                                        <a href="#">
+                                        <a href="{{route('profile.new-password')}}">
                                             Изменить пароль
                                         </a>
                                     </div>

@@ -21,5 +21,8 @@ class VerifyCsrfToken extends Middleware
         '/ru/market/*',
         '/lv/market/*',
         '/en/market/*',
+        '/ru/search',
+        '/lv/search',
+        '/en/search',
     ];
 }

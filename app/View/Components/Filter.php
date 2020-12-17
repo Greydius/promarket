@@ -44,13 +44,10 @@ class Filter extends Component
         $quantity = $category->products()->groupBy('quantity')->select('quantity')->get();
         $manufacturer = $category->products()->groupBy('manufacturer')->select('manufacturer')->get();
         $color_ids = $category->products()->groupBy('color_id')->select('color_id')->pluck('color_id')->toArray();
-        // dd($color_ids);
         $color = Color::whereIn('id', $color_ids)->get();
-        // dd($color);
         $minprice = $category->products()->min('price');
         $maxprice = $category->products()->max('price');
-        // dd($quantity);
-        // dd($products->select('quantity','manufacturer','model','color')->get());
-        return view('components.filter',compact('models','quantity','manufacturer','color', 'minprice', 'maxprice'));
+
+        return view('components.filter', compact('models','quantity','manufacturer','color', 'minprice', 'maxprice'));
     }
 }

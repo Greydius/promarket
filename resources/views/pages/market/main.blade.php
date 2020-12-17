@@ -132,7 +132,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                {{$products->links('components.pagination')}}
+                                {{$products->onEachSide(1)->links('components.pagination')}}
                             </div>
 
                         </div>

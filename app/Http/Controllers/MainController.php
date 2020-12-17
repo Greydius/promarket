@@ -44,12 +44,54 @@ class MainController extends Controller
 
     public function search(Request $request)
     {
-       $searchResults = (new Search())
-            ->registerModel(Product::class, 'name')
-            ->registerModel(FixingDetail::class, 'name')
-            ->perform($request->input('query'));
+    if($request->ajax()){
+        $query = request('query');
+        $query2 = request('query2');
+        $products = Product::query();
+        $products = $products->where('name', 'LIKE', "%$query%");
+        if(isset(request()->attrs)){
+            foreach(request()->attrs as $key => $val){
+               $products = $products->whereIn($key, $val);
+            }
 
-        return view('components.search', compact('searchResults'));
+        }
+        if(isset(request()->color)){
+               $products = $products->whereIn('color_id', request()->color);
+        }
+        if(isset(request()->quantity)){
+        $c=count(request()->quantity);
+          if($c == 1){
+            foreach(request()->quantity as $quantity){
+              if($quantity == 0){
+                $products = $products->where('quantity', 0);
+
+              }else{
+                // dd($quantity);
+              $products = $products->where('quantity','>=', $quantity);
+              }
+            }
+          }else{
+              $products = $products->where('quantity','>=', 0);
+          }
+        }
+        if(isset(request()->min_price) && isset(request()->max_price)){
+          $products = $products->where('price','>=', request()->min_price);
+          $products = $products->where('price','<=', request()->max_price);
+        }
+          $products = $products->where('name', 'LIKE', "%$query2%")->orderBy('price',request()->order)->paginate(request()->per_page)->onEachSide(2);
+           return view('components.market.sort', compact('products'));
+        }else{
+           $searchResults = (new Search())
+                ->registerModel(Product::class, 'name')
+                ->registerModel(FixingDetail::class, 'name')
+                ->perform($request->input('query'));
+                $results = $searchResults;
+            $search = $request->input('query');
+
+            $results = Product::where('name', 'LIKE', '%' . $search . '%')->paginate(12);
+
+            return view('components.search', compact('searchResults', 'results'));
+        }
     }
 
     public function searchAjax(Request $request){
@@ -63,23 +105,8 @@ class MainController extends Controller
             ->perform($request->input('query'));
 
             return view('components.search-ajax',compact('data'));
-            }elseif(request('query2')) {
-                // // dd(request('query2'));
-                // $category = '';
-                // $query = request('query2');
-                // $mainCategory = Category::where('code', request('category'))->first();
-                // foreach ($mainCategory->subCategories as $sub) {
-                //    if ($sub->code == request('subcategory')){
-                //        $category = $sub;
-                //    }
-                // }
-                // // if($query == 0){
-                //  // $products = $category->products()->withTranslations()->paginate(12);
-                // // }else{
-                //  $products = $category->products()->where('name', 'LIKE', "%$query%")->withTranslations()->paginate(12);
-                // // }
-                //  // dd($products);
-                // return view('components.market.sort',compact('products'));
+            }else {
+                return false;
             }
         }
     }
