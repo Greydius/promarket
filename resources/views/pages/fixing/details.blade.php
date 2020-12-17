@@ -45,7 +45,7 @@
 
                                             @if(count($detail->detailQuality) == 0)
                                                 <div class="mt-2">
-                                                    <strong>Цена с работой: </strong>
+                                                    <strong>{{__("Price with work")}} : </strong>
                                                     <span class="commodity-card-price">
                                                          € {{$detail->price}}
                                                     </span>
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="banner-categories-block banner-categories-block-phone11 mt-5">
                                         <h3 class="small-title">
-                                            выберите цвет:
+                                            {{__("Choose a color")}} :
                                         </h3>
                                         <div class="row choosing-color-row main-banner-row">
                                             @foreach($detail->allColors as $detailColor)
@@ -78,7 +78,7 @@
 
                                     <div class="commodity choose-quality">
                                         <h3 class="small-title">
-                                            выберите качество детали
+                                            {{__("Choose quality")}}
                                         </h3>
                                         <div class="choose-quality-block">
 
@@ -89,7 +89,7 @@
 
                             <div class="d-flex justify-content-end">
                                 <h3 class="d-flex align-content-center small-title my-5">
-                                    сумма ремонта:  
+                                    {{__("repair cost")}}:  
                                     <span class="commodity-card-price commodity-card-old-price flex-row">
 
                                        € <span class="js-commodity-card-old-price-text"></span>
@@ -121,9 +121,9 @@
                                         <li>Гарантия на детали и проведенные работы</li>
                                         <li>Наличие детали на нашем складе</li>
                                     </ul>
-                                    <div><strong>Время ремонта:</strong> 1-3 часа</div>
+                                    <div><strong>{{__("Repair time")}}:</strong> 1-3 часа</div>
                                     <div class="mt-2">
-                                        <strong>Цена с работой: </strong>
+                                        <strong>{{__("Price with work")}} : </strong>
                                         <span class="commodity-card-price">
                     € 80
                   </span>
@@ -140,23 +140,23 @@
                                         <div class="row justify-content-center">
                                             <div class="col-lg-12">
                                                 <h3 class="small-title mb-2">
-                                                    резервация
+                                                    {{__("reservation")}}
                                                 </h3>
                                                 <label>
-                                                    <input type="text" placeholder="Имя Фамилия" class="form-control"
+                                                    <input type="text" placeholder="{{__('First Name, Last Name')}}" class="form-control"
                                                            name="name">
                                                 </label>
                                                 <label>
-                                                    <input type="text" placeholder="Адрес электронной почты"
+                                                    <input type="text" placeholder="{{__('E-mail address')}}"
                                                            class="form-control"
                                                            name="email">
                                                 </label>
                                                 <input type="tel" class="form-control"
                                                        placeholder="Ваш номер телефона" name="tel">
                                                 <textarea class="form-control" name="comment" rows="5"
-                                                          placeholder="Комментарий"></textarea>
+                                                          placeholder="{{__('Comment')}} "></textarea>
                                                 <h3 class="small-title my-4">
-                                                    Филиал
+                                                    {{__("Branch")}}
                                                 </h3>
                                             </div>
                                             <div

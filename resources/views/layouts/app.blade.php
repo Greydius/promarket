@@ -389,7 +389,7 @@
             <div class="header_form_search">
                 <form action="" method="POST">
                     <label>
-                        <input placeholder="Поиск" type="text" class="form_control">
+                        <input placeholder="{{__('search')}}" type="text" class="form_control">
                     </label>
                     <button type="button" class="search_form_submit">
                         <img src="{{ asset('assets/img/common/search.svg')}}" alt="">
@@ -432,7 +432,7 @@
 
                 <div class="header__cart__inner dropping__element__wrapper">
                     <h3 class="inner__cart__title">
-                        продуктов в корзине: 2
+                        {{__("products in the shopping cart:")}} 2
                     </h3>
                     <div class="header__cart_commodities">
                         <div class="d-flex header_cart_commodity">
@@ -499,7 +499,7 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="cart__price__wrapper">
                             <p>
-                                Итого:
+                                {{__("total")}}:
                                 <b>
                                     44.50 €
                                 </b>
@@ -599,8 +599,8 @@
                         </div>
                         <div class="working-hours">
                             <p>
-                                Рабочие дни: 9.00-18.00 <br>
-                                Суббота: 11.00-15.00
+                                {{__("Working days")}}: 9.00-18.00 <br>
+                                {{__("Saturday")}}: 11.00-15.00
                             </p>
                         </div>
                     </div>
@@ -617,7 +617,7 @@
                         </div>
                         <div class="working-hours">
                             <p>
-                                Рабочие дни: 10.00-18.00
+                                {{__("Working days")}}: 10.00-18.00
                             </p>
                         </div>
                     </div>

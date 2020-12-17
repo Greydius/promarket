@@ -23,7 +23,7 @@
                                         </a>
                                     </li>
                                     <li class="bread-crumb-link">
-                                        Поиск  
+                                        {{__('search')}}  
                                     </li>
                                 </ul>
                             </div>

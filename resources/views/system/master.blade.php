@@ -138,7 +138,7 @@
             <div class="header_form_search">
                 <form action="{{ route('search') }}" method="GET" class="search_form">
                     <label>
-                        <input placeholder="Поиск" type="text" class="form_control" name="query" id="search_text" >
+                        <input placeholder="{{__('search')}}" type="text" class="form_control" name="query" id="search_text" >
                     </label>
                     <button type="submit" class="search_form_submit">
                         <img src="{{ asset('/assets/img/common/search.svg') }}" alt="">
@@ -252,8 +252,8 @@
                         </div>
                         <div class="working-hours">
                             <p>
-                                Рабочие дни: 9.00-18.00 <br>
-                                Суббота: 11.00-15.00
+                                {{__("Working days")}}: 9.00-18.00 <br>
+                                {{__("Saturday")}}: 11.00-15.00
                             </p>
                         </div>
                     </div>
@@ -270,7 +270,7 @@
                         </div>
                         <div class="working-hours">
                             <p>
-                                Рабочие дни: 10.00-18.00
+                                {{__("Working days")}}: 10.00-18.00
                             </p>
                         </div>
                     </div>
@@ -279,7 +279,7 @@
             </div>
             <div class="col-lg-3 col-md-4">
                 <h3 class="small-title">
-                    Ремонт
+                    {{__("repairs")}}
                 </h3>
                 <ul>
                     <li><a href="{{ route('fixing-type', 'mobile') }}">Мобильных телефонов</a></li>
@@ -289,7 +289,7 @@
             </div>
             <div class="col-lg-3 col-md-4">
                 <h3 class="small-title">
-                    магазин
+                    {{__("store")}}
                 </h3>
                 <ul>
                     <li><a href="#">Запчасти для мобильных телефонов </a></li>

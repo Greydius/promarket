@@ -1,7 +1,7 @@
 <div class="header__cart__inner dropping__element__wrapper">
     @if(isset($order->products) && count($order->products) != 0)
         <h3 class="inner__cart__title">
-            продуктов в корзине: {{count($order->products)}}
+            {{__("products in the shopping cart:")}} {{count($order->products)}}
         </h3>
         <div class="header__cart_commodities">
             @foreach($order->products as $product)
@@ -48,19 +48,19 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="cart__price__wrapper">
                 <p>
-                    Итого:
+                    {{__("total")}}:
                     <b>
                         {{$order->getFullPrice()}} €
                     </b>
                 </p>
             </div>
             <a href="{{route('cart')}}" class="default-button">
-                перейти в корзину
+                {{__("go to shopping cart")}}
             </a>
         </div>
     @else
         <h3 class="inner__cart__title">
-            Ваша корзина пуста
+           {{__("your shopping cart is currently empty")}}
         </h3>
     @endif
 </div>

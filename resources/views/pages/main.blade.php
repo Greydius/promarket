@@ -7,40 +7,36 @@
             <div class="row">
                 <div class="col-lg-6">
                     <h1 class="main-title">
-                        Начните ремонт своего устройства прямо сейчас.
+                        {{__("start to repair your device right now")}}
                     </h1>
                     <div class="main_page_banner_text">
-                        <p>
-                            Более 10ти лет мы профессионально занимаемся ремонтом электронной техники, обеспечивая
-                            качественную услугу
-                            по
-                            разумной цене.
+                        <p>{{__("we are professionally engaged in the repair of electronic equipment more than 15 years, providing quality service at a reasonable price")}}
                         </p>
                     </div>
                     <div class="banner-categories-block">
                         <h3 class="small-title">
-                            Выберите категории:
+                            {{__("CHOOSE CATEGORIES")}}:
                         </h3>
                         <div class="row main-banner-row">
                             <div class="col-lg-4 main-banner-col">
                                 <a href="{{ route('fixing-type', 'mobilo_telefonu_detalas') }}"
                                    class="fixing-category-card">
                                     <img src="{{ asset('assets/img/common/smartphone.svg') }}" alt="">
-                                    <span>Ремонт телефона</span>
+                                    <span>{{__("Phone Repair")}}</span>
                                 </a>
                             </div>
                             <div class="col-lg-4 main-banner-col">
                                 <a href="{{ route('fixing-type', 'planšetdatoru_detaļas') }}"
                                    class="fixing-category-card">
                                     <img src="{{ asset('assets/img/common/tablet.svg') }}" alt="">
-                                    <span>Ремонт планшета</span>
+                                    <span>{{__("Tablet Repair")}}</span>
                                 </a>
                             </div>
                             <div class="col-lg-4 main-banner-col">
                                 <a href="{{ route('fixing-type', 'gudro_pulksteņu_detaļas') }}"
                                    class="fixing-category-card">
                                     <img src="{{ asset('assets/img/common/laptop.svg') }}" alt="">
-                                    <span>Ремонт ноутбука</span>
+                                    <span>{{__("Laptop Repair")}}</span>
                                 </a>
                             </div>
                         </div>

@@ -22,7 +22,7 @@
                     </div>
                     <div class="brand-product">
                         <h3 class="small-title">
-                            Выберите производителя вашего устройства
+                            {{__("Select your device manufacturer")}}
                         </h3>
                         <div class="row fixing-company-card-row">
                             @foreach($fixingType->manufacturers as $manufacturer)
@@ -39,7 +39,7 @@
 
                         <div class="fixing-text-content fixing-inner-child-content">
                             <h3 class="small-title">
-                                О ремонте телефонов
+                                {{__("About phone repair")}}
                             </h3>
                             <p>
                                 {{ $fixingType->description }}

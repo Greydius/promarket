@@ -6,7 +6,7 @@
             <a href="{{route('fixing-order-detail', [$model->manufacturer->fixingType->code, $model->manufacturer->code, $model->code])}}?id=1" data-link="{{Request::url()}}/order?id=" class="fixed-button js-order-link-creation-button">
                 <div class="default-button-wrap">
                     <div class="default-button">
-                        заявка
+                        {{__("Order")}}
                     </div>
                 </div>
             </a>
@@ -27,7 +27,7 @@
                             </div>
 
                             <h3 class="small-title">
-                                Выберите тип ремонта, который вас интересует:
+                                {{__("Select the type of repair that interests you")}}:
                             </h3>
 
                             <div class="fixing-type-for-device-row not-colored making-active-row row">
@@ -40,7 +40,7 @@
                             </div>
                             <div class="brand-product-inquiry-button hidden-lg visible-md hidden-sm">
                                 <a href="#" class="default-button">
-                                    заявка
+                                    {{__("Order")}}
                                 </a>
                             </div>
                             <div class="additional-commodities-wrapper">
@@ -62,7 +62,7 @@
                                     @endforeach
                                 </div>
 
-                                <a href="#" class="additional-link">Смотреть все комплектующие</a>
+                                <a href="#" class="additional-link">{{__("See all parts")}} </a>
                             </div>
                         </div>
                     </div>

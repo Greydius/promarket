@@ -130,7 +130,7 @@ $product->fixingDetail->manufacturerModel->manufacturer->fixingType->code,
 $product->fixingDetail->manufacturerModel->manufacturer->code,
 $product->fixingDetail->manufacturerModel->code])}}?id={{$product->fixingDetail->id}}" type="submit"
                                                        class="submit-form default-button">
-                                                        Заявка
+                                                        {{__("Order")}}
                                                     </a>
                                                 </div>
                                             </div>

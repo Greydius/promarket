@@ -20,7 +20,7 @@
                                 @include('components.common.inner-search', ['selector' => '.fixing-brand-card p'])
                             </div>
                             <h3 class="small-title">
-                                Популярные модели:
+                                {{__("Popular models")}}:
                             </h3>
                             <div class="row fixing-brand-card-row">
                                 @foreach($manufacturer->models as $model)
@@ -31,7 +31,7 @@
                             </div>
 
                             <h3 class="small-title">
-                                Другие модели:
+                                {{__("Other models")}} :
                             </h3>
 
                             <div class="row fixing-brand-card-row">

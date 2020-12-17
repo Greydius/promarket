@@ -15,7 +15,7 @@
 
 <form class="sidebar-search" action="{{ route('search') }}" method="POST" >
     <label class="position-relative">
-        <input type="text" placeholder="Поиск" class="auth_control"  name="query" id="search_text2">
+        <input type="text" placeholder="{{__('search')}}" class="auth_control"  name="query" id="search_text2">
         <button type="button" class="search_form_submit">
             <img src="{{ asset('/assets/img/common/search.svg') }}" alt="">
         </button>

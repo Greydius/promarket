@@ -251,8 +251,8 @@
                         </div>
                         <div class="working-hours">
                             <p>
-                                Рабочие дни: 9.00-18.00 <br>
-                                Суббота: 11.00-15.00
+                                {{__("Working days")}}: 9.00-18.00 <br>
+                                {{__("Saturday")}}: 11.00-15.00
                             </p>
                         </div>
                     </div>
@@ -269,7 +269,7 @@
                         </div>
                         <div class="working-hours">
                             <p>
-                                Рабочие дни: 10.00-18.00
+                                {{__("Working days")}}: 10.00-18.00
                             </p>
                         </div>
                     </div>

@@ -12,7 +12,7 @@
         <a href="#">
           <img src="{{ asset('assets/img/common/menu.svg') }}" alt="">
           <span>
-          все виды техники
+          {{__("all types of electronics")}}
         </span>
         </a>
       </li>

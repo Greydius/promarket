@@ -6,7 +6,7 @@
             {{--<a href="{{route('fixing-order-detail', [$model->manufacturer->fixingType->code, $model->manufacturer->code, $model->code])}}?id=1" data-link="{{Request::url()}}/order?id=blabla" class="fixed-button js-order-link-creation-button">
                 <div class="default-button-wrap">
                     <div class="default-button">
-                        заявка
+                        {{__("Order")}}
                     </div>
                 </div>
             </a>--}}

@@ -39,9 +39,9 @@
             <div class="header_navigation">
                 <nav>
                     <ul class="header_navigation_wrapper d-flex align-items-center">
-                        <li><a href="{{ route('fixing') }}">Ремонт</a></li>
+                        <li><a href="{{ route('fixing') }}">{{__("repairs")}}</a></li>
                         <li class="header__shop__link">
-                            <a href="#" class="header__collapse">Магазин</a>
+                            <a href="#" class="header__collapse">{{__("store")}}</a>
                             <div class="shop-dropdown-wrapper">
                                 <div class="shop__dropping-element">
                                     <div class="shop__drop__down-tabs-side">
@@ -82,7 +82,7 @@
             <div class="header_form_search">
                 <form action="{{ route('search') }}" method="GET" class="search_form">
                     <label>
-                        <input placeholder="Поиск" type="text" class="form_control" name="query" id="search_text" >
+                        <input placeholder="{{__('search')}}" type="text" class="form_control" name="query" id="search_text" >
                     </label>
                     <button type="submit" class="search_form_submit">
                         <img src="{{ asset('/assets/img/common/search.svg') }}" alt="">
@@ -153,8 +153,8 @@
                         </div>
                         <div class="working-hours">
                             <p>
-                                Рабочие дни: 9.00-18.00 <br>
-                                Суббота: 11.00-15.00
+                                {{__("Working days")}}: 9.00-18.00 <br>
+                                {{__("Saturday")}}: 11.00-15.00
                             </p>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
                         </div>
                         <div class="working-hours">
                             <p>
-                                Рабочие дни: 10.00-18.00
+                                {{__("Working days")}}: 10.00-18.00
                             </p>
                         </div>
                     </div>

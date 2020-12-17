@@ -10,7 +10,7 @@
             <section class="commodity commodity-slider commodity-slider-1 commodity-1">
                 <div class="container">
                     <h3 class="small-title">
-                        Топовые запчасти
+                        {{__("TOP SPARE PARTS")}}
                     </h3>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
@@ -29,7 +29,7 @@
             <section class="commodity commodity-no-slider">
                 <div class="container">
                     <h3 class="small-title">
-                        Топовые запчасти
+                        {{__("TOP SPARE PARTS")}}
                     </h3>
                     <div class="">
                         <div class="row market-detail-card-row fixing-type-for-device-row">
