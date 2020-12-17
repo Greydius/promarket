@@ -78,7 +78,7 @@
         <!-- @ endforeach -->
     </div>
 </div>
-
+<input type="hidden" name="hidden_page" id="hidden_page" value="1" />
 <!-- <div class="filter-el checkbox-filter">
     <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
         <p>
@@ -175,25 +175,22 @@
 </div>
 	
     <script type="text/javascript">
-        var url = '<?= Request::url(); ?>';
+        
+$(document).ready(function() {
 
-        $('.filter-el input').change(function () {
+        function ajaxSort(url){
+
+            var query = $('#search_text2').val();
             var min_price = $('input[name="min_price"]').val();
             var max_price = $('input[name="max_price"]').val();
             var order = $('#order').children("option:selected").val();
             var per_page = $('#per_page').children("option:selected").val();
-            console.log(order);
-            console.log(per_page);
             var quantity = [];
-            var device = [];
             var manufacturer = [];
             var model = [];
             var color = [];
             $.each($(".filter-el input[name='quantity']:checked"), function () {
                 quantity.push($(this).val());
-            });
-            $.each($(".filter-el input[name='device']:checked"), function () {
-                device.push($(this).val());
             });
             $.each($(".filter-el input[name='manufacturer']:checked"), function () {
                 manufacturer.push($(this).val());
@@ -213,12 +210,13 @@
                 'per_page': per_page,
                 'quantity': quantity,
                 'color': color,
+                'query2': query,
                 'attrs': {
                     'manufacturer': manufacturer,
                     'model': model,
                 }
             };
-            console.log(data);
+            // console.log(data);
 
             $.ajax({
                 type: 'POST',
@@ -226,69 +224,33 @@
                 data: data
             }).done(function (data) {
                 $('#sort').html(data);
-                // log data to the console so we can see
-                // console.log(data);
-
-                // here we will handle errors and validation messages
             });
+        };
+
+
+
+        $('.filter-el input').change(function () {
+            var url = '<?= Request::url(); ?>';
+
+            ajaxSort(url);
+        });
+        $('#search_text2').on('keyup',function() {
+            var url = '<?= Request::url(); ?>';
+            ajaxSort(url);
         });
 
-$(document).ready(function() {
-
-    src = "{{ route('search') }}";
         $(".sidebar-search").submit(function(e){
             return false;
         });
-        $('#search_text2').on('keyup',function() {
-            if( $(this).val().length === 0 ) {
-            var query = 0;
-            }else{
-            var query = $(this).val();
-            }
-            $.ajax({
-
-                url:"{{ route('search.ajax') }}",
-
-                type:"GET",
-
-                data:{'query2':query, 'category':'<?= request()->route()->parameters['category'] ?>', 'subcategory':'<?= request()->route()->parameters['subcategory'] ?>'},
-
-                success:function (data) {
-                    $('#sort').html("");
-                    $('#sort').html(data);
-                }
-            })
-            // end of ajax call
-        });
-
-        // $(document).on('click', window, function(){
-
-        //     $('#sort div').html("");
-        // });
 
         $('button.view_all').click(function(e){
             $(this).prev('.pol_content').toggleClass('full');
         })
+
+
 });
 
-/* Ajax pagination js code */
-$(document).ajaxComplete(function() {
-    $('.pagination a').click(function(e) {
-        e.preventDefault();
-        var url = $(this).attr('href');
-            query = $('#search_text2').val();
-        $.ajax({
-            url: url,
-            data: {'query2':query,'category':'<?= request()->route()->parameters['category'] ?>', 'subcategory':'<?= request()->route()->parameters['subcategory'] ?>'},
-            success: function(data) {
-                console.log(data);
-                $('#sort').html(data);
-            }
-        });
-    });
-});
-
-    </script>
+</script>
 <style type="text/css">
     .filter-content .pol_content {
     height: 340px;

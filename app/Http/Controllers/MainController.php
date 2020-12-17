@@ -63,24 +63,24 @@ class MainController extends Controller
             ->perform($request->input('query'));
 
             return view('components.search-ajax',compact('data'));
-        }elseif(request('query2')) {
-            // dd(request('query2'));
-            $category = '';
-            $query = request('query2');
-            $mainCategory = Category::where('code', request('category'))->first();
-            foreach ($mainCategory->subCategories as $sub) {
-               if ($sub->code == request('subcategory')){
-                   $category = $sub;
-               }
+            }elseif(request('query2')) {
+                // // dd(request('query2'));
+                // $category = '';
+                // $query = request('query2');
+                // $mainCategory = Category::where('code', request('category'))->first();
+                // foreach ($mainCategory->subCategories as $sub) {
+                //    if ($sub->code == request('subcategory')){
+                //        $category = $sub;
+                //    }
+                // }
+                // // if($query == 0){
+                //  // $products = $category->products()->withTranslations()->paginate(12);
+                // // }else{
+                //  $products = $category->products()->where('name', 'LIKE', "%$query%")->withTranslations()->paginate(12);
+                // // }
+                //  // dd($products);
+                // return view('components.market.sort',compact('products'));
             }
-            // if($query == 0){
-             // $products = $category->products()->withTranslations()->paginate(12);
-            // }else{
-             $products = $category->products()->where('name', 'LIKE', "%$query%")->withTranslations()->paginate(12);
-            // }
-             // dd($products);
-            return view('components.market.sort',compact('products'));
-        }
         }
     }
 

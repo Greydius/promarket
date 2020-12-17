@@ -29,7 +29,7 @@ class MarketController extends Controller
     public function sortAjax($categoryCode, $subCategoryCode)
     {
        // $category = SubCategory::where('code', $subCategoryCode)->first();
-
+        $query = request('query2');
         $category = '';
        $mainCategory = Category::where('code', $categoryCode)->first();
        foreach ($mainCategory->subCategories as $sub) {
@@ -39,7 +39,6 @@ class MarketController extends Controller
        }
         $products = $category->products();
 
-       // if(request()->filter == 1){
         if(isset(request()->attrs)){
             foreach(request()->attrs as $key => $val){
                $products = $products->whereIn($key, $val);
@@ -69,13 +68,8 @@ class MarketController extends Controller
           $products = $products->where('price','>=', request()->min_price);
           $products = $products->where('price','<=', request()->max_price);
         }
-        // $products = $products->paginate(12);
-       // }
-       // if(request()->sorting == 1){
-          $products = $products->orderBy('price',request()->order)->paginate(request()->per_page);
-       // }
+          $products = $products->where('name', 'LIKE', "%$query%")->orderBy('price',request()->order)->paginate(request()->per_page)->onEachSide(2);
 
-       // dd($products);
        return view('components.market.sort',compact('products'));
     }
 
