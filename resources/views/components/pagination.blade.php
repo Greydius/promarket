@@ -90,7 +90,7 @@
 
     $('.pagination a').on('click', function(e) {
         e.preventDefault();
-        alert(this);
+        // alert(this);
         var url = $(this).attr('href');
         ajaxSort(url);
 
