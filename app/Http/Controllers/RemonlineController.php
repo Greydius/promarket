@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\FixingType;
 use App\Manufacturer;
 use App\ManufacturerModel;
+use App\Quality;
 use Illuminate\Support\Facades\Http;
 use Spatie\Searchable\Search;
 use Illuminate\Http\Request;
@@ -330,14 +331,31 @@ class RemonlineController extends Controller
     private function uploadProducts($product, $fixingModel, $allCategories, $warehouse = 63647)
     {
         $categories = SubCategory::get();
+        $colors = Color::get();
+        $qualities = Quality::get();
         $productDB = Product::where('remonline_title', $product['title'])->first();
         $subCategory = $this->findSubCategory($product, $categories, $allCategories);
         if ($subCategory == null) {
-           dump('not fixed');
-           return 'nothing';
+            dump('not fixed');
+            return 'nothing';
         }
         $manufacturerId = $product['category']['parent_id'];
         $manufacturer = '';
+        $productColorId = 0;
+        $productQualityId = 0;
+
+        foreach ($colors as $color) {
+            if ($color->name == $product['code']) {
+                $productColorId = $color->id;
+            }
+        }
+
+        foreach ($qualities as $quality) {
+            if ($quality->name == $product['article']) {
+                $productQualityId = $quality->id;
+            }
+        }
+
         foreach ($allCategories as $cat) {
             if ($manufacturerId == $cat['id']) {
                 $manufacturer = $cat['title'];
@@ -366,6 +384,8 @@ class RemonlineController extends Controller
             if ($fixingModel != null) {
                 $newProd->fixing_detail_id = $fixingModel->id;
             }
+            $newProd->color_id = $productColorId;
+            $newProd->quality_id = $productQualityId;
             $newProd->save();
             $subCategory->products()->attach($newProd->id);
             return $newProd;
@@ -375,6 +395,8 @@ class RemonlineController extends Controller
             } else {
                 $productDB->quantity = $product['residue'];
             }
+            $productDB->color_id = $productColorId;
+            $productDB->quality_id = $productQualityId;
             $productDB->model = $product['category']['title'];
             $productDB->manufacturer = $manufacturer;
             $productDB->update();
