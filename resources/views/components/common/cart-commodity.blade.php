@@ -7,7 +7,7 @@
             @foreach($order->products as $product)
                 <div class="d-flex header_cart_commodity">
                     <div class="header__cart_img">
-                        <img src="{{Voyager::image($product->img)}}" alt="">
+                        <img src="{{$product->img}}" alt="">
                     </div>
                     <div class="header__cart_body">
                         <div class="header__cart_second_col">

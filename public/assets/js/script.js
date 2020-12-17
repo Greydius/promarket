@@ -10024,6 +10024,9 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
         Object.values(self.allCosts).forEach(cost => {
             self.cost += Number(cost);
         });
+        if(this.closest(`${fixingElementSelector}`) == null){
+            return;
+        }
         this.closest(`${fixingElementSelector}`).setAttribute('data-cost', cost);
         changeCostElementsValue();
     }
