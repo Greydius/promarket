@@ -1,3 +1,7 @@
 {
-	"test" : "Тест"
+	"repairs" : "Ремонт",
+	"store" : "Магазин",
+	"about_company" : "О компании",
+	"delivery" : "доставка",
+	"contacts" : "контакты"
 }

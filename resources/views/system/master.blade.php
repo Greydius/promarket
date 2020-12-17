@@ -39,9 +39,9 @@
             <div class="header_navigation">
                 <nav>
                     <ul class="header_navigation_wrapper d-flex align-items-center">
-                        <li><a href="{{ route('fixing') }}">Ремонт</a></li>
+                        <li><a href="{{ route('fixing') }}">{{ __("repairs")}}</a></li>
                         <li class="header__shop__link">
-                            <a href="#" class="header__collapse">Магазин</a>
+                            <a href="#" class="header__collapse">{{__("store")}}</a>
                             <div class="shop-dropdown-wrapper">
                                 <div class="shop__dropping-element">
                                     <div class="shop__drop__down-tabs-side">
@@ -109,9 +109,9 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="{{route('about')}}">о компании</a></li>
-                        <li><a href="{{route('delivery')}}">доставка</a></li>
-                        <li><a href="{{route('contacts-page')}}">контакты</a></li>
+                        <li><a href="{{route('about')}}">{{__("about_company")}}</a></li>
+                        <li><a href="{{route('delivery')}}">{{__("delivery")}}</a></li>
+                        <li><a href="{{route('contacts-page')}}">{{__("contacts")}}</a></li>
                     </ul>
                     <!-- <div class="mobile-social-links">
                          <div class="mobile-social-link">

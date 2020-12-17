@@ -31,7 +31,6 @@ class SearchFilter extends Component
         $models = Product::groupBy('model')->select('model')->get();
         $quantity = Product::groupBy('quantity')->select('quantity')->get();
         $manufacturer = Product::groupBy('manufacturer')->select('manufacturer')->get();
-        $color_ids = Product::groupBy('color_id')->select('color_id')->pluck('color_id')->toArray();
         $color = Color::all();
         $minprice = Product::min('price');
         $maxprice = Product::max('price');

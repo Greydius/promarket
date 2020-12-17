@@ -1,3 +1,7 @@
 {
-	"test" : "Test"
-}
+	"repairs" : "Repairs",
+	"store" : "Store",
+	"about_company" : "about company",
+	"delivery" : "Delivery",
+	"contacts" : "Contacts"
+} 
