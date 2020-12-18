@@ -301,9 +301,9 @@
                     {{__("information")}}
                 </h3>
                 <ul>
-                    <li><a href="{{route('about')}}">О компании</a></li>
-                    <li><a href="{{route('delivery')}}">Доставка</a></li>
-                    <li><a href="{{route('contacts-page')}}">Контакты</a></li>
+                    <li><a href="{{route('about')}}">{{__("about_company")}}</a></li>
+                    <li><a href="{{route('delivery')}}">{{__("delivery")}}</a></li>
+                    <li><a href="{{route('contacts-page')}}">{{__("contacts")}}</a></li>
                 </ul>
                 <div class="social-websites">
                     <a href="#" class="social-fb">
