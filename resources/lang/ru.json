@@ -43,5 +43,19 @@
 	"E-mail address" : "Адрес электронной почты",
 	"Your phone number" : "Ваш номер телефона",
 	"Comment" : "Комментарий",
-	"Branch" : "Филиал"
+	"Branch" : "Филиал",
+	"Riga - Сenter" : "Рига - Центр",
+	"Riga - Zolidude" : "Рига - Золитуде",
+	"confirm" : "подтвердить",
+	"Sort" : "Сортировать",
+	"Sort by low price" : "Цена по возрастанию",
+	"Sort by high price" : "Цена по убыванию",
+	"Show" : "Показать",
+	"Price" : "цена",
+	"from" : "От",
+	"till" : "До",
+	"Availability" : "наличие",
+	"On order" : "Под заказ",
+	"available" : "Есть в наличии",
+	"brand" : "марка"
 }

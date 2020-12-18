@@ -11,6 +11,6 @@
 @else
     <img src="{{asset('assets/img/common/order.svg')}}" alt="">
     <span>
-                                                            Под заказ
+                                                            {{__("On order")}}
                                                         </span>
 @endif

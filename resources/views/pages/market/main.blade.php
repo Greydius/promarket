@@ -35,7 +35,7 @@
                                                         </clipPath>
                                                     </defs>
                                                 </svg>
-                                                <span>Сортировать</span>
+                                                <span>{{__("Sort")}} </span>
                                             </a>
                                             <a href="#" class="market-sorting-trigger market-filtering-trigger">
                                                 <svg width="24" height="24" viewBox="0 0 24 24"
@@ -74,9 +74,9 @@
                                             <div class="sorting-filter select-drop-down drop-down-sorting sorting">
                                                 <select name="order" id="order"
                                                         class="sorting_select sorting-filter-content dropping__element__wrapper1">
-                                                    <option value="ASC" style="padding: 10px">Цена по возрастанию
+                                                    <option value="ASC" style="padding: 10px">{{__("Sort by low price")}}
                                                     </option>
-                                                    <option value="DESC">Цена по убыванию</option>
+                                                    <option value="DESC">{{__("Sort by high price")}} </option>
                                                 </select>
                                             </div>
                                             <div class="sorting-filter select-drop-down drop-down-sorting showing">
@@ -89,10 +89,10 @@
                                                 </div> -->
                                                 <select name="per_page" id="per_page"
                                                         class="sorting_select sorting-filter-content dropping__element__wrapper1">
-                                                    <option value="12">Показать 12</option>
-                                                    <option value="24">Показать 24</option>
-                                                    <option value="48">Показать 48</option>
-                                                    <option value="120">Показать 120</option>
+                                                    <option value="12">{{__("Show")}} 12</option>
+                                                    <option value="24">{{__("Show")}} 24</option>
+                                                    <option value="48">{{__("Show")}} 48</option>
+                                                    <option value="120">{{__("Show")}} 120</option>
                                                 </select>
                                             @csrf
                                             <!-- < div class="sorting-filter-content dropping__element__wrapper">

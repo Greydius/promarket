@@ -43,5 +43,19 @@
 	"E-mail address" : "Epasta adrese (E-pasts)",
 	"Your phone number" : "Jūsu tālruņa numurs",
 	"Comment" : "komentāri",
-	"Branch" : "Filiāle"
+	"Branch" : "Filiāle",
+	"Riga - Сenter" : "Rīga - Centrs",
+	"Riga - Zolidude" : "Rīga - Zolitūde",
+	"confirm" : "Apstiprināt",
+	"Sort" : "kārtot",
+	"Sort by low price" : "augošā secībā cena",
+	"Sort by high price" : "dilstošā secībā cena",
+	"Show" : "Parādīt",
+	"Price" : "cena",
+	"from" : "no",
+	"till" : "līdz",
+	"Availability" : "Pieejamība",
+	"On order" : "Pēc pasūtījuma",
+	"available" : "uz vietas",
+	"brand" : "Zīmols"
 }

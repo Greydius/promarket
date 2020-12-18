@@ -163,17 +163,17 @@
                                                 class="d-flex radio-buttons-row align-items-center justify-content-center">
                                                 <label class="radio-type">
                                                     <input type="radio" name="address"
-                                                           value="Рига - Центр Ģertrūdes 77, Rīga">
+                                                           value="{{__('Riga - Сenter')}} Ģertrūdes 77, Rīga">
                                                     <span>
-                                                    Рига - Центр
+                                                    {{__('Riga - Сenter')}}
                                                 Ģertrūdes 77, Rīga
                                                 </span>
                                                 </label>
                                                 <label class="radio-type">
                                                     <input type="radio" name="address"
-                                                           value="Рига - Золитуде IXO Centrs, Anniņmuižas iela 17">
+                                                           value="{{__('Riga - Zolidude')}} IXO Centrs, Anniņmuižas iela 17">
                                                     <span>
-                                                        Рига - Золитуде
+                                                        {{__('Riga - Zolidude')}}
                                                         IXO Centrs,
                                                         Anniņmuižas iela 17
                                                     </span>
@@ -194,7 +194,7 @@
 
                                         </div>
                                         <button class="default-button mt-5" type="submit">
-                                            подтвердить
+                                            {{__("confirm")}}
                                         </button>
                                     </div>
                                 </form>

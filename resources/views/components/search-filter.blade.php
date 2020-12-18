@@ -24,7 +24,7 @@
 <div class="cost-filter filter-el">
     <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
         <p>
-            цена €
+            {{__("Price")}} €
         </p>
         <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
     </div>
@@ -37,14 +37,14 @@
             class="d-flex justify-content-between align-items-center range-inputs-wrapper">
             <label class="d-flex align-items-center">
                 <span>
-                    От
+                    {{__("from")}}
                 </span>
                 <input class="starting-value" placeholder="0" type="text"
                        name="min_price">
             </label>
             <label class="d-flex align-items-center">
                 <span>
-                    До
+                     {{__("till")}}
                 </span>
                 <input class="ending-value" placeholder="300" type="text"
                        name="max_price">
@@ -57,7 +57,7 @@
 <div class="filter-el checkbox-filter">
     <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
         <p>
-            наличие
+            {{__("Availability")}}
         </p>
         <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
     </div>
@@ -66,13 +66,13 @@
         <label class="checkbox-label">
             <input type="checkbox" name="quantity" value="0">
             <span>
-            		Под заказ
+            		{{__("On order")}}
 			</span>
         </label>
         <label class="checkbox-label">
             <input type="checkbox" name="quantity" value="1">
             <span>
-                    Есть в наличии
+                    {{__("available")}}
             </span>
         </label>
         <!-- @ endforeach -->
@@ -82,7 +82,7 @@
 <div class="filter-el checkbox-filter">
     <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
         <p>
-            марка
+            {{__("brand")}}
         </p>
         <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
     </div>

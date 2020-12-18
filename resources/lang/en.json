@@ -43,6 +43,19 @@
 	"E-mail address" : "E-mail address",
 	"Your phone number" : "Your phone number",
 	"Comment" : "Comment",
-	"Branch" : "Branch"
-
+	"Branch" : "Branch",
+	"Riga - Сenter" : "Riga - Сenter",
+	"Riga - Zolidude" : "Riga - Zolidude",
+	"confirm" : "confirm",
+	"Sort" : "Sort",
+	"Sort by low price" : "Sort by low price",
+	"Sort by high price" : "Sort by high price",
+	"Show" : "Show",
+	"Price" : "Price",
+	"from" : "from",
+	"till" : "till",
+	"Availability" : "Availability",
+	"On order" : "On order",
+	"available" : "available",
+	"brand" : "brand"
 } 
