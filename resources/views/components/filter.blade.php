@@ -133,7 +133,7 @@
 <div class="filter-el checkbox-filter">
     <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
         <p>
-            модель
+            {{__("model")}}
         </p>
         <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
     </div>
@@ -156,7 +156,7 @@
 <div class="filter-el checkbox-filter">
     <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
         <p>
-            цвет
+            {{__("Color")}}
         </p>
         <img src="{{asset('/assets/img/common/chevron-down.svg')}}" alt="">
     </div>

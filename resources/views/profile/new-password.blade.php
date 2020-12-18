@@ -20,7 +20,7 @@
                         <a href="#">
                             <img src="{{ asset('/assets/img/lk/orders_icon.svg') }}" alt="">
                             <span>
-                                Ваши заказы
+                                {{__("Your orders")}}
                             </span>
                         </a>
                     </li>
@@ -28,7 +28,7 @@
                         <a href="#">
                             <img src="{{ asset('/assets/img/lk/account_icon.svg') }}" alt="">
                             <span>
-                                Настройки аккаунта
+                                {{__("account settings")}}
                             </span>
                         </a>
                     </li>
@@ -36,7 +36,7 @@
                         <a href="#">
                             <img src="{{ asset('/assets/img/lk/quit_icon.svg') }}" alt="">
                             <span>
-                                Выйти из системы
+                                {{__("Log out")}}
                             </span>
                         </a>
                     </li>
@@ -58,7 +58,7 @@
                             </svg>
                             <a href="/profile">
                             <span>
-                                Назад
+                                {{__("Back")}}
                             </span>
                         </a>
                         </div>
@@ -78,7 +78,7 @@
                                                 </label>
                                             </div>
                                             <button class="default-button lk-submit-button" type="submit">
-                                                сохранить
+                                                {{__("Save")}}
                                             </button>
                                         </div>
 

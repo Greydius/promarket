@@ -9,7 +9,7 @@
             <section class="office-contacts">
                 <div class="container">
                     <div class="small-title my-4">
-                        сервисные центры
+                       {{__("service centres")}}
                     </div>
                     <div class="office-cards d-flex justify-content-center">
                         @foreach($service_centers as $center)
@@ -38,10 +38,9 @@
                         @endforeach
                     </div>
                     <div class="small-title mt-5 mb-3">
-                        Форма обратной связи
+                       {{__("Feedback form")}}
                     </div>
-                    <div class="mb-5 px-5 text-center hide-for-mobile">Вы можете оставить отзыв, поинтересоваться наличием товаром или узнать что-то в отношении ремонта техники.
-                        Все что угодно, мы обязательно ответим вам.</div>
+                    <div class="mb-5 px-5 text-center hide-for-mobile">{{__("You can leave a review, inquire about the availability of the product, or find out something about the repair of device. Whatever you want, we will definitely answer you.")}} </div>
                     <div class="row">
                         <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto">
                             <div class="call-back-form">
@@ -52,37 +51,37 @@
                                     <div class="call-back-form-wrapper">
                                         <label>
                                             <span class="errormessage"></span>
-                                            <input type="text" placeholder="Имя" class="auth_control" name="name">
+                                            <input type="text" placeholder="{{__('First Name')}} " class="auth_control" name="name">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>
-                                            <input type="email" placeholder="Электронная почта" name="email" 
+                                            <input type="email" placeholder="{{__('Email')}}" name="email" 
                                                    class="auth_control">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>
-                                            <input type="number" name="phone" placeholder="Ваш телефон" class="auth_control">
+                                            <input type="number" name="phone" placeholder="{{__('Phone Number')}} " class="auth_control">
                                         </label>
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                                <input type="radio" checked="checked" name="call_back_option" value="Свяжитесь со мной по телефону">
+                                                <input type="radio" checked="checked" name="call_back_option" value="{{__('Contact me by phone')}} ">
                                                 <span>
-                                            Свяжитесь со мной по телефону
+                                            {{__('Contact me by phone')}} 
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="call_back_option" value="Свяжитесь со мной по телефону">
+                                                <input type="radio" name="call_back_option" value="{{__('Contact me by phone')}} ">
                                                 <span>
-                                            Свяжитесь со мной по email
+                                            {{__("Contact me by Email")}}
                                         </span>
                                             </label>
                                         </div>
                                         <label class="textarea-label">
-                                    <textarea placeholder="Комментарий к заказу"
+                                    <textarea placeholder="{{__('order comment')}} "
                                               class="auth_control" name="message"></textarea>
                                         </label>
                                         <button class="default-button call-back-form-button" type="submit">
-                                            отправить
+                                            {{__("Send")}}
                                         </button>
                                     </div>
 
@@ -94,7 +93,7 @@
                 <div class="our-team-section">
                     <div class="container">
                         <div class="small-title ">
-                            наша команда
+                           {{__("our team")}}
                         </div>
                         <div class= "our-team d-flex justify-content-center">
                             @foreach($our_teams as $team)

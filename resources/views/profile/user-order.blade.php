@@ -20,7 +20,7 @@
                         <a href="#">
                             <img src="{{ asset('/assets/img/lk/orders_icon.svg') }}" alt="">
                             <span>
-                                Ваши заказы
+                                {{__("Your orders")}}
                             </span>
                         </a>
                     </li>
@@ -28,7 +28,7 @@
                         <a href="#">
                             <img src="{{ asset('/assets/img/lk/account_icon.svg') }}" alt="">
                             <span>
-                                Настройки аккаунта
+                                {{__("account settings")}}
                             </span>
                         </a>
                     </li>
@@ -36,7 +36,7 @@
                         <a href="#">
                             <img src="{{ asset('/assets/img/lk/quit_icon.svg') }}" alt="">
                             <span>
-                                Выйти из системы
+                                {{__("Log out")}}
                             </span>
                         </a>
                     </li>
@@ -58,16 +58,16 @@
                             </svg>
                             <a href="/profile">
                             <span>
-                                Назад
+                                {{__("Back")}}
                             </span>
                         </a>
                         </div>
                         <div class="lk-inner-row d-flex align-items-center">
                             <h3 class="small-title">
-                                ЗАКАЗ: {{$order->id}} PRO
+                               {{__("Order")}}: {{$order->id}} PRO
                             </h3>
                             <h3 class="small-title">
-                                СТАТУС:  @if($order->status == 1)
+                               {{__("Order status")}}:  @if($order->status == 1)
                                                 Обрабатывается
                                             @endif
                                             @if($order->status == 2)
@@ -131,7 +131,7 @@
                                 </div>
                                 <div>
                                     <p class="uppercase">
-                                        адрес доставки
+                                        {{__("DELIVERY ADDRESS")}}
                                     </p>
                                     <p>
                                         Prosadiga

@@ -298,7 +298,7 @@
             </div>
             <div class="col-lg-3 col-md-4">
                 <h3 class="small-title">
-                    информация
+                    {{__("information")}}
                 </h3>
                 <ul>
                     <li><a href="{{route('about')}}">О компании</a></li>
@@ -334,8 +334,8 @@
                 © Promarket SIA 2011-2020
             </p>
             <div class="copyright-links">
-                <a href="{{route('responsibility')}}">Ограничение ответственности</a>
-                <a href="{{route('guarantee')}}">Условия гарантии</a>
+                <a href="{{route('responsibility')}}">{{__("Limitation of Liability")}} </a>
+                <a href="{{route('guarantee')}}">{{__("Warranty conditions")}} </a>
             </div>
         </div>
     </div>

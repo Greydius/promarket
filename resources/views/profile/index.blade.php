@@ -22,7 +22,7 @@
                             <a href="#">
                                 <img src="{{ asset('assets/img/lk/orders_icon.svg') }}" alt="">
                                 <span>
-                                    Ваши заказы
+                                    {{__("Your orders")}}
                                 </span>
                             </a>
                         </li>
@@ -30,7 +30,7 @@
                             <a href="#">
                                 <img src="{{ asset('assets/img/lk/account_icon.svg') }}" alt="">
                                 <span>
-                                    Настройки аккаунта
+                                    {{__("account settings")}}
                                 </span>
                             </a>
                         </li>
@@ -38,7 +38,7 @@
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <img src="{{ asset('assets/img/lk/quit_icon.svg') }}" alt="">
                                 <span>
-                                    Выйти из системы
+                                   {{__("Log out")}}
                                 </span>
                             </a>
 
@@ -77,23 +77,23 @@
                                     </g>
                                 </svg>
                                 <span>
-                                    Назад
+                                    {{__("Back")}}
                                 </span>
                             </div>
                             <div class="lk-table-wrapper">
                                 <div class="lk-table">
                                     <div class="lk-row lk-first-row d-flex">
                                         <div class="lk-first-col">
-                                            Дата
+                                            {{__("Date")}}
                                         </div>
                                         <div class="lk-second-col">
-                                            Номер заказа
+                                            {{__("Order number")}}
                                         </div>
                                         <div class="lk-third-col">
-                                            Сумма
+                                            {{__("amount")}}
                                         </div>
                                         <div class="lk-fourth-col">
-                                            Статус заказа
+                                            {{__("Order status")}}
                                         </div>
                                     </div>
                                     <?php $orders = Auth::user()->orders; ?>
@@ -131,7 +131,7 @@
                                     </g>
                                 </svg>
                                 <span>
-                                    Назад
+                                    {{__("Back")}}
                                 </span>
                             </div>
                             <div class="profile-first-row">
@@ -157,17 +157,17 @@
                                     </div>
                                     <div class="password-change">
                                         <div>
-                                            замена пароля
+                                            {{__("Change Password")}}
                                         </div>
                                         <a href="{{route('profile.new-password')}}">
-                                            Изменить пароль
+                                            {{__("Change Password2")}}
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="profile-data">
                                 <h3 class="small-title">
-                                    ДАННЫЕ ПОЛЬЗОВАТЕЛЯ
+                                   {{__("USER DATA")}}
                                 </h3>
                                 <div class="profile-additional-data-form">
                                     <form action="{{ route('profile.edit') }}" method="POST">
@@ -177,37 +177,33 @@
                                             <label class="radio-type">
                                                 <input type="radio" name="identification_type" value="0" @if(Auth::user()->identification_type == 0) checked="checked" @endif >
                                                 <span>
-                                                    Физическое лицо
+                                                    {{__(("Individual"))}}
                                                 </span>
                                             </label>
                                             <label class="radio-type">
                                                 <input  type="radio" name="identification_type" value="1" @if(Auth::user()->identification_type == 1) checked="checked" @endif>
                                                 <span>
-                                                    Юридическое лицо
+                                                    {{__("legal entity")}}
                                                 </span>
                                             </label>
                                         </div>
                                         <div class="profile-data-controls-wrapper">
                                             <div class="profile-data-item">
                                                 <label>
-                                                    <input type="text" name="username" placeholder="Имя" class="auth_control" value="{{ Auth::user()->username }}">
+                                                    <input type="text" name="username" placeholder="{{__('First Name')}} " class="auth_control" value="{{ Auth::user()->username }}">
                                                 </label>
                                                 <label>
-                                                    <input type="text" name="firstname" placeholder="Фамилия" class="auth_control" value="{{ Auth::user()->firstname }}">
+                                                    <input type="text" name="firstname" placeholder="{{__('Last Name')}} " class="auth_control" value="{{ Auth::user()->firstname }}">
                                                 </label>
                                                 <label>
-                                                    <input type="email" name="email" placeholder="Электронная почта" value="{{ Auth::user()->email }}" class="auth_control">
+                                                    <input type="email" name="email" placeholder="{{__('Email')}}" value="{{ Auth::user()->email }}" class="auth_control">
                                                 </label>
                                                 <label>
-                                                    <input type="number" name="phone" placeholder="Ваш телефон" class="auth_control"  value="{{ Auth::user()->phone }}">
+                                                    <input type="number" name="phone" placeholder="{{__('Phone Number')}} " class="auth_control"  value="{{ Auth::user()->phone }}">
                                                 </label>
-                                     <!--            <label class="textarea-label">
-                                                    <textarea placeholder="Комментарий к заказу"
-                                                              class="auth_control"></textarea>
-                                                </label> -->
                                             </div>
                                             <h3 class="small-title">
-                                                АДРЕС ДОСТАВКИ
+                                                {{__('DELIVERY ADDRESS')}}
                                             </h3>
                                             <div class="profile-data-item">
                                                 <div class="address-drop-down-wrapper">
@@ -225,17 +221,17 @@
                                                     </div>
                                                 </div>
                                                 <label>
-                                                    <input type="text" name="city" placeholder="Город" class="auth_control" value="{{ Auth::user()->city }}">
+                                                    <input type="text" name="city" placeholder="{{__('City')}}" class="auth_control" value="{{ Auth::user()->city }}">
                                                 </label>
                                                 <label>
-                                                    <input type="text" name="delivery_address" placeholder="Адрес доставки" class="auth_control" value="{{ Auth::user()->delivery_address }}">
+                                                    <input type="text" name="delivery_address" placeholder="{{__('Delivery address')}} " class="auth_control" value="{{ Auth::user()->delivery_address }}">
                                                 </label>
                                                 <label>
-                                                    <input type="number" name="postcode" placeholder="Почтовый индекс" class="auth_control"  value="{{ Auth::user()->postcode }}">
+                                                    <input type="number" name="postcode" placeholder="{{__('Postcode')}} " class="auth_control"  value="{{ Auth::user()->postcode }}">
                                                 </label>
                                             </div>
                                             <button class="default-button lk-submit-button" type="submit">
-                                                сохранить
+                                                {{__("Save")}}
                                             </button>
                                         </div>
 

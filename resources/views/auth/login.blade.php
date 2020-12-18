@@ -34,7 +34,7 @@
                       <strong>  {{ $message }}</strong>
                   </span>
               @enderror
-              <input class="auth_control" placeholder="Электронная почта" type="email" name="email">
+              <input class="auth_control" placeholder="{{__('Email')}} " type="email" name="email">
             </label>
             <label>
               @error('password')

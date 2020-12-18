@@ -13,10 +13,10 @@
                       <form method="POST" class="registation-form" action="{{ route('register') }}" novalidate="novalidate">
                         @csrf
                         <label class="form-group">
-                            <input class="auth_control" placeholder="Имя" type="text" name="username" value="{{ old('username') }}">
+                            <input class="auth_control" placeholder="{{__('First Name')}} " type="text" name="username" value="{{ old('username') }}">
                         </label>
                         <label class="form-group">
-                            <input class="auth_control" placeholder="Электронная почта" type="email" name="email" value="{{ old('email') }}" >
+                            <input class="auth_control" placeholder="{{__('Email')}}" type="email" name="email" value="{{ old('email') }}" >
                         </label>
                         <label class="form-group">
                             <input class="auth_control" placeholder="Пароль" type="password" name="password" minlength="8" >

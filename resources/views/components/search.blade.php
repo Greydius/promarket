@@ -19,7 +19,7 @@
                                 <ul class="d-flex">
                                     <li class="bread-crumb-link bread-crumb-link-prev">
                                         <a href="#">
-                                            Главная
+                                            {{_("Main")}}
                                         </a>
                                     </li>
                                     <li class="bread-crumb-link">

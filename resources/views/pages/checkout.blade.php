@@ -34,7 +34,7 @@
                              @if ($errors->has('email'))
                             <span class="error">{{ $errors->first('email') }}</span>
                               @endif
-                            <input type="email" placeholder="Электронная почта" name="email" name="email">
+                            <input type="email" placeholder="{{__('Email')}}" name="email" name="email">
                              @if ($errors->has('password'))
                                 <span class="error">{{ $errors->first('password') }}</span>
                               @endif
@@ -53,7 +53,7 @@
                             @if ($errors->has('email'))
                                 <span class="error">{{ $errors->first('email') }}</span>
                             @endif
-                            <input type="email" placeholder="Электронная почта" name="email" name="email">
+                            <input type="email" placeholder="{{__('Email')}}" name="email" name="email">
 
                             <p class="my-3">Сможете зарегистрироваться и после
                                 совершения покупки.</p>
@@ -114,23 +114,23 @@
                                         <input type="hidden" name="delivery" value="Самовывоз">
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type" value=" Физическое лицо">
+                                                <input type="radio" name="identification-type" value=" {{__('Individual')}} ">
                                                 <span>
-                                            Физическое лицо
+                                            {{__('Individual')}} 
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type" value=" Юридическое лицо">
+                                                <input type="radio" name="identification-type" value=" {{__('legal entity')}} ">
                                                 <span>
-                                            Юридическое лицо
+                                            {{__('legal entity')}} 
                                         </span>
                                             </label>
                                         </div>
-                                        <input type="text" placeholder="Имя" name="name">
-                                        <input type="text" placeholder="Фамилия" name="firstname">
-                                        <input type="email" placeholder="Электронная почта" name="email">
-                                        <input type="tel" placeholder="Ваш телефон" name="telephone">
-                                        <textarea name="comment" id="comment" class="" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
+                                        <input type="text" placeholder="{{__('First Name')}} " name="name">
+                                        <input type="text" placeholder="{{__('Last Name')}} " name="firstname">
+                                        <input type="email" placeholder="{{__('Email')}}" name="email">
+                                        <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone">
+                                        <textarea name="comment" id="comment" class="" cols="30" rows="10" placeholder="{{__('order comment')}} "></textarea>
 
                                         <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
                                         <div class="payment-drop-down-wrapper">
@@ -163,7 +163,7 @@
                         <div class="delivery-tab-content">
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
-                                    <div class="small-title text-center mb-4 mt-5">АДРЕС ДОСТАВКИ</div>
+                                    <div class="small-title text-center mb-4 mt-5">{{__('DELIVERY ADDRESS')}} </div>
                                     <form action="{{ route('confirm.order') }}" method="POST" class="user-data user-data-omniva">
                                         @csrf
                                          <input type="hidden" name="delivery" value="Забрать почтомате">
@@ -174,32 +174,32 @@
                                             </div>
                                             <div class="city-drop-down">
                                                 <ul>
-                                                    <li class="city-changer">город</li>
-                                                    <li class="city-changer">город</li>
-                                                    <li class="city-changer">город</li>
+                                                    <li class="city-changer">{{__('City')}} </li>
+                                                    <li class="city-changer">{{__('City')}} </li>
+                                                    <li class="city-changer">{{__('City')}} </li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="small-title text-center mb-4 mt-5">ДАННЫЕ ПОКУПАТЕЛЯ</div>
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                             <input type="radio" name="identification-type" value=" Физическое лицо">
+                                             <input type="radio" name="identification-type" value=" {{__('Individual')}} ">
                                                 <span>
-                                            Физическое лицо
+                                            {{__('Individual')}} 
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type" value=" Юридическое лицо">
+                                                <input type="radio" name="identification-type" value=" {{__('legal entity')}} ">
                                                 <span>
-                                            Юридическое лицо
+                                            {{__('legal entity')}} 
                                         </span>
                                             </label>
                                         </div>
-                                        <input type="text" placeholder="Имя" name="name">
-                                        <input type="text" placeholder="Фамилия" name="firstname">
-                                        <input type="email" placeholder="Электронная почта" name="email">
-                                        <input type="tel" placeholder="Ваш телефон" name="telephone">
-                                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
+                                        <input type="text" placeholder="{{__('First Name')}} " name="name">
+                                        <input type="text" placeholder="{{__('Last Name')}} " name="firstname">
+                                        <input type="email" placeholder="{{__('Email')}}" name="email">
+                                        <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone">
+                                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="{{__('order comment')}} "></textarea>
 
                                         <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
                                         <div class="payment-drop-down-wrapper">
@@ -231,7 +231,7 @@
                                 <input type="hidden" name="delivery" value="Доставить по указанному адресу">
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
-                                    <div class="small-title text-center mb-4 mt-5">АДРЕС ДОСТАВКИ</div>
+                                    <div class="small-title text-center mb-4 mt-5">{{__('DELIVERY ADDRESS')}} </div>
                                         <div class="city-drop-down-wrapper">
                                             <div class="city-drop-down-trigger">
                                                 <div class="changing">Латвия</div>
@@ -239,16 +239,16 @@
                                             </div>
                                             <div class="city-drop-down">
                                                 <ul>
-                                                    <li class="city-changer">город</li>
-                                                    <li class="city-changer">город</li>
-                                                    <li class="city-changer">город</li>
+                                                    <li class="city-changer">{{__('City')}} </li>
+                                                    <li class="city-changer">{{__('City')}} </li>
+                                                    <li class="city-changer">{{__('City')}} </li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <input type="text" placeholder="Город" name="city">
-                                        <input type="text" placeholder="Адрес доставки" name="delivery_address">
-                                        <input type="text" placeholder="Почтовый индекс" name="postcode">
-                                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
+                                        <input type="text" placeholder="{{__('City')}} " name="city">
+                                        <input type="text" placeholder="{{__('DELIVERY ADDRESS')}} " name="delivery_address">
+                                        <input type="text" placeholder="{{__('Postcode')}} " name="postcode">
+                                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="{{__('order comment')}} "></textarea>
                                 </div>
                             </div>
                             <div class="row">
@@ -256,23 +256,23 @@
                                     <div class="small-title text-center mb-4 mt-5">ДАННЫЕ ПОКУПАТЕЛЯ</div>
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type" value="Физическое лицо">
+                                                <input type="radio" name="identification-type" value="{{__('Individual')}} ">
                                                 <span>
-                                            Физическое лицо
+                                            {{__('Individual')}} 
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type" value=" Юридическое лицо">
+                                                <input type="radio" name="identification-type" value=" {{__('legal entity')}} ">
                                                 <span>
-                                            Юридическое лицо
+                                            {{__('legal entity')}} 
                                         </span>
                                             </label>
                                         </div>
-                                        <input type="text" placeholder="Имя" name="name">
-                                        <input type="text" placeholder="Фамилия" name="firstname">
-                                        <input type="email" placeholder="Электронная почта" name="email">
-                                        <input type="tel" placeholder="Ваш телефон" name="telephone">
-                                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарий к заказу"></textarea>
+                                        <input type="text" placeholder="{{__('First Name')}} " name="name">
+                                        <input type="text" placeholder="{{__('Last Name')}} " name="firstname">
+                                        <input type="email" placeholder="{{__('Email')}}" name="email">
+                                        <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone">
+                                        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="{{__('order comment')}} "></textarea>
 
                                         <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
                                         <div class="payment-drop-down-wrapper">

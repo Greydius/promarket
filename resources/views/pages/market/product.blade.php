@@ -157,7 +157,7 @@ $product->fixingDetail->manufacturerModel->code])}}?id={{$product->fixingDetail-
                                                     <td>55 мм</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>цвет</td>
+                                                    <td>{{__("Color")}}</td>
                                                     <td>Желтый</td>
                                                 </tr>
                                                 <tr>

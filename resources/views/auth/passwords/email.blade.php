@@ -30,10 +30,10 @@
             <label>
             <span class="error help-block">{{ $errors->first('email') }}</span>
 
-              <input id="email" type="email" class="auth_control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Электронная почта" autocomplete="email" autofocus>
+              <input id="email" type="email" class="auth_control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="{{__('Email')}}" autocomplete="email" autofocus>
             </label>
             <button type="submit" class="submit-form default-button">
-              ОТПРАВИТЬ ССЫЛКУ
+             {{__("Send")}}
             </button>
           </form>
             @endif
