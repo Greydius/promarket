@@ -95,5 +95,14 @@
 	"order comment" : "order comment",
 	"our team" : "our team",
 	"Send" : "Send",
-	"Back" : "Back"
-} 
+	"Back" : "Back",
+	"Enter time" : "Enter time",
+	"Enter date" : "Enter date",
+	"Your phone number" : "Your phone number",
+	"Courier service starting from 4.99 € *. Estimated delivery May 15" : "Courier service starting from 4.99 € *. Estimated delivery May 15",
+	"Take away for free. The order will be completed presumably on May 14" : "Take away for free. The order will be completed presumably on May 14",
+	"Delivery to a parcel machine 3.95 €. Estimated delivery May 15" : "Delivery to a parcel machine 3.95 €. Estimated delivery May 15",
+	"in stock" : "in stock",
+	"ex VAT" : "ex VAT"
+
+}  

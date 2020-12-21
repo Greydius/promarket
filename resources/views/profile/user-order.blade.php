@@ -11,7 +11,8 @@
                             <img src="" alt="">
                         </div>
                         <div class="profile-name">
-                            ВЛАДОК МИРОШНИЧЕНКО
+                             {{ Auth::user()->username }}
+                                {{ Auth::user()->firstname }}
                         </div>
                     </div>
                 </div>
@@ -112,7 +113,7 @@
                                     </div>
                                     <div class="lk-card-cost">
                                         {{$product->price}} €
-                                        <span class="commodity-card-additional-price">{{ $product->price_with_installation }} € excl.VAT</span>
+                                        <span class="commodity-card-additional-price">{{ $product->price_with_installation }} € {{__("ex VAT")}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +149,7 @@
                                     <div class="lk-inner-addditional-column lk-card-cost">
                                         344.50 €
                                         <span>
-                                            39.99 € excl.VAT
+                                            39.99 € {{__("ex VAT")}}
                                         </span>
                                     </div>
                                 </div>

@@ -151,7 +151,7 @@
                                         </div>
                                         <div class="small-title justify-content-center d-flex">
                                             ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> 344.50 €
-                                            <span class="commodity-card-price-muted">39.99 € excl.VAT</span></span>
+                                            <span class="commodity-card-price-muted">39.99 € {{__("ex VAT")}}</span></span>
                                         </div>
                                         <button type="submit" class="default-button mt-5">
                                             Сделать заказ
@@ -216,7 +216,7 @@
                                         </div>
                                         <div class="small-title justify-content-center d-flex">
                                             ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> 344.50 €
-                                            <span class="commodity-card-price-muted">39.99 € excl.VAT</span></span>
+                                            <span class="commodity-card-price-muted">39.99 € {{__("ex VAT")}}</span></span>
                                         </div>
                                        <button type="submit" class="default-button mt-5">
                                             Сделать заказ
@@ -289,7 +289,7 @@
                                         </div>
                                         <div class="small-title justify-content-center d-flex">
                                             ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> 344.50 €
-                                            <span class="commodity-card-price-muted">39.99 € excl.VAT</span></span>
+                                            <span class="commodity-card-price-muted">39.99 € {{__("ex VAT")}}</span></span>
                                         </div>
                                         <button type="submit" class="default-button mt-5">
                                             Сделать заказ

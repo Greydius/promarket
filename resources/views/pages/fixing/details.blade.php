@@ -40,8 +40,7 @@
                                             <div class="repair-list">
                                                 {!! $detail->descirption !!}
                                             </div>
-                                            <div class="description-for-pc"><strong>Время
-                                                    ремонта:</strong> {{$detail->fixing_time}}</div>
+                                            <div class="description-for-pc"><strong>{{__("Repair time")}} :</strong> {{$detail->fixing_time}}</div>
 
                                             @if(count($detail->detailQuality) == 0)
                                                 <div class="mt-2">
@@ -155,7 +154,7 @@
                                                            name="email">
                                                 </label>
                                                 <input type="tel" class="form-control"
-                                                       placeholder="Ваш номер телефона" name="tel">
+                                                       placeholder="{{__('Your phone number')}} " name="tel">
                                                 <textarea class="form-control" name="comment" rows="5"
                                                           placeholder="{{__('Comment')}} "></textarea>
                                                 <h3 class="small-title my-4">
@@ -184,12 +183,12 @@
                                             </div>
                                             <div class="d-flex pickers-wrapper">
                                                 <label class="picker-label-wrapper">
-                                                    <span>Введите дату</span>
+                                                    <span>{{__("Enter date")}} </span>
                                                     <input type="text" class="datepicker" placeholder="дд/мм/гггг"
                                                            name="date"/>
                                                 </label>
                                                 <label class="picker-label-wrapper">
-                                                    <span>Введите время</span>
+                                                    <span>{{__("Enter time")}} </span>
                                                     <input type="text" class="timepicker" placeholder="00:00"
                                                            name="time">
                                                 </label>

@@ -95,5 +95,14 @@
 	"order comment" : "Комментарий к заказу",
 	"our team" : "наша команда",
 	"Send" : "отправить",
-	"Back" : "назад"
+	"Back" : "назад",
+	"" : "в нашей мастерской это",
+	"Enter time" : "Введите время",
+	"Enter date" : "Введите дату",
+	"Your phone number" : "Ваш номер телефона",
+	"Courier service starting from 4.99 € *. Estimated delivery May 15" : "Услуга курьера начиная от 4,99 €*. Предполагаемая доставка 15 мая",
+	"Take away for free. The order will be completed presumably on May 14" : "Заберите бесплатно. Заказ будет выполнен предположительно 14 мая",
+	"Delivery to a parcel machine 3.95 €. Estimated delivery May 15" : "Доставка в почтовый автомат 3,95 €. Предполагаемая доставка 15 мая",
+ 	"in stock" : "в наличии",
+ 	"ex VAT" : "без НДС"
  }

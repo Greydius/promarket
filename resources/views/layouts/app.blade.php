@@ -460,7 +460,7 @@
                                     </a>
                                     <div class="header__cart_price">
                                         44.50 €
-                                        <span class="commodity-card-additional-price">39.99 € excl.VAT</span>
+                                        <span class="commodity-card-additional-price">39.99 € {{__("ex VAT")}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -490,7 +490,7 @@
                                     </a>
                                     <div class="header__cart_price">
                                         44.50 €
-                                        <span class="commodity-card-additional-price">39.99 € excl.VAT</span>
+                                        <span class="commodity-card-additional-price">39.99 € {{__("ex VAT")}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -505,7 +505,7 @@
                                 </b>
                             </p>
                             <p>
-                                <span class="commodity-card-additional-price">39.99 € excl.VAT</span>
+                                <span class="commodity-card-additional-price">39.99 € {{__("ex VAT")}}</span>
                             </p>
                         </div>
                         <a href="#" class="default-button">

@@ -1,13 +1,13 @@
 <?php
 // Home
 Breadcrumbs::for('home', function ($trail) {
-    $trail->push('Главная', route('main-page'));
+    $trail->push(__("Main"), route('main-page'));
 });
 
 // Home > About
 Breadcrumbs::for('fixing', function ($trail) {
     $trail->parent('home');
-    $trail->push('Ремонт', route('fixing'));
+    $trail->push(__("Repairs"), route('fixing'));
 });
 
 Breadcrumbs::for('fixing-type', function ($trail, $fixingType) {
@@ -56,7 +56,7 @@ Breadcrumbs::for('fixing-order-detail', function ($trail, $details) {
 
 Breadcrumbs::for('shop', function ($trail, $category) {
     $trail->parent('home');
-    $trail->push('Магазин', route('shop-main', [
+    $trail->push(__('store'), route('shop-main', [
         $category->category->code,
         $category->code
     ]));
@@ -83,12 +83,12 @@ Breadcrumbs::for('product', function ($trail, $product) {
 
 Breadcrumbs::for('responsibility', function ($trail) {
     $trail->parent('home');
-    $trail->push('Ограничение ответственности', route('responsibility'));
+    $trail->push(__('Limitation of Liability'), route('responsibility'));
 });
 
 Breadcrumbs::for('about', function ($trail) {
     $trail->parent('home');
-    $trail->push('О компании', route('about'));
+    $trail->push(__('about_company'), route('about'));
 });
 
 Breadcrumbs::for('guarantee', function ($trail) {
@@ -98,7 +98,7 @@ Breadcrumbs::for('guarantee', function ($trail) {
 
 Breadcrumbs::for('delivery', function ($trail) {
     $trail->parent('home');
-    $trail->push('Доставка', route('delivery'));
+    $trail->push(__('delivery'), route('delivery'));
 });
 
 Breadcrumbs::for('auth', function ($trail) {
@@ -108,5 +108,5 @@ Breadcrumbs::for('auth', function ($trail) {
 
 Breadcrumbs::for('account', function ($trail) {
     $trail->parent('home');
-    $trail->push('Мой профиль', route('profile.index'));
+    $trail->push(__('My profile'), route('profile.index'));
 });

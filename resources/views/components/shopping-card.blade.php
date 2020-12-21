@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="commodity-card-additional-price">
-            <span>39.99 € excl.VAT</span>
+            <span>39.99 € {{__("ex VAT")}}</span>
         </div>
         <div class="d-flex align-items-center justify-content-between">
             <div class="quantity-drop">

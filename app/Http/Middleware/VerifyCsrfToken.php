@@ -15,14 +15,18 @@ class VerifyCsrfToken extends Middleware
         '/ru/profile/edit',
         '/en/profile/edit',
         '/lv/profile/edit',
+        '/profile/edit',
         '/ru/profile/avatar',
         '/lv/profile/avatar',
+        '/profile/avatar',
         '/en/profile/avatar',
         '/ru/market/*',
         '/lv/market/*',
+        '/market/*',
         '/en/market/*',
         '/ru/search',
         '/lv/search',
+        '/search',
         '/en/search',
     ];
 }

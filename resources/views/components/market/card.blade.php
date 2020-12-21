@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="commodity-card-additional-price">
-            <span>{{$product->price * $nds}} € excl.VAT</span>
+            <span>{{$product->price * $nds}} € {{__("ex VAT")}}</span>
         </div>
         <form method="post" data-get-state="{{route('cart-state')}}" action="{{route('add-cart')}}"
               class="add-to-cart-form-submittion">

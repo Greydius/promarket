@@ -95,5 +95,13 @@
 	"order comment" : "Komentējiet pasūtījumu",
 	"our team" : "mūsu komanda",
 	"Send" : "nosūtīt",
-	"Back" : "atpakaļ"
-}
+	"Back" : "atpakaļ",
+	"Enter time" : "Ievadiet laiku",
+	"Enter date" : "Ievadiet datumu",
+	"Your phone number" : "Jūsu telefona numurs",
+	"Courier service starting from 4.99 € *. Estimated delivery May 15" : "Kurjeru pakalpojumi sākot no 4,99 € *. Paredzamā piegāde 15. maijā",
+	"Take away for free. The order will be completed presumably on May 14" : "Izņemt bezmaksas. Sagatavosim 29. decembrī",
+	"Delivery to a parcel machine 3.95 €. Estimated delivery May 15" : "Piegāde uz pakomātu 3.95 €. Paredzamā piegāde 15. maijā",
+	"in stock" : "noliktavā",
+	"ex VAT" : "bez PVN"
+} 
