@@ -60,15 +60,17 @@
                                         <div class="row choosing-color-row main-banner-row">
                                             @foreach($detail->allColors as $detailColor)
                                                 @if($detailColor->color)
-                                                <div class="col-lg-4 col-md-4 main-banner-col">
+                                                    <div class="col-lg-4 col-md-4 main-banner-col">
 
-                                                    <div data-route="{{route('get-detail-qualities', [$detail->id, $detailColor->color->id])}}" data-color-name="{{$detailColor->color->name}}"
-                                                         class="fixing-category-card color-changing-card">
-                                                        <div class="color-to-choose"
-                                                             style="background: {{$detailColor->color->color_code}}"></div>
-                                                        <span>{{$detailColor->color->name}}</span>
+                                                        <div
+                                                            data-route="{{route('get-detail-qualities', [$detail->id, $detailColor->color->id])}}"
+                                                            data-color-name="{{$detailColor->color->name}}"
+                                                            class="fixing-category-card color-changing-card">
+                                                            <div class="color-to-choose"
+                                                                 style="background: {{$detailColor->color->color_code}}"></div>
+                                                            <span>{{$detailColor->color->name}}</span>
+                                                        </div>
                                                     </div>
-                                                </div>
                                                 @endif
                                             @endforeach
 
@@ -143,7 +145,8 @@
                                                     {{__("reservation")}}
                                                 </h3>
                                                 <label>
-                                                    <input type="text" placeholder="{{__('First Name, Last Name')}}" class="form-control"
+                                                    <input type="text" placeholder="{{__('First Name, Last Name')}}"
+                                                           class="form-control"
                                                            name="name">
                                                 </label>
                                                 <label>
@@ -203,178 +206,15 @@
                             <section class="additional-commodities-wrapper service-inner-commodity commodity mt-5">
                                 <div class="">
                                     <h3 class="small-title">
-                                        Аксессуары для iphone 11
+                                        {{$details[0]->products[0]->subCategory[0]->category->category->name}}
                                     </h3>
                                     <div class="">
                                         <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="commodity-default-card">
-                                                    <div class="commodity-image-wrapper">
-                                                        <img src="img/common/card.png" alt="">
-                                                    </div>
-                                                    <div class="commodity-card-body">
-                                                        <h4 class="commodity-card-title">
-                                                            Дисплей iPhone X с Тачскрином, стеклом и рамкой, чёрный
-                                                            восстановленный.
-                                                        </h4>
-                                                        <div class="commodity-card-parameter">
-                                                            <img src="img/common/tick.svg" alt="">
-                                                            <span>
-                                       В наличии
-                                    </span>
-                                                        </div>
-                                                        <div class="commodity-card-price-row">
-                                                            <div class="commodity-card-price">
-                                                                € 250
-                                                            </div>
-                                                        </div>
-                                                        <div class="commodity-card-additional-price">
-                                                            <span>39.99 € excl.VAT</span>
-                                                        </div>
-                                                        <div class="d-flex align-items-center justify-content-between">
-                                                            <div class="quantity-drop">
-                                                                <div
-                                                                    class="quantity-view-wrapper align-items-center d-flex">
-                                                                    <div class="quantity-input-wrapper">
-                                                                        <label>
-                                                                            <input value="1" type="text"
-                                                                                   class="quantity-input">
-                                                                        </label>
-                                                                    </div>
-                                                                    <div class="quantity-trigger-wrapper">
-                                                                        <svg width="24" height="24" viewBox="0 0 24 24"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <g opacity="0.54">
-                                                                                <path d="M7 10L12 15L17 10H7Z"
-                                                                                      fill="#202020"/>
-                                                                            </g>
-                                                                        </svg>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <a href="#" class="default-button">
-                                                                в корзину
-                                                            </a>
-                                                        </div>
-
-
-                                                    </div>
-
+                                            @foreach($details[0]->products[0]->subCategory[0]->category->category->allProducts() as $product)
+                                                <div class="col-lg-4 col-md-4 col-6">
+                                                    @include('components.market.card', compact('product'))
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="commodity-default-card">
-                                                    <div class="commodity-image-wrapper">
-                                                        <img src="img/common/card.png" alt="">
-                                                    </div>
-                                                    <div class="commodity-card-body">
-                                                        <h4 class="commodity-card-title">
-                                                            Дисплей iPhone X с Тачскрином, стеклом и рамкой, чёрный
-                                                            восстановленный.
-                                                        </h4>
-                                                        <div class="commodity-card-parameter">
-                                                            <img src="img/common/tick.svg" alt="">
-                                                            <span>
-                                       В наличии
-                                    </span>
-                                                        </div>
-                                                        <div class="commodity-card-price-row">
-                                                            <div class="commodity-card-price">
-                                                                € 250
-                                                            </div>
-                                                        </div>
-                                                        <div class="commodity-card-additional-price">
-                                                            <span>39.99 € excl.VAT</span>
-                                                        </div>
-                                                        <div class="d-flex align-items-center justify-content-between">
-                                                            <div class="quantity-drop">
-                                                                <div
-                                                                    class="quantity-view-wrapper align-items-center d-flex">
-                                                                    <div class="quantity-input-wrapper">
-                                                                        <label>
-                                                                            <input value="1" type="text"
-                                                                                   class="quantity-input">
-                                                                        </label>
-                                                                    </div>
-                                                                    <div class="quantity-trigger-wrapper">
-                                                                        <svg width="24" height="24" viewBox="0 0 24 24"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <g opacity="0.54">
-                                                                                <path d="M7 10L12 15L17 10H7Z"
-                                                                                      fill="#202020"/>
-                                                                            </g>
-                                                                        </svg>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <a href="#" class="default-button">
-                                                                в корзину
-                                                            </a>
-                                                        </div>
-
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="commodity-default-card">
-                                                    <div class="commodity-image-wrapper">
-                                                        <img src="img/common/card.png" alt="">
-                                                    </div>
-                                                    <div class="commodity-card-body">
-                                                        <h4 class="commodity-card-title">
-                                                            Дисплей iPhone X с Тачскрином, стеклом и рамкой, чёрный
-                                                            восстановленный.
-                                                        </h4>
-                                                        <div class="commodity-card-parameter">
-                                                            <img src="img/common/tick.svg" alt="">
-                                                            <span>
-                                       В наличии
-                                    </span>
-                                                        </div>
-                                                        <div class="commodity-card-price-row">
-                                                            <div class="commodity-card-price">
-                                                                € 250
-                                                            </div>
-                                                        </div>
-                                                        <div class="commodity-card-additional-price">
-                                                            <span>39.99 € excl.VAT</span>
-                                                        </div>
-                                                        <div class="d-flex align-items-center justify-content-between">
-                                                            <div class="quantity-drop">
-                                                                <div
-                                                                    class="quantity-view-wrapper align-items-center d-flex">
-                                                                    <div class="quantity-input-wrapper">
-                                                                        <label>
-                                                                            <input value="1" type="text"
-                                                                                   class="quantity-input">
-                                                                        </label>
-                                                                    </div>
-                                                                    <div class="quantity-trigger-wrapper">
-                                                                        <svg width="24" height="24" viewBox="0 0 24 24"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <g opacity="0.54">
-                                                                                <path d="M7 10L12 15L17 10H7Z"
-                                                                                      fill="#202020"/>
-                                                                            </g>
-                                                                        </svg>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <a href="#" class="default-button">
-                                                                в корзину
-                                                            </a>
-                                                        </div>
-
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
