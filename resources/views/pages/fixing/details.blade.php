@@ -13,8 +13,6 @@
                             {{ Breadcrumbs::render('fixing-order-detail', $details) }}
 
                             @foreach($details as $detail)
-
-
                                 <div class="detail-block-wrapper"
                                      @if(count($detail->detailQuality) != 0)
                                      data-start-cost="{{$detail->detailQuality[0]->cost}}"
@@ -52,39 +50,48 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="banner-categories-block banner-categories-block-phone11 mt-5">
-                                        <h3 class="small-title">
-                                            {{__("Choose a color")}} :
-                                        </h3>
-                                        <div class="row choosing-color-row main-banner-row">
-                                            @foreach($detail->allColors as $detailColor)
-                                                @if($detailColor->color)
-                                                    <div class="col-lg-4 col-md-4 main-banner-col">
-
-                                                        <div
-                                                            data-route="{{route('get-detail-qualities', [$detail->id, $detailColor->color->id])}}"
-                                                            data-color-name="{{$detailColor->color->name}}"
-                                                            class="fixing-category-card color-changing-card">
-                                                            <div class="color-to-choose"
-                                                                 style="background: {{$detailColor->color->color_code}}"></div>
-                                                            <span>{{$detailColor->color->name}}</span>
+                                    @if(count($detail->allColors) == 1 && $detail->allColors[0]->color_id == 0)
+                                        <div class="commodity choose-quality active mt-5">
+                                            <h3 class="small-title">
+                                                {{__("Choose quality")}}
+                                            </h3>
+                                            <div class="choose-quality-block">
+                                                @include('components.fixing.detail_quality', compact('detail'))
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="banner-categories-block banner-categories-block-phone11 mt-5">
+                                            <h3 class="small-title">
+                                                {{__("Choose a color")}} :
+                                            </h3>
+                                            <div class="row choosing-color-row main-banner-row">
+                                                @foreach($detail->allColors as $detailColor)
+                                                    @if($detailColor->color)
+                                                        <div class="col-lg-4 col-md-4 main-banner-col">
+                                                            <div
+                                                                data-route="{{route('get-detail-qualities', [$detail->id, $detailColor->color->id])}}"
+                                                                data-color-name="{{$detailColor->color->name}}"
+                                                                class="fixing-category-card color-changing-card">
+                                                                <div class="color-to-choose"
+                                                                     style="background: {{$detailColor->color->color_code}}"></div>
+                                                                <span>{{$detailColor->color->name}}</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                @endif
-                                            @endforeach
+                                                    @endif
+                                                @endforeach
 
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="commodity choose-quality">
+                                            <h3 class="small-title">
+                                                {{__("Choose quality")}}
+                                            </h3>
+                                            <div class="choose-quality-block">
 
-
-                                    <div class="commodity choose-quality">
-                                        <h3 class="small-title">
-                                            {{__("Choose quality")}}
-                                        </h3>
-                                        <div class="choose-quality-block">
-
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
+
                                 </div>
                             @endforeach
 
@@ -103,36 +110,6 @@
                                     </span>
                                 </h3>
                             </div>
-
-
-                            {{--<h1 class="main-title title-for-mobile">замена дисплея iphone 11</h1>
-
-                            <div class="row top-card mt-5">
-                                <div class="col-lg-4 col-md-4">
-                                    <img src="img/fixing/Rectangle 84.png" alt="" width="100" class="img-for-pc">
-                                </div>
-                                <div class="col-lg-8 col-md-8">
-                                    <h1 class="main-title title-for-pc">замена дисплея iphone 11</h1>
-                                    <h1 class="main-title title-for-tablet">замена дисплея iphone 11</h1>
-                                    <div>Ремонт iPhone 11 (A2221) в нашей мастерской это:</div>
-                                    <ul class="repair-list">
-                                        <li>Деталь в наличии</li>
-                                        <li>Замена дисплея в течении 1-2 часа</li>
-                                        <li>Бесплатная диагностика перед ремонтом</li>
-                                        <li>Гарантия на детали и проведенные работы</li>
-                                        <li>Наличие детали на нашем складе</li>
-                                    </ul>
-                                    <div><strong>{{__("Repair time")}}:</strong> 1-3 часа</div>
-                                    <div class="mt-2">
-                                        <strong>{{__("Price with work")}} : </strong>
-                                        <span class="commodity-card-price">
-                    € 80
-                  </span>
-                                    </div>
-
-                                </div>
-                            </div>--}}
-
                             <div id="reservation-form" class="text-center">
                                 <form novalidate method="POST" data-url="{{route('handle-fixing')}}"
                                       class="reservation-form">

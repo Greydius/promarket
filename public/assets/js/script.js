@@ -9990,7 +9990,7 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
         let colorName = this.getAttribute('data-color-name');
         this.closest(fixingElementSelector).setAttribute('data-color', colorName);
 
-        uploadCostChangers(this.getAttribute('data-route'));
+        uploadCostChangers(this.getAttribute('data-route'), this);
 
     }
 
@@ -9998,8 +9998,9 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
         axios
             .get(url)
             .then(res => {
-                self.chooseQualityBlock.innerHTML = res.data;
-                self.chooseQualityBlock.closest('.choose-quality').classList.add('active');
+                let chooseQualityBlock = context.closest('.detail-block-wrapper').querySelector('.choose-quality-block');
+                chooseQualityBlock.innerHTML = res.data;
+                chooseQualityBlock.closest('.choose-quality').classList.add('active');
                 this.costChangers = document.querySelectorAll('.commodity-default-card');
                 Array.from(this.costChangers).forEach(costChanger => {
                     costChanger.addEventListener('click', changeCost);

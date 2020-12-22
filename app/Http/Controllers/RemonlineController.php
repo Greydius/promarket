@@ -345,14 +345,16 @@ class RemonlineController extends Controller
         $productColorId = 0;
         $productQualityId = 0;
 
+
+
         foreach ($colors as $color) {
-            if (trim($color->name) == trim($product['code'])) {
+            if (trim(strtoupper($color->name)) == trim(strtoupper($product['code']))) {
                 $productColorId = $color->id;
             }
         }
 
         foreach ($qualities as $quality) {
-            if (trim($quality->name) == trim($product['article'])) {
+            if (trim(strtoupper($quality->name)) == trim(strtoupper($product['article']))) {
                 $productQualityId = $quality->id;
             }
         }
