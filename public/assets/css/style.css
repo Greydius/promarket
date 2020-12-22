@@ -2441,7 +2441,7 @@ header {
 }
 
 .commodity-card-price-pc {
-    width: 10%;
+    width: 14%;
 }
 
 .remove-cart-item {
@@ -3470,7 +3470,8 @@ body {
     font-size: 24px;
     line-height: 24px;
     color: #202020;
-    width: 72px;
+    width: 88px;
+    text-align: end;
 }
 
 .header__cart_params input {
@@ -11171,11 +11172,16 @@ div.search-result>div:nth-child(2) {
     font-weight: normal;
     font-size: 14px;
     line-height: 22px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .search-result .result_item {
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
 }
 
 .search-result li.result_item span.price {
