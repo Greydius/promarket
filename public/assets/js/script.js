@@ -9708,7 +9708,7 @@ try {
         endingValueInput.value = +(endingValue).toFixed();
 
 
-        });
+    });
     costSlider.on('change', function (values) {
         let startingValue = +values[0];
         let endingValue = +values[1];
@@ -10024,7 +10024,7 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
         Object.values(self.allCosts).forEach(cost => {
             self.cost += Number(cost);
         });
-        if(this.closest(`${fixingElementSelector}`) == null){
+        if (this.closest(`${fixingElementSelector}`) == null) {
             return;
         }
         this.closest(`${fixingElementSelector}`).setAttribute('data-cost', cost);
@@ -10095,6 +10095,7 @@ $(function () {
         mask: "+371 99999999",
         clearIncomplete: !0,
     })
+    $('.js-selectric').selectric();
     $('input[type="tel"]').each(function () {
         $(this).keypress(function (e, a) {
             if ((e.which == 13) || (e.keyCode == 13)) {
@@ -10357,4 +10358,4 @@ $('.order-no-registration').validate({
         }
     }
 })
-$('.js-selectric').selectric();
+

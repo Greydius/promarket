@@ -116,13 +116,13 @@
                                             <label class="radio-type">
                                                 <input type="radio" name="identification-type" value=" {{__('Individual')}} ">
                                                 <span>
-                                            {{__('Individual')}} 
+                                            {{__('Individual')}}
                                         </span>
                                             </label>
                                             <label class="radio-type">
                                                 <input type="radio" name="identification-type" value=" {{__('legal entity')}} ">
                                                 <span>
-                                            {{__('legal entity')}} 
+                                            {{__('legal entity')}}
                                         </span>
                                             </label>
                                         </div>
@@ -134,10 +134,6 @@
 
                                         <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
                                         <div class="payment-drop-down-wrapper">
-                                            <select name="" class="js-selectric" id="">
-                                                <option value="123">наличные</option>
-                                                <option value="123">карта</option>
-                                            </select>
                                             <div class="payment-drop-down-trigger">
                                                 <div class="changing">Выберите метод оплаты</div>
                                                 <img src="img/common/chevron-down.svg" alt="">
@@ -185,13 +181,13 @@
                                             <label class="radio-type">
                                              <input type="radio" name="identification-type" value=" {{__('Individual')}} ">
                                                 <span>
-                                            {{__('Individual')}} 
+                                            {{__('Individual')}}
                                         </span>
                                             </label>
                                             <label class="radio-type">
                                                 <input type="radio" name="identification-type" value=" {{__('legal entity')}} ">
                                                 <span>
-                                            {{__('legal entity')}} 
+                                            {{__('legal entity')}}
                                         </span>
                                             </label>
                                         </div>
@@ -258,13 +254,13 @@
                                             <label class="radio-type">
                                                 <input type="radio" name="identification-type" value="{{__('Individual')}} ">
                                                 <span>
-                                            {{__('Individual')}} 
+                                            {{__('Individual')}}
                                         </span>
                                             </label>
                                             <label class="radio-type">
                                                 <input type="radio" name="identification-type" value=" {{__('legal entity')}} ">
                                                 <span>
-                                            {{__('legal entity')}} 
+                                            {{__('legal entity')}}
                                         </span>
                                             </label>
                                         </div>

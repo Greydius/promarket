@@ -15,7 +15,7 @@
     <!-- Place favicon.ico in the root directory -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/lcdsantos/jQuery-Selectric/master/public/selectric.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/selectric.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -167,7 +167,7 @@
                             </a>
                         </li>
                     @endforeach
-                    </ul>    
+                    </ul>
                 </div>
             </div>
             <div data-media-link="{{route('cart')}}" class="header_cart">
@@ -349,7 +349,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="https://raw.githubusercontent.com/lcdsantos/jQuery-Selectric/master/public/jquery.selectric.min.js"></script>
+<script src="{{ asset('assets/js/selectric.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}"></script>
 
 <script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=<your API-key>" type="text/javascript"></script>
