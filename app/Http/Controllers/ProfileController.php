@@ -37,12 +37,10 @@ class ProfileController extends Controller
 	        $avatar = $request->file('avatar');
 	        $filename = time() . '.' . $avatar->getClientOriginalExtension();
 	        Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename) );
-   		 }else{
-   		 	$filename = null;
    		 }
    		 $user->update($data);
 
-   		 $user->avatar = $filename;
+   		 // $user->avatar = $filename;
    		 $save = $user->save();
    		  if($save){
             session()->flash('success','Успешно сохранено!');

@@ -28,10 +28,10 @@ class SearchFilter extends Component
      */
     public function render()
     {
-        $models = Product::groupBy('model')->select('model')->get();
-        $quantity = Product::groupBy('quantity')->select('quantity')->get();
-        $manufacturer = Product::groupBy('manufacturer')->select('manufacturer')->get();
-        $color = Color::all();
+        $models = Product::groupBy('model')->select('model')->orderBy('model','asc')->get();
+        $quantity = Product::groupBy('quantity')->select('quantity')->orderBy('quantity','asc')->get();
+        $manufacturer = Product::groupBy('manufacturer')->select('manufacturer')->orderBy('manufacturer','asc')->get();
+        $color = Color::orderBy('name','asc')->get();
         $minprice = Product::min('price');
         $maxprice = Product::max('price');
 

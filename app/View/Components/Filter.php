@@ -40,11 +40,11 @@ class Filter extends Component
            }
         }
        
-        $models = $category->products()->groupBy('model')->select('model')->get();
-        $quantity = $category->products()->groupBy('quantity')->select('quantity')->get();
-        $manufacturer = $category->products()->groupBy('manufacturer')->select('manufacturer')->get();
+        $models = $category->products()->groupBy('model')->select('model')->orderBy('model','asc')->get();
+        $quantity = $category->products()->groupBy('quantity')->select('quantity')->orderBy('quantity','asc')->get();
+        $manufacturer = $category->products()->groupBy('manufacturer')->select('manufacturer')->orderBy('manufacturer','asc')->get();
         $color_ids = $category->products()->groupBy('color_id')->select('color_id')->pluck('color_id')->toArray();
-        $color = Color::whereIn('id', $color_ids)->get();
+        $color = Color::whereIn('id', $color_ids)->orderBy('name','asc')->get();
         $minprice = $category->products()->min('price');
         $maxprice = $category->products()->max('price');
 
