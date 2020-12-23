@@ -73,7 +73,7 @@
                                         <div class="d-flex align-items-center sorting-filter-row">
                                             <div class="sorting-filter select-drop-down drop-down-sorting sorting">
                                                 <select name="order" id="order"
-                                                        class="sorting_select sorting-filter-content dropping__element__wrapper1">
+                                                        class="sorting_select sorting-filter-content dropping__element__wrapper1 js-selectric">
                                                     <option value="ASC" style="padding: 10px">{{__("Sort by low price")}}
                                                     </option>
                                                     <option value="DESC">{{__("Sort by high price")}} </option>
@@ -88,7 +88,7 @@
                                                     <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
                                                 </div> -->
                                                 <select name="per_page" id="per_page"
-                                                        class="sorting_select sorting-filter-content dropping__element__wrapper1">
+                                                        class="sorting_select sorting-filter-content dropping__element__wrapper1 js-selectric">
                                                     <option value="12">{{__("Show")}} 12</option>
                                                     <option value="24">{{__("Show")}} 24</option>
                                                     <option value="48">{{__("Show")}} 48</option>
@@ -126,7 +126,6 @@
                             <div id="sort">
                                 <div class="row additional-commodities-wrapper">
                                     @foreach($products as $product)
-
                                         <div class="col-lg-4 col-md-4 col-6">
                                             @include('components.market.card', compact('product'))
                                         </div>

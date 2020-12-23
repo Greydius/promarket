@@ -9708,7 +9708,7 @@ try {
         endingValueInput.value = +(endingValue).toFixed();
 
 
-        });
+    });
     costSlider.on('change', function (values) {
         let startingValue = +values[0];
         let endingValue = +values[1];
@@ -9990,7 +9990,7 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
         let colorName = this.getAttribute('data-color-name');
         this.closest(fixingElementSelector).setAttribute('data-color', colorName);
 
-        uploadCostChangers(this.getAttribute('data-route'));
+        uploadCostChangers(this.getAttribute('data-route'), this);
 
     }
 
@@ -9998,8 +9998,9 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
         axios
             .get(url)
             .then(res => {
-                self.chooseQualityBlock.innerHTML = res.data;
-                self.chooseQualityBlock.closest('.choose-quality').classList.add('active');
+                let chooseQualityBlock = context.closest('.detail-block-wrapper').querySelector('.choose-quality-block');
+                chooseQualityBlock.innerHTML = res.data;
+                chooseQualityBlock.closest('.choose-quality').classList.add('active');
                 this.costChangers = document.querySelectorAll('.commodity-default-card');
                 Array.from(this.costChangers).forEach(costChanger => {
                     costChanger.addEventListener('click', changeCost);
@@ -10024,7 +10025,7 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
         Object.values(self.allCosts).forEach(cost => {
             self.cost += Number(cost);
         });
-        if(this.closest(`${fixingElementSelector}`) == null){
+        if (this.closest(`${fixingElementSelector}`) == null) {
             return;
         }
         this.closest(`${fixingElementSelector}`).setAttribute('data-cost', cost);
@@ -10095,6 +10096,7 @@ $(function () {
         mask: "+371 99999999",
         clearIncomplete: !0,
     })
+    $('.js-selectric').selectric();
     $('input[type="tel"]').each(function () {
         $(this).keypress(function (e, a) {
             if ((e.which == 13) || (e.keyCode == 13)) {
@@ -10357,4 +10359,4 @@ $('.order-no-registration').validate({
         }
     }
 })
-$('.js-selectric').selectric();
+

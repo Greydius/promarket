@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Color;
 use App\FixingType;
 use App\Manufacturer;
 use App\ManufacturerModel;
@@ -344,14 +345,16 @@ class RemonlineController extends Controller
         $productColorId = 0;
         $productQualityId = 0;
 
+
+
         foreach ($colors as $color) {
-            if ($color->name == $product['code']) {
+            if (trim(strtoupper($color->name)) == trim(strtoupper($product['code']))) {
                 $productColorId = $color->id;
             }
         }
 
         foreach ($qualities as $quality) {
-            if ($quality->name == $product['article']) {
+            if (trim(strtoupper($quality->name)) == trim(strtoupper($product['article']))) {
                 $productQualityId = $quality->id;
             }
         }
