@@ -4910,7 +4910,7 @@ main {
 }
 
 .commodity-default-card-short {
-    min-height: 176px;
+    min-height: max-content;
 }
 
 .commodity-default-card-short span {
@@ -4922,7 +4922,7 @@ main {
 }
 
 .commodity-default-card-short .commodity-card-title {
-    height: 100px;
+    height: 35px;
     line-height: 24px;
 }
 
@@ -9029,7 +9029,7 @@ button.view_all {
         width: 170px;
     }
     .commodity-default-card-short {
-        min-height: 182px;
+        min-height: max-content;
     }
     .commodity-card-body .default-button {
         padding: 10px 8px;
@@ -9650,7 +9650,7 @@ button.view_all {
         font-size: 11px;
     }
     .commodity-default-card-short {
-        min-height: 157px;
+        min-height: max-content;
     }
     .commodity .swiper-slide {
         padding: 0 8px;
