@@ -368,7 +368,7 @@ class RemonlineController extends Controller
         if ($productDB == null) {
             $newProd = new Product();
             $newProd->name = $product['title'];
-            $newProd->price = $product['price']['85837'];
+            $newProd->price = $product['price']['85836'];
             $newProd->name = $product['title'];
             $newProd->code = Str::slug($product['title'], '_');
             $newProd->vendor_code = 'A11213';
@@ -389,6 +389,7 @@ class RemonlineController extends Controller
             }
             $newProd->color_id = $productColorId;
             $newProd->quality_id = $productQualityId;
+            $newProd->wholesale_price = $product['price']['85837'];
             $newProd->save();
             $subCategory->products()->attach($newProd->id);
             return $newProd;
@@ -401,6 +402,9 @@ class RemonlineController extends Controller
             $productDB->color_id = $productColorId;
             $productDB->quality_id = $productQualityId;
             $productDB->model = $product['category']['title'];
+            $productDB->wholesale_price = $product['price']['85837'];
+            $productDB->price_with_installation = $product['price']['91237'];
+            $productDB->price = $product['price']['85836'];
             $productDB->manufacturer = $manufacturer;
             $productDB->update();
         }

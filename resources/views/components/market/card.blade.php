@@ -18,14 +18,36 @@
         <div class="commodity-card-parameter">
             @include('components.common.in-stock', ['quantity' => $product->quantity])
         </div>
-        <div class="commodity-card-price-row">
-            <div class="commodity-card-price">
-                € {{$product->price}}
+        @if(Auth::check())
+            @if(Auth::user()->identification_type == 1)
+                <div class="commodity-card-price-row">
+                    <div class="commodity-card-price">
+                        € {{$product->wholesale_price}}
+                    </div>
+                </div>
+                <div class="commodity-card-additional-price">
+                    <span>{{$product->wholesale_price * $nds}} € {{__("ex VAT")}}</span>
+                </div>
+            @else
+                <div class="commodity-card-price-row">
+                    <div class="commodity-card-price">
+                        € {{$product->price}}
+                    </div>
+                </div>
+                <div class="commodity-card-additional-price">
+                    <span>{{$product->price * $nds}} € {{__("ex VAT")}}</span>
+                </div>
+            @endif
+        @else
+            <div class="commodity-card-price-row">
+                <div class="commodity-card-price">
+                    € {{$product->price}}
+                </div>
             </div>
-        </div>
-        <div class="commodity-card-additional-price">
-            <span>{{$product->price * $nds}} € {{__("ex VAT")}}</span>
-        </div>
+            <div class="commodity-card-additional-price">
+                <span>{{$product->price * $nds}} € {{__("ex VAT")}}</span>
+            </div>
+        @endif
         <form method="post" data-get-state="{{route('cart-state')}}" action="{{route('add-cart')}}"
               class="add-to-cart-form-submittion">
             @csrf
