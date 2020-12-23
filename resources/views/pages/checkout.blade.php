@@ -6,6 +6,7 @@
 
         <section class="cart-content pt-4">
             @include('components.market.cart-inner', compact('order'))
+
         </section>
 
         <section class="authorization-content mb-5">
@@ -146,7 +147,7 @@
                                             </div>
                                         </div>
                                         <div class="small-title justify-content-center d-flex">
-                                            ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> 344.50 €
+                                            ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> {{$order->getFullPrice()}} €
                                             <span class="commodity-card-price-muted">39.99 € {{__("ex VAT")}}</span></span>
                                         </div>
                                         <button type="submit" class="default-button mt-5">
@@ -211,7 +212,7 @@
                                             </div>
                                         </div>
                                         <div class="small-title justify-content-center d-flex">
-                                            ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> 344.50 €
+                                            ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> {{$order->getFullPrice()}} €
                                             <span class="commodity-card-price-muted">39.99 € {{__("ex VAT")}}</span></span>
                                         </div>
                                        <button type="submit" class="default-button mt-5">
@@ -272,6 +273,7 @@
 
                                         <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
                                         <div class="payment-drop-down-wrapper">
+                                            <select name="payment_method"></select>
                                             <div class="payment-drop-down-trigger">
                                                 <div class="changing">Выберите метод оплаты</div>
                                                 <img src="img/common/chevron-down.svg" alt="">
@@ -283,8 +285,8 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="small-title justify-content-center d-flex">
-                                            ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> 344.50 €
+                                        <div class="small-title justify-content-center d-flex">                                            
+                                            ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price">  {{$order->getFullPrice()}} €
                                             <span class="commodity-card-price-muted">39.99 € {{__("ex VAT")}}</span></span>
                                         </div>
                                         <button type="submit" class="default-button mt-5">

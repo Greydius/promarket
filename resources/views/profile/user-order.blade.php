@@ -8,7 +8,7 @@
                 <div class="sidebar-profile-overview">
                     <div class="d-flex align-items-center profile-overview justify-content-between">
                         <div class="profile-photo">
-                            <img src="" alt="">
+                            <img src="{{ asset('/uploads/avatar/') }}/{{Auth::user()->avatar}}" alt="">
                         </div>
                         <div class="profile-name">
                              {{ Auth::user()->username }}
@@ -16,30 +16,34 @@
                         </div>
                     </div>
                 </div>
-                <ul class="lk-tabs-changers">
-                    <li class="sidebar-item active">
+                  <ul class="lk-tabs-changers">
+                    <li class="sidebar-item lk-tabs-changer active">
                         <a href="#">
-                            <img src="{{ asset('/assets/img/lk/orders_icon.svg') }}" alt="">
+                            <img src="{{ asset('assets/img/lk/orders_icon.svg') }}" alt="">
                             <span>
                                 {{__("Your orders")}}
                             </span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item lk-tabs-changer">
                         <a href="#">
-                            <img src="{{ asset('/assets/img/lk/account_icon.svg') }}" alt="">
+                            <img src="{{ asset('assets/img/lk/account_icon.svg') }}" alt="">
                             <span>
                                 {{__("account settings")}}
                             </span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#">
-                            <img src="{{ asset('/assets/img/lk/quit_icon.svg') }}" alt="">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <img src="{{ asset('assets/img/lk/quit_icon.svg') }}" alt="">
                             <span>
-                                {{__("Log out")}}
+                               {{__("Log out")}}
                             </span>
                         </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </li>
                 </ul>
             </div>
