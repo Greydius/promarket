@@ -9179,7 +9179,6 @@ try {
         });
     });
 } catch (e) {
-    console.log(e)
 }
 
 function mediaQueries() {
@@ -9223,10 +9222,8 @@ mediaQueries();
 let windowWith = window.innerWidth;
 
 function reloadPage() {
-    console.log(windowWith)
     if (windowWith > 991) {
         if (window.innerWidth < 992) {
-            console.log('reload page')
             window.location.href = window.location.href;
             location.reload(true);
             history.go(0);
@@ -9362,10 +9359,8 @@ function Burger(burger, menu, parentElement = {}) {
         }
 
         function noScroll(e) {
-            // console.log(e)
         }
     } catch (e) {
-        console.log(e)
     }
 }
 
@@ -9373,14 +9368,12 @@ function makeCommodityActive(commodityWrapper) {
     try {
         this.commodity = commodityWrapper.children
     } catch (e) {
-        console.log(e)
     }
     try {
         Array.from(this.commodity).forEach(el => {
             el.addEventListener('click', toggleActiveClass)
         })
     } catch (e) {
-        console.log(e)
     }
 
 
@@ -9408,7 +9401,6 @@ function Tabs(tabTrigger, tabContentWrapper, parentElement, closeButtonSelectorN
     if (window.innerWidth < 992) {
         changeEvent = 'click'
     }
-    console.log(changeEvent)
     try {
         this.tab = tabTrigger
         this.tabContent = tabContentWrapper
@@ -9458,7 +9450,7 @@ function Tabs(tabTrigger, tabContentWrapper, parentElement, closeButtonSelectorN
 
         this.closeAllTabs = closeTabs;
     } catch (e) {
-        console.log(e)
+        void e
     }
 }
 
@@ -9591,7 +9583,6 @@ function ProgramTabs(tabTrigger, tabContentWrapper, parentElement, closeButtonSe
     Array.from(this.tab).forEach(tab => {
         tab.addEventListener('click', changeTheTab)
     })
-    console.log(this.closeButtons)
     this.closeButtons.forEach(el => {
         el.addEventListener('click', closeTabs);
     })
@@ -9644,8 +9635,7 @@ try {
         'empty-no-need-selector'
     )
 } catch (e) {
-    console.log('delivery tabs')
-    console.log(e)
+    void e
 }
 let headerShopTabs = new Tabs(
     document.querySelectorAll('.shop__drop__down-tabs-side-container li'),
@@ -9699,7 +9689,7 @@ try {
         }
     });
     costSlider.on('update', function (values) {
-        console.log(values);
+
         let startingValue = +values[0];
         let endingValue = +values[1];
         let startingValueInput = document.getElementsByClassName('starting-value')[0];
@@ -9764,25 +9754,27 @@ try {
         }
     }
 } catch (e) {
-    console.log(e)
+    void(e)
 }
 
-function ChooseOne(elementArray) {
-    this.elements = elementArray;
+function ChooseOne(elementsClassName, parentElementClassName) {
+    this.elements = document.querySelectorAll(`.${elementsClassName}`);
     let self = this;
     Array.from(this.elements).forEach(el => {
         el.addEventListener('click', makeElementActive)
     })
 
-    function clearAll() {
-        self.elements.forEach(el => {
+    function clearAll(context) {
+        let parentElement = context.closest(`.${parentElementClassName}`);
+        const elements = parentElement.querySelectorAll(`.${elementsClassName}`);
+        Array.from(elements).forEach(el => {
             el.classList.remove('active')
         })
     }
 
     function makeElementActive(e) {
         e.preventDefault();
-        clearAll();
+        clearAll(this);
         this.classList.add('active')
     }
 }
@@ -9790,10 +9782,8 @@ function ChooseOne(elementArray) {
 let choosingColorRow = document.querySelectorAll('.choosing-color-row .fixing-category-card');
 let chossingDetailRow = document.querySelectorAll('.choosing-detail-row .commodity-default-card');
 
-let chooseOneArray = [chossingDetailRow, choosingColorRow];
-chooseOneArray.forEach(comArray => {
-    new ChooseOne(comArray);
-})
+new ChooseOne('fixing-category-card', 'choosing-color-row');
+new ChooseOne('commodity-default-card', 'choosing-detail-row');
 
 let headerShopLink = document.querySelectorAll('.header__shop__link');
 Array.from(headerShopLink).forEach(link => {
@@ -9872,7 +9862,7 @@ try {
         map.panes.get('ground').getElement().style.filter = 'grayscale(100%)';
     });
 } catch (e) {
-    console.log(e)
+    void e
 }
 
 let authorizationTabs = document.querySelectorAll('.delivery-blocks .col-xl-4');
@@ -9952,7 +9942,6 @@ try {
         '.js-order-link-creation-button'
     )
 } catch (e) {
-    console.log('there is no url creating in this page');
 }
 
 function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPriceSelector) {
@@ -10005,7 +9994,7 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
                 Array.from(this.costChangers).forEach(costChanger => {
                     costChanger.addEventListener('click', changeCost);
                 })
-                new ChooseOne(this.costChangers);
+                new ChooseOne('commodity-default-card', 'detail-block-wrapper');
             })
             .catch(err => {
                 alert(err);
@@ -10018,7 +10007,6 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
     }
 
     function changeCost() {
-        console.log(this);
         let cost = this.getAttribute('data-cost');
         self.allCosts[this.getAttribute('data-id')] = cost
         self.cost = 0;
@@ -10043,7 +10031,6 @@ let FixingDetailsManager = new FixingDetailCostManager(
 $('.reservation-form').validate({
     submitHandler: function (form) {
         let formData = new FormData(form);
-        console.log(form);
         let allDetails = document.querySelectorAll('.detail-block-wrapper');
         let detailsArray = [];
         Array.from(allDetails).forEach(detail => {
@@ -10060,13 +10047,10 @@ $('.reservation-form').validate({
         axios
             .post(form.getAttribute('data-url'), formData)
             .then(response => {
-                console.log(response);
             })
             .catch(error => {
-                console.log(error);
             })
 
-        console.log(...formData)
     },
     rules: {
         name: {
@@ -10132,7 +10116,6 @@ class InputSearch {
 try {
     let searchInput = new InputSearch('.brand-search .auth_control');
 } catch (e) {
-    console.log('searchInput has not been initialized');
 }
 
 
@@ -10186,7 +10169,6 @@ function addCommodityToCart(e) {
 
         })
         .catch((err) => {
-            console.log(err);
         })
 }
 
@@ -10237,7 +10219,6 @@ function updateCartQuantity() {
             }
         })
         .catch((err) => {
-            console.log(err);
         })
 
 }
