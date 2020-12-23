@@ -8,7 +8,7 @@
                 class="commodity-default-card commodity-default-card-short">
                 <div class="commodity-card-body">
                     <h4 class="commodity-card-title">
-                        {{$quality->name->quality->full_name}}
+                        {{$quality->quality->full_name}}
                     </h4>
                     <div class="commodity-card-parameter">
                         @include('components.common.in-stock', ['quantity' => $quality->quantity])
