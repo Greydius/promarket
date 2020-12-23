@@ -10029,6 +10029,9 @@ let FixingDetailsManager = new FixingDetailCostManager(
 
 
 $('.reservation-form').validate({
+    errorPlacement: function (error, element) {
+        $(error).insertAfter(element.prev(".errormessage"));
+    },
     submitHandler: function (form) {
         let formData = new FormData(form);
         let allDetails = document.querySelectorAll('.detail-block-wrapper');
@@ -10282,6 +10285,9 @@ $('.registation-form').validate({
     ignore: []
 });
 $('.user-data-self').validate({
+    errorPlacement: function (error, element) {
+        $(error).insertAfter(element.prev(".errormessage"));
+    },
     ignore: [],
     rules: {
         name: 'required',
@@ -10297,6 +10303,9 @@ $('.user-data-self').validate({
     }
 })
 $('.user-data-omniva').validate({
+    errorPlacement: function (error, element) {
+        $(error).insertAfter(element.prev(".errormessage"));
+    },
     ignore: [],
     rules: {
         name: 'required',
@@ -10313,6 +10322,9 @@ $('.user-data-omniva').validate({
 })
 
 $('.user-data-delivery').validate({
+    errorPlacement: function (error, element) {
+        $(error).insertAfter(element.prev(".errormessage"));
+    },
     ignore: [],
     rules: {
         name: 'required',
@@ -10333,6 +10345,9 @@ $('.user-data-delivery').validate({
 })
 
 $('.order-no-registration').validate({
+    errorPlacement: function (error, element) {
+        $(error).insertAfter(element.prev(".errormessage"));
+    },
     rules: {
         email: {
             email: true,
