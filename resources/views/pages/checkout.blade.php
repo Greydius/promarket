@@ -157,7 +157,7 @@
                                         <div class="small-title justify-content-center d-flex">
                                             ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> {{$order->getFullPrice()}} €
                                             <span
-                                                class="commodity-card-price-muted">39.99 € {{__("ex VAT")}}</span></span>
+                                                class="commodity-card-price-muted">{{number_format($order->getFullPrice() * $nds, 2, '.', '')}} € {{__("ex VAT")}}</span></span>
                                         </div>
                                         <button type="submit" class="default-button mt-5">
                                             Сделать заказ
