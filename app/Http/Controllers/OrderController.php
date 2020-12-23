@@ -23,12 +23,14 @@ class OrderController extends Controller
 
     public function ckeckout() {
         $orderId = session('orderId');
+
         if(is_null($orderId)){
             return redirect()->route('main-page');
         }
         $order = Order::find($orderId);
+        // dd($order->getFullPrice());
         $orderProducts = $order->products;
-        return view('pages.checkout', compact('order'));
+        return view('pages.checkout', compact('order','orderProducts'));
     }
 
     public function updateProductQuantity(Request $request)
@@ -133,10 +135,12 @@ class OrderController extends Controller
         $order->fio = $inputs['name'] .' '.$inputs['firstname'];
         $order->specification = $inputs['identification-type'];
         $order->status = '1';
-
+        $order->total_amout = $order->getFullPrice();
+        
         $order->user_id = $userid;
         $save = $order->save();
         if($save){
+            $request->session()->forget('orderId');
             session()->flash('success','Ваш заказ принят в обработку!');
         }else{
             session()->flash('error','Случилос ошибка!');
