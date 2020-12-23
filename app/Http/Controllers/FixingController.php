@@ -70,7 +70,7 @@ class FixingController extends Controller
     public function fixingDetailOrderColor($detail_id, $color_id)
     {
         $detail = FixingDetail::find($detail_id);
-        $detail->products()->where('color_id', $color_id);
+        $detail->products = $detail->products()->where('color_id', $color_id)->get();
 
         return view('components.fixing.detail_quality', compact('detail'));
 

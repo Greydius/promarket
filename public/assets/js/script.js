@@ -9782,7 +9782,7 @@ function ChooseOne(elementsClassName, parentElementClassName) {
 let choosingColorRow = document.querySelectorAll('.choosing-color-row .fixing-category-card');
 let chossingDetailRow = document.querySelectorAll('.choosing-detail-row .commodity-default-card');
 
-new ChooseOne('fixing-category-card', 'choosing-color-row');
+new ChooseOne('color-changing-card', 'choosing-color-row');
 new ChooseOne('commodity-default-card', 'choosing-detail-row');
 
 let headerShopLink = document.querySelectorAll('.header__shop__link');

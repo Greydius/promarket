@@ -4850,7 +4850,8 @@ main {
 
 .reservation-form .radio-buttons-row .radio-type input:checked~span:after {
     left: 5px;
-    top: 19px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .reservation-form .radio-buttons-row .radio-type span {
@@ -6372,8 +6373,6 @@ button.view_all {
     color: #000000;
     opacity: 0.54;
 }
-
-
 
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
@@ -11199,6 +11198,16 @@ div.search-result>div:nth-child(2) {
     /* width: 60%; */
 }
 
+.search-result h3 {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    color: #202020;
+    text-transform: uppercase;
+}
+
 .search-result li.result_item p {
     width: 90%;
     padding: 0 0 0 5px;
@@ -11212,11 +11221,16 @@ div.search-result>div:nth-child(2) {
     font-weight: normal;
     font-size: 14px;
     line-height: 22px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .search-result .result_item {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .search-result li.result_item span.price {
