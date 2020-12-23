@@ -79,7 +79,7 @@ Route::group([
     Route::get('/profile/order/{id}', 'ProfileController@oneOrder')->name('user.order')->middleware('verified');
     Route::post('/profile/edit', 'ProfileController@edit')->name('profile.edit')->middleware('verified');
     Route::post('/profile/avatar', 'ProfileController@avatarStore')->name('avatarStore')->middleware('verified');
-    Route::match(['post','get'],'/profile/new-password', 'ProfileController@newPass')->name('profile.new-password')->middleware('verified');
+    Route::match(['post','get'],'/profile/new-password', 'ProfileController@newPass')->name('profile.change-password')->middleware('verified');
     Route::get('/reset-password', 'Auth\ResetPasswordController@resetPassword')->name('reset.password');
 
     Route::get('/checkout', 'OrderController@ckeckout')->name('checkout');

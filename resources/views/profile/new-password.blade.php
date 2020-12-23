@@ -70,7 +70,7 @@
                       
 
                         <div class="lk-inner-cards-wrapper">
-                           <form action="{{ route('profile.new-password') }}" method="POST">
+                           <form action="{{ route('profile.change-password') }}" method="POST">
                              {{ csrf_field() }}
                                         <div class="profile-data-controls-wrapper">
                                             <div class="profile-data-item">

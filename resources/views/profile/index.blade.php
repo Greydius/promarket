@@ -160,7 +160,7 @@
                                             <div>
                                                 {{__("Change Password")}}
                                             </div>
-                                            <a href="{{route('profile.new-password')}}">
+                                            <a href="{{route('profile.change-password')}}">
                                                 {{__("Change Password2")}}
                                             </a>
                                         </div>
@@ -258,7 +258,7 @@
                               
 
                                 <div class="lk-inner-cards-wrapper">
-                                   <form action="{{ route('profile.new-password') }}" method="POST">
+                                   <form action="{{ route('profile.change-password') }}" method="POST">
                                      {{ csrf_field() }}
                                                 <div class="profile-data-controls-wrapper">
                                                     <div class="profile-data-item">
