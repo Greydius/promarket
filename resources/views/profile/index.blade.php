@@ -9,7 +9,13 @@
                     <div class="sidebar-profile-overview">
                         <div class="d-flex align-items-center profile-overview">
                             <div class="profile-photo">
-                                <img src="{{ asset('/uploads/avatar/') }}/{{Auth::user()->avatar}}" alt="">
+                                <img
+                                    @if(Auth::user()->avatar == 'users/default.png')
+                                     src="{{asset('assets/img/dummy.png')}}"
+                                    @else
+                                    src="{{Storage::url(Auth::user()->avatar)}}"
+                                    @endif
+                                    alt="">
                             </div>
                             <div class="profile-name">
                                 {{ Auth::user()->username }}
@@ -141,7 +147,7 @@
 
                                         <div class="profile-details">
                                             <div class="profile-details-photo">
-                                                <img src="{{ asset('/uploads/avatar/') }}/{{Auth::user()->avatar}}"
+                                                <img src="{{Storage::url(Auth::user()->avatar)}}"
                                                      class="user_avatar" alt="" style="width: auto; height: inherit;">
                                                 <label for="avatar">
                                                     <div class="profile-change-photo-icon">
@@ -333,7 +339,6 @@
                 file = $(this).prop('files')[0];
                 formdata.append("file", file);
             }
-            // alert(formdata);
             jQuery.ajax({
                 url: '/profile/avatar',
                 method: "POST",
@@ -342,8 +347,8 @@
                 contentType: false,
                 success: function (result) {
                     console.log(result);
-                    $(".user_avatar").attr("src", "uploads/avatar/" + result);
-                    $(".profile-photo img").attr("src", "uploads/avatar/" + result);
+                    $(".user_avatar").attr("src", result);
+                    $(".profile-photo img").attr("src", result);
                     // play the audio file
                 }
             });
