@@ -130,10 +130,22 @@
                                         </span>
                                             </label>
                                         </div>
-                                        <input type="text" placeholder="{{__('First Name')}} " name="name">
-                                        <input type="text" placeholder="{{__('Last Name')}} " name="firstname">
-                                        <input type="email" placeholder="{{__('Email')}}" name="email">
-                                        <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone">
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('First Name')}} " name="name">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('Last Name')}} " name="firstname">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="email" placeholder="{{__('Email')}}" name="email">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone">
+                                        </label>
                                         <textarea name="comment" id="comment" class="" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
 
@@ -207,10 +219,23 @@
                                         </span>
                                             </label>
                                         </div>
-                                        <input type="text" placeholder="{{__('First Name')}} " name="name">
-                                        <input type="text" placeholder="{{__('Last Name')}} " name="firstname">
-                                        <input type="email" placeholder="{{__('Email')}}" name="email">
-                                        <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone">
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('First Name')}} " name="name">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('Last Name')}} " name="firstname">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="email" placeholder="{{__('Email')}}" name="email">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone">
+                                        </label>
+                                        
                                         <textarea name="comment" id="comment" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
 
@@ -296,10 +321,22 @@
                                         </span>
                                             </label>
                                         </div>
-                                        <input type="text" placeholder="{{__('First Name')}} " name="name">
-                                        <input type="text" placeholder="{{__('Last Name')}} " name="firstname">
-                                        <input type="email" placeholder="{{__('Email')}}" name="email">
-                                        <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone">
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('First Name')}} " name="name">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('Last Name')}} " name="firstname">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="email" placeholder="{{__('Email')}}" name="email">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone">
+                                        </label>
                                         <textarea name="comment" id="comment" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
 
