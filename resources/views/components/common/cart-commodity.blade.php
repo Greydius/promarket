@@ -44,7 +44,7 @@
                 </div>
             @endforeach
         </div>
-
+ 
         <div class="d-flex align-items-center justify-content-between">
             <div class="cart__price__wrapper">
                 <p>
