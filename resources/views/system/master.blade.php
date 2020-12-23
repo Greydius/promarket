@@ -138,7 +138,7 @@
             <div class="header_form_search">
                 <form action="{{ route('search') }}" method="GET" class="search_form">
                     <label>
-                        <input placeholder="{{__('search')}}" type="text" class="form_control" name="query" id="search_text" >
+                        <input required placeholder="{{__('search')}}" type="text" class="form_control" name="query" id="search_text" >
                     </label>
                     <button type="submit" class="search_form_submit">
                         <img src="{{ asset('/assets/img/common/search.svg') }}" alt="">

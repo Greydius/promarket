@@ -78,7 +78,7 @@ Route::group([
     Route::get('/profile', 'ProfileController@myprofile')->name('profile.index')->middleware('verified');
     Route::get('/profile/order/{id}', 'ProfileController@oneOrder')->name('user.order')->middleware('verified');
     Route::post('/profile/edit', 'ProfileController@edit')->name('profile.edit')->middleware('verified');
-    Route::post('/profile/avatar', 'ProfileController@avatarStore')->name('avatarStore')->middleware('verified');
+
     Route::match(['post','get'],'/profile/new-password', 'ProfileController@newPass')->name('profile.change-password')->middleware('verified');
     Route::get('/reset-password', 'Auth\ResetPasswordController@resetPassword')->name('reset.password');
 
@@ -101,6 +101,8 @@ Route::group([
 
     Route::get('/all-categories', 'MainController@getCategories')->name('lang-change');
 });
+
+Route::post('/profile/avatar', 'ProfileController@avatarStore')->name('avatarStore');
 
 Route::get('/cat', 'RemonlineController@uploadCategories')->name('uploadCategories');
 

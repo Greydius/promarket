@@ -9780,15 +9780,15 @@ function ChooseOne(elementsClassName, parentElementClassName) {
 }
 
 let choosingColorRow = document.querySelectorAll('.choosing-color-row .fixing-category-card');
-let chossingDetailRow = document.querySelectorAll('.choosing-detail-row .commodity-default-card');
+let chossingDetailRow = document.querySelectorAll('.choosing-detail-row .commodity-default-card-short');
 
 new ChooseOne('color-changing-card', 'choosing-color-row');
-new ChooseOne('commodity-default-card', 'choosing-detail-row');
+new ChooseOne('commodity-default-card-short', 'choosing-detail-row');
 
 let headerShopLink = document.querySelectorAll('.header__shop__link');
 Array.from(headerShopLink).forEach(link => {
     link.addEventListener('mouseover', () => {
-        let headerCart = document.querySelectorAll('header_cart');
+        let headerCart = document.querySelectorAll('.header_cart');
         Array.from(headerCart).forEach(cart => {
             cart.classList.remove('open');
         })
@@ -9953,7 +9953,7 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
     this.cost = 0;
     let self = this;
     this.colorChangers = document.querySelectorAll('.color-changing-card');
-    this.costChangers = document.querySelectorAll('.commodity-default-card');
+    this.costChangers = document.querySelectorAll('.commodity-default-card-short');
     this.chooseQualityBlock = document.querySelector('.choose-quality-block');
 
 
@@ -9990,11 +9990,11 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
                 let chooseQualityBlock = context.closest('.detail-block-wrapper').querySelector('.choose-quality-block');
                 chooseQualityBlock.innerHTML = res.data;
                 chooseQualityBlock.closest('.choose-quality').classList.add('active');
-                this.costChangers = document.querySelectorAll('.commodity-default-card');
+                this.costChangers = document.querySelectorAll('.commodity-default-card-short');
                 Array.from(this.costChangers).forEach(costChanger => {
                     costChanger.addEventListener('click', changeCost);
                 })
-                new ChooseOne('commodity-default-card', 'detail-block-wrapper');
+                new ChooseOne('commodity-default-card-short', 'detail-block-wrapper');
             })
             .catch(err => {
                 alert(err);

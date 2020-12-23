@@ -2,12 +2,12 @@
 
 @section('content')
 
-<main class="main lk-main">
-    <div class="container">
+    <main class="main lk-main">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-4 sidebar lk-sidebar">
                     <div class="sidebar-profile-overview">
-                        <div class="d-flex align-items-center profile-overview justify-content-between">
+                        <div class="d-flex align-items-center profile-overview">
                             <div class="profile-photo">
                                 <img src="{{ asset('/uploads/avatar/') }}/{{Auth::user()->avatar}}" alt="">
                             </div>
@@ -35,16 +35,17 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <img src="{{ asset('assets/img/lk/quit_icon.svg') }}" alt="">
                                 <span>
                                    {{__("Log out")}}
                                 </span>
                             </a>
 
-    						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    						    {{ csrf_field() }}
-    						</form>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -54,17 +55,17 @@
                         {{ Breadcrumbs::render('account') }}
                     </div>
                     <div class="alert">
-                         @if(session()->has('success'))
+                        @if(session()->has('success'))
                             <p class="alert alert-success text-center">{{session()->get('success')}}</p>
                         @endif
                         @if(session()->has('error'))
-                        <p class="alert alert-error alert-danger text-center">{{session()->get('error')}}</p>
+                            <p class="alert alert-error alert-danger text-center">{{session()->get('error')}}</p>
                         @endif
-                      @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                     </div>
                     <div class="lk-tabs-wrapper">
                         <div class="lk-table-container active">
@@ -98,25 +99,25 @@
                                     </div>
                                     <?php $orders = Auth::user()->orders; ?>
                                     @foreach($orders as $order)
-                                    <a href="/profile/order/{{$order->id}}" class="lk-row d-flex">
-                                        <div class="lk-first-col">
-                                            {{ date('d.m.Y', strtotime($order->created_at)) }}
-                                        </div>
-                                        <div class="lk-second-col">
-                                           {{ $order->id}}
-                                        </div>
-                                        <div class="lk-third-col">
-                                            {{ $order->total_amout }} €
-                                        </div>
-                                        <div class="lk-fourth-col">
-                                            @if($order->status == 1)
-                                                Обрабатывается
-                                            @endif
-                                            @if($order->status == 2)
-                                                Завершено
-                                            @endif
-                                        </div>
-                                    </a>
+                                        <a href="/profile/order/{{$order->id}}" class="lk-row d-flex">
+                                            <div class="lk-first-col">
+                                                {{ date('d.m.Y', strtotime($order->created_at)) }}
+                                            </div>
+                                            <div class="lk-second-col">
+                                                {{ $order->id}}
+                                            </div>
+                                            <div class="lk-third-col">
+                                                {{ $order->total_amout }} €
+                                            </div>
+                                            <div class="lk-fourth-col">
+                                                @if($order->status == 1)
+                                                    Обрабатывается
+                                                @endif
+                                                @if($order->status == 2)
+                                                    Завершено
+                                                @endif
+                                            </div>
+                                        </a>
                                     @endforeach
                                 </div>
                             </div>
@@ -140,16 +141,17 @@
 
                                         <div class="profile-details">
                                             <div class="profile-details-photo">
-                                                <img src="{{ asset('/uploads/avatar/') }}/{{Auth::user()->avatar}}" class="user_avatar" alt="" style="width: auto; height: inherit;">
-
-                                            <label for="avatar">
-                                                <div class="profile-change-photo-icon">
-
-                                               <input id="avatar" type="file" name="file" style="z-index: -1;opacity: 0;width: 0;" value="{{Auth::user()->avatar}}" />
-                                                 <img src="{{ asset('assets/img/lk/change-photo') }}.svg" class="" alt="" >
-
-                                                </div>
-                                                    </label>
+                                                <img src="{{ asset('/uploads/avatar/') }}/{{Auth::user()->avatar}}"
+                                                     class="user_avatar" alt="" style="width: auto; height: inherit;">
+                                                <label for="avatar">
+                                                    <div class="profile-change-photo-icon">
+                                                        <input id="avatar" type="file" name="file"
+                                                               style="z-index: -1;opacity: 0;width: 0;"
+                                                               value="{{Auth::user()->avatar}}"/>
+                                                        <img src="{{ asset('assets/img/lk/change-photo') }}.svg"
+                                                             class="" alt="">
+                                                    </div>
+                                                </label>
                                             </div>
                                             <div class="profile-details-name">
                                                 {{ Auth::user()->username }}
@@ -168,21 +170,24 @@
                                 </div>
                                 <div class="profile-data">
                                     <h3 class="small-title">
-                                       {{__("USER DATA")}}
+                                        {{__("USER DATA")}}
                                     </h3>
                                     <div class="profile-additional-data-form">
                                         <form action="{{ route('profile.edit') }}" method="POST">
-                                         <!--
-                                            <input type="file" id="avatar" name="avatar" style="width: 0;height: 0;opacity: 0;"> -->
-                                            <div class="d-flex radio-buttons-row align-items-center justify-content-center">
+                                            <!--
+                                               <input type="file" id="avatar" name="avatar" style="width: 0;height: 0;opacity: 0;"> -->
+                                            <div
+                                                class="d-flex radio-buttons-row align-items-center justify-content-center">
                                                 <label class="radio-type">
-                                                    <input type="radio" name="identification_type" value="0" @if(Auth::user()->identification_type == 0) checked="checked" @endif >
+                                                    <input type="radio" name="identification_type" value="0"
+                                                           @if(Auth::user()->identification_type == 0) checked="checked" @endif >
                                                     <span>
                                                         {{__(("Individual"))}}
                                                     </span>
                                                 </label>
                                                 <label class="radio-type">
-                                                    <input  type="radio" name="identification_type" value="1" @if(Auth::user()->identification_type == 1) checked="checked" @endif>
+                                                    <input type="radio" name="identification_type" value="1"
+                                                           @if(Auth::user()->identification_type == 1) checked="checked" @endif>
                                                     <span>
                                                         {{__("legal entity")}}
                                                     </span>
@@ -191,16 +196,23 @@
                                             <div class="profile-data-controls-wrapper">
                                                 <div class="profile-data-item">
                                                     <label>
-                                                        <input type="text" name="username" placeholder="{{__('First Name')}} " class="auth_control" value="{{ Auth::user()->username }}">
+                                                        <input type="text" name="username"
+                                                               placeholder="{{__('First Name')}} " class="auth_control"
+                                                               value="{{ Auth::user()->username }}">
                                                     </label>
                                                     <label>
-                                                        <input type="text" name="firstname" placeholder="{{__('Last Name')}} " class="auth_control" value="{{ Auth::user()->firstname }}">
+                                                        <input type="text" name="firstname"
+                                                               placeholder="{{__('Last Name')}} " class="auth_control"
+                                                               value="{{ Auth::user()->firstname }}">
                                                     </label>
                                                     <label>
-                                                        <input type="email" name="email" placeholder="{{__('Email')}}" value="{{ Auth::user()->email }}" class="auth_control">
+                                                        <input type="email" name="email" placeholder="{{__('Email')}}"
+                                                               value="{{ Auth::user()->email }}" class="auth_control">
                                                     </label>
                                                     <label>
-                                                        <input type="number" name="phone" placeholder="{{__('Phone Number')}} " class="auth_control"  value="{{ Auth::user()->phone }}">
+                                                        <input type="number" name="phone"
+                                                               placeholder="{{__('Phone Number')}} "
+                                                               class="auth_control" value="{{ Auth::user()->phone }}">
                                                     </label>
                                                 </div>
                                                 <h3 class="small-title">
@@ -208,11 +220,15 @@
                                                 </h3>
                                                 <div class="profile-data-item">
                                                     <div class="address-drop-down-wrapper">
-                                                        <div class="address-drop-down-trigger">
-                                                            <input type="hidden" id="region" name="region" value="{{ Auth::user()->region }}">
-                                                            <div class="changing">{{ Auth::user()->region }}</div>
-                                                            <img src="{{ asset('assets/img/common/chevron-down.svg') }}" alt="">
-                                                        </div>
+                                                        <label>
+                                                            <select class="js-selectric" name="region">
+                                                                <option @if(Auth::user()->region == 'lv') selected @endif value="lv">Латвия</option>
+                                                                <option @if(Auth::user()->region == 'lv2') selected @endif value="lv2">Латвия 2</option>
+                                                                <option @if(Auth::user()->region == 'lv3') selected @endif value="lv3">Латвия 3</option>
+                                                            </select>
+                                                        </label>
+                                                        <img src="{{ asset('assets/img/common/chevron-down.svg') }}"
+                                                             alt="">
                                                         <div class="address-drop-down">
                                                             <ul>
                                                                 <li class="address-changer">Латвия</li>
@@ -222,13 +238,19 @@
                                                         </div>
                                                     </div>
                                                     <label>
-                                                        <input type="text" name="city" placeholder="{{__('City')}}" class="auth_control" value="{{ Auth::user()->city }}">
+                                                        <input type="text" name="city" placeholder="{{__('City')}}"
+                                                               class="auth_control" value="{{ Auth::user()->city }}">
                                                     </label>
                                                     <label>
-                                                        <input type="text" name="delivery_address" placeholder="{{__('Delivery address')}} " class="auth_control" value="{{ Auth::user()->delivery_address }}">
+                                                        <input type="text" name="delivery_address"
+                                                               placeholder="{{__('Delivery address')}} "
+                                                               class="auth_control"
+                                                               value="{{ Auth::user()->delivery_address }}">
                                                     </label>
                                                     <label>
-                                                        <input type="number" name="postcode" placeholder="{{__('Postcode')}} " class="auth_control"  value="{{ Auth::user()->postcode }}">
+                                                        <input type="number" name="postcode"
+                                                               placeholder="{{__('Postcode')}} " class="auth_control"
+                                                               value="{{ Auth::user()->postcode }}">
                                                     </label>
                                                 </div>
                                                 <button class="default-button lk-submit-button" type="submit">
@@ -253,29 +275,34 @@
                                         <span>
                                             {{__("Back")}}
                                         </span>
-                                     </a>
+                                    </a>
                                 </div>
-                              
+
 
                                 <div class="lk-inner-cards-wrapper">
-                                   <form action="{{ route('profile.change-password') }}" method="POST">
-                                     {{ csrf_field() }}
-                                                <div class="profile-data-controls-wrapper">
-                                                    <div class="profile-data-item">
-                                                       
-                                                        <label>
-                                                         <input id="password" type="password" class="auth_control" name="new_password" required autocomplete="new-password"  placeholder="Введите новый пароль">
-                                                        </label>
-                                                        <label>
-                                                            <input id="password-confirm" type="password" class="auth_control " name="password_confirmation" required autocomplete="new-password" placeholder="Введите новый пароль ещё раз">
-                                                        </label>
-                                                    </div>
-                                                    <button class="default-button lk-submit-button" type="submit">
-                                                        {{__("Save")}}
-                                                    </button>
-                                                </div>
+                                    <form action="{{ route('profile.change-password') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="profile-data-controls-wrapper">
+                                            <div class="profile-data-item">
 
-                                            </form>
+                                                <label>
+                                                    <input id="password" type="password" class="auth_control"
+                                                           name="new_password" required autocomplete="new-password"
+                                                           placeholder="Введите новый пароль">
+                                                </label>
+                                                <label>
+                                                    <input id="password-confirm" type="password" class="auth_control "
+                                                           name="password_confirmation" required
+                                                           autocomplete="new-password"
+                                                           placeholder="Введите новый пароль ещё раз">
+                                                </label>
+                                            </div>
+                                            <button class="default-button lk-submit-button" type="submit">
+                                                {{__("Save")}}
+                                            </button>
+                                        </div>
+
+                                    </form>
                                 </div>
 
                             </div>
@@ -285,44 +312,42 @@
                     </div>
                 </div>
             </div>
-    </div>
-</main>
-<script type="text/javascript">
-$(".password-change a").click(function(e){
-    e.preventDefault();
-    // alert();
-    $('.block-first').hide();
-    $('.block-second').show();
-});
-$(".block-second .lk-order-arrow-back a").click(function(e){
-    e.preventDefault();
-    // alert();
-    $('.block-second').hide();
-    $('.block-first').show();
-});
-$('#avatar').change(function(){
-    //on change event
-    formdata = new FormData();
-    if($(this).prop('files').length > 0)
-    {
-        file =$(this).prop('files')[0];
-        formdata.append("file", file);
-    }
-    // alert(formdata);
-    jQuery.ajax({
-    url: '/profile/avatar',
-    type: "POST",
-    data: formdata,
-    processData: false,
-    contentType: false,
-    success: function (result) {
-         console.log(result);
-         $(".user_avatar").attr("src","uploads/avatar/" + result);
-         $(".profile-photo img").attr("src","uploads/avatar/" + result);
-         // play the audio file
-    }
-});
-});
-</script>
+        </div>
+    </main>
+    <script type="text/javascript">
+        $(".password-change a").click(function (e) {
+            e.preventDefault();
+            // alert();
+            $('.block-first').hide();
+            $('.block-second').show();
+        });
+        $(".block-second .lk-order-arrow-back a").click(function (e) {
+            e.preventDefault();
+            $('.block-second').hide();
+            $('.block-first').show();
+        });
+        $('#avatar').change(function () {
+            //on change event
+            formdata = new FormData();
+            if ($(this).prop('files').length > 0) {
+                file = $(this).prop('files')[0];
+                formdata.append("file", file);
+            }
+            // alert(formdata);
+            jQuery.ajax({
+                url: '/profile/avatar',
+                method: "POST",
+                data: formdata,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    console.log(result);
+                    $(".user_avatar").attr("src", "uploads/avatar/" + result);
+                    $(".profile-photo img").attr("src", "uploads/avatar/" + result);
+                    // play the audio file
+                }
+            });
+        });
+    </script>
 
 @endsection

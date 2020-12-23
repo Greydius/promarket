@@ -21,14 +21,14 @@ class ProfileController extends Controller
     }
 
     public function oneOrder()
-    {	
+    {
     	$order = Order::find(request()->id);
 
     	return view('profile.user-order', compact('order'));
     }
 
     public function edit(Request $request)
-    {	
+    {
 
     	$user = Auth::user();
     	// dd($user->avatar);
@@ -53,8 +53,14 @@ class ProfileController extends Controller
 
  	public function avatarStore(Request $request)
     {
-        $user = Auth::user();
-        $path=public_path().'/uploads/avatar/'.$user->avatar;
+        /*$user = Auth::user();*/
+        $path = $request->file('file')->store('avatars');
+
+
+        return $path;
+
+
+        /*$path=public_path().'/uploads/avatar/'.$user->avatar;
        if(\File::exists(public_path('uploads/avatar/'.$user->avatar))){
 
           \File::delete(public_path('uploads/avatar/'.$user->avatar));
@@ -62,11 +68,11 @@ class ProfileController extends Controller
         }
         $image = $request->file('file');
         $imageName = $image->getClientOriginalName();
-        $image->move(public_path('/uploads/avatar/'),$imageName);
+        $image->move(public_path('/uploads/avatar/'),$imageName);*/
    		$save = $user->update([
-   			'avatar' => $imageName,
+   			'avatar' => $path,
    		]);
-        return $imageName;
+        return $path;
     }
 
     public function newPass()
