@@ -2441,7 +2441,7 @@ header {
 }
 
 .commodity-card-price-pc {
-    width: 10%;
+    width: 15%;
 }
 
 .remove-cart-item {
@@ -3444,6 +3444,7 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .header__cart_commodity-title {
@@ -3462,7 +3463,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    height: auto;
+    width: 100%;
 }
 
 .header__cart_price {
@@ -3470,7 +3472,7 @@ body {
     font-size: 24px;
     line-height: 24px;
     color: #202020;
-    width: 72px;
+    width: auto;
 }
 
 .header__cart_params input {
@@ -3504,6 +3506,8 @@ input::-webkit-inner-spin-button {
 
 .header__cart_third_col {
     align-items: flex-end;
+    flex-direction: row;
+
 }
 
 .header__cart_commodities {
@@ -4170,6 +4174,7 @@ main {
     width: 40vw;
     height: 100%;
     right: -15px;
+    min-height: 300px;
 }
 
 .fixing-text-content {
@@ -4241,8 +4246,8 @@ main {
 .fixing-detail-img-wrap img {
     min-width: 100%;
     min-height: 200px;
-    -o-object-fit: cover;
-    object-fit: cover;
+    -o-object-fit: contain;
+    object-fit: contain;
     max-width: 100%;
     max-height: 200px;
     -webkit-filter: grayscale(1);
@@ -5094,6 +5099,10 @@ main {
     padding-bottom: 0;
 }
 
+main.main.lk-main {
+    min-height: calc(100vh - 526px);
+}
+
 .lk-row>div {
     width: 25%;
 }
@@ -5473,9 +5482,11 @@ main {
 }
 
 .market-sorting-trigger {
-    margin-right: 37px;
+    margin-right: 0;
 }
-
+.market-make-list {
+    display: none;
+}
 .market_sorting svg {
     opacity: 0.54;
     transition: 0.3s linear all;
@@ -5563,6 +5574,21 @@ main {
 
 .filter-el.active {
     margin-bottom: 20px;
+}
+
+.filter-content .pol_content {
+    height: 350px;
+}
+
+button.view_all {
+    background: none;
+    border: none;
+    float: right;
+    padding-top: 21px;
+}
+
+.pol_content.full {
+    height: 100%;
 }
 
 .cost-slider {
@@ -5869,6 +5895,7 @@ span.label:hover {
     min-width: -webkit-max-content;
     min-width: -moz-max-content;
     min-width: max-content;
+    cursor: pointer;
 }
 
 .datepicker,
