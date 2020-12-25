@@ -121,16 +121,19 @@
                                                     {{__("reservation")}}
                                                 </h3>
                                                 <label>
-                                                    <input type="text" placeholder="{{__('First Name, Last Name')}}"
+                                                <span class="errormessage"></span>    
+                                                <input type="text" placeholder="{{__('First Name, Last Name')}}"
                                                            class="form-control"
                                                            name="name">
                                                 </label>
                                                 <label>
-                                                    <input type="text" placeholder="{{__('E-mail address')}}"
+                                                <span class="errormessage"></span>    
+                                                <input type="text" placeholder="{{__('E-mail address')}}"
                                                            class="form-control"
                                                            name="email">
                                                 </label>
-                                                <input type="tel" class="form-control"
+                                                <span class="errormessage"></span>
+                                                <input type="tel" class="form-control errormessage"
                                                        placeholder="{{__('Your phone number')}} " name="tel">
                                                 <textarea class="form-control" name="comment" rows="5"
                                                           placeholder="{{__('Comment')}} "></textarea>

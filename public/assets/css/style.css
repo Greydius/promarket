@@ -6376,7 +6376,8 @@ input[type=number] {
 label.error {
     color: #be1e2d;
 }
-input.error {
+input.error,
+.reservation-form .form-control.error {
     border: 2px solid #be1e2d;
 }
 

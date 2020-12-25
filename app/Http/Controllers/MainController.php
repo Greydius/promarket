@@ -104,7 +104,6 @@ class MainController extends Controller
             ->registerModel(FixingDetail::class, 'name')
             ->registerModel(Product::class, 'name')
             ->perform($request->input('query'));
-
             return view('components.search-ajax',compact('data'));
             }else {
                 return false;
