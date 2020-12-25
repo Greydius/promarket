@@ -14,17 +14,20 @@
             <div v-for="myProduct in orderProducts" :key="myProduct.id"
                  class="cart-item d-flex align-items-center justify-content-between my-3">
                 <img :src="myProduct.img" class="cart-item-img" alt="">
-                <div class="remove-cart-item-tablet"><a href="#" @click="removeFromCart(myProduct.id)" class="remove-cart-item"><img
+                <div class="remove-cart-item-tablet"><a href="#" @click="removeFromCart(myProduct.id)"
+                                                        class="remove-cart-item"><img
                             src="{{asset('assets/img/cart/Vector.svg')}}" alt="icon"></a></div>
                 <div class="cart-changing">
                     <div>@{{myProduct.name}}
-                        <div><a href="#" @click="removeFromCart(myProduct.id)" class="remove-cart-item remove-cart-item-pc">Удалить</a></div>
+                        <div><a href="#" @click="removeFromCart(myProduct.id)"
+                                class="remove-cart-item remove-cart-item-pc">Удалить</a></div>
                     </div>
                     <div class="quantity-drop quantity-selection-drop-down">
                         <div class="quantity-view-wrapper align-items-center d-flex">
                             <div class="quantity-input-wrapper">
                                 <label>
-                                    <input @change="changeCartState(myProduct.id, $event)" :value="myProduct.pivot.count" type="text" class="quantity-input">
+                                    <input @change="changeCartState(myProduct.id, $event)"
+                                           :value="myProduct.pivot.count" type="text" class="quantity-input">
                                 </label>
                             </div>
                             <div class="quantity-trigger-wrapper">
@@ -99,7 +102,7 @@
             },
             productQuantity: function () {
                 return this.orderProducts.length
-            }
+            },
         },
         methods: {
             clearCart: function () {
@@ -126,13 +129,13 @@
             },
             removeFromCart(id) {
                 axios
-                .get(`${this.removeFromCartUrl}/${id}`)
-                .then(res => {
-                    if(res.data.products.length == 0) {
-                        document.location = this.appUrl
-                    }
-                    this.orderProducts = res.data.products;
-                })
+                    .get(`${this.removeFromCartUrl}/${id}`)
+                    .then(res => {
+                        if (res.data.products.length == 0) {
+                            document.location = this.appUrl
+                        }
+                        this.orderProducts = res.data.products;
+                    })
             }
         }
     })

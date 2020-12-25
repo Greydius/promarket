@@ -40,18 +40,18 @@
                                     <div class="delivery-conditions mb-3">
                                         <img src="{{asset('assets/img/market/truck-delivery-outline 1.svg')}}"
                                              alt="icon">
-                                        {{__("Courier service starting from 4.99 € *. Estimated delivery May 15")}}
-                                        <!-- Услуга курьера начиная от 4,99 €*. Предполагаемая доставка 15 мая -->
+                                    {{__("Courier service starting from 4.99 € *. Estimated delivery May 15")}}
+                                    <!-- Услуга курьера начиная от 4,99 €*. Предполагаемая доставка 15 мая -->
                                     </div>
                                     <div class="delivery-conditions  mb-3">
                                         <img src="{{asset('assets/img/market/store 1.svg')}}" alt="icon">
-                                        {{__("Take away for free. The order will be completed presumably on May 14")}}
-                                        <!-- Заберите бесплатно. Заказ будет выполнен предположительно 14 мая -->
+                                    {{__("Take away for free. The order will be completed presumably on May 14")}}
+                                    <!-- Заберите бесплатно. Заказ будет выполнен предположительно 14 мая -->
                                     </div>
                                     <div class="delivery-conditions">
                                         <img src="{{asset('assets/img/market/grid 1.svg')}}" alt="icon">
-                                        {{__("Delivery to a parcel machine 3.95 €. Estimated delivery May 15")}}
-                                        <!-- Доставка в почтовый автомат 3,95 €. Предполагаемая доставка 15 мая -->
+                                    {{__("Delivery to a parcel machine 3.95 €. Estimated delivery May 15")}}
+                                    <!-- Доставка в почтовый автомат 3,95 €. Предполагаемая доставка 15 мая -->
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-12 ">
@@ -64,9 +64,9 @@
                                                 {{$product->price}} €
                                             </div>
                                             <span class="commodity-card-price commodity-card-price-ex-vat">
-                                    <span class="ex-vat-text-price">{{$product->price * $nds}} € </span> <span
+                                            <span class="ex-vat-text-price">{{$product->price * $nds}} € </span> <span
                                                     class="ex-vat-text">{{__("ex VAT")}}</span>
-                                </span>
+                                            </span>
 
                                         </div>
                                         <div class="col-6">
@@ -105,96 +105,96 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 offset-lg-4">
-
-                        <div>
-                            <div class="container">
-                                <div class="row inner-product-description-wrapper align-items-end">
-                                    <div class="description-wrap">
-                                        <div class=" buy-with-installation">
-                                            <div class="row align-items-end">
-                                                <div class="col-md-6 col-lg-6">
-                                                    <div class="small-title mb-2">
-                                                        КУПИТЬ С УСТАНОВКОЙ
+                    @if ($product->fixing_detail_id != 0)
+                        <div class="col-lg-8 offset-lg-4">
+                            <div>
+                                <div class="container">
+                                    <div class="row inner-product-description-wrapper align-items-end">
+                                        <div class="description-wrap">
+                                            <div class=" buy-with-installation">
+                                                <div class="row align-items-end">
+                                                    <div class="col-md-6 col-lg-6">
+                                                        <div class="small-title mb-2">
+                                                            КУПИТЬ С УСТАНОВКОЙ
+                                                        </div>
+                                                        <ul>
+                                                            {{$product->fixingDetail->description}}
+                                                        </ul>
                                                     </div>
-                                                    <ul>
-                                                        {{$product->fixingDetail->description}}
-                                                    </ul>
-                                                </div>
-                                                <div class="col-lg-3 col-md-6 md-text-center col-5">
-                                                    <div class="commodity-card-price">
-                                                        {{$product->price_with_installation}} €
+                                                    <div class="col-lg-3 col-md-6 md-text-center col-5">
+                                                        <div class="commodity-card-price">
+                                                            {{$product->price_with_installation}} €
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class=" col-lg-3 col-md-12 col-7">
-                                                    <a href="{{route('fixing-order-detail', [
+                                                    <div class=" col-lg-3 col-md-12 col-7">
+                                                        <a href="{{route('fixing-order-detail', [
 $product->fixingDetail->manufacturerModel->manufacturer->fixingType->code,
 $product->fixingDetail->manufacturerModel->manufacturer->code,
 $product->fixingDetail->manufacturerModel->code])}}?id={{$product->fixingDetail->id}}" type="submit"
-                                                       class="submit-form default-button">
-                                                        {{__("Order")}}
-                                                    </a>
+                                                           class="submit-form default-button">
+                                                            {{__("Order")}}
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="row product-inner-table">
-                                        <div class="col-md-6">
-                                            <table>
-                                                <tr>
-                                                    <td>Тип продукта</td>
-                                                    <td>Качели</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Длина</td>
-                                                    <td>167 мм</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ширина</td>
-                                                    <td>425 мм</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>высота</td>
-                                                    <td>55 мм</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>{{__("Color")}}</td>
-                                                    <td>Желтый</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>материал</td>
-                                                    <td>Пластик</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <table>
-                                                <tr>
-                                                    <td>максимальный вес тела ползователя/-ей</td>
-                                                    <td>25 кг</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>С перекладинами</td>
-                                                    <td>Нет</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>предупреждение!</td>
-                                                    <td>Может содержать мелкие детали</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>гарантия</td>
-                                                    <td>24 месяц</td>
-                                                </tr>
-                                            </table>
+                                        <div class="row product-inner-table">
+                                            <div class="col-md-6">
+                                                <table>
+                                                    <tr>
+                                                        <td>Тип продукта</td>
+                                                        <td>Качели</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Длина</td>
+                                                        <td>167 мм</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ширина</td>
+                                                        <td>425 мм</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>высота</td>
+                                                        <td>55 мм</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>{{__("Color")}}</td>
+                                                        <td>Желтый</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>материал</td>
+                                                        <td>Пластик</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <table>
+                                                    <tr>
+                                                        <td>максимальный вес тела ползователя/-ей</td>
+                                                        <td>25 кг</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>С перекладинами</td>
+                                                        <td>Нет</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>предупреждение!</td>
+                                                        <td>Может содержать мелкие детали</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>гарантия</td>
+                                                        <td>24 месяц</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
+                    @endif
                 </div>
             </div>
         </section>

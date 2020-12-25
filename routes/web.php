@@ -126,4 +126,6 @@ Route::get('/detail/{detailId}/{colorId}', 'FixingController@fixingDetailOrderCo
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::get('/empty-products','MainController@gravy');
+    Route::get('/orders-handle', 'MainController@OrderHandle');
+    Route::get('/orders-payment', 'MainController@OrderPayment');
 });

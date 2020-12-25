@@ -5,6 +5,11 @@
         </h3>
         <div class="header__cart_commodities">
             @foreach($order->products as $product)
+                @if(Auth::check())
+                    @php
+                        $product->price = $product->wholesale_price;
+                    @endphp
+                @endif
                 <div class="d-flex header_cart_commodity">
                     <div class="header__cart_img">
                         <img src="{{$product->img}}" alt="">
@@ -38,13 +43,13 @@
                                 <a href="#" class="delete-button header__cart__delete-button">
                                     <img src="{{ asset('assets/img/common/close.svg') }}" alt="">
                                 </a>
-                            </form>                            
+                            </form>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
- 
+
         <div class="d-flex align-items-center justify-content-between">
             <div class="cart__price__wrapper">
                 <p>
@@ -60,7 +65,7 @@
         </div>
     @else
         <h3 class="inner__cart__title">
-           {{__("your shopping cart is currently empty")}}
+            {{__("your shopping cart is currently empty")}}
         </h3>
     @endif
 </div>

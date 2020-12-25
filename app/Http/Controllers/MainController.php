@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Support\Facades\Http;
 use Spatie\Searchable\Search;
 use Illuminate\Http\Request;
@@ -125,6 +126,17 @@ class MainController extends Controller
         $products = Product::where('color_id', null)->orWhere('quality_id', null)->get();
         return view('vendor.voyager.EmptyProducts.gravy', compact('products'));
     }
+    public function OrderHandle()
+    {
+        $orders = Order::where('order_status_id', 1)->get();
+        return view('vendor.voyager.Orders.gravy', compact('orders'));
+    }
+    public function OrderPayment()
+    {
+        $orders = Order::where('order_status_id', 2)->get();
+        return view('vendor.voyager.Orders.gravypayment', compact('orders'));
+    }
+
 
 
 }

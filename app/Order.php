@@ -20,4 +20,7 @@ class Order extends Model
         }
         return $fullPrice;
     }
+    public function orderStatus() {
+        return $this->belongsTo(OrderStatus::class);
+    }
 }

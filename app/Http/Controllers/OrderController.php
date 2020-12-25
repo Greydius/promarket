@@ -18,6 +18,15 @@ class OrderController extends Controller
             return redirect()->route('main-page');
         }
         $orderProducts = $order->products;
+
+        if (Auth::check()){
+            if (Auth::user()->identification_type == 1) {
+                foreach($orderProducts as $product) {
+                    $product->price = $product->wholesale_price;
+                }
+            }
+        }
+
         return view('pages.cart', compact('order'));
     }
 
@@ -30,6 +39,15 @@ class OrderController extends Controller
         $order = Order::find($orderId);
         // dd($order->getFullPrice());
         $orderProducts = $order->products;
+
+        if (Auth::check()){
+            if (Auth::user()->identification_type == 1) {
+                foreach($orderProducts as $product) {
+                    $product->price = $product->wholesale_price;
+                }
+            }
+        }
+
         return view('pages.checkout', compact('order','orderProducts'));
     }
 
@@ -44,7 +62,13 @@ class OrderController extends Controller
         $orderRow->count = intval($quantity);
         $orderRow->update();
 
-
+        if (Auth::check()){
+            if (Auth::user()->identification_type == 1) {
+                foreach($order->products as $product) {
+                    $product->price = $product->wholesale_price;
+                }
+            }
+        }
 
         $order = Order::find($orderId);
         return view('components.common.cart-commodity', compact('order'));
@@ -77,6 +101,14 @@ class OrderController extends Controller
                 ->where('product_id', $product_id)->first()->pivot;
             $orderRow->count = intval($quantity);
             $orderRow->update();
+        }
+
+        if (Auth::check()){
+            if (Auth::user()->identification_type == 1) {
+                foreach($order->products as $product) {
+                    $product->price = $product->wholesale_price;
+                }
+            }
         }
 
         $order = Order::find($orderId);
@@ -136,7 +168,7 @@ class OrderController extends Controller
         $order->specification = $inputs['identification-type'];
         $order->status = '1';
         $order->total_amout = $order->getFullPrice();
-        
+
         $order->user_id = $userid;
         $save = $order->save();
         if($save){
@@ -153,6 +185,13 @@ class OrderController extends Controller
         $orderId = session('orderId');
         $order = Order::find($orderId);
         $orderProducts = $order->products;
+        if (Auth::check()){
+            if (Auth::user()->identification_type == 1) {
+                foreach($orderProducts as $product) {
+                    $product->price = $product->wholesale_price;
+                }
+            }
+        }
         return $order;
     }
 
@@ -166,10 +205,17 @@ class OrderController extends Controller
         $orderRow->count = intval($quantity);
         $orderRow->update();
 
-
-
         $order = Order::find($orderId);
         $order->products;
+
+        if (Auth::check()){
+            if (Auth::user()->identification_type == 1) {
+                foreach($order->products as $product) {
+                    $product->price = $product->wholesale_price;
+                }
+            }
+        }
+
         return $order;
     }
 
@@ -183,6 +229,13 @@ class OrderController extends Controller
 
         $order = Order::find($orderId);
         $order->products;
+        if (Auth::check()){
+            if (Auth::user()->identification_type == 1) {
+                foreach($order->products as $product) {
+                    $product->price = $product->wholesale_price;
+                }
+            }
+        }
         return $order;
     }
 }
