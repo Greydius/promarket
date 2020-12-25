@@ -126,7 +126,7 @@
         </label>
         @endforeach
         </div>
-        <button class="view_all">Еше</button>
+        <button class="view_all">Еще</button>
     </div>
 </div>
 
@@ -148,7 +148,7 @@
         </label>
         @endforeach
     </div>
-        <button class="view_all">Еше</button>
+        <button class="view_all">Еще</button>
 
     </div>
 </div>
@@ -251,17 +251,3 @@ $(document).ready(function() {
 });
 
 </script>
-<style type="text/css">
-    .filter-content .pol_content {
-    height: 340px;
-}
-button.view_all {
-    background: none;
-    border: none;
-    float: right;
-    padding-top: 21px;
-}
-.pol_content.full {
-    height: 100%;
-}
-</style>

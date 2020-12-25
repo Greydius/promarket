@@ -8,12 +8,15 @@
 	        @foreach($modelSearchResults as $result)
 	           @if($i <= 3)
              <li class="result_item">
-                @if(isset($result->searchable->img))
-                <img src="{{ $result->searchable->img }}">
-                @endif
+                 @if ($result->searchable->manufacturerModel == null)
+                     <img src="{{$result->searchable->img}}">
+                 @else
+                     <img src="{{Voyager::image('public/'.$result->searchable->manufacturerModel->manufacturer->fixingType->small_img) }}">
+                 @endif
                 <p><a href="{{$result->url}}">{{$result->title}}</a>
                 <span class="price">€ {{ $result->searchable->price }}</span></p>
-             </li>   
+
+             </li>
              @endif
              <?php $i++; ?>
              @endforeach

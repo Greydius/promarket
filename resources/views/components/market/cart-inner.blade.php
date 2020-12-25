@@ -40,14 +40,14 @@
                     <div class="commodity-card-price commodity-card-price-mobile">
                         @{{myProduct.price * myProduct.pivot.count}} €
                         <div class="commodity-card-additional-price">
-                            <span>@{{myProduct.price * myProduct.pivot.count * nds}} € {{__("ex VAT")}}</span>
+                            <span>@{{(myProduct.price * myProduct.pivot.count * nds).toFixed(2)}} € {{__("ex VAT")}}</span>
                         </div>
                     </div>
                 </div>
                 <div class="commodity-card-price commodity-card-price-pc">
                     @{{myProduct.price * myProduct.pivot.count}} €
                     <div class="commodity-card-additional-price">
-                        <span>@{{myProduct.price * myProduct.pivot.count * nds}} € {{__("ex VAT")}}</span>
+                        <span>@{{(myProduct.price * myProduct.pivot.count * nds).toFixed(2)}} € {{__("ex VAT")}}</span>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                     @{{fullPrice}}
                     €
                         <span class="commodity-card-price-muted">
-                            @{{fullPrice * nds}}
+                            @{{ (fullPrice * nds).toFixed(2) }}
                             € {{__("ex VAT")}}</span>
                     </span>
             </div>
