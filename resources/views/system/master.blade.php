@@ -371,19 +371,21 @@ $(document).ready(function() {
 
         $('#search_text').on('keyup',function() {
             var query = $(this).val();
-            $.ajax({
+            if( $(this).val().length >= 3 ) {
+                $.ajax({
 
-                url:"{{ route('search.ajax') }}",
+                    url:"{{ route('search.ajax') }}",
 
-                type:"GET",
+                    type:"GET",
 
-                data:{'query':query},
+                    data:{'query':query},
 
-                success:function (data) {
-                    $('#search_list').html("");
-                    $('#search_list').html(data);
-                }
-            })
+                    success:function (data) {
+                        $('#search_list').html("");
+                        $('#search_list').html(data);
+                    }
+                })
+            }
             // end of ajax call
         });
 
