@@ -44,11 +44,17 @@ class MarketController extends Controller
        // $category = SubCategory::where('code', $subCategoryCode)->first();
       $query = request('query2');
       // dd($subCategoryCode);
-      if($subCategoryCode == 0){
-         $category = Category::where('code', $categoryCode)->first();
-        $products = $category->allProducts();
+      // if($subCategoryCode == 0){
+      //    $mainCategory = Category::where('code', $categoryCode)->with('subCategories.products')->first();
+      //    $category ='';
+      //    // dd($category->subCategories);
+      //   foreach ($mainCategory->subCategories as $sub) {
+      //            $category = $sub;
+      //    }
+      //   $products = $category->products();
 
-      }else{
+      // }else{
+      // }
         $category = '';
          $mainCategory = Category::where('code', $categoryCode)->first();
          foreach ($mainCategory->subCategories as $sub) {
@@ -57,7 +63,6 @@ class MarketController extends Controller
              }
          }
         $products = $category->products();
-      }
 
 
         if(isset(request()->attrs)){
