@@ -166,12 +166,14 @@ class OrderController extends Controller
         $result = $order->update($inputs);
         $order->fio = $inputs['name'] .' '.$inputs['firstname'];
         $order->specification = $inputs['identification-type'];
-        $order->status = '1';
+        $order->payment_method = $inputs['payment_method'];
         $order->total_amout = $order->getFullPrice();
 
         $order->user_id = $userid;
         $save = $order->save();
+        // $request_details = Order::
         if($save){
+          \Mail::to($order->email)->send(new \App\Mail\SendOrderToClent($order));
             $request->session()->forget('orderId');
             session()->flash('success','Ваш заказ принят в обработку!');
         }else{
