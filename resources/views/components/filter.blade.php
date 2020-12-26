@@ -224,6 +224,11 @@ $(document).ready(function() {
                 data: data
             }).done(function (data) {
                 $('#sort').html(data);
+                 setTimeout(function(){ 
+                    var currentPage = $('a.pagination-bullet.active span').text();
+                    var countPage = per_page * currentPage;
+                    $('span.count_products').text(countPage);
+                }, 1000);
             });
         };
 
@@ -233,6 +238,7 @@ $(document).ready(function() {
             var url = '<?= Request::url(); ?>';
 
             ajaxSort(url);
+
         });
         $('#search_text2').on('keyup',function() {
             var url = '<?= Request::url(); ?>';

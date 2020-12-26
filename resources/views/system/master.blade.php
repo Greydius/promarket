@@ -282,9 +282,9 @@
                     {{__("repairs")}}
                 </h3>
                 <ul>
-                    <li><a href="{{ route('fixing-type', 'mobile') }}">Мобильных телефонов</a></li>
-                    <li><a href="{{ route('fixing-type', 'tablet') }}">Планшетов</a></li>
-                    <li><a href="{{ route('fixing-type', 'laptop') }}">Ноутбуков</a></li>
+                    <li><a href="{{ route('fixing-type', 'mobilo_telefonu_detalas') }}">{{__("Phone Repair")}}</a></li>
+                    <li><a href="{{ route('fixing-type', 'planšetdatoru_detaļas') }}">{{__("Tablet Repair")}}</a></li>
+                    <li><a href="{{ route('fixing-type', 'gudro_pulksteņu_detaļas') }}">{{__("Laptop Repair")}}</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-4">
@@ -292,8 +292,11 @@
                     {{__("store")}}
                 </h3>
                 <ul>
-                    <li><a href="#">Запчасти для мобильных телефонов </a></li>
-                    <li><a href="#">Аксессуары для мобильных телефонов</a></li>
+                    @foreach($categories as $category)
+                        @if($category->is_popular == 1)
+                    <li><a href="{{route('shop-main-cat',['category' => $category->code])}}">{{$category->name}} </a></li>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
             <div class="col-lg-3 col-md-4">

@@ -10,8 +10,7 @@
 
                         <div class="shop-sidebar-wrapper">
 
-
-                            <x-filter category="{{request()->route()->parameters['category']}}" :subcategory="request()->route()->parameters['subcategory']"/>
+                            <x-filter category="{{request()->route()->parameters['category']}}" :subcategory="0"/>
 
                         </div>
 
@@ -141,7 +140,7 @@
         </div>
     </main>
 <script type="text/javascript">
-     var url = '<?= Request::url(); ?>';
+     var url = '<?= Request::url(); ?>/0';
         $('.sorting_select').change(function () {
             var token = $('input[name="_token"]').val();
             var min_price = $('input[name="min_price"]').val();
