@@ -42,28 +42,15 @@ class MarketController extends Controller
     public function sortAjax($categoryCode, $subCategoryCode)
     {
        // $category = SubCategory::where('code', $subCategoryCode)->first();
-      $query = request('query2');
-      // dd($subCategoryCode);
-      // if($subCategoryCode == 0){
-      //    $mainCategory = Category::where('code', $categoryCode)->with('subCategories.products')->first();
-      //    $category ='';
-      //    // dd($category->subCategories);
-      //   foreach ($mainCategory->subCategories as $sub) {
-      //            $category = $sub;
-      //    }
-      //   $products = $category->products();
-
-      // }else{
-      // }
-        $category = '';
-         $mainCategory = Category::where('code', $categoryCode)->first();
-         foreach ($mainCategory->subCategories as $sub) {
-             if ($sub->code == $subCategoryCode){
-                 $category = $sub;
-             }
-         }
+       $query = request('query2');
+       $category = '';
+       $mainCategory = Category::where('code', $categoryCode)->first();
+       foreach ($mainCategory->subCategories as $sub) {
+           if ($sub->code == $subCategoryCode){
+               $category = $sub;
+           }
+       }
         $products = $category->products();
-
 
         if(isset(request()->attrs)){
             foreach(request()->attrs as $key => $val){
