@@ -345,6 +345,27 @@
 <div id="added_good" style="display: none;">
     Товар был успешно добавлен в корзину
 </div>
+<form id="hello" action="" method="post" style="display:none;" class="fancybox-content">
+        <h2 class="mb-3">
+        сообщите мне, когда этот продукт будет доступен
+        </h2>
+        <p>
+            <input type="text" value="" name="hi1" class="form-control" placeholder="Example input">
+        </p>
+        <p>
+            <input type="text" value="" name="hi2" class="form-control" placeholder="Another input">
+        </p>
+        <p class="mb-0 text-right">
+            <input data-fancybox-close="" type="button" class="btn btn-primary" value="Submit">
+        </p>
+    <button type="button" data-fancybox-close="" class="fancybox-button fancybox-close-small" title="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24">
+            <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+        </svg>
+    </button>
+</form>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
