@@ -6409,6 +6409,182 @@ button.view_all {
     opacity: 0.54;
 }
 
+.order-modal{
+    width: 768px;
+    max-width: 90%;
+    height: auto;
+}
+.order-modal .modal-title{
+    margin-bottom: 54px;
+}
+
+.profile-change-photo-icon img {
+    cursor: pointer;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    height: 30%;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content p {
+    margin-top: 40px;
+}
+
+div.search-result {
+    position: absolute;
+    padding: 15px;
+    width: 480px;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    /* max-height: 335px; */
+    background: #FFFFFF;
+    height: auto;
+}
+
+div#search_list {
+    position: relative;
+}
+
+.search-result>div {
+    width: 50%;
+    float: left;
+    display: block;
+}
+
+.sorting_select {
+    background: unset;
+    border: unset;
+    font-size: 14px !important;
+    margin-bottom: 0;
+}
+
+.search-result li.result_item img {
+    width: 48px;
+    height: auto;
+    max-width: 45px;
+    float: left;
+}
+
+div.search-result>div:nth-child(1) {
+    /* width: 40%; */
+}
+
+div.search-result>div:nth-child(2) {
+    /* width: 60%; */
+}
+
+.search-result h3 {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    color: #202020;
+    text-transform: uppercase;
+}
+
+.search-result li.result_item p {
+    width: 90%;
+    padding: 0 0 0 5px;
+}
+
+.search-result li.result_item a {
+    /*width: 90%;*/
+    /*padding: 0 0 0 5px;*/
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.search-result .result_item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.search-result li.result_item span.price {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    float: left;
+    width: 100%;
+}
+
+.search-result ul {
+    margin-top: 20px;
+}
+
+.link_all_result {
+    width: 100% !important;
+    text-align: right;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    color: #000000;
+    opacity: 0.54;
+}
+
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
 }
@@ -11124,172 +11300,3 @@ button.view_all {
     /* Style adjustments for high resolution devices */
 }
 
-.profile-change-photo-icon img {
-    cursor: pointer;
-}
-
-
-/* The Modal (background) */
-
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    padding-top: 100px;
-    /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
-
-
-/* Modal Content */
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 40%;
-    height: 30%;
-    text-align: center;
-    font-size: 20px;
-}
-
-
-/* The Close Button */
-
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-content p {
-    margin-top: 40px;
-}
-
-div.search-result {
-    position: absolute;
-    padding: 15px;
-    width: 480px;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    /* max-height: 335px; */
-    background: #FFFFFF;
-    height: auto;
-}
-
-div#search_list {
-    position: relative;
-}
-
-.search-result>div {
-    width: 50%;
-    float: left;
-    display: block;
-}
-
-.sorting_select {
-    background: unset;
-    border: unset;
-    font-size: 14px !important;
-    margin-bottom: 0;
-}
-
-.search-result li.result_item img {
-    width: 48px;
-    height: auto;
-    max-width: 45px;
-    float: left;
-}
-
-div.search-result>div:nth-child(1) {
-    /* width: 40%; */
-}
-
-div.search-result>div:nth-child(2) {
-    /* width: 60%; */
-}
-
-.search-result h3 {
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 32px;
-    color: #202020;
-    text-transform: uppercase;
-}
-
-.search-result li.result_item p {
-    width: 90%;
-    padding: 0 0 0 5px;
-}
-
-.search-result li.result_item a {
-    /*width: 90%;*/
-    /*padding: 0 0 0 5px;*/
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 22px;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-}
-
-.search-result .result_item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.search-result li.result_item span.price {
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    float: left;
-    width: 100%;
-}
-
-.search-result ul {
-    margin-top: 20px;
-}
-
-.link_all_result {
-    width: 100% !important;
-    text-align: right;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 32px;
-    color: #000000;
-    opacity: 0.54;
-}
