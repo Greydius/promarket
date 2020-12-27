@@ -115,7 +115,7 @@ class MainController extends Controller
     {
         $details = request()->all();
 
-        \Mail::to('promarket@hardweb.pro')->send(new \App\Mail\FeedbackMail($details));
+        \Mail::to(config('params.emails'))->send(new \App\Mail\FeedbackMail($details));
 
         return 'Сообщение успешно отправлено.';
     }

@@ -52,6 +52,8 @@ Route::group([
 
 
     Route::get('/market/{category}/{subcategory}', 'MarketController@shopMain')->name('shop-main');
+    Route::get('/market/{category}', 'MarketController@shopMainCat')->name('shop-main-cat');
+    Route::post('/market/{category}', 'MarketController@sortAjax');
     Route::post('/market/{category}/{subcategory}', 'MarketController@sortAjax')->name('sort-main');
 
     Route::get('/market/{category}/{subcategory}/{modelCode}', 'MarketController@shopInner')->name('shop-inner');
