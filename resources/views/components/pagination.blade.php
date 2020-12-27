@@ -45,6 +45,7 @@
             var max_price = $('input[name="max_price"]').val();
             var order = $('#order').children("option:selected").val();
             var per_page = $('#per_page').children("option:selected").val();
+            
             var quantity = [];
             var manufacturer = [];
             var model = [];
@@ -84,15 +85,22 @@
                 data: data
             }).done(function (data) {
                 $('#sort').html(data);
+                
             });
         };    
     
-
+ 
     $('.pagination a').on('click', function(e) {
         e.preventDefault();
         // alert(this);
         var url = $(this).attr('href');
         ajaxSort(url);
-
+        setTimeout(function(){ 
+            var per_page = $('#per_page').children("option:selected").val();
+        var currentPage = $('a.pagination-bullet.active span').text();
+        var countPage = per_page * currentPage;
+        $('span.count_products').text(countPage);
+    }, 1000);
+        
     });
 </script>

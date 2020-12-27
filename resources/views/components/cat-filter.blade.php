@@ -235,13 +235,13 @@ $(document).ready(function() {
 
 
         $('.filter-el input').change(function () {
-            var url = '<?= Request::url(); ?>';
+            var url = '<?= Request::url(); ?>/0';
 
             ajaxSort(url);
 
         });
         $('#search_text2').on('keyup',function() {
-            var url = '<?= Request::url(); ?>';
+            var url = '<?= Request::url(); ?>/0';
             ajaxSort(url);
         });
 

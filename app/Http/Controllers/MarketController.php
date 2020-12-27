@@ -7,6 +7,7 @@ use App\FixingDetail;
 
 use App\Product;
 use App\SubCategory;
+use App\Helpers\CollectionHelper;
 use Illuminate\Http\Request;
 
 class MarketController extends Controller
@@ -26,18 +27,39 @@ class MarketController extends Controller
 
        return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85]);
     }
+
+    public function shopMainCat($categoryCode)
+    {
+       $category = Category::where('code', $categoryCode)->first();
+      
+       $products = $category->allProducts();
+       $pageSize = 12;
+        $products = CollectionHelper::paginate($products, $pageSize);
+       return view('pages.market.category', ['category' => $category,'products'=>$products, 'nds' => 0.85]);
+
+    }
+
     public function sortAjax($categoryCode, $subCategoryCode)
     {
        // $category = SubCategory::where('code', $subCategoryCode)->first();
-      $query = request('query2');
-      $category = '';
-       $mainCategory = Category::where('code', $categoryCode)->first();
-       foreach ($mainCategory->subCategories as $sub) {
-           if ($sub->code == $subCategoryCode){
-               $category = $sub;
-           }
-       }
-        $products = $category->products();
+       $query = request('query2');
+       if($subCategoryCode =='0'){
+            $category = Category::where('code', $categoryCode)->with('subCategories.products')->first();
+            $subCatId = $category->subCategories()->select('id')->pluck('id');
+            $products_id = \DB::table('product_sub_category')->whereIn('sub_category_id', $subCatId)->select('product_id')->pluck('product_id');
+            $products = Product::whereIn('id',$products_id);
+          }else{
+
+             $category = '';
+             $mainCategory = Category::where('code', $categoryCode)->first();
+             foreach ($mainCategory->subCategories as $sub) {
+                 if ($sub->code == $subCategoryCode){
+                     $category = $sub;
+                 }
+             }
+              $products = $category->products();
+          }
+
 
         if(isset(request()->attrs)){
             foreach(request()->attrs as $key => $val){
@@ -68,9 +90,10 @@ class MarketController extends Controller
           $products = $products->where('price','>=', request()->min_price);
           $products = $products->where('price','<=', request()->max_price);
         }
+          $sort=request()->order;
           $products = $products->where('name', 'LIKE', "%$query%")->orderBy('price',request()->order)->paginate(request()->per_page)->onEachSide(2);
 
-       return view('components.market.sort',compact('products'));
+       return view('components.market.sort',compact('products','category','sort'));
     }
 
     public function shopInner($categoryCode, $subcategoryCode, $modelCode)
