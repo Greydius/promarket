@@ -20,7 +20,7 @@
         <a href="{{ route('fixing-type', 'mobilo_telefonu_detalas') }}">
           <img src="{{ asset('assets/img/fixing/phone.svg') }}" alt="">
           <span>
-          телефоны
+         {{__("Phone Repair")}}
         </span>
         </a>
       </li>
@@ -28,7 +28,7 @@
         <a href="{{ route('fixing-type', 'planšetdatoru_detaļas') }}">
           <img src="{{ asset('assets/img/fixing/tablet.svg') }}" alt="">
           <span>
-          плашеты
+          {{__("Tablet Repair")}}
         </span>
         </a>
       </li>
@@ -36,7 +36,7 @@
         <a href="{{ route('fixing-type', 'gudro_pulksteņu_detaļas') }}">
           <img src="{{ asset('assets/img/fixing/laptop.svg') }}" alt="">
           <span>
-          ноутбуки
+          {{__("Laptop Repair")}}
         </span>
         </a>
       </li>

@@ -73,7 +73,7 @@
                 @if ($product->quantity != 0)
                     <button type="submit"
                             class="default-button add-to-cart">
-                        в корзину
+                        {{__("Add to cart")}}
                     </button>
                 @else
                     <button type="submit"
