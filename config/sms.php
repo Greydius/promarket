@@ -74,7 +74,7 @@ return [
         'api_key'  => '1d74fe40',                   // Get it From http://nexmo.com
         'api_secret'  => 'dagg78FoBoM1zBlP',
         // 'api_secret'  => '',
-        'from'  => '70badbc2-f999-4768-a253-e747264cb369',
+        'from'  => 'Promarket.lv',
     ],
 
 

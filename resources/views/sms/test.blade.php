@@ -1,4 +1,4 @@
-Hi {{ $user }},
-Your password reset OTP is {{ $token }}.
+Hi ,
+This test sms from Promarket.lv
 Regards,
 XYZ

@@ -1,0 +1,1 @@
+Test SMS from Promarket.lv
