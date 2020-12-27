@@ -40,7 +40,7 @@
                 </div>
             </div>
             <a href="#" class="default-button">
-                в корзину
+               {{__("Add to cart")}}
             </a>
         </div>
 

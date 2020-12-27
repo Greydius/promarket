@@ -173,11 +173,14 @@ class OrderController extends Controller
 
         $order->user_id = $userid;
         $save = $order->save();
+        // dd('sss');
         // $request_details = Order::
         if($save){
           \Mail::to(config('params.emails'))->send(new \App\Mail\SendOrderToClent($order));
             $request->session()->forget('orderId');
             session()->flash('success','Ваш заказ принят в обработку!');
+            // dd('asdas');
+            return redirect()->route('thanks-page');
         }else{
             session()->flash('error','Случилос ошибка!');
         }

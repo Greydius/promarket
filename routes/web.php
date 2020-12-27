@@ -102,6 +102,8 @@ Route::group([
     Route::post('/registerOnlyEmail', 'Auth\RegisterController@regOnlyEmail')->name('regOnlyEmail');
 
     Route::get('/all-categories', 'MainController@getCategories')->name('lang-change');
+
+    Route::get('/thanks', 'MainController@thanks')->name('thanks-page');
 });
 
 Route::post('/profile/avatar', 'ProfileController@avatarStore')->name('avatarStore');

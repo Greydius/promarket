@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
         "mcamara/laravel-localization": "^1.6",
+        "softon/sms": "^2.0",
         "spatie/laravel-searchable": "^1.7",
         "tcg/voyager": "^1.4"
     },

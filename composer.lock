@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0997f7c408f4ef90e58a4f1d5170b5b",
+    "content-hash": "a1b8470a7f02ac6ed7e596e6f9b4f6cc",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -3606,6 +3606,67 @@
                 "phar"
             ],
             "time": "2020-07-07T18:42:57+00:00"
+        },
+        {
+            "name": "softon/sms",
+            "version": "v2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/softon/sms.git",
+                "reference": "138c8c324c371cf8e4f59458fbaa15e1f275e584"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/softon/sms/zipball/138c8c324c371cf8e4f59458fbaa15e1f275e584",
+                "reference": "138c8c324c371cf8e4f59458fbaa15e1f275e584",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~5.0|~6.0|^7.0",
+                "illuminate/support": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Softon\\Sms\\SmsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Sms": "Softon\\Sms\\Facades\\Sms"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Softon\\Sms\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shiburaj",
+                    "email": "powerupneo@gmail.com"
+                }
+            ],
+            "description": "Simple SMS Gateway Package for sending short text messages from your Application. Facade for Laravel 5.Currently supported Gateways Clickatell , MVaayoo, Gupshup, SmsAchariya, SmsCountry , SmsLane , Nexmo, Mocker / Any HTTP/s based Gateways are supported by Custom Gateway. Log gateway can be used for testing.",
+            "keywords": [
+                "Custom Sms",
+                "clickatell",
+                "gupshup",
+                "itexmo",
+                "mocker",
+                "mvaayoo",
+                "nexmo",
+                "sms gateway",
+                "smsachariya",
+                "smscountry",
+                "smslane"
+            ],
+            "time": "2020-09-23T09:53:10+00:00"
         },
         {
             "name": "spatie/laravel-searchable",

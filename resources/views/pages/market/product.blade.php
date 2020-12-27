@@ -96,7 +96,7 @@
                                                 </div>
                                                 <button type="submit"
                                                         class="submit-form default-button add-to-cart">
-                                                    в корзину
+                                                    {{__("Add to cart")}}
                                                 </button>
                                             </form>
                                         </div>
@@ -115,7 +115,7 @@
                                                 <div class="row align-items-end">
                                                     <div class="col-md-6 col-lg-6">
                                                         <div class="small-title mb-2">
-                                                            КУПИТЬ С УСТАНОВКОЙ
+                                                            {{__("BUY WITH INSTALLATION")}}
                                                         </div>
                                                         <ul>
                                                             {{$product->fixingDetail->description}}
@@ -201,7 +201,7 @@ $product->fixingDetail->manufacturerModel->code])}}?id={{$product->fixingDetail-
         <section class="commodity commodity-slider commodity-slider-2 commodity-2">
             <div class="container">
                 <h3 class="small-title">
-                    запчасти для {{$product->model}}
+                    {{__("spare parts for")}} {{$product->model}}
                 </h3>
 
                 <div class="swiper-container">
@@ -221,7 +221,7 @@ $product->fixingDetail->manufacturerModel->code])}}?id={{$product->fixingDetail-
         <section class="commodity commodity-no-slider">
             <div class="container">
                 <h3 class="small-title">
-                    запчасти для {{$product->model}}
+                    {{__("spare parts for")}} {{$product->model}}
                 </h3>
                 <div class="">
                     {{-- <div class="row market-detail-card-row fixing-type-for-device-row">
@@ -241,7 +241,7 @@ $product->fixingDetail->manufacturerModel->code])}}?id={{$product->fixingDetail-
         {{--<section class="commodity commodity-slider commodity-slider-2 commodity-2">
             <div class="container">
                 <h3 class="small-title">
-                    аксессуары для {{$product->installation_description}}
+                    {{__("accessories for")}} {{$product->installation_description}}
                 </h3>
 
                 <div class="swiper-container">
@@ -262,7 +262,7 @@ $product->fixingDetail->manufacturerModel->code])}}?id={{$product->fixingDetail-
         <section class="commodity commodity-no-slider">
             <div class="container">
                 <h3 class="small-title">
-                    аксессуары для {{$product->installation_description}}
+                    {{__("accessories for")}} {{$product->installation_description}}
                 </h3>
                 <div class="">
                     --}}{{--<div class="row market-detail-card-row fixing-type-for-device-row">
