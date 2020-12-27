@@ -97,10 +97,12 @@
         ajaxSort(url);
         setTimeout(function(){ 
             var per_page = $('#per_page').children("option:selected").val();
-        var currentPage = $('a.pagination-bullet.active span').text();
-        var countPage = per_page * currentPage;
-        $('span.count_products').text(countPage);
-    }, 1000);
+            var currentPage = $('a.pagination-bullet.active span').text();
+            var countPage = per_page * currentPage;
+            var currOtPage = countPage - per_page + 1;
+            $('span.count_products').text(countPage);
+            $('span.current_pagination').text(currOtPage);
+        }, 1000);
         
     });
 </script>
