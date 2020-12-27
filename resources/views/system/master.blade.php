@@ -346,7 +346,24 @@
     </div>
 </div>
 
-
+<div class="modal order-modal">
+    <div class="order-modal-wrapper">
+        <h3 class="small-title">
+            сообщите мне, когда этот продукт будет доступен
+        </h3>
+        <form method="POST">
+            <label>
+                <input type="text" name="name" placeholder="Имя" class="auth_control" value="">
+            </label>
+            <label>
+                <input type="email" name="email" placeholder="Электронная почта" class="auth_control" value="">
+            </label>
+            <button class="submit-form default-button">
+                OK
+            </button>
+        </form>
+    </div>
+</div>
 <div id="added_good" style="display: none;">
     Товар был успешно добавлен в корзину
 </div>
