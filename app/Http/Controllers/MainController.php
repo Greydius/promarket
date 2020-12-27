@@ -136,6 +136,9 @@ class MainController extends Controller
         return view('vendor.voyager.Orders.gravypayment', compact('orders'));
     }
 
-
+    public function thanks()
+    {
+        return view('emails.thanks');
+    }
 
 }
