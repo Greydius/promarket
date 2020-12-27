@@ -70,10 +70,17 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit"
-                        class="default-button add-to-cart">
-                    в корзину
-                </button>
+                @if ($product->quantity != 0)
+                    <button type="submit"
+                            class="default-button add-to-cart">
+                        в корзину
+                    </button>
+                @else
+                    <button type="submit"
+                            class="default-button js-order-button">
+                        Заказать
+                    </button>
+                @endif
             </div>
         </form>
     </div>

@@ -138,7 +138,8 @@
             <div class="header_form_search">
                 <form action="{{ route('search') }}" method="GET" class="search_form">
                     <label>
-                        <input required placeholder="{{__('search')}}" type="text" class="form_control" name="query" id="search_text" >
+                        <input required placeholder="{{__('search')}}" type="text" class="form_control" name="query"
+                               id="search_text">
                     </label>
                     <button type="submit" class="search_form_submit">
                         <img src="{{ asset('/assets/img/common/search.svg') }}" alt="">
@@ -159,14 +160,15 @@
                     <img src="{{ asset('assets/img/common/drop.svg') }}" alt="">
                 </div>
                 <div class="language-dropdown">
-                  <ul>
-                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                        <li class="language-selected-text-inner">
-                            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                {{ $properties['native'] }}
-                            </a>
-                        </li>
-                    @endforeach
+                    <ul>
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <li class="language-selected-text-inner">
+                                <a rel="alternate" hreflang="{{ $localeCode }}"
+                                   href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -351,8 +353,6 @@
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script src="{{ asset('assets/js/selectric.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}"></script>
-
-<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=<your API-key>" type="text/javascript"></script>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
     window.ga = function () {
@@ -364,23 +364,21 @@
     ga('set', 'anonymizeIp', true);
     ga('set', 'transport', 'beacon');
     ga('send', 'pageview')
+    $(document).ready(function () {
 
-$(document).ready(function() {
+        src = "{{ route('search') }}";
 
-    src = "{{ route('search') }}";
-
-        $('#search_text').on('keyup',function() {
+        $('#search_text').on('keyup', function () {
             var query = $(this).val();
-            if( $(this).val().length >= 3 ) {
+            if ($(this).val().length >= 3) {
                 $.ajax({
+                    url: "{{ route('search.ajax') }}",
 
-                    url:"{{ route('search.ajax') }}",
+                    type: "GET",
 
-                    type:"GET",
+                    data: {'query': query},
 
-                    data:{'query':query},
-
-                    success:function (data) {
+                    success: function (data) {
                         $('#search_list').html("");
                         $('#search_list').html(data);
                     }
@@ -389,13 +387,13 @@ $(document).ready(function() {
             // end of ajax call
         });
 
-        $(document).on('click', window, function(){
+        $(document).on('click', window, function () {
 
             $('#search_list').html("");
         });
 
 
-});
+    });
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
