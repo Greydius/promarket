@@ -32,21 +32,14 @@ class Filter extends Component
         // dd($this->category);
         // $category = '';
         // $products = '';
-        if($this->subcategory != '0'){
-            $mainCategory = Category::where('code', $this->category)->first();
-            foreach ($mainCategory->subCategories as $sub) {
-            // dd($sub->code);
-               if ($sub->code == $this->subcategory){
-                   $category = $sub;
-               }
-            }
-        }else{
-             $mainCategory = Category::where('code', $this->category)->first();
-            foreach ($mainCategory->subCategories as $sub) {
-            // dd($sub->products);
-                   $category = $sub;
-            }
+        $mainCategory = Category::where('code', $this->category)->first();
+        foreach ($mainCategory->subCategories as $sub) {
+        // dd($sub->code);
+           if ($sub->code == $this->subcategory){
+               $category = $sub;
+           }
         }
+       
         $models = $category->products()->groupBy('model')->select('model')->orderBy('model','asc')->get();
         $quantity = $category->products()->groupBy('quantity')->select('quantity')->orderBy('quantity','asc')->get();
         $manufacturer = $category->products()->groupBy('manufacturer')->select('manufacturer')->orderBy('manufacturer','asc')->get();

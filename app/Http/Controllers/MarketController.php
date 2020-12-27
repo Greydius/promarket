@@ -31,7 +31,7 @@ class MarketController extends Controller
     public function shopMainCat($categoryCode)
     {
        $category = Category::where('code', $categoryCode)->first();
-       // dd($category->allProducts());
+      
        $products = $category->allProducts();
        $pageSize = 12;
         $products = CollectionHelper::paginate($products, $pageSize);
@@ -43,14 +43,23 @@ class MarketController extends Controller
     {
        // $category = SubCategory::where('code', $subCategoryCode)->first();
        $query = request('query2');
-       $category = '';
-       $mainCategory = Category::where('code', $categoryCode)->first();
-       foreach ($mainCategory->subCategories as $sub) {
-           if ($sub->code == $subCategoryCode){
-               $category = $sub;
-           }
-       }
-        $products = $category->products();
+       if($subCategoryCode =='0'){
+            $category = Category::where('code', $categoryCode)->with('subCategories.products')->first();
+            $subCatId = $category->subCategories()->select('id')->pluck('id');
+            $products_id = \DB::table('product_sub_category')->whereIn('sub_category_id', $subCatId)->select('product_id')->pluck('product_id');
+            $products = Product::whereIn('id',$products_id);
+          }else{
+
+             $category = '';
+             $mainCategory = Category::where('code', $categoryCode)->first();
+             foreach ($mainCategory->subCategories as $sub) {
+                 if ($sub->code == $subCategoryCode){
+                     $category = $sub;
+                 }
+             }
+              $products = $category->products();
+          }
+
 
         if(isset(request()->attrs)){
             foreach(request()->attrs as $key => $val){

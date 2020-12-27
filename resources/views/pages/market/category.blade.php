@@ -10,7 +10,7 @@
 
                         <div class="shop-sidebar-wrapper">
 
-                            <x-filter category="{{request()->route()->parameters['category']}}" :subcategory="0"/>
+                            <x-cat-filter category="{{request()->route()->parameters['category']}}"/>
 
                         </div>
 
