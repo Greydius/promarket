@@ -12,7 +12,7 @@ return [
     |   view    = File
     */
 
-    'countryCode' => '+91',
+    'countryCode' => '+998',
 
     'gateway' => 'Mocker',                     // Replace with the name of appropriate gateway
 
@@ -27,13 +27,13 @@ return [
      */
 
     'mocker' => [
-        'sender_id'  => 'MOCKER',
+        'sender_id'  => '',
     ],
 
     'clickatell' => [                       // Get it from http://clickatell.com
-        'api_id'  => '',
-        'user'  => '',
-        'password' => '',
+        'api_id'  => 'ff8080817662e5990176a56b11fc665b',
+        'user'  => 'webman',
+        'password' => 'Promarket123!',
     ],
 
     'gupshup' => [
@@ -71,9 +71,10 @@ return [
     ],
 
     'nexmo' => [
-        'api_key'  => '',                   // Get it From http://nexmo.com
-        'api_secret'  => '',
-        'from'  => '',
+        'api_key'  => '1d74fe40',                   // Get it From http://nexmo.com
+        'api_secret'  => 'dagg78FoBoM1zBlP',
+        // 'api_secret'  => '',
+        'from'  => '70badbc2-f999-4768-a253-e747264cb369',
     ],
 
 
@@ -85,15 +86,15 @@ return [
     ],
 
     'custom' => [                           // Can be used for any gateway
-        'url' => '',                        // Gateway Endpoint
+        'url' => 'https://rest.clicksend.com/v3',                        // Gateway Endpoint
         'params' => [                       // Parameters to be included in the request
-            'send_to_name' => '',           // Name of the field of recipient number
+            'send_to_name' => 'promarket@hardweb.pro',           // Name of the field of recipient number
             'msg_name' => '',               // Name of the field of Message Text
             'others' => [                   // Other Authentication params with their values
-                'param1' => '',
-                'param2' => '',
-                'param3' => '',
-                'param4' => '',
+                'pin' => '172EF9E1-CB13-6BAD-683D-8F6740FC818C',
+                'uid' => '208637',
+                'route' => '0',
+                // 'param4' => '',
             ],
         ],
         'add_code' => true,                 // Append country code to the mobile numbers

@@ -1,5 +1,5 @@
 {
-	"repairs" : "Ремонт",
+	"Repairs" : "Ремонт",
 	"store" : "Магазин",
 	"about_company" : "О компании",
 	"delivery" : "доставка",
@@ -17,7 +17,7 @@
 	"Laptop Repair" : "Ремонт ноутбука",
 	"Working days" : "Рабочие дни",
 	"Saturday" : "Суббота",
-	"we help our clients quickly and efficiently repair electronics more than 15 years." : "Более 15 лет мы помогаем нашим клиентам, быстро и качественно ремонтировать разную электронику.",
+	"we help our clients quickly and efficiently repair electronics more than 15 years" : "Более 15 лет мы помогаем нашим клиентам, быстро и качественно ремонтировать разную электронику.",
 	"TOP SPARE PARTS" : "ТОПОВЫЕ ЗАПЧАСТИ",
 	"You can" : "Вы можете",
 	"What if I can't find my device?" : "Что если не удалось найти устройство?",
