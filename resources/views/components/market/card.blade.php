@@ -76,7 +76,7 @@
                         {{__("Add to cart")}}
                     </button>
                 @else
-                    <button type="submit"
+                    <button type="button"
                             class="default-button js-order-button">
                         Заказать
                     </button>
