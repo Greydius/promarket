@@ -36,7 +36,7 @@ class CatFilter extends Component
             $products = $products->whereIn('id',$products_id);
             // dd($products->groupBy('manufacturer')->select('manufacturer')->orderBy('manufacturer','asc')->get());
             $manufacturer = $products->groupBy('manufacturer')->select('manufacturer')->orderBy('manufacturer','asc')->get();
-            $models = $products->groupBy('model')->select('model')->orderBy('model','asc')->get();
+            $models = $products->groupBy('model')->select('model')->get()->sort(-2,'model');
             $quantity = $products->groupBy('quantity')->select('quantity')->orderBy('quantity','asc')->get();
             $color_ids = $products->groupBy('color_id')->select('color_id')->pluck('color_id')->toArray();
             $color = Color::whereIn('id', $color_ids)->orderBy('name','asc')->get();
