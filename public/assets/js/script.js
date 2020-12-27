@@ -10356,3 +10356,13 @@ $('.order-no-registration').validate({
     }
 })
 
+let orderButtons = document.querySelectorAll('.js-order-button');
+Array.from(orderButtons).forEach(btn => {
+    btn.addEventListener('click', openOrderModal)
+})
+function openOrderModal() {
+    $.fancybox.open({
+        src: `.order-modal`,
+        type: 'inline',
+    });
+}

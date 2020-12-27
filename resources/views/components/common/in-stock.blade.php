@@ -6,7 +6,7 @@
 @elseif ($quantity > 0)
     <img src="{{asset('assets/img/common/low.svg')}}" alt="">
     <span>
-                                                      {{__("in stock")}}
+                                                      {{$quantity}} {{__("in stock")}}
                                                             <!-- 1  в наличии -->
                                                         </span>
 @else

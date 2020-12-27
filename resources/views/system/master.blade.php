@@ -345,10 +345,9 @@
         </div>
     </div>
 </div>
-
 <div class="modal order-modal">
     <div class="order-modal-wrapper">
-        <h3 class="small-title">
+        <h3 class="small-title modal-title">
             сообщите мне, когда этот продукт будет доступен
         </h3>
         <form method="POST">
@@ -358,7 +357,7 @@
             <label>
                 <input type="email" name="email" placeholder="Электронная почта" class="auth_control" value="">
             </label>
-            <button class="submit-form default-button">
+            <button class="default-button">
                 OK
             </button>
         </form>
