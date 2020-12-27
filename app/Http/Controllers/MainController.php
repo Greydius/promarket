@@ -144,7 +144,7 @@ class MainController extends Controller
 
     public function sms()
     {
-        $sms = Sms::gateway('nexmo')->send('999163844','sms.test',['from'=>'Promarket.lv']); 
+        $sms = Sms::gateway('nexmo')->send('946950561','sms.test',['from'=>'Promarket.lv']); 
         dd($sms);
     }
 
