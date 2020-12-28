@@ -8,7 +8,7 @@
                 <div class="bread-crumbs"></div>
                 <div class="login-content">
                     <h1 class="main-title">
-                        Регистрация
+                        {{__("registration")}}
                     </h1>
                       <form method="POST" class="registation-form" action="{{ route('register') }}" novalidate="novalidate">
                         @csrf
@@ -28,16 +28,16 @@
 
                             <label class="auth-checkbox checkbox-label">
                                 <input type="checkbox" name="agreement" class="accepted" value="">
-                                <span>Я согласен на обработку моих данных компанией Promarket</span>
+                                <span>{{__("I agree to the processing of my data by Promarket")}} </span>
                             </label>
 
                             <label class="auth-checkbox checkbox-label">
                                 <input type="checkbox" name="agreement2" class="accepted" value="">
-                                <span> Я согласен на обработку моих данных компанией Promarket </span>
+                                <span> {{__("I agree to the processing of my data by Promarket")}}  </span>
                             </label>
                         </div>
                         <button type="submit" class="submit-form default-button">
-                            зарегистрироваться
+                           {{__("Register now")}}
                         </button>
 
                     </form>

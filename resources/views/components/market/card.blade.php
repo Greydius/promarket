@@ -78,7 +78,7 @@
                 @else
                     <button type="button"
                             class="default-button js-order-button">
-                        Заказать
+                        {{__("To order")}}
                     </button>
                 @endif
             </div>

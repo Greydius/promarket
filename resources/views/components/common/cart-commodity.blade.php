@@ -30,7 +30,7 @@
                                         <input name="quantity" type="number" value="{{$product->pivot->count}}">
                                     </label>
                                     <button type="submit" class="commodity_reset_btn">
-                                        Обновить
+                                        {{__("Refresh")}}
                                     </button>
                                 </form>
                             </div>
