@@ -96,7 +96,6 @@
 	"our team" : "наша команда",
 	"Send" : "отправить",
 	"Back" : "назад",
-	"" : "в нашей мастерской это",
 	"Enter time" : "Введите время",
 	"Enter date" : "Введите дату",
 	"Your phone number" : "Ваш номер телефона",
@@ -140,5 +139,17 @@
  	"Refresh" : "Обновить",
  	"To order": "Заказать",
     "for": "для",
-    "added_for_fixing": "Заявка на ремонт"
+    "added_for_fixing": "Заявка на ремонт",
+ 	"To order" : "Заказать",
+ 	"We have sent a registered sheet by mail" : "Мы отправили заказной лист на почту",
+ 	"Order details" : "Детали заказа",
+ 	"Order number" : "Номер заказа",
+ 	"Number of items" : "Количество единиц товара",
+ 	"Enter a new password" : "Введите новый пароль",
+ 	"Enter the new password again" : "Введите новый пароль ещё раз",
+ 	"entrance" : "Вход",
+ 	"Warranty" : "Гарантии",
+ 	"Replacing components" : "Замена компонентов",
+ 	"in our workshop it is" : "в нашей мастерской это",
+ 	"This field is required" : "Это поле обязательно для заполнения"
  }

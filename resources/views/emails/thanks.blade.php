@@ -8,17 +8,17 @@
         <div class="bread-crumbs"></div>
         <div class="login-content">
           <h1 class="main-title">
-            Спасибо за заказ</h1>
+            {{__("THANK YOU FOR THE ORDER")}} </h1>
           <div class="login-paragraph">
             <p>
-              Мы отправили заказной лист на почту:  {{$order->email}}
+              {{__("We have sent a registered sheet by mail")}}:  {{$order->email}}
             </p>
           </div>
           <div class="login-paragraph" style="text-align: center;">
-              <h3>Детали заказа:</h3>
-               <p>Номер заказа: {{$order->id}} </p>
-               <p> Количество единиц товара: {{count($order->products)}}</p>
-               <p> Доставка: {{$order->delivery}} - {{$order->delivery_address}}</p>
+              <h3>{{__("Order details")}}:</h3>
+               <p>{{__("Order number")}}}: {{$order->id}} </p>
+               <p> {{__("Number of items")}}: {{count($order->products)}}</p>
+               <p> {{__("delivery")}}: {{$order->delivery}} - {{$order->delivery_address}}</p>
             </div>
           <form action="/" method="GET">	
           <button type="submit" class="submit-form default-button">

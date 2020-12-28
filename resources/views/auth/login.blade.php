@@ -148,7 +148,7 @@
 $(document).ready(function(){
 
   $.extend($.validator.messages, {
-      required: "Это поле обязательно для заполнения",
+      required: "<?php __("This field is required") ?>",
       email: "Пожалуйста, введите действительный адрес электронной почты."
 });
 
