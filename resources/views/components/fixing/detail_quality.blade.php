@@ -1,5 +1,4 @@
 <div class="row choosing-detail-row">
-
     @foreach($detail->products as $quality)
         <div class="col-lg-4 col-md-4">
             <div
@@ -8,7 +7,7 @@
                 class="commodity-default-card commodity-default-card-short">
                 <div class="commodity-card-body">
                     <h4 class="commodity-card-title">
-                        {{$quality->quality->full_name}}
+                        {{$quality->quality->getTranslatedAttribute('full_name', app()->getLocale(), 'lv')}}
                     </h4>
                     <div class="commodity-card-parameter">
                         @include('components.common.in-stock', ['quantity' => $quality->quantity])
