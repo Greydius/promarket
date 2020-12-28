@@ -43,7 +43,7 @@ Breadcrumbs::for('fixing-type-with-brand-model', function ($trail, $model) {
 
 Breadcrumbs::for('fixing-order-detail', function ($trail, $details) {
     $trail->parent('fixing-type-with-brand-model', $details[0]->manufacturerModel);
-    $name = 'Замена компонентов';
+    $name = __('Replacing components');
     if(count($details) == 1){
         $name = $details[0]->getTranslatedAttribute('name', app()->getLocale(), 'lv');
     }
@@ -99,7 +99,7 @@ Breadcrumbs::for('about', function ($trail) {
 
 Breadcrumbs::for('guarantee', function ($trail) {
     $trail->parent('home');
-    $trail->push('Гарантии', route('guarantee'));
+    $trail->push(__('Warranty'), route('guarantee'));
 });
 
 Breadcrumbs::for('delivery', function ($trail) {
@@ -109,7 +109,7 @@ Breadcrumbs::for('delivery', function ($trail) {
 
 Breadcrumbs::for('auth', function ($trail) {
     $trail->parent('home');
-    $trail->push('Вход', route('login'));
+    $trail->push(__('entrance'), route('login'));
 });
 
 Breadcrumbs::for('account', function ($trail) {

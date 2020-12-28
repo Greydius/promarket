@@ -134,7 +134,7 @@ $(document).ready(function(){
  })
 
 $.extend($.validator.messages, {
-    required: "Это поле обязательно для заполнения",   
+    required: "<?php __("This field is required") ?>",   
     minlength: $.validator.format("Введите не менее {0} символов."), 
     email: "Пожалуйста, введите действительный адрес электронной почты.",
     min: $.validator.format("Введите значение больше или равное {0}.")

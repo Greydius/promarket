@@ -31,7 +31,7 @@
             </label>
 
             <label>
-             <input id="password" type="password" class="auth_control  @error('password') is-invalid @enderror" name="new_password" required autocomplete="new-password"  placeholder="Введите новый пароль">
+             <input id="password" type="password" class="auth_control  @error('password') is-invalid @enderror" name="new_password" required autocomplete="new-password"  placeholder="{{__('Enter a new password')}}">
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -39,7 +39,7 @@
             @enderror
             </label>
             <label>
-                <input id="password-confirm" type="password" class="auth_control " name="password_confirmation" required autocomplete="new-password" placeholder="Введите новый пароль ещё раз">
+                <input id="password-confirm" type="password" class="auth_control " name="password_confirmation" required autocomplete="new-password" placeholder="{{__('Enter the new password again')}}">
             </label>
             <button type="submit" class="submit-form default-button">
               ОК
@@ -54,7 +54,7 @@
   $(document).ready(function(){
 
   $.extend($.validator.messages, {
-      required: "Это поле обязательно для заполнения",   
+      required: "<?php __("This field is required") ?>",   
       email: "Пожалуйста, введите действительный адрес электронной почты."
 });
 
