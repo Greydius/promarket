@@ -42,7 +42,7 @@
                                 {{__("About phone repair")}}
                             </h3>
                             <p>
-                                {{ $fixingType->description }}
+                                {{$fixingType->getTranslatedAttribute('description', app()->getLocale(), 'fallbackLocale')}}
                             </p>
                         </div>
                     </div>

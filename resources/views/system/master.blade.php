@@ -296,7 +296,9 @@
                 <ul>
                     @foreach($categories as $category)
                         @if($category->is_popular == 1)
-                    <li><a href="{{route('shop-main-cat',['category' => $category->code])}}">{{$category->name}} </a></li>
+                    <li><a href="{{route('shop-main-cat',['category' => $category->code])}}">
+                            {{$category->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
+                        </a></li>
                         @endif
                     @endforeach
                 </ul>
