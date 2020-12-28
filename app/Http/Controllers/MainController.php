@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 use Spatie\Searchable\Search;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Softon\Sms\Facades\Sms; 
 use App\FixingDetail;
 use App\Category;
 use App\SubCategory;
@@ -139,6 +140,12 @@ class MainController extends Controller
     public function thanks()
     {
         return view('emails.thanks');
+    }
+
+    public function sms()
+    {
+        $sms = Sms::gateway('nexmo')->send('946950561','sms.test',['from'=>'Promarket.lv']); 
+        dd($sms);
     }
 
 }

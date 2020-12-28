@@ -7,7 +7,7 @@ Breadcrumbs::for('home', function ($trail) {
 // Home > About
 Breadcrumbs::for('fixing', function ($trail) {
     $trail->parent('home');
-    $trail->push(__("Repairs"), route('fixing'));
+    $trail->push(__("repairs"), route('fixing'));
 });
 
 Breadcrumbs::for('fixing-type', function ($trail, $fixingType) {

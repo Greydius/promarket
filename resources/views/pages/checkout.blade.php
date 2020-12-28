@@ -109,7 +109,7 @@
                         <div class="delivery-tab-content active">
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
-                                    <div class="small-title text-center mb-4 mt-5">ДАННЫЕ ПОКУПАТЕЛЯ</div>
+                                    <div class="small-title text-center mb-4 mt-5">{{__("BUYER DATA")}} </div>
                                     <form action="{{ route('confirm.order') }}" method="POST"
                                           class="user-data user-data-self">
                                         @csrf
@@ -149,14 +149,14 @@
                                         <textarea name="comment" id="comment" class="" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
 
-                                        <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
+                                        <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
                                         <select class="js-selectric" name="payment_method" id="">
-                                            <option value="cash">Наличкой</option>
-                                            <option value="card">Картой</option>
+                                            <option value="cash">{{__("Cash")}} </option>
+                                            <option value="card">{{__("By card")}} </option>
                                         </select>
                                         {{--<div class="payment-drop-down-wrapper">
                                             <div class="payment-drop-down-trigger">
-                                                <div class="changing">Выберите метод оплаты</div>
+                                                <div class="changing">{{__("Select a Payment Method")}} </div>
                                                 <img src="img/common/chevron-down.svg" alt="">
                                             </div>
                                             <div class="payment-drop-down">
@@ -167,12 +167,12 @@
                                             </div>
                                         </div>--}}
                                         <div class="small-title justify-content-center d-flex">
-                                            ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> {{$order->getFullPrice()}} €
+                                            {{__("THE TOTAL AMOUNT OF THE ORDER")}}: &ensp; <span class="commodity-card-price"> {{$order->getFullPrice()}} €
                                             <span
                                                 class="commodity-card-price-muted">{{number_format($order->getFullPrice() * $nds, 2, '.', '')}} € {{__("ex VAT")}}</span></span>
                                         </div>
                                         <button type="submit" class="default-button mt-5">
-                                            Сделать заказ
+                                            {{__("Make an order")}}
                                         </button>
                                     </form>
                                 </div>
@@ -202,7 +202,7 @@
                                                 </ul>
                                             </div>
                                         </div>--}}
-                                        <div class="small-title text-center mb-4 mt-5">ДАННЫЕ ПОКУПАТЕЛЯ</div>
+                                        <div class="small-title text-center mb-4 mt-5">{{__("BUYER DATA")}} </div>
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
                                                 <input type="radio" name="identification-type"
@@ -239,14 +239,14 @@
                                         <textarea name="comment" id="comment" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
 
-                                        <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
+                                        <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
                                         <select class="js-selectric" name="payment_method" id="">
-                                            <option value="cash">Наличкой</option>
-                                            <option value="card">Картой</option>
+                                            <option value="cash">{{__("Cash")}} </option>
+                                            <option value="card">{{__("By card")}} </option>
                                         </select>
                                         {{--<div class="payment-drop-down-wrapper">
                                             <div class="payment-drop-down-trigger">
-                                                <div class="changing">Выберите метод оплаты</div>
+                                                <div class="changing">{{__("Select a Payment Method")}} </div>
                                                 <img src="img/common/chevron-down.svg" alt="">
                                             </div>
                                             <div class="payment-drop-down">
@@ -257,12 +257,12 @@
                                             </div>
                                         </div>--}}
                                         <div class="small-title justify-content-center d-flex">
-                                            ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price"> {{$order->getFullPrice()}} €
+                                            {{__("THE TOTAL AMOUNT OF THE ORDER")}}: &ensp; <span class="commodity-card-price"> {{$order->getFullPrice()}} €
                                             <span
                                                 class="commodity-card-price-muted">39.99 € {{__("ex VAT")}}</span></span>
                                         </div>
                                         <button type="submit" class="default-button mt-5">
-                                            Сделать заказ
+                                            {{__("Make an order")}}
                                         </button>
                                     </form>
                                 </div>
@@ -304,7 +304,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
-                                        <div class="small-title text-center mb-4 mt-5">ДАННЫЕ ПОКУПАТЕЛЯ</div>
+                                        <div class="small-title text-center mb-4 mt-5">{{__("BUYER DATA")}} </div>
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
                                                 <input type="radio" name="identification-type"
@@ -340,15 +340,15 @@
                                         <textarea name="comment" id="comment" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
 
-                                        <div class="small-title text-center mb-4 mt-5">Способ оплаты</div>
+                                        <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
                                         <select class="js-selectric" name="payment_method" id="">
-                                            <option value="cash">Наличкой</option>
-                                            <option value="card">Картой</option>
+                                            <option value="cash">{{__("Cash")}} </option>
+                                            <option value="card">{{__("By card")}} </option>
                                         </select>
                                         {{--<div class="payment-drop-down-wrapper">
                                             <select name="payment_method"></select>
                                             <div class="payment-drop-down-trigger">
-                                                <div class="changing">Выберите метод оплаты</div>
+                                                <div class="changing">{{__("Select a Payment Method")}} </div>
                                                 <img src="img/common/chevron-down.svg" alt="">
                                             </div>
                                             <div class="payment-drop-down">
@@ -359,12 +359,12 @@
                                             </div>
                                         </div>--}}
                                         <div class="small-title justify-content-center d-flex">
-                                            ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price">  {{$order->getFullPrice()}} €
+                                            {{__("THE TOTAL AMOUNT OF THE ORDER")}}: &ensp; <span class="commodity-card-price">  {{$order->getFullPrice()}} €
                                             <span
                                                 class="commodity-card-price-muted">39.99 € {{__("ex VAT")}}</span></span>
                                         </div>
                                         <button type="submit" class="default-button mt-5">
-                                            Сделать заказ
+                                            {{__("Make an order")}}
                                         </button>
                                     </div>
                                 </div>

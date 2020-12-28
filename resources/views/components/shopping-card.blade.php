@@ -10,7 +10,7 @@
         <div class="commodity-card-parameter">
             <img src="img/common/tick.svg" alt="">
             <span>
-               В наличии
+               {{__("in stock")}}
             </span>
         </div>
         <div class="commodity-card-price-row">
