@@ -9934,13 +9934,24 @@ function UrlCreationForFixingOrder(cardsParentElement, buttonClassName) {
         let url = self.urlBase + self.chosenCardsArray.join(',');
 
         self.button.href = url;
-
+        console.log(self.chosenCardsArray.length == 0)
+        if (self.chosenCardsArray.length == 0) {
+            $('body').overhang({
+                html: true,
+                message: `<a href="${url}" class="svyatoslav-link-text">${self.button.innerText}</a>`,
+                customClasses: "svyatoslav-pacanchik-class",
+                duration: 0,
+            });
+            return false;
+        }
         $('body').overhang({
             html: true,
             message: `<a href="${url}" class="svyatoslav-link-text">${self.button.innerText}</a>`,
             customClasses: "overhang-custom-class svyatoslav-class",
             duration: 999999,
         });
+
+
     }
 }
 
