@@ -4,7 +4,7 @@
 	"about_company" : "Par uzņēmumu",
 	"delivery" : "Piegāde",
 	"search" : "Meklēt",
-	"contacts" : "kontakti",
+	"contacts" : "Kontakti",
 	"your shopping cart is currently empty" : "Jūsu preču grozs ir tukšs",
 	"products in the shopping cart:" : "Preces grozā:",
 	"total" : "Kopā",
@@ -24,7 +24,7 @@
 	"Don't be discouraged if a device isn't on our list, that doesn't mean we can't help you." : "Neuztraucieties, ja kāda ierīce nav mūsu sarakstā, tas nenozīmē, ka mēs nevaram jums palīdzēt.",
 	"Start a chat with a manager (chat us)" : "Sāciet čatu ar menedžeri",
 	"or" : "or",
-	"call us on" : "zvaniet mums uz", 
+	"call us on" : "zvaniet mums uz",
 	"all types of electronics" : "visi elektronikas veidi",
 	"About phone repair" : "Par telefonu remontu",
 	"Select your device manufacturer" : "Atlasiet ierīces ražotāju",
@@ -138,4 +138,4 @@
 	"Remove" : "Dzēst",
 	"Refresh" : "atjaunot",
 	"To order" : "Pasūtīt"
-} 
+}
