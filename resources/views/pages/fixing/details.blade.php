@@ -39,7 +39,7 @@
                                             <div class="repair-list">
                                                 {!! $detail->manufacturerModel->getTranslatedAttribute('descirption', app()->getLocale(), 'lv') !!}
                                             </div>
-                                            <div class="description-for-pc"><strong>{{__("Repair time")}} :</strong> {{$detail->fixing_time}}</div>
+                                            <div class="description-for-pc"><strong>{{__("Repair time")}} :</strong> {{$detail->getTranslatedAttribute('fixing_time', app()->getLocale(), 'lv')}}</div>
 
                                             @if(count($detail->detailQuality) == 0)
                                                 <div class="mt-2">
