@@ -1,5 +1,5 @@
 {
-	"Repairs" : "Ремонт",
+	"repairs" : "Ремонт",
 	"store" : "Магазин",
 	"about_company" : "О компании",
 	"delivery" : "доставка",
@@ -109,5 +109,14 @@
  	"Add to cart" : "в корзину",
  	"BUY WITH INSTALLATION" : "КУПИТЬ С УСТАНОВКОЙ",
  	"spare parts for" : "запчасти для",
- 	"accessories for" : "аксессуары для"
+ 	"accessories for" : "аксессуары для",
+ 	"THANK YOU FOR THE ORDER" : "СПАСИБО ЗА ЗАКАЗ",
+ 	"THE TOTAL AMOUNT OF THE ORDER" : "ОБЩАЯ СУММА ЗАКАЗА",
+ 	"PAYMENT METHOD" : "СПОСОБ ОПЛАТЫ",
+ 	"Cash" : "Наличкой",
+ 	"By card" : "Картой",
+ 	"BUYER DATA" : "ДАННЫЕ ПОКУПАТЕЛЯ",
+ 	"Select a Payment Method" : "Выберите метод оплаты",
+ 	"Make an order" : "Сделать заказ",
+ 	"CONTINUE SHOPPING" : "ПРОДОЛЖИТЬ ПОКУПКИ"
  }

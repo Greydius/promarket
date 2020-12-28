@@ -60,10 +60,10 @@
                     <span>
                         <img src="{{asset('assets/img/cart/arrow_back-24px 1.svg')}}" alt="icon">
                     </span>
-                ПРОДОЛЖИТЬ ПОКУПКИ
+                {{__("CONTINUE SHOPPING")}}
             </a>
             <div class="small-title d-flex">
-                ОБЩАЯ СУММА ЗАКАЗА: &ensp; <span class="commodity-card-price">
+                {{__("THE TOTAL AMOUNT OF THE ORDER")}}: &ensp; <span class="commodity-card-price">
                     @{{fullPrice}}
                     €
                         <span class="commodity-card-price-muted">

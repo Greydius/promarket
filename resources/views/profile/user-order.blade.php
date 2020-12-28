@@ -132,7 +132,7 @@
                             <div class="lk-inner-additional-order-left">
                                 <div>
                                     <p class="uppercase">
-                                        СПОСОБ ОПЛАТЫ
+                                        {{__("PAYMENT METHOD")}}
                                     </p>
                                     <p>
                                         {{$order->payment_method}}
@@ -150,7 +150,7 @@
                             <div class="lk-inner-additional-order-right">
                                 <div>
                                     <p>
-                                        ОБЩАЯ СУММА ЗАКАЗА:
+                                        {{__("THE TOTAL AMOUNT OF THE ORDER")}}:
                                     </p>
                                     <div class="lk-inner-addditional-column lk-card-cost">
                                         {{$order->getFullPrice()}} €
