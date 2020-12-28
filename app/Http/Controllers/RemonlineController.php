@@ -187,8 +187,8 @@ class RemonlineController extends Controller
         }
         $title = $currentCategory['title'];
         if (
-            $title == 'Mobilo telefonu detaļas' /*||
-            $title == 'Planšetdatoru detaļas' ||
+            $title == 'Mobilo telefonu detaļas' ||
+            $title == 'Planšetdatoru detaļas' /*||
             $title == 'Gudro pulksteņu detaļas'*/
         ) {
             return $currentCategory;
