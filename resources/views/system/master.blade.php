@@ -350,7 +350,7 @@
         <h3 class="small-title modal-title">
             сообщите мне, когда этот продукт будет доступен
         </h3>
-        <form method="POST">
+        <form method="POST" action="">
             <label>
                 <input type="text" name="name" placeholder="Имя" class="auth_control" value="">
             </label>

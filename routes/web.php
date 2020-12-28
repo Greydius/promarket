@@ -106,6 +106,8 @@ Route::group([
     Route::get('/thanks', 'MainController@thanks')->name('thanks-page');
 });
 
+/*Route::post()*/
+
 Route::post('/profile/avatar', 'ProfileController@avatarStore')->name('avatarStore');
 
 Route::get('/cat', 'RemonlineController@uploadCategories')->name('uploadCategories');
