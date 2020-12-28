@@ -12,7 +12,7 @@
                     @if($fixingType)
                     <div class="fixing-main-banner fixing-main-banner-inner">
 
-                        <img src="{{ Voyager::image($fixingType->img) }}" class="fixing-banner-background" alt="">
+                        <img src="{{ Voyager::image($fixingType->background_image) }}" class="fixing-banner-background" alt="">
                         {{ Breadcrumbs::render('fixing-type', $fixingType) }}
 
                         <h1 class="main-title">

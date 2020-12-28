@@ -12,20 +12,20 @@ Breadcrumbs::for('fixing', function ($trail) {
 
 Breadcrumbs::for('fixing-type', function ($trail, $fixingType) {
     $trail->parent('fixing');
-    $trail->push($fixingType->getTranslatedAttribute('breadcrumb', app()->getLocale(), 'fallbackLocale'), route('fixing-type', [$fixingType->code]));
+    $trail->push($fixingType->getTranslatedAttribute('breadcrumb', app()->getLocale(), 'lv'), route('fixing-type', [$fixingType->code]));
 
 });
 
 // Home > Blog
 Breadcrumbs::for('fixing-type-with-brand', function ($trail, $manufacturer) {
     $trail->parent('fixing-type', $manufacturer->fixingType);
-    $trail->push($manufacturer->getTranslatedAttribute('name', app()->getLocale(), 'fallbackLocale'), route('fixing-brand', [$manufacturer->fixingType->code, $manufacturer->code]));
+    $trail->push($manufacturer->getTranslatedAttribute('name', app()->getLocale(), 'lv'), route('fixing-brand', [$manufacturer->fixingType->code, $manufacturer->code]));
 });
 
 
 Breadcrumbs::for('fixing-type-service', function ($trail, $service) {
     $trail->parent('fixing-type', $service->fixingType);
-    $trail->push($service->getTranslatedAttribute('breadcrumb', app()->getLocale(), 'fallbackLocale'), route('fixing-service', [
+    $trail->push($service->getTranslatedAttribute('breadcrumb', app()->getLocale(), 'lv'), route('fixing-service', [
         $service->fixingType->code,
         $service->code
     ]));
@@ -33,7 +33,7 @@ Breadcrumbs::for('fixing-type-service', function ($trail, $service) {
 
 Breadcrumbs::for('fixing-type-with-brand-model', function ($trail, $model) {
     $trail->parent('fixing-type-with-brand', $model->manufacturer);
-    $trail->push($model->getTranslatedAttribute('breadcrumb_name', app()->getLocale(), 'fallbackLocale'), route('fixing-brand-model', [
+    $trail->push($model->getTranslatedAttribute('breadcrumb_name', app()->getLocale(), 'lv'), route('fixing-brand-model', [
         $model->manufacturer->fixingType->code,
         $model->manufacturer->code,
         $model->code
@@ -45,7 +45,7 @@ Breadcrumbs::for('fixing-order-detail', function ($trail, $details) {
     $trail->parent('fixing-type-with-brand-model', $details[0]->manufacturerModel);
     $name = 'Замена компонентов';
     if(count($details) == 1){
-        $name = $details[0]->getTranslatedAttribute('breadcrumb_name', app()->getLocale(), 'fallbackLocale');
+        $name = $details[0]->getTranslatedAttribute('breadcrumb_name', app()->getLocale(), 'lv');
     }
     $trail->push($name, route('fixing-order-detail', [
         $details[0]->manufacturerModel->manufacturer->fixingType->code,
@@ -65,7 +65,7 @@ Breadcrumbs::for('shop', function ($trail, $category) {
 
 Breadcrumbs::for('category', function ($trail, $category) {
     $trail->parent('shop', $category);
-    $trail->push($category->getTranslatedAttribute('breadcrumbs', app()->getLocale(), 'fallbackLocale'), route('shop-main', [
+    $trail->push($category->getTranslatedAttribute('breadcrumbs', app()->getLocale(), 'lv'), route('shop-main', [
         $category->category->code,
         $category->code
     ]));
@@ -73,7 +73,7 @@ Breadcrumbs::for('category', function ($trail, $category) {
 
 Breadcrumbs::for('product', function ($trail, $product) {
     $trail->parent('shop', $product->subCategory[0]);
-    $trail->push($product->getTranslatedAttribute('name', app()->getLocale(), 'fallbackLocale'), route('shop-inner', [
+    $trail->push($product->getTranslatedAttribute('name', app()->getLocale(), 'lv'), route('shop-inner', [
         $product->subCategory[0]->category->code,
         $product->subCategory[0]->code,
         $product->code

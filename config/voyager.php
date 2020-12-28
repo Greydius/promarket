@@ -115,7 +115,7 @@ return [
             'lv'
         ],
 
-        'fallbackLocale' => 'en',
+        'fallbackLocale' => 'ru',
     ],
 
     /*
