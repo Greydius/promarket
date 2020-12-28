@@ -10069,8 +10069,10 @@ $('.reservation-form').validate({
         axios
             .post(form.getAttribute('data-url'), formData)
             .then(response => {
+                console.log(response);
             })
             .catch(error => {
+                alert('We have some issues with the server, please return later')
             })
 
     },

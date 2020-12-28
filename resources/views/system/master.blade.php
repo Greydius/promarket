@@ -392,6 +392,15 @@
 
 
 
+<div>
+    <h3 class="small-title modal-title">
+        Спасибо за вашу заявку!
+    </h3>
+    <div>
+
+    </div>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
