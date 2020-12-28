@@ -1,5 +1,7 @@
 <div>
 
+    {{dump($request_details)}}
+
     <h1>Поступила новая заявка</h1>
     <h2> Детали заказа </h2>
     <span>Имя клента: {{ $request_details->name }}</span>

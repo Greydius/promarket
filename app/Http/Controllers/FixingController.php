@@ -78,7 +78,6 @@ class FixingController extends Controller
 
     public function fixingDetailOrderRequest(Request $request)
     {
-
         $details = json_decode($request->details);
         foreach ($details as $detail) {
             $detailObject = FixingDetail::find($detail->id);
@@ -86,8 +85,8 @@ class FixingController extends Controller
         }
         $request_details = $request;
         $request_details['clientOrder'] = $details;
-        Mail::to('dierkholm@gmail.com')->send(new FixingMailInfoToManager($request_details));
-        Mail::to('dierkholm@gmail.com')->send(new FixingMailInfoToClient($request_details));
+        Mail::to('m1ckey94@yandex.ru')->send(new FixingMailInfoToManager($request_details));
+        Mail::to('m1ckey94@yandex.ru')->send(new FixingMailInfoToClient($request_details));
 
         return $request_details;
     }
