@@ -50,7 +50,8 @@
                                 // dd($model->products($model->model_name));
                                 ?>
                                 <h3 class="small-title">
-                                    {{$category->name}} для {{ $model->title }}
+
+                                    {{$category->getTranslatedAttribute('name', app()->getLocale(), 'lv')}} {{__("for")}} {{$model->getTranslatedAttribute('title', app()->getLocale(), 'lv')}}
                                 </h3>
 
                                 <div class="row">

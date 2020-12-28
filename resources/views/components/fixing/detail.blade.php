@@ -12,7 +12,7 @@
         </h4>
         <div class="fixing-detail-details">
             <p>
-                <span class="middle-text">{{__("Repair time")}} </span> {{$detail->fixing_time}}
+                <span class="middle-text">{{__("Repair time")}} </span> {{$detail->getTranslatedAttribute('fixing_time', app()->getLocale(), 'lv')}}
             </p>
         </div>
         <div class="price">
