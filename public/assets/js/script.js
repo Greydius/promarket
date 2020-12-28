@@ -9383,6 +9383,7 @@ function makeCommodityActive(commodityWrapper) {
             removeActiveClass(this)
             return false
         }
+
         addActiveClass(this)
     }
 
@@ -9933,6 +9934,13 @@ function UrlCreationForFixingOrder(cardsParentElement, buttonClassName) {
         let url = self.urlBase + self.chosenCardsArray.join(',');
 
         self.button.href = url;
+
+        $('body').overhang({
+            html: true,
+            message: self.button.outerHTML,
+            customClasses: "overhang-custom-class svyatoslav-class",
+            duration: 999999,
+        });
     }
 }
 

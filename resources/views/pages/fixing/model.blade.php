@@ -71,6 +71,9 @@
                 </div>
             </div>
         </div>
+        <div class="overhang-message">
+            {{__('added_for_fixing')}}
+        </div>
     </main>
 
 @endsection
