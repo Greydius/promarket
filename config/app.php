@@ -79,7 +79,7 @@ return [
     |
     */
 
-    'locale' => 'ru',
+    'locale' => 'lv',
 
     /*
     |--------------------------------------------------------------------------
@@ -175,7 +175,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Softon\Sms\SmsServiceProvider::class, 
+        Softon\Sms\SmsServiceProvider::class,
 
     ],
 
