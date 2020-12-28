@@ -139,5 +139,16 @@
 	"Refresh" : "atjaunot",
 	"To order" : "Pasūtīt",
     "for": "priekš",
-    "added_for_fixing": "Remonta pieprasījums"
-}
+    "added_for_fixing": "Remonta pieprasījums",
+	"We have sent a registered sheet by mail" : "Mēs pa pastu esam nosūtījuši reģistrētu lapu",
+	"Order details" : "Pasūtījuma detaļas",
+	"Order number" : "Pasūtījuma numurs",
+	"Number of items" : "Vienību skaits",
+	"Enter a new password" : "Ievadiet jaunu paroli",
+	"Enter the new password again" : "Vēlreiz ievadiet jauno paroli",
+	"entrance" : "ieeja",
+	"Warranty" : "Garantija",
+	"Replacing components" : "Komponentu nomaiņa",
+	"in our workshop it is" : "mūsu darbnīcā tas ir",
+	"This field is required" : "Šis lauks ir obligāts"
+} 

@@ -34,7 +34,7 @@
                                         <div class="col-lg-8 col-md-7 col-sm-7">
                                             <h1 class="main-title title-for-pc">{{$detail->name}} {{$detail->manufacturerModel->name}} </h1>
                                             <h1 class="main-title title-for-tablet">{{$detail->name}} {{$detail->manufacturerModel->name}}</h1>
-                                            <div>Ремонт iPhone 11 (A2221) в нашей мастерской это:</div>
+                                            <div>{{__("repairs")}} {{$detail->manufacturerModel->name}} (A2221) {{__("in our workshop it is")}}:</div>
                                             <div class="repair-list">
                                                 {!! $detail->descirption !!}
                                             </div>

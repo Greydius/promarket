@@ -139,5 +139,16 @@
 	"Refresh" : "Refresh",
 	"To order" : "To order",
     "for": "for",
-    "added_for_fixing": "Repair request"
-}
+    "added_for_fixing": "Repair request",
+	"We have sent a registered sheet by mail" : "We have sent a registered sheet by mail",
+	"Order details" : "Order details",
+	"Order number" : "Order number",
+	"Number of items" : "Number of items",
+	"Enter a new password" : "Enter a new password",
+	"Enter the new password again" : "Enter the new password again",
+	"entrance" : "entrance",
+	"Warranty" : "Warranty",
+	"Replacing components" : "Replacing components",
+	"in our workshop it is" : "in our workshop it is",
+	"This field is required" : "This field is required"
+}  

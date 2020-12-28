@@ -245,13 +245,13 @@
                                                 <label>
                                                     <input id="password" type="password" class="auth_control"
                                                            name="new_password" required autocomplete="new-password"
-                                                           placeholder="Введите новый пароль">
+                                                           placeholder="{{__('Enter a new password')}}">
                                                 </label>
                                                 <label>
                                                     <input id="password-confirm" type="password" class="auth_control "
                                                            name="password_confirmation" required
                                                            autocomplete="new-password"
-                                                           placeholder="Введите новый пароль ещё раз">
+                                                           placeholder="{{__('Enter the new password again')}}">
                                                 </label>
                                             </div>
                                             <button class="default-button lk-submit-button" type="submit">
