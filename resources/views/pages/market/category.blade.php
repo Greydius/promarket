@@ -19,7 +19,7 @@
                         <div class="shop-main-wrapper brand-product">
                             <div class="collapsing-control">
                                 <div class="d-flex align-items-center justify-content-between">
-                                    {{ Breadcrumbs::render('category', $category) }}
+                                    {{ Breadcrumbs::render('upper-category', $category) }}
                                     <div class="market_sorting-wrapper">
                                         <div class="market_sorting d-flex align-items-center">
                                             <a href="#" class="market-sorting-trigger">
@@ -190,7 +190,7 @@
                 data: data
             }).done(function (data) {
                 $('#sort').html(data);
-                setTimeout(function(){ 
+                setTimeout(function(){
                 var per_page = $('#per_page').children("option:selected").val();
                 var currentPage = $('a.pagination-bullet.active span').text();
                 var countPage = per_page * currentPage;

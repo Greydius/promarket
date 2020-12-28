@@ -55,16 +55,23 @@ Breadcrumbs::for('fixing-order-detail', function ($trail, $details) {
 });
 
 
-Breadcrumbs::for('shop', function ($trail, $category) {
+/*Breadcrumbs::for('shop', function ($trail, $category) {
     $trail->parent('home');
     $trail->push(__('store'), route('shop-main', [
         $category->category->code,
         $category->code
     ]));
+});*/
+
+Breadcrumbs::for('upper-category', function ($trail, $category) {
+    $trail->parent('home');
+    $trail->push($category->getTranslatedAttribute('name', app()->getLocale(), 'lv'), route('shop-main-cat', [
+        $category->code
+    ]));
 });
 
 Breadcrumbs::for('category', function ($trail, $category) {
-    $trail->parent('shop', $category);
+    $trail->parent('upper-category', $category->category);
     $trail->push($category->getTranslatedAttribute('name', app()->getLocale(), 'lv'), route('shop-main', [
         $category->category->code,
         $category->code
