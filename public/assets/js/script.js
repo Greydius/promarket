@@ -9939,7 +9939,7 @@ function UrlCreationForFixingOrder(cardsParentElement, buttonClassName) {
             $('body').overhang({
                 html: true,
                 message: `<a href="${url}" class="svyatoslav-link-text">${self.button.innerText}</a>`,
-                customClasses: "svyatoslav-pacanchik-class",
+                customClasses: "overhang-d-none",
                 duration: 0,
             });
             return false;
