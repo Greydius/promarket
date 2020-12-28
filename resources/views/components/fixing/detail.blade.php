@@ -7,8 +7,8 @@
     </div>
     <div class="fixing-detail-body">
         <h4 class="card-title">
-            @if(Route::currentRouteName() == 'fixing-service') {{$detail->manufacturerModel->name}} @endif
-            {{$detail->name}}
+            @if(Route::currentRouteName() == 'fixing-service') {{$detail->manufacturerModel->getTranslatedAttribute('name', app()->getLocale(), 'lv')}} @endif
+                {{$detail->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
         </h4>
         <div class="fixing-detail-details">
             <p>

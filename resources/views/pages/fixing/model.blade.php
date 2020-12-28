@@ -20,7 +20,7 @@
                             <div class="brand-product-container">
                                 {{ Breadcrumbs::render('fixing-type-with-brand-model', $model) }}
                                 <h1 class="main-title">
-                                    {{$model->title}}
+                                    {{$model->getTranslatedAttribute('title', app()->getLocale(), 'lv')}}
                                 </h1>
 
 
@@ -62,7 +62,7 @@
                                     @endforeach
                                 </div>
 
-                                <a href="#" class="additional-link">{{__("See all parts")}} </a>
+                                <a href="{{route('shop-main-cat', $category->code)}}" class="additional-link">{{__("See all parts")}} </a>
                             </div>
                         </div>
                     </div>
