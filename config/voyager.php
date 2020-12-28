@@ -104,7 +104,7 @@ return [
         /*
          * Select default language
          */
-        'default' => 'en',
+        'default' => 'lv',
 
         /*
          * Select languages that are supported.
@@ -114,6 +114,8 @@ return [
             'ru',
             'lv'
         ],
+
+        'fallbackLocale' => 'ru',
     ],
 
     /*

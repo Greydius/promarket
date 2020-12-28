@@ -296,7 +296,9 @@
                 <ul>
                     @foreach($categories as $category)
                         @if($category->is_popular == 1)
-                    <li><a href="{{route('shop-main-cat',['category' => $category->code])}}">{{$category->name}} </a></li>
+                    <li><a href="{{route('shop-main-cat',['category' => $category->code])}}">
+                            {{$category->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
+                        </a></li>
                         @endif
                     @endforeach
                 </ul>
@@ -350,7 +352,7 @@
         <h3 class="small-title modal-title">
             сообщите мне, когда этот продукт будет доступен
         </h3>
-        <form method="POST">
+        <form method="POST" action="">
             <label>
                 <input type="text" name="name" placeholder="Имя" class="auth_control" value="">
             </label>

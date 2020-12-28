@@ -108,6 +108,8 @@ Route::group([
     Route::get('test-sms', 'MainController@sms')->name('sms');
 });
 
+/*Route::post()*/
+
 Route::post('/profile/avatar', 'ProfileController@avatarStore')->name('avatarStore');
 
 Route::get('/cat', 'RemonlineController@uploadCategories')->name('uploadCategories');
