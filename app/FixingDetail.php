@@ -10,7 +10,7 @@ use Spatie\Searchable\Searchable;
 class FixingDetail extends Model implements Searchable
 {
     use Translatable;
-    protected $translatable = ['name'];
+    protected $translatable = ['name', 'fixing_time'];
 
     public $searchableType = 'Ремонт';
 
