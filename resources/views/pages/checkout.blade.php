@@ -15,21 +15,21 @@
                 @if (!Auth::check())
 
                     <div class="small-title text-center my-4 hide-for-mobile">
-                        Авторизуйтесь для совершения заказа
+                        {{__("Log in to place an order")}}
                     </div>
                     <div class="row justify-content-center hide-for-mobile">
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                            <button class="enter-via-facebook">Войти через Facebook</button>
+                            <button class="enter-via-facebook">{{__("Login with")}} Facebook</button>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                            <button class="enter-via-gmail">Войти через Google</button>
+                            <button class="enter-via-gmail">{{__("Login with")}} Google</button>
                         </div>
                     </div>
                     <div class="row  my-5">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 buy-with-registration p-5">
-                            <div class="small-title mb-4">войдите в аккаунт</div>
-                            <button class="enter-via-facebook show-for-mobile">Войти через Facebook</button>
-                            <button class="enter-via-gmail show-for-mobile">Войти через Google</button>
+                            <div class="small-title mb-4">{{__("log into your account")}} </div>
+                            <button class="enter-via-facebook show-for-mobile">{{__("Login with")}} Facebook</button>
+                            <button class="enter-via-gmail show-for-mobile">{{__("Login with")}} Google</button>
                             <form method="POST" class="order-login">
                                 @csrf
                                 @if ($errors->has('email'))
@@ -40,15 +40,15 @@
                                     <span class="error">{{ $errors->first('password') }}</span>
                                 @endif
                                 <input type="password" placeholder="Пароль" name="password">
-                                <p class="my-3">Я забыл пароль! <a href="#"> Восстановить его скорее</a></p>
-                                <p class="my-3">Нет аккаунта? <a href="#"> Зарегистрироваться</a></p>
+                                <p class="my-3">{{__("I forgot password!")}} <a href="#">{{__("Rebuild it soon")}} </a></p>
+                                <p class="my-3"> {{__("Don't have an account?")}}<a href="#"> {{__("Register now")}}</a></p>
                                 <button type="submit" class="default-button mt-4 order-login-btn">
-                                    войти
+                                    {{__("Login")}}
                                 </button>
                             </form>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 buy-without-registration p-5">
-                            <div class="small-title mb-4">купите без регистрации</div>
+                            <div class="small-title mb-4">{{__("buy without registration")}} </div>
                             <form action="{{route('regOnlyEmail')}}" method="POST" class="order-no-registration">
                                 @csrf
                                 @if ($errors->has('email'))
@@ -56,16 +56,15 @@
                                 @endif
                                 <input type="email" placeholder="{{__('Email')}}" name="email" name="email">
 
-                                <p class="my-3">Сможете зарегистрироваться и после
-                                    совершения покупки.</p>
+                                <p class="my-3">{{__("You will be able to register after making a purchase.")}}</p>
                                 <button type="submit" class="default-button mt-4">
-                                    войти
+                                    {{__("Login")}}
                                 </button>
                             </form>
                         </div>
                     </div>
                 @endif
-                <div class="small-title text-center mb-4">ДОСТАВКА</div>
+                <div class="small-title text-center mb-4">{{__("delivery")}} </div>
                 <div class="delivery-tabs">
                     <div class="row delivery-blocks">
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 active">

@@ -1,14 +1,14 @@
 @section('pageClass', 'active-cart')
 <div class="container" id="cart">
     <div class="small-title">
-        КОРЗИНА (продуктов @{{productQuantity}} )
+        {{__("BASKET")}} ({{__("products")}} @{{productQuantity}} )
     </div>
     <div class="row justify-content-end">
         <div @click="clearCart" class="clean-cart">
                 <span>
                     <img src="{{asset('assets/img/cart/Vector.svg')}}" alt="icon">
                 </span>
-            Очистить корзину
+            {{__("Empty trash")}}
         </div>
         <div class="col-xl-12">
             <div v-for="myProduct in orderProducts" :key="myProduct.id"
@@ -20,7 +20,7 @@
                 <div class="cart-changing">
                     <div>@{{myProduct.name}}
                         <div><a href="#" @click="removeFromCart(myProduct.id)"
-                                class="remove-cart-item remove-cart-item-pc">Удалить</a></div>
+                                class="remove-cart-item remove-cart-item-pc">{{__("Remove")}}</a></div>
                     </div>
                     <div class="quantity-drop quantity-selection-drop-down">
                         <div class="quantity-view-wrapper align-items-center d-flex">
@@ -75,7 +75,7 @@
         <div class="col-xl-12 text-center">
             <a href="{{route('checkout')}}">
                 <button type="submit" class="submit-form default-button">
-                    ОФОРМИТЬ ЗАКАЗ
+                    {{__("CHECKOUT")}}
                 </button>
             </a>
         </div>

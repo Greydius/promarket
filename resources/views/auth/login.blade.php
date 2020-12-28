@@ -8,7 +8,7 @@
           {{ Breadcrumbs::render('auth') }}
         <div class="login-content">
           <h1 class="main-title">
-            Войти в систему
+            {{__("Sign in")}}
           </h1>
           @if(session('success'))
             <h4>
@@ -23,7 +23,7 @@
                   <a class="btn btn-link {{ $provider }}-auth outer-service-auth" href="{{ route('social.login', ['provider' => $provider]) }}">
                   <img src="{{ asset('assets/img/common/') }}/{{$provider}}_login.svg" alt="">
                 <span>
-                Войти через {{ ucwords($provider)}}
+                {{__("Login with")}} {{ ucwords($provider)}}
               </span></a>
               @endforeach
             </div>
@@ -51,13 +51,13 @@
               <div class="forgot-password">
                  @if (Route::has('password.request'))
                         <a class="btn btn-link" href="{{ route('password.request') }}">
-                           Я забыл пароль! <span class="underlined"> Восстановить его скорее</span>
+                           {{__("I forgot password!")}} <span class="underlined">{{__("Rebuild it soon")}} </span>
                         </a>
                 @endif
               </div>
               <div class="account-registration">
                 <a href="{{ route('register') }}">
-                  Нет аккаунт? <span class="underlined"> Зарегистрироваться</span>
+                   {{__("Don't have an account?")}} <span class="underlined">{{__("Register now")}}</span>
                 </a>
               </div>
             </div>
