@@ -45,7 +45,7 @@
                                                 <div class="mt-2">
                                                     <strong>{{__("Price with work")}} : </strong>
                                                     <span class="commodity-card-price">
-                                                         € {{$detail->price}}
+                                                         € {{$detail->cheapest()}} € @if($detail->cheapest() != $detail->mostExpensive()) - {{$detail->mostExpensive()}} € @endif
                                                     </span>
                                                 </div>
                                             @endif
