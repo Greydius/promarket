@@ -15,11 +15,10 @@
     <!-- Place favicon.ico in the root directory -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/selectric.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#fafafa">
 </head>
@@ -369,9 +368,13 @@
     Товар был успешно добавлен в корзину
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/overhang@1.0.8/dist/overhang.min.js"></script>
 <script src="{{ asset('assets/js/selectric.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}"></script>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
