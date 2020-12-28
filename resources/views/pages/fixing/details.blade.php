@@ -25,18 +25,19 @@
                                      data-color="{{$detail->detailColors[0]->name}}"
                                     @endif
                                 >
-                                    <h1 class="main-title title-for-mobile">{{$detail->name}} {{$detail->manufacturerModel->name}}</h1>
+
+                                    <div class="main-title title-for-mobile">{{$detail->getTranslatedAttribute('name', app()->getLocale(), 'lv')}} {{$detail->manufacturerModel->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}</div>
 
                                     <div class="row top-card">
                                         <div class="col-lg-4 col-md-4 col-sm-5">
                                             <img src="{{$detail->products[0]->img}}" alt="" class="img-for-pc">
                                         </div>
                                         <div class="col-lg-8 col-md-7 col-sm-7">
-                                            <h1 class="main-title title-for-pc">{{$detail->name}} {{$detail->manufacturerModel->name}} </h1>
-                                            <h1 class="main-title title-for-tablet">{{$detail->name}} {{$detail->manufacturerModel->name}}</h1>
-                                            <div>{{__("repairs")}} {{$detail->manufacturerModel->name}} (A2221) {{__("in our workshop it is")}}:</div>
+                                            <div class="main-title title-for-pc">{{$detail->getTranslatedAttribute('name', app()->getLocale(), 'lv')}} {{$detail->manufacturerModel->getTranslatedAttribute('name', app()->getLocale(), 'lv')}} </div>
+                                            <div class="main-title title-for-tablet">{{$detail->getTranslatedAttribute('name', app()->getLocale(), 'lv')}} {{$detail->manufacturerModel->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}</div>
+                                            <div>{{__("repairs")}} {{$detail->manufacturerModel->getTranslatedAttribute('name', app()->getLocale(), 'lv')}} {{__("in our workshop it is")}}:</div>
                                             <div class="repair-list">
-                                                {!! $detail->descirption !!}
+                                                {!! $detail->manufacturerModel->getTranslatedAttribute('descirption', app()->getLocale(), 'lv') !!}
                                             </div>
                                             <div class="description-for-pc"><strong>{{__("Repair time")}} :</strong> {{$detail->fixing_time}}</div>
 
@@ -74,7 +75,8 @@
                                                                 class="fixing-category-card color-changing-card">
                                                                 <div class="color-to-choose"
                                                                      style="background: {{$detailColor->color->color_code}}"></div>
-                                                                <span>{{$detailColor->color->name}}</span>
+
+                                                                <span>{{$detailColor->color->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}</span>
                                                             </div>
                                                         </div>
                                                     @endif
@@ -121,13 +123,13 @@
                                                     {{__("reservation")}}
                                                 </h3>
                                                 <label>
-                                                <span class="errormessage"></span>    
+                                                <span class="errormessage"></span>
                                                 <input type="text" placeholder="{{__('First Name, Last Name')}}"
                                                            class="form-control"
                                                            name="name">
                                                 </label>
                                                 <label>
-                                                <span class="errormessage"></span>    
+                                                <span class="errormessage"></span>
                                                 <input type="text" placeholder="{{__('E-mail address')}}"
                                                            class="form-control"
                                                            name="email">
