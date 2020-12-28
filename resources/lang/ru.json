@@ -70,8 +70,8 @@
 	"Log out" : "Выйти из системы",
 	"Date" : "Дата",
 	"Order number" : "Номер заказа",
-	"amount" : "Сумма", 
-	"total price" : "Сумма", 
+	"amount" : "Сумма",
+	"total price" : "Сумма",
 	"Order status" : "Статус заказа",
 	"Change Password" : "замена пароля",
 	"Change Password2" : "Изменить пароль",
@@ -138,5 +138,5 @@
  	"Empty trash" : "Очистить корзину",
  	"Remove" : "Удалить",
  	"Refresh" : "Обновить",
- 	"To order" "Заказать"
+ 	"To order": "Заказать"
  }
