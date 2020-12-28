@@ -180,7 +180,7 @@ class OrderController extends Controller
             $request->session()->forget('orderId');
             session()->flash('success','Ваш заказ принят в обработку!');
             // dd('asdas');
-            return redirect()->route('thanks-page');
+            return redirect()->to('/thanks')->with('order',$order);
         }else{
             session()->flash('error','Случилос ошибка!');
         }

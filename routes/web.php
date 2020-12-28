@@ -104,7 +104,11 @@ Route::group([
     Route::get('/all-categories', 'MainController@getCategories')->name('lang-change');
 
     Route::get('/thanks', 'MainController@thanks')->name('thanks-page');
+
+    Route::get('test-sms', 'MainController@sms')->name('sms');
 });
+
+/*Route::post()*/
 
 Route::post('/profile/avatar', 'ProfileController@avatarStore')->name('avatarStore');
 

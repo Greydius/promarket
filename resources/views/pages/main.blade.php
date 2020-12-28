@@ -58,7 +58,7 @@
             class="commodity commodity-slider commodity-slider-{{$loop->index + 1}} commodity-{{$loop->index + 1}}">
             <div class="container">
                 <h3 class="small-title">
-                    ТОПОВЫЕ {{$category->name}}
+                    {{__("Top")}} {{$category->name}}
                 </h3>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
