@@ -13,7 +13,7 @@
     $product->subCategory[0]->code,
     $product->code
 ])}}" class="commodity-card-title">
-            {{$product->getTranslatedAttribute('name', app()->getLocale(), 'fallbackLocale')}}
+            {{$product->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
         </a>
         <div class="commodity-card-parameter">
             @include('components.common.in-stock', ['quantity' => $product->quantity])
@@ -78,7 +78,7 @@
                 @else
                     <button type="button"
                             class="default-button js-order-button">
-                        Заказать
+                        {{__("To order")}}
                     </button>
                 @endif
             </div>
