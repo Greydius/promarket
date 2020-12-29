@@ -139,4 +139,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/empty-products','MainController@gravy');
     Route::get('/orders-handle', 'MainController@OrderHandle');
     Route::get('/orders-payment', 'MainController@OrderPayment');
+    Route::get('/fixing-orders-handle', 'MainController@FixingOrderHandle');
+    Route::get('/fixing-orders-payment', 'MainController@FixingOrderPayment');
 });

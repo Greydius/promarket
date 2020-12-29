@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\FixingOrder;
 use App\Order;
 use Illuminate\Support\Facades\Http;
 use Spatie\Searchable\Search;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Softon\Sms\Facades\Sms; 
+use Softon\Sms\Facades\Sms;
 use App\FixingDetail;
 use App\Category;
 use App\SubCategory;
@@ -137,6 +138,18 @@ class MainController extends Controller
         return view('vendor.voyager.Orders.gravypayment', compact('orders'));
     }
 
+    public function FixingOrderHandle()
+    {
+        $orders = FixingOrder::where('order_status_id', 1)->get();
+        return view('vendor.voyager.FixingOrders.gravy', compact('orders'));
+    }
+
+    public function FixingOrderPayment()
+    {
+        $orders = FixingOrder::where('order_status_id', 2)->get();
+        return view('vendor.voyager.FixingOrders.gravypayment', compact('orders'));
+    }
+
     public function thanks()
     {
         return view('emails.thanks');
@@ -144,7 +157,7 @@ class MainController extends Controller
 
     public function sms()
     {
-        $sms = Sms::gateway('nexmo')->send('946950561','sms.test',['from'=>'Promarket.lv']); 
+        $sms = Sms::gateway('nexmo')->send('946950561','sms.test',['from'=>'Promarket.lv']);
         dd($sms);
     }
 
