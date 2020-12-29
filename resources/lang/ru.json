@@ -151,5 +151,21 @@
  	"Warranty" : "Гарантии",
  	"Replacing components" : "Замена компонентов",
  	"in our workshop it is" : "в нашей мастерской это",
- 	"This field is required" : "Это поле обязательно для заполнения"
+ 	"This field is required" : "Это поле обязательно для заполнения",
+ 	"Please enter a valid email address." : "Пожалуйста, введите действительный адрес электронной почты.",
+ 	"Please enter at least characters" : "Введите не менее символов",
+ 	"Please enter a value greater than or equal to" : "Введите значение больше или равное",
+ 	"Password" : "Пароль",
+ 	"The password again" : "Пароль ещё раз",
+ 	"New password" : "Новый пароль",
+ 	"THANKS FOR YOUR APPLICATION!" : "СПАСИБО ЗА ВАШУ ЗАЯВКУ!",
+ 	"The item has been successfully added to the cart" : "Товар был успешно добавлен в корзину",
+ 	"let me know when this product will be available" : "сообщите мне, когда этот продукт будет доступен",
+ 	"RESULTS WERE FOUND FOR THE REQUEST" : "ПО ЗАПРОСУ ':attribute' БЫЛО НАЙДЕНО :count РЕЗУЛЬТАТА",
+ 	"of" : "из",
+ 	"Filters" : "Фильтры",
+ 	"Pick up from the service center at Ģertrūdes 77. The goods are ready to receive." : "Забрать из сервис центра на :center. Товар к получению готов.",
+ 	"Pick up from the selected parcel machine We will deliver to the parcel machine within 1 business day." : "Забрать в выбранном почтомате Доставим в почтомат в течение 1 р.д.",
+ 	"Deliver to the specified address. We will deliver within 1 r. etc." : "Доставить по указанному адресу. Доставим в течение 1 р. д.",
+ 	"Is free" : "Бесплатно"
  }

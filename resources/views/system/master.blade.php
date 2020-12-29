@@ -298,9 +298,9 @@
                 <ul>
                     @foreach($categories as $category)
                         @if($category->is_popular == 1)
-                    <li><a href="{{route('shop-main-cat',['category' => $category->code])}}">
-                            {{$category->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
-                        </a></li>
+                            <li><a href="{{route('shop-main-cat',['category' => $category->code])}}">
+                                    {{$category->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
+                                </a></li>
                         @endif
                     @endforeach
                 </ul>
@@ -352,14 +352,14 @@
 <div class="modal order-modal">
     <div class="order-modal-wrapper">
         <h3 class="small-title modal-title">
-            сообщите мне, когда этот продукт будет доступен
+            {{__("let me know when this product will be available")}}
         </h3>
         <form method="POST" action="">
             <label>
-                <input type="text" name="name" placeholder="Имя" class="auth_control" value="">
+                <input type="text" name="name" placeholder="{{__('First Name')}}" class="auth_control" value="">
             </label>
             <label>
-                <input type="email" name="email" placeholder="Электронная почта" class="auth_control" value="">
+                <input type="email" name="email" placeholder="{{__('Email')}}" class="auth_control" value="">
             </label>
             <button class="default-button">
                 OK
@@ -368,7 +368,7 @@
     </div>
 </div>
 <div id="added_good" style="display: none;">
-    Товар был успешно добавлен в корзину
+    {{__("The item has been successfully added to the cart")}}
 </div>
 <form id="hello" action="" method="post" style="display:none;" class="fancybox-content">
         <h2 class="mb-3">
@@ -392,12 +392,14 @@
 
 
 
-<div>
-    <h3 class="small-title modal-title">
-        Спасибо за вашу заявку!
-    </h3>
-    <div>
-
+<div class="modal inquiry-modal">
+    <div class="inquiry-modal-wrapper">
+        <h3 class="small-title modal-title">
+            {{__("THANKS FOR YOUR APPLICATION!")}}
+        </h3>
+        <div>
+            Совсем скоро наш менеджер проверит вашу заявку и отправит вам счет фактуру!
+        </div>
     </div>
 </div>
 
