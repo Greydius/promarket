@@ -156,5 +156,8 @@
 	"Please enter a value greater than or equal to" : "Please enter a value greater than or equal to",
 	"Password" : "Password",
 	"The password again" : "The password again",
-	"New password" : "New password"
+	"New password" : "New password",
+	"THANKS FOR YOUR APPLICATION!" : "THANKS FOR YOUR APPLICATION!",
+	"The item has been successfully added to the cart" : "The item has been successfully added to the cart",
+	"let me know when this product will be available" : "let me know when this product will be available"
 }  

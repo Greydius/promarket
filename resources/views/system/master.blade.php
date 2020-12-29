@@ -352,7 +352,7 @@
 <div class="modal order-modal">
     <div class="order-modal-wrapper">
         <h3 class="small-title modal-title">
-            сообщите мне, когда этот продукт будет доступен
+            {{__("let me know when this product will be available")}}
         </h3>
         <form method="POST" action="">
             <label>
@@ -368,12 +368,12 @@
     </div>
 </div>
 <div id="added_good" style="display: none;">
-    Товар был успешно добавлен в корзину
+    {{__("The item has been successfully added to the cart")}}
 </div>
 
 <div>
     <h3 class="small-title modal-title">
-        Спасибо за вашу заявку!
+        {{__("THANKS FOR YOUR APPLICATION!")}}
     </h3>
     <div>
 
