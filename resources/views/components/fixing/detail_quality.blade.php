@@ -3,7 +3,7 @@
         <div class="col-lg-4 col-md-4">
             <div
                 data-cost="{{$quality->price_with_installation}}"
-                data-id="{{$detail->id}}"
+                data-id="{{$quality->id}}"
                 class="commodity-default-card commodity-default-card-short">
                 <div class="commodity-card-body">
                     <h4 class="commodity-card-title">

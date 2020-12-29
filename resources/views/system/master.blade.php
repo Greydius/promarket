@@ -298,9 +298,9 @@
                 <ul>
                     @foreach($categories as $category)
                         @if($category->is_popular == 1)
-                    <li><a href="{{route('shop-main-cat',['category' => $category->code])}}">
-                            {{$category->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
-                        </a></li>
+                            <li><a href="{{route('shop-main-cat',['category' => $category->code])}}">
+                                    {{$category->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
+                                </a></li>
                         @endif
                     @endforeach
                 </ul>
@@ -371,12 +371,14 @@
     Товар был успешно добавлен в корзину
 </div>
 
-<div>
-    <h3 class="small-title modal-title">
-        Спасибо за вашу заявку!
-    </h3>
-    <div>
-
+<div class="modal inquiry-modal">
+    <div class="inquiry-modal-wrapper">
+        <h3 class="small-title modal-title">
+            Спасибо за вашу заявку!
+        </h3>
+        <div>
+            Совсем скоро наш менеджер проверит вашу заявку и отправит вам счет фактуру!
+        </div>
     </div>
 </div>
 

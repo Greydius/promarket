@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\DetailColor;
 use App\DetailQuality;
 use App\FixingDetail;
+use App\FixingOrder;
 use App\FixingType;
 use App\Manufacturer;
 use App\ManufacturerModel;
+use App\Product;
 use App\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\FixingMailInfoToClient;
 use App\Mail\FixingMailInfoToManager;
@@ -79,14 +82,55 @@ class FixingController extends Controller
     public function fixingDetailOrderRequest(Request $request)
     {
         $details = json_decode($request->details);
+        $requestedDetailsRow = [];
         foreach ($details as $detail) {
             $detailObject = FixingDetail::find($detail->id);
+            array_push($requestedDetailsRow, $detail->id);
             $detail->name = $detailObject->manufacturerModel->name . ' ' . $detailObject->name;
         }
         $request_details = $request;
         $request_details['clientOrder'] = $details;
+
+
+        $products = Product::find($requestedDetailsRow);
+
+        $totalPrice = 0;
+
+        foreach ($products as $product) {
+            $totalPrice += $product->price_with_installation;
+        }
+
+        $newFixingOrder = new FixingOrder();
+
+        $newFixingOrder->branch_name = $request_details->address;
+
+        $newFixingOrder->name = $request_details->name;
+
+        $newFixingOrder->email = $request_details->email;
+
+        $newFixingOrder->phone = $request_details->tel;
+
+        $newFixingOrder->comment = $request_details->comment;
+
+        $newFixingOrder->date = $request_details->date;
+
+        $newFixingOrder->time = $request_details->time;
+
+        $newFixingOrder->total_amount = $totalPrice;
+
+        $newFixingOrder->order_status_id = '1';
+
+        if(Auth::check()) {
+            $newFixingOrder->user_id = Auth::user()->id;
+        }
+
+        $newFixingOrder->save();
+
+        $newFixingOrder->products()->attach($requestedDetailsRow);
+
         Mail::to('m1ckey94@yandex.ru')->send(new FixingMailInfoToManager($request_details));
-        Mail::to('m1ckey94@yandex.ru')->send(new FixingMailInfoToClient($request_details));
+
+        Mail::to($newFixingOrder->email)->send(new FixingMailInfoToClient($request_details));
 
         return $request_details;
     }

@@ -9894,7 +9894,7 @@ tabss(authorizationTabs,authorizationTabsContent);*/
 
 
 flatpickr(".datepicker", {
-    dateFormat: "d/m/Y",
+    dateFormat: "Y-m-d",
     minDate: new Date(Date.now() + 24 * 60 * 60 * 1000),
 });
 flatpickr(".timepicker", {
@@ -10055,23 +10055,37 @@ $('.reservation-form').validate({
         let formData = new FormData(form);
         let allDetails = document.querySelectorAll('.detail-block-wrapper');
         let detailsArray = [];
+
         Array.from(allDetails).forEach(detail => {
             let detailData = {}
+
             if (detail.hasAttribute('data-color')) {
                 detailData.color = detail.getAttribute('data-color');
             }
+
             detailData.price = detail.getAttribute('data-cost');
+
             detailData.id = detail.getAttribute('data-id');
+
             detailsArray.push(detailData);
         })
+
         formData.append('details', JSON.stringify(detailsArray));
 
         axios
             .post(form.getAttribute('data-url'), formData)
             .then(response => {
-                console.log(response);
+                console.log(response)
+                $.fancybox.open({
+                    src: `.inquiry-modal`,
+                    type: 'inline',
+                });
+                setTimeout(() => {
+                    document.location.href="/";
+                }, 5000);
             })
             .catch(error => {
+                console.log(error);
                 alert('We have some issues with the server, please return later')
             })
 
