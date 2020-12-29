@@ -198,7 +198,7 @@ class RemonlineController extends Controller
 
     private function createUpperCategory($upperCategory)
     {
-        $fixingType = FixingType::where('remonlie_title', $upperCategory['title'])->first();
+        $fixingType = FixingType::where('remonlie_id', $upperCategory['id'])->first();
         if ($fixingType == null) {
             $newFixingType = new FixingType();
             $newFixingType->code = Str::slug($upperCategory['title'], '_');
@@ -210,7 +210,7 @@ class RemonlineController extends Controller
             $newFixingType->title = $upperCategory['title'];
             $newFixingType->description = $upperCategory['title'];
             $newFixingType->background_image = $upperCategory['title'];
-            $newFixingType->remonlie_title = $upperCategory['title'];
+            $newFixingType->remonlie_id = $upperCategory['id'];
             $newFixingType->save();
             return $newFixingType;
         }
@@ -225,7 +225,7 @@ class RemonlineController extends Controller
             return $category['id'] == $productCategoryId;
         }));
 
-        $manufacturer = Manufacturer::where('remonline_title', $productCategory['title'])->first();
+        $manufacturer = Manufacturer::where('remonline_id', Str::slug($upperCategory->name.$productCategory['title']))->first();
 
         if ($manufacturer == null) {
 
@@ -235,7 +235,7 @@ class RemonlineController extends Controller
             $newManufacturer->code = Str::slug($productCategory['title'], '_');
             $newManufacturer->title = $productCategory['title'];
             $newManufacturer->fixing_type_id = $upperCategory->id;
-            $newManufacturer->remonline_title = $productCategory['title'];
+            $newManufacturer->remonline_id = Str::slug($upperCategory->name.$productCategory['title']);
             $newManufacturer->save();
 
             return $newManufacturer;
@@ -281,11 +281,11 @@ class RemonlineController extends Controller
         }));
 
 
-        $fixingDetail = FixingDetail::where('remonline_title', Str::slug($manufacturerModel->name . $productCategoryForCommodity['title']))->first();
+        $fixingDetail = FixingDetail::where('remonline_id', $productCategoryForCommodity['id'])->first();
 
         if ($fixingDetail == null) {
             $newFixingDetail = new FixingDetail();
-            $newFixingDetail->remonline_title = Str::slug($manufacturerModel->name . $productCategoryForCommodity['title']);
+            $newFixingDetail->remonline_id = $productCategoryForCommodity['id'];
             $newFixingDetail->name = $productCategoryForCommodity['title'];
             $newFixingDetail->code = Str::slug($manufacturerModel->name . $productCategoryForCommodity['title']);
             $newFixingDetail->breadcrumb_name = $productCategoryForCommodity['title'];
@@ -334,7 +334,7 @@ class RemonlineController extends Controller
         $categories = SubCategory::get();
         $colors = Color::get();
         $qualities = Quality::get();
-        $productDB = Product::where('remonline_title', $product['title'])->first();
+        $productDB = Product::where('remonline_id', $product['id'])->first();
         $subCategory = $this->findSubCategory($product, $categories, $allCategories);
         if ($subCategory == null) {
             dump('not fixed');
@@ -383,7 +383,7 @@ class RemonlineController extends Controller
             $newProd->installation_description = $product['description'];
             $newProd->manufacturer = $manufacturer;
             $newProd->img = $product['image'];
-            $newProd->remonline_title = $product['title'];
+            $newProd->remonline_id = $product['id'];
             if ($fixingModel != null) {
                 $newProd->fixing_detail_id = $fixingModel->id;
             }

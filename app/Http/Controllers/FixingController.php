@@ -32,7 +32,8 @@ class FixingController extends Controller
 
     public function fixingBrand($type, $brand)
     {
-        $manufacturer = Manufacturer::where('code', $brand)->with('translations')->first();
+        $fixingType = FixingType::where('code', $type)->with('translations')->first();
+        $manufacturer = Manufacturer::where([['code', '=', $brand], ['fixing_type_id', '=', $fixingType->id]])->with('translations')->first();
         return view('pages.fixing.fixing-inner-brand', compact('manufacturer'));
     }
 
@@ -40,7 +41,6 @@ class FixingController extends Controller
     {
         $model = ManufacturerModel::where('code', $modelName)->with('translations')->first();
         $accessories = ManufacturerModel::where('model_name',$model->model_name)->get();
-        // dd($accessories);
         return view('pages.fixing.model', compact('model'));
     }
 
