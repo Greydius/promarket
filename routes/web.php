@@ -106,9 +106,12 @@ Route::group([
     Route::get('/thanks', 'MainController@thanks')->name('thanks-page');
 
     Route::get('test-sms', 'MainController@sms')->name('sms');
+
+
 });
 
 /*Route::post()*/
+Route::get('/{locale}/detail/{detailId}/{colorId}', 'FixingController@fixingDetailOrderColor')->name('get-detail-qualities');
 
 Route::post('/profile/avatar', 'ProfileController@avatarStore')->name('avatarStore');
 
@@ -128,7 +131,7 @@ Route::post('/detail/quality', 'FixingController@createQualityForCommodity')->na
 
 Route::delete('/detail/quality', 'FixingController@deleteQualityForCommodity')->name('delete-detail-quality');
 
-Route::get('/detail/{detailId}/{colorId}', 'FixingController@fixingDetailOrderColor')->name('get-detail-qualities');
+
 
 
 Route::group(['prefix' => 'admin'], function () {
@@ -136,4 +139,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/empty-products','MainController@gravy');
     Route::get('/orders-handle', 'MainController@OrderHandle');
     Route::get('/orders-payment', 'MainController@OrderPayment');
+    Route::get('/fixing-orders-handle', 'MainController@FixingOrderHandle');
+    Route::get('/fixing-orders-payment', 'MainController@FixingOrderPayment');
 });

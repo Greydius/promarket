@@ -26,6 +26,7 @@
                             {{__("Select your device manufacturer")}}
                         </h3>
                         <div class="row fixing-company-card-row">
+
                             @foreach($fixingType->manufacturers as $manufacturer)
                                 @include('components.fixing.manufacturer-card', $manufacturer)
                             @endforeach
