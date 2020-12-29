@@ -106,6 +106,8 @@ Route::group([
     Route::get('/thanks', 'MainController@thanks')->name('thanks-page');
 
     Route::get('test-sms', 'MainController@sms')->name('sms');
+
+    Route::get('/detail/{detailId}/{colorId}', 'FixingController@fixingDetailOrderColor')->name('get-detail-qualities');
 });
 
 /*Route::post()*/
@@ -128,7 +130,7 @@ Route::post('/detail/quality', 'FixingController@createQualityForCommodity')->na
 
 Route::delete('/detail/quality', 'FixingController@deleteQualityForCommodity')->name('delete-detail-quality');
 
-Route::get('/detail/{detailId}/{colorId}', 'FixingController@fixingDetailOrderColor')->name('get-detail-qualities');
+
 
 
 Route::group(['prefix' => 'admin'], function () {
