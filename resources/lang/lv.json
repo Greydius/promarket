@@ -159,5 +159,6 @@
 	"New password" : "Jauna parole",
 	"THANKS FOR YOUR APPLICATION!" : "PALDIES PAR JŪSU PIETEIKUMU!",
 	"The item has been successfully added to the cart" : "Prece tika veiksmīgi pievienota grozam",
-	"let me know when this product will be available" : "dariet man zināmu, kad šis produkts būs pieejams"
+	"let me know when this product will be available" : "dariet man zināmu, kad šis produkts būs pieejams",
+	"RESULTS WERE FOUND FOR THE REQUEST" : "Tika atrasti :count REZULTĀTI PIETEIKUMAM ':attribute'"
 } 

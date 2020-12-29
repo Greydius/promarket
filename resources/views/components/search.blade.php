@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <h3 class="small-title">
-                        по запросу '{{ request('query') }}' было найдено {{ $results->count() }} результата
+                       {{__("RESULTS WERE FOUND FOR THE REQUEST", ['attribute' => request('query'),'count' => $results->total()])}}
                     </h3>
                     <div id="sort">
                         <div class="row additional-commodities-wrapper">

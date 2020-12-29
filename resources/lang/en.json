@@ -159,5 +159,6 @@
 	"New password" : "New password",
 	"THANKS FOR YOUR APPLICATION!" : "THANKS FOR YOUR APPLICATION!",
 	"The item has been successfully added to the cart" : "The item has been successfully added to the cart",
-	"let me know when this product will be available" : "let me know when this product will be available"
+	"let me know when this product will be available" : "let me know when this product will be available",
+	"RESULTS WERE FOUND FOR THE REQUEST" : ":count RESULTS WERE FOUND FOR THE REQUEST ':attribute'"
 }  

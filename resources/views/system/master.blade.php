@@ -356,10 +356,10 @@
         </h3>
         <form method="POST" action="">
             <label>
-                <input type="text" name="name" placeholder="Имя" class="auth_control" value="">
+                <input type="text" name="name" placeholder="{{__('First Name')}}" class="auth_control" value="">
             </label>
             <label>
-                <input type="email" name="email" placeholder="Электронная почта" class="auth_control" value="">
+                <input type="email" name="email" placeholder="{{__('Email')}}" class="auth_control" value="">
             </label>
             <button class="default-button">
                 OK
