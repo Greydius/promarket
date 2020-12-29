@@ -153,5 +153,8 @@
 	"This field is required" : "Šis lauks ir obligāts",
 	"Please enter a valid email address." : "Lūdzu ievadiet derīgu e-pasta adresi.",
 	"Please enter at least characters" : "Lūdzu, ievadiet vismaz rakstzīmes",
-	"Please enter a value greater than or equal to" : "Lūdzu, ievadiet vērtību, kas lielāka vai vienāda ar"
+	"Please enter a value greater than or equal to" : "Lūdzu, ievadiet vērtību, kas lielāka vai vienāda ar",
+	"Password" : "Parole",
+	"The password again" : "Parole vēlreiz",
+	"New password" : "Jauna parole"
 } 

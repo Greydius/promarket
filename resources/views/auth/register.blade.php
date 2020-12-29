@@ -19,10 +19,10 @@
                             <input class="auth_control" placeholder="{{__('Email')}}" type="email" name="email" value="{{ old('email') }}" >
                         </label>
                         <label class="form-group">
-                            <input class="auth_control" placeholder="Пароль" type="password" name="password" minlength="8" >
+                            <input class="auth_control" placeholder="{{__('Password')}}" type="password" name="password" minlength="8" >
                         </label>
                         <label class="form-group">
-                            <input class="auth_control" placeholder="Пароль ещё раз" id="password" type="password"  name="password_confirmation" minlength="8" >
+                            <input class="auth_control" placeholder="{{__('The password again')}}" id="password" type="password"  name="password_confirmation" minlength="8" >
                         </label>
                         <div class="auth-checkboxes-wrapper">
 

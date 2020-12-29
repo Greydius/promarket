@@ -42,7 +42,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-              <input class="auth_control" placeholder="Пароль" type="password" name="password">
+              <input class="auth_control" placeholder="{{__('Password')}}" type="password" name="password">
             </label>
             <button type="submit" class="submit-form default-button">
               OK

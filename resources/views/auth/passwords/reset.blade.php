@@ -7,7 +7,7 @@
         <div class="bread-crumbs"></div>
         <div class="login-content">
           <h1 class="main-title">
-            Новый пароль
+             {{__("New password")}}
           </h1>
            @if(session('error'))
               <h4>
