@@ -42,7 +42,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-              <input class="auth_control" placeholder="Пароль" type="password" name="password">
+              <input class="auth_control" placeholder="{{__('Password')}}" type="password" name="password">
             </label>
             <button type="submit" class="submit-form default-button">
               OK
@@ -148,8 +148,8 @@
 $(document).ready(function(){
 
   $.extend($.validator.messages, {
-      required: "<?php __("This field is required") ?>",
-      email: "Пожалуйста, введите действительный адрес электронной почты."
+      required: "<?php echo __("This field is required"); ?>",
+      email: "<?php echo __('Please enter a valid email address.'); ?>"
 });
 
 $("form.login_form").validate({

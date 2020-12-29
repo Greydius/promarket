@@ -55,7 +55,7 @@
                                                 </clipPath>
                                             </defs>
                                         </svg>
-                                        <span>Фильтры</span>
+                                        <span>{{__("Filters")}} </span>
                                     </a>
                                     <a href="#" class="market-make-list">
                                         <svg width="24" height="24" viewBox="0 0 24 24"
@@ -72,7 +72,7 @@
                             <div class="sorting-pages d-flex justify-content-between align-items-center">
                                 <div class="sorting-pagination">
                                 <span class="muted">
-                                    {{$results->currentPage()}}-{{$results->count()}} из {{$results->total()}}
+                                     <span class="current_pagination">{{$results->currentPage()}}</span>-<span class="count_products">{{$results->count()}}</span> {{__("of")}} {{$results->total()}}
                                 </span>
                                 </div>
                                   <div class="d-flex align-items-center sorting-filter-row">
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <h3 class="small-title">
-                        по запросу '{{ request('query') }}' было найдено {{ $results->count() }} результата
+                       {{__("RESULTS WERE FOUND FOR THE REQUEST", ['attribute' => request('query'),'count' => $results->total()])}}
                     </h3>
                     <div id="sort">
                         <div class="row additional-commodities-wrapper">
@@ -127,8 +127,8 @@
             var max_price = $('input[name="max_price"]').val();
             var order = $('#order').children("option:selected").val();
             var per_page = $('#per_page').children("option:selected").val();
-            console.log(order);
-            console.log(per_page);
+            // console.log(order);
+            // console.log(per_page);
             var quantity = [];
             var device = [];
             var manufacturer = [];
@@ -170,6 +170,12 @@
                 data: data
             }).done(function (data) {
                 $('#sort').html(data);
+                 setTimeout(function(){
+                var per_page = $('#per_page').children("option:selected").val();
+                var currentPage = $('a.pagination-bullet.active span').text();
+                var countPage = per_page * currentPage;
+                $('span.count_products').text(countPage);
+            }, 1000);
             });
 
         });

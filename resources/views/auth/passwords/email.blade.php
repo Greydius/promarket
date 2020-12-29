@@ -45,8 +45,8 @@
 $(document).ready(function(){
 
   $.extend($.validator.messages, {
-      required: "<?php __("This field is required") ?>",   
-      email: "Пожалуйста, введите действительный адрес электронной почты."
+      required: "<?php echo __("This field is required") ?>",   
+      email: "<?php echo __('Please enter a valid email address.'); ?>"
 });
 
 $("form.reset_pass").validate({

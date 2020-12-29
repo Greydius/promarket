@@ -134,10 +134,10 @@ $(document).ready(function(){
  })
 
 $.extend($.validator.messages, {
-    required: "<?php __("This field is required") ?>",   
-    minlength: $.validator.format("Введите не менее {0} символов."), 
-    email: "Пожалуйста, введите действительный адрес электронной почты.",
-    min: $.validator.format("Введите значение больше или равное {0}.")
+    required: "<?php echo __("This field is required"); ?>",   
+    minlength: $.validator.format("<?php echo __('Please enter at least characters'); ?> {0}."), 
+    email: "<?php echo __('Please enter a valid email address.'); ?>",
+    min: $.validator.format("<?php echo __('Please enter a value greater than or equal to'); ?> {0}.")
 });
 
 $("form.feedback").validate({
