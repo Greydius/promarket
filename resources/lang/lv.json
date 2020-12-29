@@ -160,5 +160,11 @@
 	"THANKS FOR YOUR APPLICATION!" : "PALDIES PAR JŪSU PIETEIKUMU!",
 	"The item has been successfully added to the cart" : "Prece tika veiksmīgi pievienota grozam",
 	"let me know when this product will be available" : "dariet man zināmu, kad šis produkts būs pieejams",
-	"RESULTS WERE FOUND FOR THE REQUEST" : "Tika atrasti :count REZULTĀTI PIETEIKUMAM ':attribute'"
+	"RESULTS WERE FOUND FOR THE REQUEST" : "Tika atrasti :count REZULTĀTI PIETEIKUMAM ':attribute'",
+	"of" : "no",
+	"Filters" : "Filtri",
+	"Pick up from the service center at Ģertrūdes 77. The goods are ready to receive." : "Saņemšana no servisa centra :center. Preces ir gatavas saņemšanai.",
+	"Pick up from the selected parcel machine We will deliver to the parcel machine within 1 business day." : "Saņemšana no izvēlētā pakomāta Mēs piegādāsim pakomātu 1 darba dienas laikā.",
+	"Deliver to the specified address. We will deliver within 1 r. etc." : "Piegāde uz norādīto adresi. Mēs piegādāsim 1 r laikā. utt.",
+	"Is free" : "Par brīvu"
 } 

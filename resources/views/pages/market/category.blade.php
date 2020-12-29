@@ -48,7 +48,7 @@
                                                         </clipPath>
                                                     </defs>
                                                 </svg>
-                                                <span>Фильтры</span>
+                                                <span>{{__("Filters")}}</span>
                                             </a>
                                             <a href="#" class="market-make-list">
                                                 <svg width="24" height="24" viewBox="0 0 24 24"
@@ -66,7 +66,7 @@
                                     <div class="sorting-pages d-flex justify-content-between align-items-center">
                                         <div class="sorting-pagination">
                                     <span class="muted">
-                                        <span class="current_pagination">{{$products->currentPage()}}</span>-<span class="count_products">{{$products->count()}}</span> из {{$products->total()}}
+                                        <span class="current_pagination">{{$products->currentPage()}}</span>-<span class="count_products">{{$products->count()}}</span> {{__("of")}} {{$products->total()}}
                                     </span>
                                         </div>
                                         <div class="d-flex align-items-center sorting-filter-row">

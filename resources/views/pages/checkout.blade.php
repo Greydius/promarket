@@ -70,21 +70,17 @@
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 active">
                             <div class="delivery-block p-5">
                                 <div class="text-center">
-                                    Забрать из сервис центра
-                                    на Ģertrūdes 77.
-                                    Товар к получению готов.
+                                   {{__("Pick up from the service center at Ģertrūdes 77. The goods are ready to receive.", ['center' => "Ģertrūdes 77"])}}
                                 </div>
                                 <div class="commodity-card-price mt-3">
-                                    Бесплатно
+                                    {{__("Is free")}}
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="delivery-block p-5">
                                 <div class="text-center">
-                                    Забрать в выбранном почтомате
-                                    Доставим в почтомат
-                                    в течение 1 р.д.
+                                    {{__("Pick up from the selected parcel machine We will deliver to the parcel machine within 1 business day.")}}
                                 </div>
                                 <div class="commodity-card-price mt-3">
                                     3.95 €
@@ -94,9 +90,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="delivery-block p-5">
                                 <div class="text-center">
-                                    Доставить по
-                                    указанному адресу.
-                                    Доставим в течение 1 р. д.
+                                   {{__("Deliver to the specified address. We will deliver within 1 r. etc.")}}
                                 </div>
                                 <div class="commodity-card-price mt-3">
                                     5.99 €

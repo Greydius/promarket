@@ -160,5 +160,11 @@
 	"THANKS FOR YOUR APPLICATION!" : "THANKS FOR YOUR APPLICATION!",
 	"The item has been successfully added to the cart" : "The item has been successfully added to the cart",
 	"let me know when this product will be available" : "let me know when this product will be available",
-	"RESULTS WERE FOUND FOR THE REQUEST" : ":count RESULTS WERE FOUND FOR THE REQUEST ':attribute'"
+	"RESULTS WERE FOUND FOR THE REQUEST" : ":count RESULTS WERE FOUND FOR THE REQUEST ':attribute'",
+	"of" : "of",
+	"Filters" : "Filters",
+	"Pick up from the service center at Ģertrūdes 77. The goods are ready to receive." : "Pick up from the service center at :center. The goods are ready to receive.",
+	"Pick up from the selected parcel machine We will deliver to the parcel machine within 1 business day." : "Pick up from the selected parcel machine We will deliver to the parcel machine within 1 business day.",
+	"Deliver to the specified address. We will deliver within 1 r. etc." : "Deliver to the specified address. We will deliver within 1 r. etc.",
+	"Is free" : "Is free"
 }  
