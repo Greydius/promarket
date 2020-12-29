@@ -151,5 +151,8 @@
  	"Warranty" : "Гарантии",
  	"Replacing components" : "Замена компонентов",
  	"in our workshop it is" : "в нашей мастерской это",
- 	"This field is required" : "Это поле обязательно для заполнения"
+ 	"This field is required" : "Это поле обязательно для заполнения",
+ 	"Please enter a valid email address." : "Пожалуйста, введите действительный адрес электронной почты.",
+ 	"Please enter at least characters" : "Введите не менее символов",
+ 	"Please enter a value greater than or equal to" : "Введите значение больше или равное"
  }

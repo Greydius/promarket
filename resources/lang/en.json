@@ -150,5 +150,8 @@
 	"Warranty" : "Warranty",
 	"Replacing components" : "Replacing components",
 	"in our workshop it is" : "in our workshop it is",
-	"This field is required" : "This field is required"
+	"This field is required" : "This field is required",
+	"Please enter a valid email address." : "Please enter a valid email address.",
+	"Please enter at least characters" : "Please enter at least characters",
+	"Please enter a value greater than or equal to" : "Please enter a value greater than or equal to"
 }  

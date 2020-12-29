@@ -150,5 +150,8 @@
 	"Warranty" : "Garantija",
 	"Replacing components" : "Komponentu nomaiņa",
 	"in our workshop it is" : "mūsu darbnīcā tas ir",
-	"This field is required" : "Šis lauks ir obligāts"
+	"This field is required" : "Šis lauks ir obligāts",
+	"Please enter a valid email address." : "Lūdzu ievadiet derīgu e-pasta adresi.",
+	"Please enter at least characters" : "Lūdzu, ievadiet vismaz rakstzīmes",
+	"Please enter a value greater than or equal to" : "Lūdzu, ievadiet vērtību, kas lielāka vai vienāda ar"
 } 
