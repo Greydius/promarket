@@ -70,7 +70,7 @@
                                                     @if($detailColor->color)
                                                         <div class="col-lg-4 col-md-4 main-banner-col">
                                                             <div
-                                                                data-route="{{route('get-detail-qualities', [$detail->id, $detailColor->color->id])}}"
+                                                                data-route="{{route('get-detail-qualities', [app()->getLocale() ,$detail->id, $detailColor->color->id])}}"
                                                                 data-color-name="{{$detailColor->color->name}}"
                                                                 class="fixing-category-card color-changing-card">
                                                                 <div class="color-to-choose"

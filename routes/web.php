@@ -107,10 +107,11 @@ Route::group([
 
     Route::get('test-sms', 'MainController@sms')->name('sms');
 
-    Route::get('/detail/{detailId}/{colorId}', 'FixingController@fixingDetailOrderColor')->name('get-detail-qualities');
+
 });
 
 /*Route::post()*/
+Route::get('/{locale}/detail/{detailId}/{colorId}', 'FixingController@fixingDetailOrderColor')->name('get-detail-qualities');
 
 Route::post('/profile/avatar', 'ProfileController@avatarStore')->name('avatarStore');
 
