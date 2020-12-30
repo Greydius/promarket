@@ -172,5 +172,6 @@
 	"Company name" : "Kompānijas nosaukums",
 	"VAT payer code" : "PVN maksātāja kods",
 	"Company address" : "Kompānijas adrese",
-	"Very soon our manager will check your application and send you an invoice!" : "Ļoti drīz mūsu menedžeris pārbaudīs jūsu pieteikumu un nosūtīs jums rēķinu!"
-} 
+	"Very soon our manager will check your application and send you an invoice!" : "Ļoti drīz mūsu menedžeris pārbaudīs jūsu pieteikumu un nosūtīs jums rēķinu!",
+    "no-orders": "Jums nav aktīvu pasūtījumu"
+}
