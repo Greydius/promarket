@@ -223,7 +223,7 @@
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type"
+                                                <input type="radio" name="identification-type" class="legal_entity" 
                                                        value=" {{__('legal entity')}} ">
                                                 <span>
                                             {{__('legal entity')}}
@@ -344,7 +344,7 @@
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type"
+                                                <input type="radio" name="identification-type" class="legal_entity" 
                                                        value=" {{__('legal entity')}} ">
                                                 <span>
                                             {{__('legal entity')}}
