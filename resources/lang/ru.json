@@ -167,5 +167,11 @@
  	"Pick up from the service center at Ģertrūdes 77. The goods are ready to receive." : "Забрать из сервис центра на :center. Товар к получению готов.",
  	"Pick up from the selected parcel machine We will deliver to the parcel machine within 1 business day." : "Забрать в выбранном почтомате Доставим в почтомат в течение 1 р.д.",
  	"Deliver to the specified address. We will deliver within 1 r. etc." : "Доставить по указанному адресу. Доставим в течение 1 р. д.",
- 	"Is free" : "Бесплатно"
+ 	"Is free" : "Бесплатно",
+ 	"Company details" : "Реквизиты фирмы",
+ 	"registration code" : "Регистрационный код",
+ 	"Company name" : "Название фирмы",
+ 	"VAT payer code" : "Код НДС плательщика",
+ 	"Company address" : "Адрес фирмы",
+ 	"Very soon our manager will check your application and send you an invoice!" : "Совсем скоро наш менеджер проверит вашу заявку и отправит вам счет фактуру!"
  }

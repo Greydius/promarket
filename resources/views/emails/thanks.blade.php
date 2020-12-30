@@ -16,9 +16,9 @@
           </div>
           <div class="login-paragraph" style="text-align: center;">
               <h3>{{__("Order details")}}:</h3>
-               <p>{{__("Order number")}}}: {{$order->id}} </p>
+               <p>{{__("Order number")}} : {{$order->id}} </p>
                <p> {{__("Number of items")}}: {{count($order->products)}}</p>
-               <p> {{__("delivery")}}: {{$order->delivery}} - {{$order->delivery_address}}</p>
+               <p> {{__("delivery")}}: {{$order->delivery}}  {{$order->delivery_address}}</p>
             </div>
           <form action="/" method="GET">	
           <button type="submit" class="submit-form default-button">

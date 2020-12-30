@@ -116,7 +116,7 @@
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type"
+                                                <input type="radio" class="legal_entity" name="identification-type"
                                                        value=" {{__('legal entity')}} ">
                                                 <span>
                                             {{__('legal entity')}}
@@ -141,7 +141,25 @@
                                         </label>
                                         <textarea name="comment" id="comment" class="" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
-
+                                        <div class="for_legal_entity" style="display: none;">
+                                            <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company name')}} " name="name_company">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company address')}} " name="address_company">
+                                            </label>
+                                        </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
                                         <select class="js-selectric" name="payment_method" id="">
                                             <option value="cash">{{__("Cash")}} </option>
@@ -205,7 +223,7 @@
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type"
+                                                <input type="radio" name="identification-type" class="legal_entity" 
                                                        value=" {{__('legal entity')}} ">
                                                 <span>
                                             {{__('legal entity')}}
@@ -231,7 +249,25 @@
                                         
                                         <textarea name="comment" id="comment" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
-
+                                        <div class="for_legal_entity" style="display: none;">
+                                            <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company name')}} " name="name_company">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company address')}} " name="address_company">
+                                            </label>
+                                        </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
                                         <select class="js-selectric" name="payment_method" id="">
                                             <option value="cash">{{__("Cash")}} </option>
@@ -294,6 +330,7 @@
                                         <textarea name="comment" id="comment" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
                                     </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
@@ -307,7 +344,7 @@
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type"
+                                                <input type="radio" name="identification-type" class="legal_entity" 
                                                        value=" {{__('legal entity')}} ">
                                                 <span>
                                             {{__('legal entity')}}
@@ -332,7 +369,26 @@
                                         </label>
                                         <textarea name="comment" id="comment" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
-
+                                        
+                                          <div class="for_legal_entity" style="display: none;">
+                                            <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company name')}} " name="name_company">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company address')}} " name="address_company">
+                                            </label>
+                                        </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
                                         <select class="js-selectric" name="payment_method" id="">
                                             <option value="cash">{{__("Cash")}} </option>
@@ -389,24 +445,13 @@
                     console.log(res);
                 });
             });
-            // $('.order-no-registration button').click(function(e){
-
-            //     var data = $('form.order-no-registration').serialize();
-
-            //     e.preventDefault();
-            //     $.ajax({
-            //         type: 'POST',
-            //         url : "{{ route('regOnlyEmail') }}",
-            //         data : data
-
-            //     }).done(function(res){
-            //         console.log(res);
-            //         location.reload();
-            //     }).fail(function(res){
-            //         console.log(res);
-            //     });
-            // });
-
+            $('input[name="identification-type"]').change(function(){
+                if($('input.legal_entity').is(':checked')){
+                    $('.for_legal_entity').show();
+                }else{
+                    $('.for_legal_entity').hide();
+                }
+            });
         });
 
     </script>

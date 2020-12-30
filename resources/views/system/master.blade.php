@@ -398,7 +398,7 @@
             {{__("THANKS FOR YOUR APPLICATION!")}}
         </h3>
         <div>
-            Совсем скоро наш менеджер проверит вашу заявку и отправит вам счет фактуру!
+            {{__("Very soon our manager will check your application and send you an invoice!")}}
         </div>
     </div>
 </div>

@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendOrderToClent;
 use Illuminate\Http\Request;
 use App\Order;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
-    public function cart() {
+    public function cart()
+    {
         $orderId = session('orderId');
-        if(is_null($orderId)){
+        if (is_null($orderId)) {
             return redirect()->route('main-page');
         };
         $order = Order::find($orderId);
@@ -19,9 +22,9 @@ class OrderController extends Controller
         }
         $orderProducts = $order->products;
 
-        if (Auth::check()){
+        if (Auth::check()) {
             if (Auth::user()->identification_type == 1) {
-                foreach($orderProducts as $product) {
+                foreach ($orderProducts as $product) {
                     $product->price = $product->wholesale_price;
                 }
             }
@@ -30,25 +33,26 @@ class OrderController extends Controller
         return view('pages.cart', compact('order'));
     }
 
-    public function ckeckout() {
+    public function ckeckout()
+    {
         $orderId = session('orderId');
 
-        if(is_null($orderId)){
+        if (is_null($orderId)) {
             return redirect()->route('main-page');
         }
         $order = Order::find($orderId);
         // dd($order->getFullPrice());
         $orderProducts = $order->products;
 
-        if (Auth::check()){
+        if (Auth::check()) {
             if (Auth::user()->identification_type == 1) {
-                foreach($orderProducts as $product) {
+                foreach ($orderProducts as $product) {
                     $product->price = $product->wholesale_price;
                 }
             }
         }
 
-        return view('pages.checkout', compact('order','orderProducts'));
+        return view('pages.checkout', compact('order', 'orderProducts'));
     }
 
     public function updateProductQuantity(Request $request)
@@ -62,9 +66,9 @@ class OrderController extends Controller
         $orderRow->count = intval($quantity);
         $orderRow->update();
 
-        if (Auth::check()){
+        if (Auth::check()) {
             if (Auth::user()->identification_type == 1) {
-                foreach($order->products as $product) {
+                foreach ($order->products as $product) {
                     $product->price = $product->wholesale_price;
                 }
             }
@@ -74,23 +78,24 @@ class OrderController extends Controller
         return view('components.common.cart-commodity', compact('order'));
     }
 
-    public function addToCart(Request $request) {
+    public function addToCart(Request $request)
+    {
         $product_id = $request->product_id;
         $quantity = $request->quantity;
         $orderId = session('orderId');
-        if(is_null($orderId)){
+        if (is_null($orderId)) {
             $order = Order::create();
             session(['orderId' => $order->id]);
             $orderId = $order->id;
         } else {
             $order = Order::find($orderId);
-            if(is_null($order)){
+            if (is_null($order)) {
                 session()->forget('orderId');
                 $this->addToCart($request);
 
             }
         }
-        if($order->products->contains($product_id)){
+        if ($order->products->contains($product_id)) {
             $orderRow = $order->products()
                 ->where('product_id', $product_id)->first()->pivot;
             $orderRow->count += intval($quantity);
@@ -103,9 +108,9 @@ class OrderController extends Controller
             $orderRow->update();
         }
 
-        if (Auth::check()){
+        if (Auth::check()) {
             if (Auth::user()->identification_type == 1) {
-                foreach($order->products as $product) {
+                foreach ($order->products as $product) {
                     $product->price = $product->wholesale_price;
                 }
             }
@@ -120,7 +125,7 @@ class OrderController extends Controller
     {
         $product_id = $request->product_id;
         $orderId = session('orderId');
-        if(is_null($orderId)){
+        if (is_null($orderId)) {
             return false;
         }
         $order = Order::find($orderId);
@@ -134,7 +139,7 @@ class OrderController extends Controller
     public function removeAllProductsFromCart()
     {
         $orderId = session('orderId');
-        if(is_null($orderId)){
+        if (is_null($orderId)) {
             return false;
         }
         $order = Order::find($orderId);
@@ -153,18 +158,18 @@ class OrderController extends Controller
     public function confirmOrder(Request $request)
     {
         $orderId = session('orderId');
-        if(is_null($orderId)){
+        if (is_null($orderId)) {
             return false;
         }
         if (Auth::check()) {
             $userid = Auth::id();
-        }else{
+        } else {
             $userid = null;
         }
         $order = Order::find($orderId);
         $inputs = $request->all();
         $result = $order->update($inputs);
-        $order->fio = $inputs['name'] .' '.$inputs['firstname'];
+        $order->fio = $inputs['name'] . ' ' . $inputs['firstname'];
         $order->specification = $inputs['identification-type'];
         $order->order_status_id = '1';
 
@@ -175,26 +180,27 @@ class OrderController extends Controller
         $save = $order->save();
         // dd('sss');
         // $request_details = Order::
-        if($save){
-          \Mail::to(config('params.emails'))->send(new \App\Mail\SendOrderToClent($order));
+        if ($save) {
+            Mail::to(config('params.emails'))->send(new SendOrderToClent($order));
+            Mail::to($order->user->email)->send(new SendOrderToClent($order));
             $request->session()->forget('orderId');
-            session()->flash('success','Ваш заказ принят в обработку!');
-            // dd('asdas');
-            return redirect()->to('/thanks')->with('order',$order);
-        }else{
-            session()->flash('error','Случилос ошибка!');
+            session()->flash('success', 'Ваш заказ принят в обработку!');
+            return redirect()->to('/thanks')->with('order', $order);
+        } else {
+            session()->flash('error', 'Server has some issues, please wait sometime before resubmitting the order');
         }
 
         return redirect()->route('checkout');
     }
 
-    public function returnCartState() {
+    public function returnCartState()
+    {
         $orderId = session('orderId');
         $order = Order::find($orderId);
         $orderProducts = $order->products;
-        if (Auth::check()){
+        if (Auth::check()) {
             if (Auth::user()->identification_type == 1) {
-                foreach($orderProducts as $product) {
+                foreach ($orderProducts as $product) {
                     $product->price = $product->wholesale_price;
                 }
             }
@@ -202,7 +208,8 @@ class OrderController extends Controller
         return $order;
     }
 
-    public function returnDataFromUpdatedProductQuantity(Request $request) {
+    public function returnDataFromUpdatedProductQuantity(Request $request)
+    {
         $product_id = $request->product_id;
         $quantity = $request->quantity;
         $orderId = session('orderId');
@@ -215,9 +222,9 @@ class OrderController extends Controller
         $order = Order::find($orderId);
         $order->products;
 
-        if (Auth::check()){
+        if (Auth::check()) {
             if (Auth::user()->identification_type == 1) {
-                foreach($order->products as $product) {
+                foreach ($order->products as $product) {
                     $product->price = $product->wholesale_price;
                 }
             }
@@ -226,9 +233,10 @@ class OrderController extends Controller
         return $order;
     }
 
-    public function returnDataFromRemovedProductInOrder($product_id) {
+    public function returnDataFromRemovedProductInOrder($product_id)
+    {
         $orderId = session('orderId');
-        if(is_null($orderId)){
+        if (is_null($orderId)) {
             return false;
         }
         $order = Order::find($orderId);
@@ -236,9 +244,9 @@ class OrderController extends Controller
 
         $order = Order::find($orderId);
         $order->products;
-        if (Auth::check()){
+        if (Auth::check()) {
             if (Auth::user()->identification_type == 1) {
-                foreach($order->products as $product) {
+                foreach ($order->products as $product) {
                     $product->price = $product->wholesale_price;
                 }
             }
