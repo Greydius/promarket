@@ -173,5 +173,6 @@
  	"Company name" : "Название фирмы",
  	"VAT payer code" : "Код НДС плательщика",
  	"Company address" : "Адрес фирмы",
- 	"Very soon our manager will check your application and send you an invoice!" : "Совсем скоро наш менеджер проверит вашу заявку и отправит вам счет фактуру!"
+ 	"Very soon our manager will check your application and send you an invoice!" : "Совсем скоро наш менеджер проверит вашу заявку и отправит вам счет фактуру!",
+    "no-orders": "У вас нет активных заказов"
  }
