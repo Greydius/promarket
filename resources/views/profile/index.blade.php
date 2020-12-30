@@ -136,14 +136,14 @@
                                             <div
                                                 class="d-flex radio-buttons-row align-items-center justify-content-center">
                                                 <label class="radio-type">
-                                                    <input type="radio" name="identification_type" value="0"
+                                                    <input type="radio" name="identification_type" class="identification_type" value="0"
                                                            @if(Auth::user()->identification_type == 0) checked="checked" @endif >
                                                     <span>
                                                         {{__(("Individual"))}}
                                                     </span>
                                                 </label>
                                                 <label class="radio-type">
-                                                    <input type="radio" name="identification_type" value="1"
+                                                    <input type="radio" name="identification_type" class="identification_type legal_entity" value="1"
                                                            @if(Auth::user()->identification_type == 1) checked="checked" @endif>
                                                     <span>
                                                         {{__("legal entity")}}
@@ -172,6 +172,7 @@
                                                                class="auth_control" value="{{ Auth::user()->phone }}">
                                                     </label>
                                                 </div>
+                                             
                                                 <h3 class="small-title">
                                                     {{__('DELIVERY ADDRESS')}}
                                                 </h3>
@@ -210,11 +211,12 @@
                                                                value="{{ Auth::user()->postcode }}">
                                                     </label>
                                                 </div>
+
+                                                
                                                 <button class="default-button lk-submit-button" type="submit">
                                                     {{__("Save")}}
                                                 </button>
                                             </div>
-
                                         </form>
                                     </div>
                                 </div>
@@ -301,6 +303,21 @@
                     $(".user_avatar").attr("src", result);
                     $(".profile-photo img").attr("src", result);
                     // play the audio file
+                }
+            });
+        });
+        $( document ).ready(function() {
+    
+         if($('input.legal_entity').is(':checked')){
+                    $('.for_legal_entity').show();
+                }else{
+                    $('.for_legal_entity').hide();
+                }
+        $('input.identification_type').change(function(){
+                if($('input.legal_entity').is(':checked')){
+                    $('.for_legal_entity').show();
+                }else{
+                    $('.for_legal_entity').hide();
                 }
             });
         });
