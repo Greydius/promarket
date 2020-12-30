@@ -369,25 +369,7 @@
                                         </label>
                                         <textarea name="comment" id="comment" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
-                                        <div class="for_legal_entity" style="display: none;">
-                                            <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
-                                            <label>
-                                                <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code">
-                                            </label>
-                                            <label>
-                                                <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('Company name')}} " name="name_company">
-                                            </label>
-                                            <label>
-                                                <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay">
-                                            </label>
-                                            <label>
-                                                <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('Company address')}} " name="address_company">
-                                            </label>
-                                        </div>
+                                        
                                           <div class="for_legal_entity" style="display: none;">
                                             <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
                                             <label>
