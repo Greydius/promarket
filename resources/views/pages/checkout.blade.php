@@ -12,8 +12,7 @@
         <section class="authorization-content mb-5">
             <div class="container">
 
-                @if (!Auth::check())
-
+                @if (!Auth::check() && session('regOnlyEmail') != '1')
                     <div class="small-title text-center my-4 hide-for-mobile">
                         {{__("Log in to place an order")}}
                     </div>
@@ -160,6 +159,367 @@
                                             <label>
                                                 <span class="errormessage"></span>   
                                                 <input type="text" placeholder="{{__('Company address')}} " name="address_company" value="{{Auth::user()->address_company}}">
+                                            </label>
+                                        </div>
+                                        <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
+                                        <select class="js-selectric" name="payment_method" id="">
+                                            <option value="cash">{{__("Cash")}} </option>
+                                            <option value="card">{{__("By card")}} </option>
+                                        </select>
+                                        {{--<div class="payment-drop-down-wrapper">
+                                            <div class="payment-drop-down-trigger">
+                                                <div class="changing">{{__("Select a Payment Method")}} </div>
+                                                <img src="img/common/chevron-down.svg" alt="">
+                                            </div>
+                                            <div class="payment-drop-down">
+                                                <ul>
+                                                    <li class="payment-changer">наличные</li>
+                                                    <li class="payment-changer">карта</li>
+                                                </ul>
+                                            </div>
+                                        </div>--}}
+                                        <div class="small-title justify-content-center d-flex">
+                                            {{__("THE TOTAL AMOUNT OF THE ORDER")}}: &ensp; <span class="commodity-card-price"> {{$order->getFullPrice()}} €
+                                            <span
+                                                class="commodity-card-price-muted">{{number_format($order->getFullPrice() * $nds, 2, '.', '')}} € {{__("ex VAT")}}</span></span>
+                                        </div>
+                                        <button type="submit" class="default-button mt-5">
+                                            {{__("Make an order")}}
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delivery-tab-content">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
+                                    <div class="small-title text-center mb-4 mt-5">{{__('DELIVERY ADDRESS')}} </div>
+                                    <form action="{{ route('confirm.order') }}" method="POST"
+                                          class="user-data user-data-omniva">
+                                        @csrf
+                                        <input type="hidden" name="delivery" value="Забрать почтомате">
+                                        <select name="delivery" class="js-selectric">
+                                            <option value="city1">{{__('City')}} </option>
+                                            <option value="city2">{{__('City')}} </option>
+                                            <option value="city3">{{__('City')}} </option>
+                                        </select>
+                                        {{--<div class="city-drop-down-wrapper">
+                                            <div class="city-drop-down-trigger">
+                                                <div class="changing">Латвия</div>
+                                                <img src="img/common/chevron-down.svg" alt="">
+                                            </div>
+                                            <div class="city-drop-down">
+                                                <ul>
+
+                                                </ul>
+                                            </div>
+                                        </div>--}}
+                                        <div class="small-title text-center mb-4 mt-5">{{__("BUYER DATA")}} </div>
+                                        <div class="d-flex radio-buttons-row align-items-center justify-content-center">
+                                            <label class="radio-type">
+                                                <input type="radio" name="identification-type" @if(Auth::user()->identification_type == 0) checked @endif
+                                                       value=" {{__('Individual')}} ">
+                                                <span>
+                                            {{__('Individual')}}
+                                        </span>
+                                            </label>
+                                            <label class="radio-type">
+                                                <input type="radio" name="identification-type" class="legal_entity"  @if(Auth::user()->identification_type == 1) checked @endif
+                                                       value=" {{__('legal entity')}} ">
+                                                <span>
+                                            {{__('legal entity')}}
+                                        </span>
+                                            </label>
+                                        </div>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('First Name')}} " name="name" value="{{Auth::user()->username}}">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('Last Name')}} " name="firstname" value="{{Auth::user()->firstname}}">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="{{Auth::user()->email}}">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone" value="{{Auth::user()->phone}}">
+                                        </label>
+                                        
+                                        <textarea name="comment" id="comment" cols="30" rows="10"
+                                                  placeholder="{{__('order comment')}} "></textarea>
+                                        <div class="for_legal_entity" style="display: none;">
+                                            <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company name')}} " name="name_company">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company address')}} " name="address_company">
+                                            </label>
+                                        </div>
+                                        <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
+                                        <select class="js-selectric" name="payment_method" id="">
+                                            <option value="cash">{{__("Cash")}} </option>
+                                            <option value="card">{{__("By card")}} </option>
+                                        </select>
+                                        {{--<div class="payment-drop-down-wrapper">
+                                            <div class="payment-drop-down-trigger">
+                                                <div class="changing">{{__("Select a Payment Method")}} </div>
+                                                <img src="img/common/chevron-down.svg" alt="">
+                                            </div>
+                                            <div class="payment-drop-down">
+                                                <ul>
+                                                    <li class="payment-changer">наличные</li>
+                                                    <li class="payment-changer">карта</li>
+                                                </ul>
+                                            </div>
+                                        </div>--}}
+                                        <div class="small-title justify-content-center d-flex">
+                                            {{__("THE TOTAL AMOUNT OF THE ORDER")}}: &ensp; <span class="commodity-card-price"> {{$order->getFullPrice()}} €
+                                            <span
+                                                class="commodity-card-price-muted">39.99 € {{__("ex VAT")}}</span></span>
+                                        </div>
+                                        <button type="submit" class="default-button mt-5">
+                                            {{__("Make an order")}}
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delivery-tab-content">
+                            <form action="{{ route('confirm.order') }}" method="POST"
+                                  class="user-data user-data-delivery">
+                                @csrf
+                                <input type="hidden" name="delivery" value="Доставить по указанному адресу">
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
+                                        <div class="small-title text-center mb-4 mt-5">{{__('DELIVERY ADDRESS')}} </div>
+                                       {{-- <div class="city-drop-down-wrapper">
+                                            <div class="city-drop-down-trigger">
+                                                <div class="changing">Латвия</div>
+                                                <img src="img/common/chevron-down.svg" alt="">
+                                            </div>
+                                            <div class="city-drop-down">
+                                                <ul>
+                                                    <li class="city-changer">{{__('City')}} </li>
+                                                    <li class="city-changer">{{__('City')}} </li>
+                                                    <li class="city-changer">{{__('City')}} </li>
+                                                </ul>
+                                            </div>
+                                        </div>--}}
+                                        <select name="delivery" class="js-selectric">
+                                            <option value="city1">{{__('City')}} </option>
+                                            <option value="city2">{{__('City')}} </option>
+                                            <option value="city3">{{__('City')}} </option>
+                                        </select>
+                                        <input type="text" placeholder="{{__('City')}} " name="city">
+                                        <input type="text" placeholder="{{__('DELIVERY ADDRESS')}} "
+                                               name="delivery_address">
+                                        <input type="text" placeholder="{{__('Postcode')}} " name="postcode">
+                                        <textarea name="comment" id="comment" cols="30" rows="10"
+                                                  placeholder="{{__('order comment')}} "></textarea>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
+                                        <div class="small-title text-center mb-4 mt-5">{{__("BUYER DATA")}} </div>
+                                        <div class="d-flex radio-buttons-row align-items-center justify-content-center">
+                                            <label class="radio-type">
+                                                <input type="radio" name="identification-type"  @if(Auth::user()->identification_type == 0) checked @endif
+                                                       value="{{__('Individual')}} ">
+                                                <span>
+                                            {{__('Individual')}}
+                                        </span>
+                                            </label>
+                                            <label class="radio-type">
+                                                <input type="radio" name="identification-type" class="legal_entity"  @if(Auth::user()->identification_type == 0) checked @endif
+                                                       value=" {{__('legal entity')}} ">
+                                                <span>
+                                            {{__('legal entity')}}
+                                        </span>
+                                            </label>
+                                        </div>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('First Name')}} " name="name" value="{{Auth::user()->username}}">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('Last Name')}} " name="firstname" value="{{Auth::user()->firstname}}">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="{{Auth::user()->email}}">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone" value="{{Auth::user()->phone}}">
+                                        </label>
+                                        <textarea name="comment" id="comment" cols="30" rows="10"
+                                                  placeholder="{{__('order comment')}} "></textarea>
+                                        
+                                          <div class="for_legal_entity" style="display: none;">
+                                            <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company name')}} " name="name_company">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company address')}} " name="address_company">
+                                            </label>
+                                        </div>
+                                        <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
+                                        <select class="js-selectric" name="payment_method" id="">
+                                            <option value="cash">{{__("Cash")}} </option>
+                                            <option value="card">{{__("By card")}} </option>
+                                        </select>
+                                        {{--<div class="payment-drop-down-wrapper">
+                                            <select name="payment_method"></select>
+                                            <div class="payment-drop-down-trigger">
+                                                <div class="changing">{{__("Select a Payment Method")}} </div>
+                                                <img src="img/common/chevron-down.svg" alt="">
+                                            </div>
+                                            <div class="payment-drop-down">
+                                                <ul>
+                                                    <li class="payment-changer">наличные</li>
+                                                    <li class="payment-changer">карта</li>
+                                                </ul>
+                                            </div>
+                                        </div>--}}
+                                        <div class="small-title justify-content-center d-flex">
+                                            {{__("THE TOTAL AMOUNT OF THE ORDER")}}: &ensp; <span class="commodity-card-price">  {{$order->getFullPrice()}} €
+                                            <span
+                                                class="commodity-card-price-muted">39.99 € {{__("ex VAT")}}</span></span>
+                                        </div>
+                                        <button type="submit" class="default-button mt-5">
+                                            {{__("Make an order")}}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @if(session('regOnlyEmail') == '1')
+                 <div class="small-title text-center mb-4">{{__("delivery")}} </div>
+                <div class="delivery-tabs">
+                    <div class="row delivery-blocks">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 active">
+                            <div class="delivery-block p-5">
+                                <div class="text-center">
+                                   {{__("Pick up from the service center at Ģertrūdes 77. The goods are ready to receive.", ['center' => "Ģertrūdes 77"])}}
+                                </div>
+                                <div class="commodity-card-price mt-3">
+                                    {{__("Is free")}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                            <div class="delivery-block p-5">
+                                <div class="text-center">
+                                    {{__("Pick up from the selected parcel machine We will deliver to the parcel machine within 1 business day.")}}
+                                </div>
+                                <div class="commodity-card-price mt-3">
+                                    3.95 €
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                            <div class="delivery-block p-5">
+                                <div class="text-center">
+                                   {{__("Deliver to the specified address. We will deliver within 1 r. etc.")}}
+                                </div>
+                                <div class="commodity-card-price mt-3">
+                                    5.99 €
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div class="delivery-content-wrapper">
+                        <div class="delivery-tab-content active">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
+                                    <div class="small-title text-center mb-4 mt-5">{{__("BUYER DATA")}} </div>
+                                    <form action="{{ route('confirm.order') }}" method="POST"
+                                          class="user-data user-data-self">
+                                        @csrf
+                                        <input type="hidden" name="delivery" value="Самовывоз">
+                                        <div class="d-flex radio-buttons-row align-items-center justify-content-center">
+                                            <label class="radio-type">
+                                                <input type="radio" name="identification-type"
+                                                       value=" {{__('Individual')}} ">
+                                                <span>
+                                            {{__('Individual')}}
+                                        </span>
+                                            </label>
+                                            <label class="radio-type">
+                                                <input type="radio" class="legal_entity" name="identification-type"
+                                                       value=" {{__('legal entity')}} ">
+                                                <span>
+                                            {{__('legal entity')}}
+                                        </span>
+                                            </label>
+                                        </div>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('First Name')}} " name="name" value="">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="text" placeholder="{{__('Last Name')}} " name="firstname" value="">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="">
+                                        </label>
+                                        <label>
+                                            <span class="errormessage"></span>   
+                                            <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone" value="">
+                                        </label>
+                                        <textarea name="comment" id="comment" class="" cols="30" rows="10"
+                                                  placeholder="{{__('order comment')}} "></textarea>
+                                        <div class="for_legal_entity" style="display: none;">
+                                            <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code"  value="">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company name')}} " name="name_company" value="">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay" value="">
+                                            </label>
+                                            <label>
+                                                <span class="errormessage"></span>   
+                                                <input type="text" placeholder="{{__('Company address')}} " name="address_company" value="">
                                             </label>
                                         </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
