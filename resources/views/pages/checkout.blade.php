@@ -64,6 +64,7 @@
                         </div>
                     </div>
                 @endif
+                @if (Auth::check())
                 <div class="small-title text-center mb-4">{{__("delivery")}} </div>
                 <div class="delivery-tabs">
                     <div class="row delivery-blocks">
@@ -98,6 +99,7 @@
                             </div>
                         </div>
                     </div>
+                  
                     <div class="delivery-content-wrapper">
                         <div class="delivery-tab-content active">
                             <div class="row">
@@ -109,14 +111,14 @@
                                         <input type="hidden" name="delivery" value="Самовывоз">
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type"
+                                                <input type="radio" @if(Auth::user()->identification_type == 0) checked @endif name="identification-type"
                                                        value=" {{__('Individual')}} ">
                                                 <span>
                                             {{__('Individual')}}
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" class="legal_entity" name="identification-type"
+                                                <input type="radio" @if(Auth::user()->identification_type == 1) checked @endif class="legal_entity" name="identification-type"
                                                        value=" {{__('legal entity')}} ">
                                                 <span>
                                             {{__('legal entity')}}
@@ -125,19 +127,19 @@
                                         </div>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="text" placeholder="{{__('First Name')}} " name="name">
+                                            <input type="text" placeholder="{{__('First Name')}} " name="name" value="{{Auth::user()->username}}">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="text" placeholder="{{__('Last Name')}} " name="firstname">
+                                            <input type="text" placeholder="{{__('Last Name')}} " name="firstname" value="{{Auth::user()->firstname}}">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email">
+                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="{{Auth::user()->email}}">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone">
+                                            <input type="tel" placeholder="{{__('Phone Number')}} " name="telephone" value="{{Auth::user()->phone}}">
                                         </label>
                                         <textarea name="comment" id="comment" class="" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
@@ -145,19 +147,19 @@
                                             <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code">
+                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code"  value="{{Auth::user()->register_code}}">
                                             </label>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('Company name')}} " name="name_company">
+                                                <input type="text" placeholder="{{__('Company name')}} " name="name_company" value="{{Auth::user()->name_company}}">
                                             </label>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay">
+                                                <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay" value="{{Auth::user()->code_nds_pay}}">
                                             </label>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('Company address')}} " name="address_company">
+                                                <input type="text" placeholder="{{__('Company address')}} " name="address_company" value="{{Auth::user()->address_company}}">
                                             </label>
                                         </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
@@ -422,6 +424,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </section>
 
