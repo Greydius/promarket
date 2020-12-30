@@ -147,6 +147,12 @@
                                                 {{$order->delivery_address}}
                                             </p>
                                         </div>
+                                    @else
+                                        <div>
+                                            <p class="uppercase">
+                                                Самовывоз
+                                            </p>
+                                        </div>
                                     @endif
                                 </div>
                                 <div class="lk-inner-additional-order-right">
