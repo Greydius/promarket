@@ -55,27 +55,29 @@
                                         </div>
                                     </div>
                                     <?php $orders = Auth::user()->orders; ?>
-                                    @foreach($orders as $order)
-                                        <a href="/profile/order/{{$order->id}}" class="lk-row d-flex">
-                                            <div class="lk-first-col">
-                                                {{ date('d.m.Y', strtotime($order->created_at)) }}
-                                            </div>
-                                            <div class="lk-second-col">
-                                                {{ $order->id}}
-                                            </div>
-                                            <div class="lk-third-col">
-                                                {{ $order->total_amout }} €
-                                            </div>
-                                            <div class="lk-fourth-col">
-                                                @if($order->status == 1)
-                                                    Обрабатывается
-                                                @endif
-                                                @if($order->status == 2)
-                                                    Завершено
-                                                @endif
-                                            </div>
-                                        </a>
-                                    @endforeach
+                                    @if (count($orders) == 0)
+                                        @foreach($orders as $order)
+                                            <a href="/profile/order/{{$order->id}}" class="lk-row d-flex">
+                                                <div class="lk-first-col">
+                                                    {{ date('d.m.Y', strtotime($order->created_at)) }}
+                                                </div>
+                                                <div class="lk-second-col">
+                                                    {{ $order->id}}
+                                                </div>
+                                                <div class="lk-third-col">
+                                                    {{ $order->total_amout }} €
+                                                </div>
+                                                <div class="lk-fourth-col">
+                                                    {{$order->orderStatus->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
+                                                </div>
+                                            </a>
+                                        @endforeach
+                                    @else
+                                        <div class="card-title">
+                                            {{__('no-orders')}}
+                                        </div>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
@@ -136,14 +138,16 @@
                                             <div
                                                 class="d-flex radio-buttons-row align-items-center justify-content-center">
                                                 <label class="radio-type">
-                                                    <input type="radio" name="identification_type" class="identification_type" value="0"
+                                                    <input type="radio" name="identification_type"
+                                                           class="identification_type" value="0"
                                                            @if(Auth::user()->identification_type == 0) checked="checked" @endif >
                                                     <span>
                                                         {{__(("Individual"))}}
                                                     </span>
                                                 </label>
                                                 <label class="radio-type">
-                                                    <input type="radio" name="identification_type" class="identification_type legal_entity" value="1"
+                                                    <input type="radio" name="identification_type"
+                                                           class="identification_type legal_entity" value="1"
                                                            @if(Auth::user()->identification_type == 1) checked="checked" @endif>
                                                     <span>
                                                         {{__("legal entity")}}
@@ -198,9 +202,15 @@
                                                     <div class="address-drop-down-wrapper">
                                                         <label>
                                                             <select class="js-selectric" name="region">
-                                                                <option @if(Auth::user()->region == 'lv') selected @endif value="lv">Латвия</option>
-                                                                <option @if(Auth::user()->region == 'lv2') selected @endif value="lv2">Латвия 2</option>
-                                                                <option @if(Auth::user()->region == 'lv3') selected @endif value="lv3">Латвия 3</option>
+                                                                <option @if(Auth::user()->region == 'lv') selected
+                                                                        @endif value="lv">Латвия
+                                                                </option>
+                                                                <option @if(Auth::user()->region == 'lv2') selected
+                                                                        @endif value="lv2">Латвия 2
+                                                                </option>
+                                                                <option @if(Auth::user()->region == 'lv3') selected
+                                                                        @endif value="lv3">Латвия 3
+                                                                </option>
                                                             </select>
                                                         </label>
                                                         <img src="{{ asset('assets/img/common/chevron-down.svg') }}"
@@ -230,7 +240,7 @@
                                                     </label>
                                                 </div>
 
-                                                
+
                                                 <button class="default-button lk-submit-button" type="submit">
                                                     {{__("Save")}}
                                                 </button>
@@ -324,17 +334,17 @@
                 }
             });
         });
-        $( document ).ready(function() {
-    
-         if($('input.legal_entity').is(':checked')){
+        $(document).ready(function () {
+
+            if ($('input.legal_entity').is(':checked')) {
+                $('.for_legal_entity').show();
+            } else {
+                $('.for_legal_entity').hide();
+            }
+            $('input.identification_type').change(function () {
+                if ($('input.legal_entity').is(':checked')) {
                     $('.for_legal_entity').show();
-                }else{
-                    $('.for_legal_entity').hide();
-                }
-        $('input.identification_type').change(function(){
-                if($('input.legal_entity').is(':checked')){
-                    $('.for_legal_entity').show();
-                }else{
+                } else {
                     $('.for_legal_entity').hide();
                 }
             });

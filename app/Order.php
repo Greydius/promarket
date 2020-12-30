@@ -23,4 +23,8 @@ class Order extends Model
     public function orderStatus() {
         return $this->belongsTo(OrderStatus::class);
     }
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
 }
