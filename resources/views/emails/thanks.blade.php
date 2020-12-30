@@ -2,6 +2,12 @@
 
 @section('content')
 	<?php $order = session('order'); ?>
+  @if(is_null($order))
+  @php
+        header("Location: " . URL::to('/'), true, 302);
+        exit();
+    @endphp
+  @endif
  <div class="auth-container">
     <section class="login secondary-auth-page">
       <div class="container">

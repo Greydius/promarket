@@ -172,5 +172,7 @@
 	"Company name" : "Company name",
 	"VAT payer code" : "VAT payer code",
 	"Company address" : "Company address",
-	"Very soon our manager will check your application and send you an invoice!" : "Very soon our manager will check your application and send you an invoice!"
+	"Very soon our manager will check your application and send you an invoice!" : "Very soon our manager will check your application and send you an invoice!",
+	"A LINK WITH THE ACTIVATION OF YOUR ACCOUNT SENT TO YOUR MAILBOX" : "A LINK WITH THE ACTIVATION OF YOUR ACCOUNT SENT TO YOUR MAILBOX",
+	"Please open the email and follow the link to complete your account registration." : "Please open the email and follow the link to complete your account registration."
 }  
