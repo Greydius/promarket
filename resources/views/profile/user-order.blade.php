@@ -84,7 +84,7 @@
                             <h3 class="small-title">
 
                                {{__("Order status")}}:
-                                {{$order->orderStatus->name}}
+                                {{$order->orderStatus->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
                             </h3>
                         </div>
 

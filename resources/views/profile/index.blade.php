@@ -67,12 +67,7 @@
                                                 {{ $order->total_amout }} €
                                             </div>
                                             <div class="lk-fourth-col">
-                                                @if($order->status == 1)
-                                                    Обрабатывается
-                                                @endif
-                                                @if($order->status == 2)
-                                                    Завершено
-                                                @endif
+                                                {{$order->orderStatus->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
                                             </div>
                                         </a>
                                     @endforeach
@@ -172,7 +167,7 @@
                                                                class="auth_control" value="{{ Auth::user()->phone }}">
                                                     </label>
                                                 </div>
-                                             
+
                                                 <h3 class="small-title">
                                                     {{__('DELIVERY ADDRESS')}}
                                                 </h3>
@@ -212,7 +207,7 @@
                                                     </label>
                                                 </div>
 
-                                                
+
                                                 <button class="default-button lk-submit-button" type="submit">
                                                     {{__("Save")}}
                                                 </button>
@@ -307,7 +302,7 @@
             });
         });
         $( document ).ready(function() {
-    
+
          if($('input.legal_entity').is(':checked')){
                     $('.for_legal_entity').show();
                 }else{
