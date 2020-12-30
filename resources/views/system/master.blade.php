@@ -89,14 +89,14 @@
 
 
                                                     </span>
-                                                            {{$category->name}}
+                                                            {{$category->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
                                                         </div>
                                                         <div class="menu-wrap">
                                                             <ul>
                                                                 @foreach($category->subCategories as $subCategory)
                                                                     <li>
                                                                         <a href="{{route('shop-main' , [$category->code, $subCategory->code])}}">
-                                                                            {{$subCategory->name}}
+                                                                            {{$subCategory->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}
                                                                         </a>
                                                                     </li>
                                                                 @endforeach
