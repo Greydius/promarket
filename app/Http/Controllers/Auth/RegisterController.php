@@ -98,7 +98,10 @@ class RegisterController extends Controller
         // if($send_verify){
         \Mail::to($email)->send(new \App\Mail\WelcomeNewUser($password));
         $user->sendEmailVerificationNotification();
-         return redirect()->route('verification.notice');
+        // $regOnlyEmail = Session::put('regOnlyEmail', 'regOnlyEmail');
+        $regOnlyEmail = request()->session()->put(['regOnlyEmail' => '1']);
+        // dd($regOnlyEmail);
+         return redirect()->route('checkout',[$regOnlyEmail]);
         // }
         // return 'error';
     }

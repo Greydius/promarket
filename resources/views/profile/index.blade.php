@@ -176,7 +176,25 @@
                                                                class="auth_control" value="{{ Auth::user()->phone }}">
                                                     </label>
                                                 </div>
-
+                                                <div class="for_legal_entity" style="display: none;">
+                                                    <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
+                                                    <label>
+                                                        <span class="errormessage"></span>   
+                                                        <input type="text" placeholder="{{__('registration code')}} " name="register_code" class="auth_control">
+                                                    </label>
+                                                    <label>
+                                                        <span class="errormessage"></span>   
+                                                        <input type="text" placeholder="{{__('Company name')}} " name="name_company" class="auth_control">
+                                                    </label>
+                                                    <label>
+                                                        <span class="errormessage"></span>   
+                                                        <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay" class="auth_control">
+                                                    </label>
+                                                    <label>
+                                                        <span class="errormessage"></span>   
+                                                        <input type="text" placeholder="{{__('Company address')}} " name="address_company" class="auth_control">
+                                                    </label>
+                                                </div>
                                                 <h3 class="small-title">
                                                     {{__('DELIVERY ADDRESS')}}
                                                 </h3>

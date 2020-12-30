@@ -31,10 +31,10 @@
                                 <span>{{__("I agree to the processing of my data by Promarket")}} </span>
                             </label>
 
-                            <label class="auth-checkbox checkbox-label">
+                            <!-- <label class="auth-checkbox checkbox-label">
                                 <input type="checkbox" name="agreement2" class="accepted" value="">
                                 <span> {{__("I agree to the processing of my data by Promarket")}}  </span>
-                            </label>
+                            </label> -->
                         </div>
                         <button type="submit" class="submit-form default-button">
                            {{__("Register now")}}

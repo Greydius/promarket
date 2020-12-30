@@ -8,12 +8,12 @@
     <div class="bread-crumbs"></div>
     <div class="login-content">
       <h1 class="main-title">
-        На ваш почтовый ящик выслана ссылка с активацией вашей учетной записи
+        {{__("A LINK WITH THE ACTIVATION OF YOUR ACCOUNT SENT TO YOUR MAILBOX")}}
       </h1>
        @if (session('resent'))
       <div class="login-paragraph">
         <p>
-          Пожалуйста откройте письмо и пройдите по ссылке, чтобы завершить регистрацию аккаунта.
+          {{__("Please open the email and follow the link to complete your account registration.")}}
         </p>
       </div>
       @endif
