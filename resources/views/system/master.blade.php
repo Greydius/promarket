@@ -354,14 +354,17 @@
         <h3 class="small-title modal-title">
             {{__("let me know when this product will be available")}}
         </h3>
-        <form method="POST" action="">
+        <form method="POST" action="{{route('under-order')}}" class="order-modal-form-wrapper">
+            @csrf
+            <input type="hidden" class="hidden_product_id" name="product_id" value="">
+            <input type="hidden" name="is_send" value="0">
             <label>
                 <input type="text" name="name" placeholder="{{__('First Name')}}" class="auth_control" value="">
             </label>
             <label>
                 <input type="email" name="email" placeholder="{{__('Email')}}" class="auth_control" value="">
             </label>
-            <button class="default-button">
+            <button type="submit" class="default-button">
                 OK
             </button>
         </form>

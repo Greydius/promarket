@@ -10391,11 +10391,28 @@ $('.order-no-registration').validate({
     }
 })
 
+$('.order-modal-form-wrapper').validate({
+    errorPlacement: function (error, element) {
+        $(error).insertAfter(element.prev(".errormessage"));
+    },
+    rules: {
+        email: {
+            email: true,
+            required: true
+        },
+        name: {
+            required: true
+        }
+    }
+})
+
 let orderButtons = document.querySelectorAll('.js-order-button');
 Array.from(orderButtons).forEach(btn => {
     btn.addEventListener('click', openOrderModal)
 })
 function openOrderModal() {
+    const productId = this.closest('.commodity-card-body').querySelector('[name="product_id"]').value
+    document.querySelector('.hidden_product_id').value = productId;
     $.fancybox.open({
         src: `.order-modal`,
         type: 'inline',

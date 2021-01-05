@@ -17,12 +17,6 @@ class FixingDetail extends Model implements Searchable
     public function manufacturerModel() {
         return $this->belongsTo(ManufacturerModel::class);
     }
-    public function detailColors() {
-        return $this->hasMany(DetailColor::class);
-    }
-    public function detailQuality() {
-        return $this->hasMany(DetailQuality::class);
-    }
     public function products() {
         return $this->hasMany(Product::class);
     }
