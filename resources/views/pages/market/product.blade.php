@@ -35,22 +35,26 @@
                             <h1 class="main-title hidden-for-mobile">
                                 {{$product->name}}
                             </h1>
+                            <?php 
+                            setlocale(LC_TIME, app()->getLocale().'.UTF-8');                     
+                            $next_date =  strftime('%d %B', strtotime(' +2 day'));
+//\Date::now()->format('j F'); ?>
                             <div class="row align-items-end additional-product-parameters">
                                 <div class="col-xl-6 col-lg-6 col-md-12 delivery-conditions-list">
                                     <div class="delivery-conditions mb-3">
                                         <img src="{{asset('assets/img/market/truck-delivery-outline 1.svg')}}"
                                              alt="icon">
-                                    {{__("Courier service starting from 4.99 € *. Estimated delivery May 15")}}
+                                    {{__("Courier service starting from 4.99 € *. Estimated delivery May 15", ['date' => $next_date])}}
                                     <!-- Услуга курьера начиная от 4,99 €*. Предполагаемая доставка 15 мая -->
                                     </div>
                                     <div class="delivery-conditions  mb-3">
                                         <img src="{{asset('assets/img/market/store 1.svg')}}" alt="icon">
-                                    {{__("Take away for free. The order will be completed presumably on May 14")}}
+                                    {{__("Take away for free. The order will be completed presumably on May 14", ['date' => $next_date])}}
                                     <!-- Заберите бесплатно. Заказ будет выполнен предположительно 14 мая -->
                                     </div>
                                     <div class="delivery-conditions">
                                         <img src="{{asset('assets/img/market/grid 1.svg')}}" alt="icon">
-                                    {{__("Delivery to a parcel machine 3.95 €. Estimated delivery May 15")}}
+                                    {{__("Delivery to a parcel machine 3.95 €. Estimated delivery May 15", ['date' => $next_date])}}
                                     <!-- Доставка в почтовый автомат 3,95 €. Предполагаемая доставка 15 мая -->
                                     </div>
                                 </div>
@@ -141,7 +145,8 @@ $product->fixingDetail->manufacturerModel->code])}}?id={{$product->fixingDetail-
                                         </div>
 
                                         <div class="row product-inner-table">
-                                            <div class="col-md-6">
+                                            {{$product->installation_description}}
+                                           <!--  <div class="col-md-6">
                                                 <table>
                                                     <tr>
                                                         <td>Тип продукта</td>
@@ -188,7 +193,7 @@ $product->fixingDetail->manufacturerModel->code])}}?id={{$product->fixingDetail-
                                                         <td>24 месяц</td>
                                                     </tr>
                                                 </table>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
