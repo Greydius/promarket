@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\FixingOrder;
+use App\Mail\UnderOrderMail;
 use App\Order;
+use App\UnderOrderProduct;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use Spatie\Searchable\Search;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -159,6 +162,36 @@ class MainController extends Controller
     {
         $sms = Sms::gateway('nexmo')->send('946950561','sms.test',['from'=>'Promarket.lv']);
         dd($sms);
+    }
+
+
+    public function underOrder(Request $req)
+    {
+        $newUnderOrderProduct = new UnderOrderProduct();
+        $newUnderOrderProduct->name = $req->name;
+        $newUnderOrderProduct->product_id = $req->product_id;
+        $newUnderOrderProduct->email = $req->email;
+        $newUnderOrderProduct->is_sent = 0;
+        $newUnderOrderProduct->save();
+        return redirect()->back();
+    }
+
+    public function sendMessages() {
+        $underOrderProducts = UnderOrderProduct::where('is_sent', 0)->get();
+
+        foreach($underOrderProducts as $orderProduct) {
+            $product = Product::find($orderProduct->product_id);
+            if ($product->quantity > 0) {
+                $order = clone $orderProduct;
+                $order->product = $product;
+                Mail::to($orderProduct->email)->send(new UnderOrderMail($order));
+                $orderProduct->is_sent = 1;
+                $orderProduct->save();
+            }
+
+        }
+
+
     }
 
 }

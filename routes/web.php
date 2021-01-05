@@ -105,10 +105,11 @@ Route::group([
 
     Route::get('/thanks', 'MainController@thanks')->name('thanks-page');
 
-    Route::get('test-sms', 'MainController@sms')->name('sms');
+
 
 
 });
+Route::get('/test-sms', 'MainController@sms')->name('sms');
 
 /*Route::post()*/
 Route::get('/{locale}/detail/{detailId}/{colorId}', 'FixingController@fixingDetailOrderColor')->name('get-detail-qualities');
@@ -130,6 +131,10 @@ Route::delete('/detail/color', 'FixingController@deleteColorForCommodity')->name
 Route::post('/detail/quality', 'FixingController@createQualityForCommodity')->name('detail-quality');
 
 Route::delete('/detail/quality', 'FixingController@deleteQualityForCommodity')->name('delete-detail-quality');
+
+Route::post('/under-order',  'MainController@underOrder')->name('under-order');
+
+Route::get('/send-msg', 'MainController@sendMessages')->name('send-msg');
 
 
 

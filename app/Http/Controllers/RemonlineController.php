@@ -281,11 +281,11 @@ class RemonlineController extends Controller
         }));
 
 
-        $fixingDetail = FixingDetail::where('remonline_id', $productCategoryForCommodity['id'])->first();
+        $fixingDetail = FixingDetail::where('remonline_id', $manufacturerModel->name . $productCategoryForCommodity['id'] . $productCategory['id'])->first();
 
         if ($fixingDetail == null) {
             $newFixingDetail = new FixingDetail();
-            $newFixingDetail->remonline_id = $productCategoryForCommodity['id'];
+            $newFixingDetail->remonline_id = $manufacturerModel->name . $productCategoryForCommodity['id'] . $productCategory['id'];
             $newFixingDetail->name = $productCategoryForCommodity['title'];
             $newFixingDetail->code = Str::slug($manufacturerModel->name . $productCategoryForCommodity['title']);
             $newFixingDetail->breadcrumb_name = $productCategoryForCommodity['title'];

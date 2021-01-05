@@ -14,18 +14,10 @@
 
                             @foreach($details as $detail)
                                 <div class="detail-block-wrapper"
-                                     @if(count($detail->detailQuality) != 0)
-                                     data-start-cost="{{$detail->detailQuality[0]->cost}}"
-                                     data-cost="{{$detail->detailQuality[0]->cost}}"
-                                     @else
                                      data-start-cost="{{$detail->price}}" data-cost="{{$detail->price}}"
-                                     @endif
                                      data-id="{{$detail->id}}"
-                                     @if(count($detail->detailColors) != 0)
-                                     data-color="{{$detail->detailColors[0]->name}}"
-                                    @endif
+                                     data-color="{{$detail->products[0]->color->name ?? 'Нет цвета'}}"
                                 >
-
                                     <div class="main-title title-for-mobile">{{$detail->getTranslatedAttribute('name', app()->getLocale(), 'lv')}} {{$detail->manufacturerModel->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}</div>
 
                                     <div class="row top-card">
@@ -40,15 +32,6 @@
                                                 {!! $detail->manufacturerModel->getTranslatedAttribute('descirption', app()->getLocale(), 'lv') !!}
                                             </div>
                                             <div class="description-for-pc"><strong>{{__("Repair time")}} :</strong> {{$detail->getTranslatedAttribute('fixing_time', app()->getLocale(), 'lv')}}</div>
-
-                                            @if(count($detail->detailQuality) == 0)
-                                                <div class="mt-2">
-                                                    <strong>{{__("Price with work")}} : </strong>
-                                                    <span class="commodity-card-price">
-                                                         € {{$detail->cheapest()}} € @if($detail->cheapest() != $detail->mostExpensive()) - {{$detail->mostExpensive()}} € @endif
-                                                    </span>
-                                                </div>
-                                            @endif
                                         </div>
                                     </div>
                                     @if(count($detail->allColors) == 1 && $detail->allColors[0]->color_id == 0)
