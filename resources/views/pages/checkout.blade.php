@@ -424,8 +424,8 @@
                     </div>
                 </div>
                 @endif
-                @if(session('regOnlyEmail') == '1')
-                 <div class="small-title text-center mb-4">{{__("delivery")}} </div>
+                @if(!Auth::check() && session('regOnlyEmail') == '1')
+                <div class="small-title text-center mb-4">{{__("delivery")}} </div>
                 <div class="delivery-tabs">
                     <div class="row delivery-blocks">
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 active">
