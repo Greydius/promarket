@@ -23,7 +23,7 @@
         </ul>
         </div>
     @endforeach
-    <div class="link_all_result"><a class="all_results" href="#">+ Смотреть ещё</a></div>
+    <div class="link_all_result"><a class="all_results" href="#">+ {{__("See more")}}</a></div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {

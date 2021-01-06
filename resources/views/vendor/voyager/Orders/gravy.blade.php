@@ -49,6 +49,7 @@
                                 <div>{{$order->getFullPrice()}}</div>
                             </td>
                             <td class="no-sort no-click bread-actions">
+                               
                                 {{--<a href="javascript:;" title="Удалить" class="btn btn-sm btn-danger pull-right delete"
                                    data-id="3" id="delete-3">
                                     <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Удалить</span>
@@ -61,6 +62,17 @@
                                    class="btn btn-sm btn-warning pull-right view">
                                     <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">Просмотр</span>
                                 </a>
+
+                                @if($order->payment_method == "cash")
+                                <a href="/message-to-client/cash/{{$order->id}}" title="отправить смс клиенту" class="btn btn-sm btn-success pull-right" style="margin-right: 5px;">
+                                    <i class="voyager-message"></i> <span class="hidden-xs hidden-sm">отправить смс клиенту</span>
+                                </a>
+                                @endif
+                                @if($order->payment_method == "card")
+                                <a href="/message-to-client/card/{{$order->id}}" title="отправить счет фактура" class="btn btn-sm btn-success pull-right" style="margin-right: 5px;">
+                                    <i class="voyager-message"></i> <span class="hidden-xs hidden-sm">отправить счет фактура</span>
+                                </a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

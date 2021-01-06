@@ -176,5 +176,7 @@
  	"Very soon our manager will check your application and send you an invoice!" : "Совсем скоро наш менеджер проверит вашу заявку и отправит вам счет фактуру!",
  	"A LINK WITH THE ACTIVATION OF YOUR ACCOUNT SENT TO YOUR MAILBOX" : "НА ВАШ ПОЧТОВЫЙ ЯЩИК ВЫСЛАНА ССЫЛКА С АКТИВАЦИЕЙ ВАШЕЙ УЧЕТНОЙ ЗАПИСИ",
  	"Please open the email and follow the link to complete your account registration." : "Пожалуйста откройте письмо и пройдите по ссылке, чтобы завершить регистрацию аккаунта.",
-    "no-orders": "У вас нет активных заказов"
+    "no-orders": "У вас нет активных заказов",
+    "More" : "Еше",
+    "See more" : "Смотреть ещё"
  }

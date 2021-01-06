@@ -126,7 +126,7 @@
         </label>
         @endforeach
         </div>
-        <button class="view_all">Еще</button>
+        <button class="view_all">{{__("More")}} </button>
     </div>
 </div>
 
@@ -148,7 +148,7 @@
         </label>
         @endforeach
     </div>
-        <button class="view_all">Еще</button>
+        <button class="view_all">{{__("More")}} </button>
 
     </div>
 </div>

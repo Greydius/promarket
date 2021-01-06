@@ -175,5 +175,7 @@
 	"Very soon our manager will check your application and send you an invoice!" : "Ļoti drīz mūsu menedžeris pārbaudīs jūsu pieteikumu un nosūtīs jums rēķinu!",
 	"A LINK WITH THE ACTIVATION OF YOUR ACCOUNT SENT TO YOUR MAILBOX" : "SAITE AR PASTĀJUMAM SŪTĪTU SAVA KONTA DARBĪBU",
 	"Please open the email and follow the link to complete your account registration." : "Lūdzu, atveriet e-pastu un izpildiet saiti, lai pabeigtu konta reģistrāciju.",
-	"no-orders" : "Jums nav aktīvu pasūtījumu"
+	"no-orders" : "Jums nav aktīvu pasūtījumu",
+	"More" : "vairāk",
+	"See more" : "Redzēt vairāk"
 }

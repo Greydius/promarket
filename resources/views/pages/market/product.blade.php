@@ -37,8 +37,7 @@
                             </h1>
                             <?php 
                             setlocale(LC_TIME, app()->getLocale().'.UTF-8');                     
-                            $next_date =  strftime('%d %B', strtotime(' +2 day'));
-//\Date::now()->format('j F'); ?>
+                            $next_date =  strftime('%d %B', strtotime(' +2 day')); ?>
                             <div class="row align-items-end additional-product-parameters">
                                 <div class="col-xl-6 col-lg-6 col-md-12 delivery-conditions-list">
                                     <div class="delivery-conditions mb-3">

@@ -160,11 +160,24 @@ class MainController extends Controller
 
     public function sms()
     {
-        $sms = Sms::gateway('nexmo')->send('946950561','sms.test',['from'=>'Promarket.lv']);
+        $sms = Sms::gateway('nexmo')->send('999163844','sms.test',['from'=>'Promarket.lv']);
         dd($sms);
     }
 
-
+  public function smsToClient($type, $order_id)
+    {
+        $order = Order::where('id',$order_id)->first();
+        if($type == 'cash'){
+            $sms = Sms::gateway('nexmo')->send($order->phone,'sms.to-client',['from'=>'Promarket.lv']);
+            // dd($sms);
+        }elseif($type == 'card'){
+            $email = Mail::to($order->email)->send(new SendOrderToClent($order));
+            // dump($email);
+            $sms = Sms::gateway('nexmo')->send($order->phone,'sms.to-client',['from'=>'Promarket.lv']);
+            // dd($sms);
+        }
+        return redirect()->back()->with('success', 'Message sent successfully!');   
+    }
     public function underOrder(Request $req)
     {
         $newUnderOrderProduct = new UnderOrderProduct();
