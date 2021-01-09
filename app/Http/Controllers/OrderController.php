@@ -181,8 +181,19 @@ class OrderController extends Controller
         // dd('sss');
         // $request_details = Order::
         if ($save) {
-            Mail::to(config('params.emails'))->send(new SendOrderToClent($order));
-            Mail::to($order->user->email)->send(new SendOrderToClent($order));
+            $products = $order->products;
+            // dd($products);
+            // $order = $order->toArray();
+            $pdf = \PDF::loadView('sms.pdf1', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);
+            // return $pdf->download('invoice.pdf');
+            // Mail::to(config('params.emails'))->send(new SendOrderToClent($order));
+            $email = $order->email;
+            $send = Mail::send(['sms.pdf1' => 'sms.pdf1'], ['order' => $order], function($message)use($order,$email, $pdf) 
+                {
+                        $message->to($email);
+                         $message->subject($order->name_company);
+                         $message->attachData($pdf->output(), "text.pdf");
+                    });
             $request->session()->forget('orderId');
             session()->flash('success', 'Ваш заказ принят в обработку!');
             return redirect()->to('/thanks')->with('order', $order);

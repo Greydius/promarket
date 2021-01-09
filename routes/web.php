@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Order;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -110,6 +110,7 @@ Route::group([
 
 });
 Route::get('/test-sms', 'MainController@sms')->name('sms');
+
 Route::get('/message-to-client/{tip}/{order_id}', 'MainController@smsToClient')->name('smsToClient');
 /*Route::post()*/
 Route::get('/{locale}/detail/{detailId}/{colorId}', 'FixingController@fixingDetailOrderColor')->name('get-detail-qualities');
@@ -135,7 +136,14 @@ Route::delete('/detail/quality', 'FixingController@deleteQualityForCommodity')->
 Route::post('/under-order',  'MainController@underOrder')->name('under-order');
 
 Route::get('/send-msg', 'MainController@sendMessages')->name('send-msg');
+Route::get('/test-pdf', function(){
+//     $order = Order::find(7);
+// $pdf = PDF::loadView('sms.pdf1', $order);
+// // $pdf->download('invoice.pdf');
 
+// return view('sms.pdf1');
+
+});
 
 
 

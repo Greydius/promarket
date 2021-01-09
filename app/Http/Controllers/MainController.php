@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\FixingOrder;
 use App\Mail\UnderOrderMail;
+use App\Mail\SendOrderToClent;
 use App\Order;
 use App\UnderOrderProduct;
 use Illuminate\Support\Facades\Http;
@@ -16,6 +17,7 @@ use App\FixingDetail;
 use App\Category;
 use App\SubCategory;
 use App\Product;
+use PDF;
 
 
 class MainController extends Controller
@@ -160,19 +162,42 @@ class MainController extends Controller
 
     public function sms()
     {
-        $sms = Sms::gateway('nexmo')->send('999163844','sms.test',['from'=>'Promarket.lv']);
-        dd($sms);
+        // $sms = Sms::gateway('nexmo')->send('999163844','sms.test',['from'=>'Promarket.lv']);
+        // dd($sms);
+            $order = Order::where('id', 7)->first();
+            $products = $order->products;
+            // dd($products);
+            // $order = $order->toArray();
+            $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products]);
+            // return $pdf->download('invoice.pdf');
+            // dd($pdf);
+             // $send = Mail::send('emails.myTestMail', $order, function($message)use($order, $pdf) {
+             //            $message->to($order["email"], $order["email"])
+             //                    ->subject($order["name_company"])
+             //                    ->attachData($pdf->output(), "text.pdf");
+             //        });
+             // dd($send);
+            // return $pdf->save('/pdf/my_stored_file.pdf')->stream('download.pdf');
+
+            return view('sms.pdf2',['order' => $order, 'products' => $products]);
     }
 
   public function smsToClient($type, $order_id)
     {
         $order = Order::where('id',$order_id)->first();
+        $products = $order->products;
         if($type == 'cash'){
             $sms = Sms::gateway('nexmo')->send($order->phone,'sms.to-client',['from'=>'Promarket.lv']);
             // dd($sms);
         }elseif($type == 'card'){
-            $email = Mail::to($order->email)->send(new SendOrderToClent($order));
-            // dump($email);
+            $email = $order->email;
+            $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);
+           $send = Mail::send(['sms.pdf2' => 'sms.pdf2'], ['order' => $order], function($message)use($order,$email, $pdf) 
+                {
+                        $message->to($email);
+                         $message->subject($order->name_company);
+                         $message->attachData($pdf->output(), "text.pdf");
+                    });
             $sms = Sms::gateway('nexmo')->send($order->phone,'sms.to-client',['from'=>'Promarket.lv']);
             // dd($sms);
         }
