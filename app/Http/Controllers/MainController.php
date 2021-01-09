@@ -166,18 +166,9 @@ class MainController extends Controller
         // dd($sms);
             $order = Order::where('id', 7)->first();
             $products = $order->products;
-            // dd($products);
+            dd($order);
             // $order = $order->toArray();
             $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products]);
-            // return $pdf->download('invoice.pdf');
-            // dd($pdf);
-             // $send = Mail::send('emails.myTestMail', $order, function($message)use($order, $pdf) {
-             //            $message->to($order["email"], $order["email"])
-             //                    ->subject($order["name_company"])
-             //                    ->attachData($pdf->output(), "text.pdf");
-             //        });
-             // dd($send);
-            // return $pdf->save('/pdf/my_stored_file.pdf')->stream('download.pdf');
 
             return view('sms.pdf2',['order' => $order, 'products' => $products]);
     }
@@ -187,7 +178,7 @@ class MainController extends Controller
         $order = Order::where('id',$order_id)->first();
         $products = $order->products;
         if($type == 'cash'){
-            $sms = Sms::gateway('nexmo')->send($order->phone,'sms.to-client',['from'=>'Promarket.lv']);
+            $sms = Sms::gateway('nexmo')->send($order->telephone,'sms.to-client',['from'=>'Promarket.lv']);
             // dd($sms);
         }elseif($type == 'card'){
             $email = $order->email;
@@ -198,7 +189,7 @@ class MainController extends Controller
                          $message->subject($order->name_company);
                          $message->attachData($pdf->output(), "text.pdf");
                     });
-            $sms = Sms::gateway('nexmo')->send($order->phone,'sms.to-client',['from'=>'Promarket.lv']);
+            $sms = Sms::gateway('nexmo')->send($order->telephone,'sms.to-client',['from'=>'Promarket.lv']);
             // dd($sms);
         }
         return redirect()->back()->with('success', 'Message sent successfully!');   
