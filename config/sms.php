@@ -12,7 +12,7 @@ return [
     |   view    = File
     */
 
-    'countryCode' => '+998',
+    'countryCode' => '',
 
     'gateway' => 'Mocker',                     // Replace with the name of appropriate gateway
 
