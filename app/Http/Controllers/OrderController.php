@@ -178,13 +178,12 @@ class OrderController extends Controller
 
         $order->user_id = $userid;
         $save = $order->save();
-        // dd('sss');
-        // $request_details = Order::
         if ($save) {
             $products = $order->products;
-            $pdf = \PDF::loadView('sms.pdf1', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);
+            $pdf = \PDF::loadView('sms.pdf', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);
+           
             $email = $order->email;
-            $send = Mail::send(['sms.pdf1' => 'sms.pdf1'], ['order' => $order], function($message)use($order,$email, $pdf)
+            $send = Mail::send(['sms.pdf' => 'sms.pdf'], ['order' => $order], function($message)use($order,$email, $pdf)
                 {
                         $message->to($email);
                          $message->subject($order->name_company);
@@ -192,8 +191,7 @@ class OrderController extends Controller
                     });
             $request->session()->forget('orderId');
 
-            return $pdf->download('pdf.pdf');
-
+            
             session()->flash('success', 'Ваш заказ принят в обработку!');
 
             return redirect()->to('/thanks')->with('order', $order);

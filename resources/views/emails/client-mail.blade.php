@@ -1,27 +1,38 @@
+<style>
+.box{
+    background: #fff;
+    padding: 0 25px;
+    border-radius: 10px;
+}
+.big{
+    font-weight: 700;
+    display: inline-block;
+}
+.i{
+    font-style: italic;
+}
+</style>
 <div>
-    <h3>Уважаемый {{ $request_details->name }}, Наш менеджер на данный момент проверяет ваш заказ и в ближайшее время
+    <h3 style="font-weight:400;">Уважаемый(ая) <div class="big i">{{ $request_details->name }}</div>, Наш менеджер на данный момент проверяет ваш заказ и в ближайшее время
         вышлет вам счет-фактуру
     </h3>
-
     <h2> Детали заказа </h2>
+   <div class="box" style="box-shadow: 0 0 20px 1px rgb(0 0 0 / 29%);">   
     @foreach($request_details['clientOrder'] as $detail)
-        <span>Название товара: {{$detail->name}}</span> <br>
-        <span>Цена товара: {{$detail->price}} €</span> <br>
+        <div><div class="big">Название товара:</div> {{$detail->name}}</div> 
+        <div><div class="big">Цена товара:</div> {{$detail->price}} €</div> 
         @isset($detail->color)
-            <span>Цвет товара: {{$detail->color}}</span> <br>
+        <div><div class="big">Цвет товара:</div> {{$detail->color}}</div>
         @endisset
         <br>
     @endforeach
+        <div><div class="big">Ваш комментарий:</div></div> 
+        <div class="i">{{$request_details->comment}}</div>
     <br>
-    <br>
-        <span>Ваш комментарий</span> <br>
-        <span>{{$request_details->comment}}</span>
-    <br>
-    <br>
-    <span>Мы вас ждем в нашем филиале: {{$request_details->address}}</span> <br>
-    <span>Дата: {{$request_details->date}} </span><br>
-    <span>Время: {{$request_details->time}}</span><br>
-
-    <span>Спасибо,</span> <br>
-    <span>С уважением команда Promarket</span>
+    <div><div class="big">Мы вас ждем в нашем филиале:</div> {{$request_details->address}}</div> 
+    <div><div class="big">Дата:</div> {{$request_details->date}} </div>
+    <div><div class="big">Время:</div> {{$request_details->time}}</div>
+    <div>Спасибо,</div>
+    <div>С уважением команда Promarket</div>
+    </div>
 </div>
