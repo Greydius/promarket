@@ -191,6 +191,7 @@ class MainController extends Controller
                 });
             $sms = Sms::gateway('nexmo')->send($order->telephone,'sms.to-client',['from'=>'Promarket.lv']);
             return $pdf->download('pdf');
+
             // dd($sms);
         }
         return redirect()->back()->with('success', 'Message sent successfully!');
