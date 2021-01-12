@@ -182,20 +182,20 @@ class OrderController extends Controller
         // $request_details = Order::
         if ($save) {
             $products = $order->products;
-            // dd($products);
-            // $order = $order->toArray();
             $pdf = \PDF::loadView('sms.pdf1', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);
-            // return $pdf->download('invoice.pdf');
-            // Mail::to(config('params.emails'))->send(new SendOrderToClent($order));
             $email = $order->email;
-            $send = Mail::send(['sms.pdf1' => 'sms.pdf1'], ['order' => $order], function($message)use($order,$email, $pdf) 
+            $send = Mail::send(['sms.pdf1' => 'sms.pdf1'], ['order' => $order], function($message)use($order,$email, $pdf)
                 {
                         $message->to($email);
                          $message->subject($order->name_company);
-                         $message->attachData($pdf->output(), "text.pdf");
+                         $message->attachData($pdf->output(), "invoice.pdf");
                     });
             $request->session()->forget('orderId');
+
+            return $pdf->download('pdf.pdf');
+
             session()->flash('success', 'Ваш заказ принят в обработку!');
+
             return redirect()->to('/thanks')->with('order', $order);
         } else {
             session()->flash('error', 'Server has some issues, please wait sometime before resubmitting the order');
