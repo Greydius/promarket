@@ -176,6 +176,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Softon\Sms\SmsServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Sms' => Softon\Sms\Facades\Sms::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

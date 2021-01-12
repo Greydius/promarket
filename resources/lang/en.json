@@ -99,9 +99,9 @@
 	"Enter time" : "Enter time",
 	"Enter date" : "Enter date",
 	"Your phone number" : "Your phone number",
-	"Courier service starting from 4.99 € *. Estimated delivery May 15" : "Courier service starting from 4.99 € *. Estimated delivery May 15",
-	"Take away for free. The order will be completed presumably on May 14" : "Take away for free. The order will be completed presumably on May 14",
-	"Delivery to a parcel machine 3.95 €. Estimated delivery May 15" : "Delivery to a parcel machine 3.95 €. Estimated delivery May 15",
+	"Courier service starting from 4.99 € *. Estimated delivery May 15" : "Courier service starting from 4.99 € *. Estimated delivery :date",
+	"Take away for free. The order will be completed presumably on May 14" : "Take away for free. The order will be completed presumably on :date",
+	"Delivery to a parcel machine 3.95 €. Estimated delivery May 15" : "Delivery to a parcel machine 3.95 €. Estimated delivery :date",
 	"in stock" : "in stock",
 	"ex VAT" : "ex VAT",
 	"Top" : "TOP",
@@ -175,5 +175,7 @@
 	"Very soon our manager will check your application and send you an invoice!" : "Very soon our manager will check your application and send you an invoice!",
 	"A LINK WITH THE ACTIVATION OF YOUR ACCOUNT SENT TO YOUR MAILBOX" : "A LINK WITH THE ACTIVATION OF YOUR ACCOUNT SENT TO YOUR MAILBOX",
 	"Please open the email and follow the link to complete your account registration." : "Please open the email and follow the link to complete your account registration.",
-    "no-orders": "You don't have any active orders"
+    "no-orders": "You don't have any active orders",
+    "See more" : "See more",
+    "More" : "More"
 }  
