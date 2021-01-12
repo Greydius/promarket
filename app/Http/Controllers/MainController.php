@@ -183,16 +183,17 @@ class MainController extends Controller
         }elseif($type == 'card'){
             $email = $order->email;
             $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);
-           $send = Mail::send(['sms.pdf2' => 'sms.pdf2'], ['order' => $order], function($message)use($order,$email, $pdf) 
+            $send = Mail::send(['sms.pdf2' => 'sms.pdf2'], ['order' => $order], function($message)use($order,$email, $pdf)
                 {
-                        $message->to($email);
+                         $message->to($email);
                          $message->subject($order->name_company);
                          $message->attachData($pdf->output(), "text.pdf");
-                    });
+                });
             $sms = Sms::gateway('nexmo')->send($order->telephone,'sms.to-client',['from'=>'Promarket.lv']);
+            return $pdf->download('pdf');
             // dd($sms);
         }
-        return redirect()->back()->with('success', 'Message sent successfully!');   
+        return redirect()->back()->with('success', 'Message sent successfully!');
     }
     public function underOrder(Request $req)
     {
