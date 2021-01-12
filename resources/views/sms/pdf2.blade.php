@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <style>
         /*!
  * Base CSS
@@ -333,9 +334,9 @@
 
     </style>
 
-   {{-- <link rel="stylesheet" href="<?php echo url()->to('/'); ?>/pdf/2/base.min.css"/>
+   <link rel="stylesheet" href="<?php echo url()->to('/'); ?>/pdf/2/base.min.css"/>
     <link rel="stylesheet" href="{{ asset('/pdf/2/fancy.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('/pdf/2/main.css') }}"/>--}}
+    <link rel="stylesheet" href="{{ asset('/pdf/2/main.css') }}"/>
     <script>
         /*
          Copyright 2012 Mozilla Foundation
