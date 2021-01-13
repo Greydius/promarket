@@ -179,16 +179,21 @@ class OrderController extends Controller
         $order->user_id = $userid;
         $save = $order->save();
         if ($save) {
+            if($order->payment_method == 'cash'){
+            $sms = \Sms::gateway('nexmo')->send($order->telephone,'sms.to-client',['from'=>'Promarket.lv']);
+            // dd($sms);
+            }elseif($order->payment_method == 'card'){
             $products = $order->products;
-            $pdf = \PDF::loadView('sms.pdf', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);
+            $pdf = \PDF::loadView('sms.pdf1', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);
            
             $email = $order->email;
-            $send = Mail::send(['sms.pdf' => 'sms.pdf'], ['order' => $order], function($message)use($order,$email, $pdf)
+            $send = Mail::send(['sms.pdf1' => 'sms.pdf1'], ['order' => $order], function($message)use($order,$email, $pdf)
                 {
                         $message->to($email);
                          $message->subject($order->name_company);
                          $message->attachData($pdf->output(), "invoice.pdf");
                     });
+            }
             $request->session()->forget('orderId');
 
             

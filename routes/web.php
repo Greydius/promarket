@@ -136,14 +136,14 @@ Route::delete('/detail/quality', 'FixingController@deleteQualityForCommodity')->
 Route::post('/under-order',  'MainController@underOrder')->name('under-order');
 
 Route::get('/send-msg', 'MainController@sendMessages')->name('send-msg');
-Route::get('/test-pdf', function(){
+// Route::get('/test-pdf', function(){
 //     $order = Order::find(7);
 // $pdf = PDF::loadView('sms.pdf1', $order);
 // // $pdf->download('invoice.pdf');
 
 // return view('sms.pdf1');
 
-});
+// });
 
 
 

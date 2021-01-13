@@ -166,14 +166,15 @@ class MainController extends Controller
         // dd($sms);
             $order = Order::where('id', 7)->first();
             $products = $order->products;
-            dd($order);
+            // dd($order);
             // $order = $order->toArray();
             $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products]);
-
-            return view('sms.pdf2',['order' => $order, 'products' => $products]);
+            // $pdf->stream();
+            // return view('sms.pdf2',['order' => $order, 'products' => $products]);
+            return $pdf->stream();
     }
 
-  public function smsToClient($type, $order_id)
+    public function smsToClient($type, $order_id)
     {
         $order = Order::where('id',$order_id)->first();
         $products = $order->products;
