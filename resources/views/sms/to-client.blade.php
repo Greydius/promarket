@@ -1,1 +1,1 @@
-Мы ждем ваша оплата
+Mēs gaidām jūsu maksājumu

@@ -168,10 +168,10 @@ class MainController extends Controller
             $products = $order->products;
             // dd($order);
             // $order = $order->toArray();
-            $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products]);
-            // $pdf->stream();
-            // return view('sms.pdf2',['order' => $order, 'products' => $products]);
-            return $pdf->stream();
+            $pdf = \PDF::loadView('sms.pdf', ['order' => $order, 'products' => $products]);
+            // return $pdf->stream();
+            return view('sms.pdf2',['order' => $order, 'products' => $products]);
+            // return $pdf->stream();
     }
 
     public function smsToClient($type, $order_id)
@@ -184,6 +184,7 @@ class MainController extends Controller
         }elseif($type == 'card'){
             $email = $order->email;
             $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);
+            // dd($pdf->stream());
             $send = Mail::send(['sms.pdf2' => 'sms.pdf2'], ['order' => $order], function($message)use($order,$email, $pdf)
                 {
                          $message->to($email);
@@ -191,7 +192,7 @@ class MainController extends Controller
                          $message->attachData($pdf->output(), "text.pdf");
                 });
             $sms = Sms::gateway('nexmo')->send($order->telephone,'sms.to-client',['from'=>'Promarket.lv']);
-            return $pdf->download('pdf');
+            // return $pdf->download('pdf');
 
             // dd($sms);
         }
