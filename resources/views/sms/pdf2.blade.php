@@ -159,7 +159,7 @@ table b{
                 </tr>
                 <tr>
                     <td><span style="margin:0">Darījuma veids</span></td>
-                    <td><b></b></td>
+                    <td><b>@if($order->payment_method == 'cash') Skaidra nauda @else Ar karti @endif</b></td>
                     <td><span style="margin:0"></span></td>
                     <td><b></b></td>
                 </tr>

@@ -100,7 +100,7 @@ table b{
                     <td><span style="margin:0">Norēķinu rekvizīti</span></td>
                     <td><b></b></td>
                     <td><span style="margin:0">Konts</span></td>
-                    <td><b></b></td>
+                    <td><b>{{$order->user_id}}</b></td>
                 </tr>
             </table> 
             <hr>
@@ -148,7 +148,7 @@ table b{
                     <td colspan="8" style="width:684px">Piezīmes : {{$product->name}} </td>
                     </tr>
                     @endforeach
-                   <!--  <tr>
+                    <tr>
                         <td style="width:95px">PIEGĀDE</td>
                         <td style="width:234px">Piegāde</td>
                         <td style="width:67px">gab</td>
@@ -160,7 +160,7 @@ table b{
                     </tr>
                     <tr>
                     <td colspan="8" style="width:684px">Piezīmes : Ventspils Supernetto Tārgales pakomāts – Tārgales iela 62, Ventspils – Ventspils</td>
-                    </tr> -->
+                    </tr>
             </table>
             <table class="" style="width: 50%;float: right;text-align: right;">
                 <tr>
