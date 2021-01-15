@@ -164,14 +164,14 @@ class MainController extends Controller
     {
         // $sms = Sms::gateway('nexmo')->send('999163844','sms.test',['from'=>'Promarket.lv']);
         // dd($sms);
-            $order = Order::where('id', 7)->first();
+            $order = Order::where('id', 11)->first();
             $products = $order->products;
             // dd($order);
             // $order = $order->toArray();
-            $pdf = \PDF::loadView('sms.pdf', ['order' => $order, 'products' => $products]);
+            $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products]);
             // return $pdf->stream();
-            return view('sms.pdf2',['order' => $order, 'products' => $products]);
-            // return $pdf->stream();
+            // return view('sms.pdf2',['order' => $order, 'products' => $products]);
+            return $pdf->stream();
     }
 
     public function smsToClient($type, $order_id)

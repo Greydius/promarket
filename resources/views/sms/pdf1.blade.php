@@ -138,52 +138,56 @@ table b{
                         <td style="width:67px">komplekti</td>
                         <td style="width:66px">{{$product->pivot->count}}</td>
                         <td style="width:76px">{{$product->price}}</td>
-                        <td style="width:32px">0</td>
+                        <td style="width:32px">10</td>
                         <td style="width:38px">21</td>
-                        <td style="width:76px"><?php echo $product->pivot->count * $product->price; ?></td>
+                        <td style="width:76px"><?php 
+                        $allsum = $product->pivot->count * $product->price; 
+                        echo $allsum; ?></td>
                     </tr>
                     <tr>
                     <td colspan="8" style="width:684px">Piezīmes : {{$product->name}} </td>
                     </tr>
                     @endforeach
-                    <tr>
+                   <!--  <tr>
                         <td style="width:95px">PIEGĀDE</td>
                         <td style="width:234px">Piegāde</td>
                         <td style="width:67px">gab</td>
                         <td style="width:66px">1</td>
                         <td style="width:76px">3.26</td>
-                        <td style="width:32px">0</td>
+                        <td style="width:32px">10</td>
                         <td style="width:38px">21</td>
                         <td style="width:76px">3.26</td>
                     </tr>
                     <tr>
                     <td colspan="8" style="width:684px">Piezīmes : Ventspils Supernetto Tārgales pakomāts – Tārgales iela 62, Ventspils – Ventspils</td>
-                    </tr>
+                    </tr> -->
             </table>
             <table class="" style="width: 50%;float: right;text-align: right;">
                 <tr>
-                    <td>Atlaide (EUR)</td>
-                    <td>0.00</td>
+                    <td>Atlaide % (EUR)</td>
+                    <td><?php echo $skidka = $order->total_amout / 10; ?></td>
                 </tr>
                 <tr>
                     <td>ar PVN 21% apl. summa (EUR)</td>
-                    <td>23.09</td>
+                    <td>{{$order->total_amout}}</td>
                 </tr>
                 <tr>
                     <td>PVN 21% (EUR)</td>
-                    <td>4.85</td>
+                    <td><?php echo $pvn = $order->total_amout / 100 * 21; ?></td>
                 </tr>
                 <tr>
                     <td>Summa kopā (EUR)</td>
-                    <td>27.94</td>
+                    <td><?php echo $spvn = $order->total_amout + $pvn; ?></td>
                 </tr>
                 <tr>
                     <td>Summa apmaksai (EUR)</td>
-                    <td>27.94</td>
+                    <td><?php echo $total_amout = $spvn-$skidka; ?> </td>
                 </tr>
             </table>
         </div>
-        <div class="" style="clear: both;font-size: 10px">Apmaksas summa vārdiem: <b>Divdesmit septiņi eiro 94 cents(i)</b></div>
+        <div class="" style="clear: both;font-size: 10px">Apmaksas summa vārdiem: <b><?php $digit = new \NumberFormatter("en", \NumberFormatter::SPELLOUT);
+            $explode = explode(".", $total_amout);
+echo $digit->format($explode[0]); ?>  eiro {{$explode[1]}} cents(i)</b></div>
         <div style="font-size: 9px;line-height: 15px"> <p style="line-height: 10px;">Sastādīja:     ______________________________
                                     <br><span style="padding-left: 85px;">vārds, uzvārds</span></p>
                             <p style="line-height: 5px; padding-top: 10px;padding-left: 42px;">

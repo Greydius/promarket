@@ -104,19 +104,19 @@ table b{
                 </tr>
                 <tr>
                     <td><span style="margin:0">Norēķinu rekvizīti</span></td>
-                    <td><b></b></td>
+                    <td><b>{{$order->city}}, {{$order->address}}</b></td>
                     <td><span style="margin:0">Konta Nr.</span></td>
-                    <td><b></b></td>
+                    <td><b>{{$order->user_id}}</b></td>
                 </tr>
                 <tr>
                     <td><span style="margin:0">Saņemšanas vieta</span></td>
                     <td><b>Visvalža iela 8 - 3A, Rīga, Latvija, LV-1050</b></td>
-                    <td><span style="margin:0">Konta Nr.</span></td>
+                    <td><span style="margin:0"></span></td>
                     <td><b></b></td>
                 </tr>
                 <tr>
                     <td><span style="margin:0">Kontaktinformācija</span></td>
-                    <td><b></b></td>
+                    <td><b>{{$order->telephone}}, {{$order->email}} </b></td>
                     <td><span style="margin:0"></span></td>
                     <td><b></b></td>
                 </tr>
@@ -171,7 +171,7 @@ table b{
                 </tr>
                 <tr>
                     <td><span style="margin:0">Papildinformācija</span></td>
-                    <td><b></b></td>
+                    <td><b>{{$order->orderStatus->name}}</b></td>
                     <td><span style="margin:0"></span></td>
                     <td><b></b></td>
                 </tr>
@@ -200,31 +200,32 @@ table b{
                     @endforeach
             </table>
             <table class="" style="width: 50%;float: right;text-align: right;">
-                <tr>
-                    <td>Atlaide (EUR)</td>
-                    <td>0.00</td>
+                 <tr>
+                    <td>Atlaide % (EUR)</td>
+                    <td><?php echo $skidka = $order->total_amout / 10; ?></td>
                 </tr>
                 <tr>
                     <td>ar PVN 21% apl. summa (EUR)</td>
-                    <td>23.09</td>
+                    <td>{{$order->total_amout}}</td>
                 </tr>
                 <tr>
                     <td>PVN 21% (EUR)</td>
-                    <td>4.85</td>
+                    <td><?php echo $pvn = $order->total_amout / 100 * 21; ?></td>
                 </tr>
                 <tr>
                     <td>Summa kopā (EUR)</td>
-                    <td>27.94</td>
+                    <td><?php echo $spvn = $order->total_amout + $pvn; ?></td>
                 </tr>
                 <tr>
                     <td>Summa apmaksai (EUR)</td>
-                    <td>27.94</td>
-                </tr>
+                    <td><?php echo $total_amout =  $spvn-$skidka; ?> </td>
                 <tr>
                 </tr>
             </table>
         </div>
-        <div class="" style="clear: both;font-size: 10px">Apmaksas summa vārdiem: <b>Divdesmit septiņi eiro 94 cents(i)</b></div>
+        <div class="" style="clear: both;font-size: 10px">Apmaksas summa vārdiem: <b><?php $digit = new \NumberFormatter("en", \NumberFormatter::SPELLOUT);
+            $explode = explode(".", $total_amout);
+echo $digit->format($explode[0]); ?>  eiro {{$explode[1]}} cents(i)</b></div>
         <div style="font-size: 9px;line-height: 15px; width: 33%; float: left;"> <p style="line-height: 10px;">Izsniedza:     ______________________________
                                     <br><span style="padding-left: 85px;"><?php echo strftime('%d.%m.%Y'); ?></span></p>
         </div>
