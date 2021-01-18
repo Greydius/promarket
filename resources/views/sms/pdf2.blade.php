@@ -125,22 +125,22 @@ table b{
             <table>
                 <tr>
                     <td><span style="margin:0">Preču pārvadātājs </span></td>
-                    <td><b></b></td>
+                    <td><b>{{$order->delivery}}</b></td>
                     <td><span style="margin:0">Reģistrācijas Nr.</span></td>
-                    <td><b> </b></td>
+                    <td><b>{{$order->register_code}}</b></td>
                 </tr>
                 <tr>
                     <td><span style="margin:0"></span></td>
                     <td><b></b></td>
                     <td><span style="margin:0">PVN reģ. Nr.</span></td>
-                    <td><b> </b></td>
+                    <td><b>{{$order->code_nds_pay}}</b></td>
                 </tr>
-                <tr>
+               <!--  <tr>
                     <td><span style="margin:0">TL vadītāja vārds, uzvārds</span></td>
                     <td><b></b></td>
                     <td><span style="margin:0">TL reģ. Nr.</span></td>
                     <td><b></b></td>
-                </tr>
+                </tr> -->
             </table> 
             <hr>
             <table>

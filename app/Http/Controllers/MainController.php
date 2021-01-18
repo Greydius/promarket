@@ -164,7 +164,7 @@ class MainController extends Controller
     {
         // $sms = Sms::gateway('nexmo')->send('999163844','sms.test',['from'=>'Promarket.lv']);
         // dd($sms);
-            $order = Order::where('id', 11)->first();
+            $order = Order::where('id', 28)->first();
             $products = $order->products;
             // dd($order);
             // $order = $order->toArray();
@@ -188,7 +188,7 @@ class MainController extends Controller
             $send = Mail::send(['sms.pdf2' => 'sms.pdf2'], ['order' => $order], function($message)use($order,$email, $pdf)
                 {
                          $message->to($email);
-                         $message->subject($order->name_company);
+                         $message->subject('PAVADZĪME');
                          $message->attachData($pdf->output(), "text.pdf");
                 });
             $sms = Sms::gateway('nexmo')->send($order->telephone,'sms.to-client',['from'=>'Promarket.lv']);

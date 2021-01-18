@@ -153,13 +153,17 @@ table b{
                         <td style="width:234px">Piegāde</td>
                         <td style="width:67px">gab</td>
                         <td style="width:66px">1</td>
-                        <td style="width:76px">3.26</td>
-                        <td style="width:32px">10</td>
+                        <td style="width:76px"><?php if($order->delivery == "Piegāde uz norādīto adresi"){
+                            echo "5.99";
+                        }else{ if($order->delivery == "Paņemiet pakomātu, Omniva"){ echo "3.95"; }else { echo "Free"; } } ?></td>
+                        <td style="width:32px">0</td>
                         <td style="width:38px">21</td>
-                        <td style="width:76px">3.26</td>
+                        <td style="width:76px"><?php if($order->delivery == "Piegāde uz norādīto adresi"){
+                            echo "5.99";
+                        }else{ if($order->delivery == "Paņemiet pakomātu, Omniva"){ echo "3.95"; }else { echo "Free"; } } ?></td>
                     </tr>
                     <tr>
-                    <td colspan="8" style="width:684px">Piezīmes : Ventspils Supernetto Tārgales pakomāts – Tārgales iela 62, Ventspils – Ventspils</td>
+                    <td colspan="8" style="width:684px">Piezīmes : {{$order->delivery}} – {{$order->delivery_address}} {{$order->city}}</td>
                     </tr>
             </table>
             <table class="" style="width: 50%;float: right;text-align: right;">

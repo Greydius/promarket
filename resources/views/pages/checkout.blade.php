@@ -107,7 +107,7 @@
                                     <form action="{{ route('confirm.order') }}" method="POST"
                                           class="user-data user-data-self">
                                         @csrf
-                                        <input type="hidden" name="delivery" value="Самовывоз">
+                                        <input type="hidden" name="delivery" value="Pacelt"><!-- Самовывоз -->
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
                                                 <input type="radio" @if(Auth::user()->identification_type == 0) checked @endif name="identification-type"
@@ -197,8 +197,8 @@
                                     <form action="{{ route('confirm.order') }}" method="POST"
                                           class="user-data user-data-omniva">
                                         @csrf
-                                        <input type="hidden" name="delivery" value="Забрать почтомате">
-                                        <select name="delivery" class="js-selectric">
+                                        <input type="hidden" name="delivery" value="Paņemiet pakomātu, Omniva"><!-- Забрать почтомате, Omniva -->
+                                        <select name="city" class="js-selectric">
                                             <option value="city1">{{__('City')}} </option>
                                             <option value="city2">{{__('City')}} </option>
                                             <option value="city3">{{__('City')}} </option>
@@ -302,7 +302,7 @@
                             <form action="{{ route('confirm.order') }}" method="POST"
                                   class="user-data user-data-delivery">
                                 @csrf
-                                <input type="hidden" name="delivery" value="Доставить по указанному адресу">
+                                <input type="hidden" name="delivery" value="Piegāde uz norādīto adresi"><!-- Доставить по указанному адресу -->
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
                                         <div class="small-title text-center mb-4 mt-5">{{__('DELIVERY ADDRESS')}} </div>
@@ -319,7 +319,7 @@
                                                 </ul>
                                             </div>
                                         </div>--}}
-                                        <select name="delivery" class="js-selectric">
+                                        <select name="city" class="js-selectric">
                                             <option value="city1">{{__('City')}} </option>
                                             <option value="city2">{{__('City')}} </option>
                                             <option value="city3">{{__('City')}} </option>
@@ -468,7 +468,7 @@
                                     <form action="{{ route('confirm.order') }}" method="POST"
                                           class="user-data user-data-self">
                                         @csrf
-                                        <input type="hidden" name="delivery" value="Самовывоз">
+                                        <input type="hidden" name="delivery" value="Pacelt"><!-- Самовывоз -->
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
                                                 <input type="radio" name="identification-type"
@@ -558,7 +558,7 @@
                                     <form action="{{ route('confirm.order') }}" method="POST"
                                           class="user-data user-data-omniva">
                                         @csrf
-                                        <input type="hidden" name="delivery" value="Забрать почтомате">
+                                        <input type="hidden" name="delivery" value="Paņemiet pakomātu, Omniva"><!-- Забрать почтомате, Omniva -->
                                         <select name="delivery" class="js-selectric">
                                             <option value="city1">{{__('City')}} </option>
                                             <option value="city2">{{__('City')}} </option>
@@ -663,7 +663,7 @@
                             <form action="{{ route('confirm.order') }}" method="POST"
                                   class="user-data user-data-delivery">
                                 @csrf
-                                <input type="hidden" name="delivery" value="Доставить по указанному адресу">
+                                <input type="hidden" name="delivery" value="Piegāde uz norādīto adresi"><!-- Доставить по указанному адресу -->
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-12 m-auto">
                                         <div class="small-title text-center mb-4 mt-5">{{__('DELIVERY ADDRESS')}} </div>
@@ -680,7 +680,7 @@
                                                 </ul>
                                             </div>
                                         </div>--}}
-                                        <select name="delivery" class="js-selectric">
+                                        <select name="city" class="js-selectric">
                                             <option value="city1">{{__('City')}} </option>
                                             <option value="city2">{{__('City')}} </option>
                                             <option value="city3">{{__('City')}} </option>

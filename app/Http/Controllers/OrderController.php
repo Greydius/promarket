@@ -190,7 +190,7 @@ class OrderController extends Controller
             $send = Mail::send(['sms.pdf1' => 'sms.pdf1'], ['order' => $order], function($message)use($order,$email, $pdf)
                 {
                         $message->to($email);
-                         $message->subject($order->name_company);
+                         $message->subject("Avansa rēķins");
                          $message->attachData($pdf->output(), "invoice.pdf");
                     });
             }
