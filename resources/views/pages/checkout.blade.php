@@ -319,11 +319,11 @@
                                                 </ul>
                                             </div>
                                         </div>--}}
-                                        <!-- <select name="city" class="js-selectric">
+                                        <select name="city" class="js-selectric">
                                             <option value="city1">{{__('City')}} </option>
                                             <option value="city2">{{__('City')}} </option>
                                             <option value="city3">{{__('City')}} </option>
-                                        </select> -->
+                                        </select>
                                         <input type="text" placeholder="{{__('City')}} " name="city">
                                         <input type="text" placeholder="{{__('DELIVERY ADDRESS')}} "
                                                name="delivery_address">
@@ -680,11 +680,11 @@
                                                 </ul>
                                             </div>
                                         </div>--}}
-                                        <!-- <select name="city" class="js-selectric">
+                                        <select name="city" class="js-selectric">
                                             <option value="city1">{{__('City')}} </option>
                                             <option value="city2">{{__('City')}} </option>
                                             <option value="city3">{{__('City')}} </option>
-                                        </select> -->
+                                        </select>
                                         <input type="text" placeholder="{{__('City')}} " name="city">
                                         <input type="text" placeholder="{{__('DELIVERY ADDRESS')}} "
                                                name="delivery_address">
@@ -815,6 +815,28 @@
                     $('.for_legal_entity').hide();
                 }
             });
+
+  $.extend($.validator.messages, {
+      required: "<?php echo __("This field is required"); ?>",
+      email: "<?php echo __('Please enter a valid email address.'); ?>"
+});
+$("form").validate({
+    rules: {
+
+      email: {
+        required: true,
+        email: true
+      },
+      password: {
+        required: true
+      }
+    },
+    ignore: [],
+    errorPlacement: function (error, element) {
+               $(error).insertAfter(element.prev(".error"));
+           },
+
+});
         });
 
     </script>
