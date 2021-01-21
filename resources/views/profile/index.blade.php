@@ -55,7 +55,7 @@
                                         </div>
                                     </div>
                                     <?php $orders = Auth::user()->orders; ?>
-                                    @if (count($orders) == 0)
+                                    @if (count($orders) != 0)
                                         @foreach($orders as $order)
                                             <a href="/profile/order/{{$order->id}}" class="lk-row d-flex">
                                                 <div class="lk-first-col">
