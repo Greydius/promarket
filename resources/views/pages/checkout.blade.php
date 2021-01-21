@@ -146,19 +146,19 @@
                                             <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code"  value="{{Auth::user()->register_code}}">
+                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code"  value="{{Auth::user()->register_code}}" required="required">
                                             </label>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('Company name')}} " name="name_company" value="{{Auth::user()->name_company}}">
+                                                <input type="text" placeholder="{{__('Company name')}} " required="required" name="name_company" value="{{Auth::user()->name_company}}">
                                             </label>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay" value="{{Auth::user()->code_nds_pay}}">
+                                                <input type="text" placeholder="{{__('VAT payer code')}} " required="required" name="code_nds_pay" value="{{Auth::user()->code_nds_pay}}">
                                             </label>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('Company address')}} " name="address_company" value="{{Auth::user()->address_company}}">
+                                                <input type="text" placeholder="{{__('Company address')}} " required="required" name="address_company" value="{{Auth::user()->address_company}}">
                                             </label>
                                         </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
@@ -254,19 +254,19 @@
                                             <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('registration code')}} " name="register_code">
+                                                <input type="text" placeholder="{{__('registration code')}} "  required="required" name="register_code">
                                             </label>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('Company name')}} " name="name_company">
+                                                <input type="text" placeholder="{{__('Company name')}} " required="required" name="name_company">
                                             </label>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('VAT payer code')}} " name="code_nds_pay">
+                                                <input type="text" placeholder="{{__('VAT payer code')}} " required="required" name="code_nds_pay">
                                             </label>
                                             <label>
                                                 <span class="errormessage"></span>   
-                                                <input type="text" placeholder="{{__('Company address')}} " name="address_company">
+                                                <input type="text" placeholder="{{__('Company address')}} " required="required" name="address_company">
                                             </label>
                                         </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
