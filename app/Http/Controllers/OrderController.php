@@ -171,6 +171,7 @@ class OrderController extends Controller
         $result = $order->update($inputs);
         $order->fio = $inputs['name'] . ' ' . $inputs['firstname'];
         $order->specification = $inputs['identification-type'];
+        $order->email = $inputs['email'];
         $order->order_status_id = '1';
 
         $order->payment_method = $inputs['payment_method'];

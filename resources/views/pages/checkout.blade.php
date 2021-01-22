@@ -820,7 +820,7 @@
       required: "<?php echo __("This field is required"); ?>",
       email: "<?php echo __('Please enter a valid email address.'); ?>"
 });
-$("form").validate({
+$("form.user-data").validate({
     rules: {
 
       email: {
