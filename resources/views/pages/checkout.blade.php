@@ -110,14 +110,14 @@
                                         <input type="hidden" name="delivery" value="Pacelt"><!-- Самовывоз -->
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                                <input type="radio" @if(Auth::user()->identification_type == 0) checked @endif name="identification-type"
+                                                <input type="radio" class="individual" name="identification-type" @if(Auth::user()->identification_type == 0) checked @endif name="identification-type"
                                                        value=" {{__('Individual')}} ">
                                                 <span>
                                             {{__('Individual')}}
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" @if(Auth::user()->identification_type == 1) checked @endif class="legal_entity" name="identification-type"
+                                                <input name="identification-type" type="radio" @if(Auth::user()->identification_type == 1) checked @endif class="legal_entity" name="identification-type"
                                                        value=" {{__('legal entity')}} ">
                                                 <span>
                                             {{__('legal entity')}}
@@ -142,7 +142,7 @@
                                         </label>
                                         <textarea name="comment" id="comment" class="" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
-                                        <div class="for_legal_entity" style="display: none;">
+                                        <div class="for_legal_entity"  @if(Auth::user()->identification_type == 0) style="display: none;" @endif>
                                             <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
                                             <label>
                                                 <span class="errormessage"></span>   
@@ -217,7 +217,7 @@
                                         <div class="small-title text-center mb-4 mt-5">{{__("BUYER DATA")}} </div>
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type" @if(Auth::user()->identification_type == 0) checked @endif
+                                                <input type="radio" class="individual" name="identification-type" @if(Auth::user()->identification_type == 0) checked @endif
                                                        value=" {{__('Individual')}} ">
                                                 <span>
                                             {{__('Individual')}}
@@ -250,7 +250,7 @@
                                         
                                         <textarea name="comment" id="comment" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
-                                        <div class="for_legal_entity" style="display: none;">
+                                        <div class="for_legal_entity" @if(Auth::user()->identification_type == 0) style="display: none;" @endif >
                                             <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
                                             <label>
                                                 <span class="errormessage"></span>   
@@ -338,14 +338,14 @@
                                         <div class="small-title text-center mb-4 mt-5">{{__("BUYER DATA")}} </div>
                                         <div class="d-flex radio-buttons-row align-items-center justify-content-center">
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type"  @if(Auth::user()->identification_type == 0) checked @endif
+                                                <input  type="radio" class="individual" name="identification-type" @if(Auth::user()->identification_type == 0) checked @endif
                                                        value="{{__('Individual')}} ">
                                                 <span>
                                             {{__('Individual')}}
                                         </span>
                                             </label>
                                             <label class="radio-type">
-                                                <input type="radio" name="identification-type" class="legal_entity"  @if(Auth::user()->identification_type == 0) checked @endif
+                                                <input type="radio" name="identification-type" class="legal_entity"  @if(Auth::user()->identification_type == 1) checked @endif
                                                        value=" {{__('legal entity')}} ">
                                                 <span>
                                             {{__('legal entity')}}
@@ -371,7 +371,7 @@
                                         <textarea name="comment" id="comment" cols="30" rows="10"
                                                   placeholder="{{__('order comment')}} "></textarea>
                                         
-                                          <div class="for_legal_entity" style="display: none;">
+                                          <div class="for_legal_entity"  @if(Auth::user()->identification_type == 0) style="display: none;" @endif>
                                             <div class="small-title text-center mb-4 mt-5">{{__("Company details")}} </div>
                                             <label>
                                                 <span class="errormessage"></span>   
@@ -791,6 +791,16 @@
     </main>
     <script type="text/javascript">
         $(document).ready(function () {
+            $('input[name="identification-type"]').on('change', function(){
+                if($('input.legal_entity').is(':checked')){
+                    $(this).closest('.for_legal_entity').show();
+                }else{
+                    if($('input.individual').is(':checked')){
+                    $(this).closest('.for_legal_entity').hide();
+                    }
+                }
+            });
+
             $('.order-login .order-login-btn').click(function (e) {
 
                 var data = $('form.order-login').serialize();
@@ -807,13 +817,6 @@
                 }).fail(function (res) {
                     console.log(res);
                 });
-            });
-            $('input[name="identification-type"]').change(function(){
-                if($('input.legal_entity').is(':checked')){
-                    $('.for_legal_entity').show();
-                }else{
-                    $('.for_legal_entity').hide();
-                }
             });
 
   $.extend($.validator.messages, {
