@@ -791,15 +791,15 @@
     </main>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('input[name="identification-type"]').on('change', function(){
-                if($('input.legal_entity').is(':checked')){
-                    $(this).closest('.for_legal_entity').show();
-                }else{
-                    if($('input.individual').is(':checked')){
-                    $(this).closest('.for_legal_entity').hide();
-                    }
-                }
-            });
+            $('input.legal_entity').on('click', function(){
+                $('input.legal_entity').trigger('click');
+               $('.for_legal_entity').show();  
+                });
+             $('input.individual').on('click', function(){
+                $('input.individual').trigger('click');
+               $('.for_legal_entity').hide();     
+                });
+
 
             $('.order-login .order-login-btn').click(function (e) {
 

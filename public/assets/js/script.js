@@ -10115,7 +10115,7 @@ $('.reservation-form').validate({
 
 $(function () {
     $('input[type="tel"]').inputmask({
-        mask: "+371 99999999",
+        // mask: "+371 99999999",
         clearIncomplete: !0,
     })
     $('.js-selectric').selectric();
