@@ -54,11 +54,11 @@
                                    data-id="3" id="delete-3">
                                     <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Удалить</span>
                                 </a>--}}
-                                <a href="http://promarket.loc/admin/orders/{{$order->id}}/edit" target="_blank" title="Изменить"
+                                <a href="/admin/orders/{{$order->id}}/edit" target="_blank" title="Изменить"
                                    class="btn btn-sm btn-primary pull-right edit">
                                     <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Изменить</span>
                                 </a>
-                                <a href="http://promarket.loc/admin/orders/{{$order->id}}" target="_blank" title="Просмотр"
+                                <a href="/admin/orders/{{$order->id}}" target="_blank" title="Просмотр"
                                    class="btn btn-sm btn-warning pull-right view">
                                     <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">Просмотр</span>
                                 </a>
