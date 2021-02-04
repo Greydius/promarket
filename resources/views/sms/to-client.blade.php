@@ -1,1 +1,1 @@
-Mēs gaidām jūsu maksājumu
+We are waiting for your payment
