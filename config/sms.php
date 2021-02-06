@@ -27,7 +27,7 @@ return [
      */
 
     'mocker' => [
-        'sender_id'  => '',
+        'sender_id'  => 'JhJu18',
     ],
 
     'clickatell' => [                       // Get it from http://clickatell.com
@@ -58,8 +58,8 @@ return [
     ],
 
     'smscountry' => [                       // Get it from http://www.smscountry.com/
-        'user'  => '',
-        'passwd'  => '',
+        'user'  => 'webman',
+        'passwd'  => '76574234',
         'sid'  => 'SMSCountry',
     ],
 
@@ -71,8 +71,8 @@ return [
     ],
 
     'nexmo' => [
-        'api_key'  => '1d74fe40',                   // Get it From http://nexmo.com
-        'api_secret'  => 'dagg78FoBoM1zBlP',
+        'api_key'  => '22a6f339',                   // Get it From http://nexmo.com
+        'api_secret'  => 'fbObnH7VjqK58ONY',
         // 'api_secret'  => '',
         'from'  => 'Promarket.lv',
     ],
@@ -85,15 +85,20 @@ return [
         'country'  => '91',
     ],
 
+    'bulksms' => [
+        'url'  => 'https://api.bulksms.com/v1/messages/send',
+        'api_key'  => 'B1477A1FB6F24616931C4F313346ADBF-02-E',                 
+    ],
+
     'custom' => [                           // Can be used for any gateway
-        'url' => 'https://rest.clicksend.com/v3',                        // Gateway Endpoint
+        'url' => 'https://rest.clicksend.com/v3/sms/send/',                        // Gateway Endpoint
         'params' => [                       // Parameters to be included in the request
             'send_to_name' => 'promarket@hardweb.pro',           // Name of the field of recipient number
-            'msg_name' => '',               // Name of the field of Message Text
+            // 'msg_name' => '',               // Name of the field of Message Text
             'others' => [                   // Other Authentication params with their values
                 'pin' => '172EF9E1-CB13-6BAD-683D-8F6740FC818C',
                 'uid' => '208637',
-                'route' => '0',
+                // 'route' => '0',
                 // 'param4' => '',
             ],
         ],

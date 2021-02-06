@@ -179,8 +179,8 @@ class MainController extends Controller
         $order = Order::where('id',$order_id)->first();
         $products = $order->products;
         if($type == 'cash'){
-            $sms = Sms::gateway('nexmo')->send($order->telephone,'sms.to-client',['from'=>'Promarket.lv']);
-            // dd($sms);
+            $sms = Sms::gateway('nexmo')->send('998999163844','sms.to-client',['from'=>'Promarket.lv']);
+            dd($sms);
         }elseif($type == 'card'){
             $email = $order->email;
             $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);
