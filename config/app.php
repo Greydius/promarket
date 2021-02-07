@@ -161,6 +161,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -177,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Softon\Sms\SmsServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
     ],
 
@@ -232,6 +234,14 @@ return [
 
         'Sms' => Softon\Sms\Facades\Sms::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+
+        'SEOMeta'       => Artesaos\SEOTools\Facades\SEOMeta::class,
+        'OpenGraph'     => Artesaos\SEOTools\Facades\OpenGraph::class,
+        'Twitter'       => Artesaos\SEOTools\Facades\TwitterCard::class,
+        'JsonLd'        => Artesaos\SEOTools\Facades\JsonLd::class,
+        'JsonLdMulti'   => Artesaos\SEOTools\Facades\JsonLdMulti::class,
+        // or
+        // 'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
 
     ],
 

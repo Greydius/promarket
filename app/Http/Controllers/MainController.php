@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\FixingOrder;
-use App\Mail\UnderOrderMail;
-use App\Mail\SendOrderToClent;
-use App\Order;
-use App\UnderOrderProduct;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\SendOrderToClent;
 use Spatie\Searchable\Search;
 use Illuminate\Http\Request;
+use App\Mail\UnderOrderMail;
 use Illuminate\Support\Str;
 use Softon\Sms\Facades\Sms;
+use App\UnderOrderProduct;
 use App\FixingDetail;
-use App\Category;
 use App\SubCategory;
+use App\FixingOrder;
+use App\Category;
 use App\Product;
+use App\Order;
 use PDF;
 
 
@@ -24,10 +26,17 @@ class MainController extends Controller
 {
     public function main () {
         $popularCategories = Category::where('is_popular', 1)->get();
+
+        // SEOMeta::setTitle($detail->name);
+        SEOMeta::setDescription(__("we are professionally engaged in the repair of electronic equipment more than 15 years, providing quality service at a reasonable price"));
+        SEOTools::setDescription(__("we are professionally engaged in the repair of electronic equipment more than 15 years, providing quality service at a reasonable price"));
         return view('pages.main', compact('popularCategories'));
     }
     public function contacts()
     {
+        SEOMeta::setTitle();
+        SEOMeta::setDescription(__("we are professionally engaged in the repair of electronic equipment more than 15 years, providing quality service at a reasonable price"));
+        SEOMeta::setCanonical();
         $our_teams = \DB::table('our_team')->get();
         $service_centers = \DB::table('service_centers')->get();
 

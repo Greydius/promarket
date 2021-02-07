@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\FixingMailInfoToClient;
 use App\Mail\FixingMailInfoToManager;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\SEOTools;
 
 class FixingController extends Controller
 {
@@ -27,6 +29,11 @@ class FixingController extends Controller
     public function fixingType($type)
     {
         $fixingType = FixingType::where('code', $type)->with('translations')->first();
+         SEOMeta::setTitle($fixingType->name);
+        SEOMeta::setDescription($fixingType->description);
+        SEOMeta::addMeta('article:published_time', $fixingType->updated_at->toW3CString(), 'property');
+        SEOTools::setTitle($fixingType->name);
+        SEOTools::setDescription($fixingType->description);
         return view('pages.fixing.fixing-inner', compact('fixingType'));
     }
 
@@ -34,6 +41,11 @@ class FixingController extends Controller
     {
         $fixingType = FixingType::where('code', $type)->with('translations')->first();
         $manufacturer = Manufacturer::where([['code', '=', $brand], ['fixing_type_id', '=', $fixingType->id]])->with('translations')->first();
+        SEOMeta::setTitle($fixingType->name);
+        SEOMeta::setDescription($fixingType->description);
+        SEOMeta::addMeta('article:published_time', $fixingType->updated_at->toW3CString(), 'property');
+        SEOTools::setTitle($fixingType->name);
+        SEOTools::setDescription($fixingType->description);
         return view('pages.fixing.fixing-inner-brand', compact('manufacturer'));
     }
 
@@ -41,12 +53,22 @@ class FixingController extends Controller
     {
         $model = ManufacturerModel::where('code', $modelName)->with('translations')->first();
         $accessories = ManufacturerModel::where('model_name',$model->model_name)->get();
+        SEOMeta::setTitle($accessories->name);
+        // SEOMeta::setDescription($accessories->description);
+        SEOMeta::addMeta('article:published_time', $accessories->updated_at->toW3CString(), 'property');
+        SEOTools::setTitle($accessories->name);
+        // SEOTools::setDescription($accessories->description);
         return view('pages.fixing.model', compact('model'));
     }
 
     public function fixingModelDetail($type, $brand, $modelName, $detailName)
     {
         $model = ManufacturerModel::where('code', $modelName)->with('translations')->first();
+        SEOMeta::setTitle($model->name);
+        // SEOMeta::setDescription($model->description);
+        SEOMeta::addMeta('article:published_time', $model->updated_at->toW3CString(), 'property');
+        SEOTools::setTitle($model->name);
+        // SEOTools::setDescription($model->description);
         return view('pages.fixing.model', compact('model'));
     }
 
@@ -67,6 +89,11 @@ class FixingController extends Controller
             $detail->allColors = $colors;
             $detail->color;
         }
+        // SEOMeta::setTitle($details->name);
+        // SEOMeta::setDescription($details->description);
+        // SEOMeta::addMeta('article:published_time', $details->updated_at->toW3CString(), 'property');
+        // SEOTools::setTitle($details->name);
+        // SEOTools::setDescription($details->description);
         return view('pages.fixing.details', compact('details'));
     }
 
@@ -74,6 +101,12 @@ class FixingController extends Controller
     {
         $detail = FixingDetail::find($detail_id);
         $detail->products = $detail->products()->where('color_id', $color_id)->get();
+
+        SEOMeta::setTitle($detail->name);
+        SEOMeta::setDescription($detail->description);
+        SEOMeta::addMeta('article:published_time', $detail->updated_at->toW3CString(), 'property');
+        SEOTools::setTitle($detail->name);
+        SEOTools::setDescription($detail->description);
 
         return view('components.fixing.detail_quality', compact('detail'));
 

@@ -3,15 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Promarket.lv</title>
-    <meta name="description" content="">
+    {!! SEO::generate() !!}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta property="og:title" content="">
-    <meta property="og:type" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
-
     <!-- Place favicon.ico in the root directory -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">

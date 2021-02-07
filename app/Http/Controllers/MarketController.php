@@ -7,8 +7,10 @@ use App\FixingDetail;
 
 use App\Product;
 use App\SubCategory;
-use App\Helpers\CollectionHelper;
 use Illuminate\Http\Request;
+use App\Helpers\CollectionHelper;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\SEOTools;
 
 class MarketController extends Controller
 {
@@ -16,6 +18,12 @@ class MarketController extends Controller
     {
        $category = '';
        $mainCategory = Category::where('code', $categoryCode)->first();
+        SEOMeta::setTitle($mainCategory->title);
+        // SEOMeta::setDescription($mainCategory->resume);
+        SEOMeta::addMeta('article:published_time', $mainCategory->updated_at->toW3CString(), 'property');
+        // SEOMeta::addMeta('article:section', $post->category, 'property');
+        // SEOMeta::addKeyword(['key1', 'key2', 'key3']);
+
        foreach ($mainCategory->subCategories as $sub) {
            if ($sub->code == $subCategoryCode){
                $category = $sub;
@@ -31,7 +39,9 @@ class MarketController extends Controller
     public function shopMainCat($categoryCode)
     {
        $category = Category::where('code', $categoryCode)->first();
-      
+        SEOMeta::setTitle($category->title);
+        // SEOMeta::setDescription($category->resume);
+        SEOMeta::addMeta('article:published_time', $category->updated_at->toW3CString(), 'property');
        $products = $category->allProducts();
        $pageSize = 12;
         $products = CollectionHelper::paginate($products, $pageSize);
@@ -101,6 +111,12 @@ class MarketController extends Controller
         $details='';
         $accessuars='';
         $product = Product::where('code', $modelCode)->with('translations')->first();
+        $category = Category::where('code', $categoryCode)->first();
+        SEOMeta::setTitle($product->name);
+        SEOMeta::setDescription($product->installation_description);
+        SEOMeta::addMeta('article:published_time', $product->updated_at->toW3CString(), 'property');
+        SEOTools::setTitle($product->name);
+        SEOTools::setDescription($product->installation_description);
         $product->installation = FixingDetail::where('id', $product->fixing_id)->with('translations')->first();
         $detail_cats = SubCategory::where('category_id', 18)->get();
         foreach($detail_cats as $det){
