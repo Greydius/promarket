@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
+use App\Order;
 use App\Category;
+use App\FixingType;
 use App\DetailColor;
 use App\DetailQuality;
-use App\FixingType;
-use App\Order;
+use MadWeb\Robots\RobotsFacade;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -43,6 +44,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('colors', DetailColor::get());
             $view->with('qualities', DetailQuality::get());
         });*/
+
+        RobotsFacade::setShouldIndexCallback(function () {
+            return app()->environment('production');
+        });
 
     }
 }

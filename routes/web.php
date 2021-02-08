@@ -105,7 +105,7 @@ Route::group([
 
     Route::get('/thanks', 'MainController@thanks')->name('thanks-page');
 
-
+Route::get('robots.txt', 'RobotsController');
 
 
 });
