@@ -53,11 +53,12 @@ class FixingController extends Controller
     {
         $model = ManufacturerModel::where('code', $modelName)->with('translations')->first();
         $accessories = ManufacturerModel::where('model_name',$model->model_name)->get();
-        SEOMeta::setTitle($accessories->name);
-        // SEOMeta::setDescription($accessories->description);
-        SEOMeta::addMeta('article:published_time', $accessories->updated_at->toW3CString(), 'property');
-        SEOTools::setTitle($accessories->name);
-        // SEOTools::setDescription($accessories->description);
+        // dd($accessories);
+        SEOMeta::setTitle($model->name);
+        // SEOMeta::setDescription($model->description);
+        SEOMeta::addMeta('article:published_time', $model->updated_at->toW3CString(), 'property');
+        SEOTools::setTitle($model->name);
+        // SEOTools::setDescription($model->description);
         return view('pages.fixing.model', compact('model'));
     }
 
