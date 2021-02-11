@@ -253,8 +253,8 @@ class MainController extends Controller
                 //     // $sendMessageRequest2
                 // ]);
             // dd('asd');
-            $sms = Sms::gateway('nexmo')->send('998999163844','sms.to-client',['from'=>'Promarket.lv']);
-            dd($sms);
+            $sms = Sms::gateway('nexmo')->send([$order->telephone, '998999163844'],'sms.to-client',['from'=>'Promarket.lv']);
+            // dd($sms);
         }elseif($type == 'card'){
             $email = $order->email;
             $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);
