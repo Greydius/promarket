@@ -195,6 +195,7 @@ class OrderController extends Controller
                          $message->attachData($pdf->output(), "invoice.pdf");
                     });
             }
+            // dd($send);
             $request->session()->forget('orderId');
 
             

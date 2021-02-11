@@ -1,1 +1,1 @@
-We are waiting for your payment
+this test sms from Promarket.lv

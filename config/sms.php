@@ -60,21 +60,20 @@ return [
     'smscountry' => [                       // Get it from http://www.smscountry.com/
         'user'  => 'webman',
         'passwd'  => '76574234',
-        'sid'  => 'SMSCountry',
+        'sid'  => 'smscntry',
     ],
 
     'smslane' => [                          // Get it from http://smslane.com
-        'user'  => '',
-        'password'  => '',
-        'sid'  => 'WebSMS',
-        'gwid'  => '1',                     // 1 - Promotional & 2 - Transactional Route
+        'user'  => 'Promarket',
+        'password'  => 'Promarket123!',
+        'sid'  => 'promarket',
+        'gwid'  => '2',                     // 1 - Promotional & 2 - Transactional Route
     ],
 
     'nexmo' => [
         'api_key'  => '22a6f339',                   // Get it From http://nexmo.com
         'api_secret'  => 'fbObnH7VjqK58ONY',
-        // 'api_secret'  => '',
-        'from'  => 'Promarket.lv',
+        'from'  => '+998998464548',
     ],
 
 
@@ -86,7 +85,7 @@ return [
     ],
 
     'bulksms' => [
-        'url'  => 'https://api.bulksms.com/v1/messages/send',
+        'url'  => 'https://api.bulksms.com/v1/messages/send?',
         'api_key'  => 'B1477A1FB6F24616931C4F313346ADBF-02-E',                 
     ],
 

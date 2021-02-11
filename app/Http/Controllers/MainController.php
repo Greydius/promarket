@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
+use SMSGatewayMe\Client\ApiClient;
+use SMSGatewayMe\Client\Configuration;
+use SMSGatewayMe\Client\Api\MessageApi;
+use SMSGatewayMe\Client\Model\SendMessageRequest;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Support\Facades\Http;
@@ -188,6 +193,66 @@ class MainController extends Controller
         $order = Order::where('id',$order_id)->first();
         $products = $order->products;
         if($type == 'cash'){
+                $apiKey = urlencode('HN3mk4oVqT0-QbXJoSrjRgakCQP6DoG7G3eRKSgp3z');
+    
+    
+// $curl = curl_init();
+
+// curl_setopt_array($curl, [
+//     CURLOPT_URL => "https://sms77io.p.rapidapi.com/sms",
+//     CURLOPT_RETURNTRANSFER => true,
+//     CURLOPT_FOLLOWLOCATION => true,
+//     CURLOPT_ENCODING => "",
+//     CURLOPT_MAXREDIRS => 10,
+//     CURLOPT_TIMEOUT => 30,
+//     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//     CURLOPT_CUSTOMREQUEST => "POST",
+//     CURLOPT_POSTFIELDS => "to=%2B491771783130&p=%3CREQUIRED%3E&text=Dear%20customer.%20We%20want%20to%20say%20thanks%20for%20your%20trust.%20Use%20code%20MINUS10%20for%2010%20%25%20discount%20on%20your%20next%20order!",
+//     CURLOPT_HTTPHEADER => [
+//         "content-type: application/x-www-form-urlencoded",
+//         "x-rapidapi-host: sms77io.p.rapidapi.com",
+//         "x-rapidapi-key: 26e5a050-6c18-11eb-8419-0381220b05e2"
+//     ],
+// ]);
+
+// $response = curl_exec($curl);
+// $err = curl_error($curl);
+
+// curl_close($curl);
+
+// if ($err) {
+//    dd("cURL Error #:" . $err);
+// } else {
+//     // echo $response;
+//     dd($response);
+// }
+    // Process your response here
+            // Configure client
+    //          $clients = new \SMSGatewayMe\Client\ClientProvider("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTYxMjk1MTI4OSwiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjg2MjgyLCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.3IKdLfI7ata4rYWpxUyvBAWs0MIIBxkYcPEltChxibw");
+
+    // $sendMessageRequest = new SMSGatewayMe\Client\Model\SendMessageRequest([
+    //     'phoneNumber' => '998999163844', 'message' => 'hello world', 'deviceId' => 1
+    // ]);
+
+    // $sentMessages = $clients->getMessageClient()->sendMessages([$sendMessageRequest]);
+    //         dd($sendMessages);
+
+                // $config = Configuration::getDefaultConfiguration();
+                // $config->setApiKey('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTYxMjk1MjE4NCwiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjg2MjgyLCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.14S-wCbwV1KVqq5T04LyxbcUrVulRf1FYO4hoeJKy8c');
+                // $apiClient = new ApiClient($config);
+                // $messageClient = new MessageApi($apiClient);
+
+                // // Sending a SMS Message
+                // $sendMessageRequest1 = new SendMessageRequest([
+                //     'phoneNumber' => '998999163844',
+                //     'message' => 'sms.to-client',
+                //     'deviceId' => 1
+                // ]);
+                // $sendMessages = $messageClient->sendMessages([
+                //     $sendMessageRequest1
+                //     // $sendMessageRequest2
+                // ]);
+            // dd('asd');
             $sms = Sms::gateway('nexmo')->send('998999163844','sms.to-client',['from'=>'Promarket.lv']);
             dd($sms);
         }elseif($type == 'card'){
@@ -198,8 +263,9 @@ class MainController extends Controller
                 {
                          $message->to($email);
                          $message->subject('PAVADZĪME');
-                         $message->attachData($pdf->output(), "text.pdf");
+                         $message->attachData($pdf->output(), "pavadzime.pdf");
                 });
+            // dd($send);
             $sms = Sms::gateway('nexmo')->send($order->telephone,'sms.to-client',['from'=>'Promarket.lv']);
             // return $pdf->download('pdf');
 

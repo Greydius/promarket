@@ -792,11 +792,11 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('input.legal_entity').on('click', function(){
-                $('input.legal_entity').trigger('click');
+                // $('input.legal_entity').trigger('click');
                $('.for_legal_entity').show();  
                 });
              $('input.individual').on('click', function(){
-                $('input.individual').trigger('click');
+                // $('input.individual').trigger('click');
                $('.for_legal_entity').hide();     
                 });
 
