@@ -190,71 +190,36 @@ class MainController extends Controller
 
     public function smsToClient($type, $order_id)
     {
+
+        // return view('sms.to-client');
         $order = Order::where('id',$order_id)->first();
         $products = $order->products;
         if($type == 'cash'){
-                $apiKey = urlencode('HN3mk4oVqT0-QbXJoSrjRgakCQP6DoG7G3eRKSgp3z');
-    
-    
-// $curl = curl_init();
+               // Authorisation details.
+    // $username = "promarket@hardweb.pro";
+    // $hash = "e5b7040de288627a570814d15ff83e50888265a0d7feab8a71e9bb232f58cc53";
 
-// curl_setopt_array($curl, [
-//     CURLOPT_URL => "https://sms77io.p.rapidapi.com/sms",
-//     CURLOPT_RETURNTRANSFER => true,
-//     CURLOPT_FOLLOWLOCATION => true,
-//     CURLOPT_ENCODING => "",
-//     CURLOPT_MAXREDIRS => 10,
-//     CURLOPT_TIMEOUT => 30,
-//     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-//     CURLOPT_CUSTOMREQUEST => "POST",
-//     CURLOPT_POSTFIELDS => "to=%2B491771783130&p=%3CREQUIRED%3E&text=Dear%20customer.%20We%20want%20to%20say%20thanks%20for%20your%20trust.%20Use%20code%20MINUS10%20for%2010%20%25%20discount%20on%20your%20next%20order!",
-//     CURLOPT_HTTPHEADER => [
-//         "content-type: application/x-www-form-urlencoded",
-//         "x-rapidapi-host: sms77io.p.rapidapi.com",
-//         "x-rapidapi-key: 26e5a050-6c18-11eb-8419-0381220b05e2"
-//     ],
-// ]);
+    // // Config variables. Consult http://api.txtlocal.com/docs for more info.
+    // $test = "0";
 
-// $response = curl_exec($curl);
-// $err = curl_error($curl);
+    // // Data for text message. This is the text message data.
+    // $sender = "promarket"; // This is who the message appears to be from.
+    // $numbers = "998999163844"; // A single number or a comma-seperated list of numbers
+    // $message = "This is a test message from the PHP API script. G'iyosiddin";
+    // // 612 chars or less
+    // // A single number or a comma-seperated list of numbers
+    // $message = urlencode($message);
+    // $data = "username=".$username."&hash=".$hash."&message=".$message."&sender=".$sender."&numbers=".$numbers."&test=".$test;
+    // $ch = curl_init('http://api.txtlocal.com/send/?');
+    // curl_setopt($ch, CURLOPT_POST, true);
+    // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // $result = curl_exec($ch); // This is the result from the API
+    // curl_close($ch);
 
-// curl_close($curl);
-
-// if ($err) {
-//    dd("cURL Error #:" . $err);
-// } else {
-//     // echo $response;
-//     dd($response);
-// }
-    // Process your response here
-            // Configure client
-    //          $clients = new \SMSGatewayMe\Client\ClientProvider("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTYxMjk1MTI4OSwiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjg2MjgyLCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.3IKdLfI7ata4rYWpxUyvBAWs0MIIBxkYcPEltChxibw");
-
-    // $sendMessageRequest = new SMSGatewayMe\Client\Model\SendMessageRequest([
-    //     'phoneNumber' => '998999163844', 'message' => 'hello world', 'deviceId' => 1
-    // ]);
-
-    // $sentMessages = $clients->getMessageClient()->sendMessages([$sendMessageRequest]);
-    //         dd($sendMessages);
-
-                // $config = Configuration::getDefaultConfiguration();
-                // $config->setApiKey('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTYxMjk1MjE4NCwiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjg2MjgyLCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.14S-wCbwV1KVqq5T04LyxbcUrVulRf1FYO4hoeJKy8c');
-                // $apiClient = new ApiClient($config);
-                // $messageClient = new MessageApi($apiClient);
-
-                // // Sending a SMS Message
-                // $sendMessageRequest1 = new SendMessageRequest([
-                //     'phoneNumber' => '998999163844',
-                //     'message' => 'sms.to-client',
-                //     'deviceId' => 1
-                // ]);
-                // $sendMessages = $messageClient->sendMessages([
-                //     $sendMessageRequest1
-                //     // $sendMessageRequest2
-                // ]);
-            // dd('asd');
+    // echo($result);
             $sms = Sms::gateway('nexmo')->send([$order->telephone, '998999163844'],'sms.to-client',['from'=>'Promarket.lv']);
-            // dd($sms);
+            dd($sms);
         }elseif($type == 'card'){
             $email = $order->email;
             $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products])->setOptions(['defaultFont' => 'sans-serif']);

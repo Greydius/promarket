@@ -50,9 +50,9 @@
                             <div class="small-title mb-4">{{__("buy without registration")}} </div>
                             <form action="{{route('regOnlyEmail')}}" method="POST" class="order-no-registration">
                                 @csrf
-                                @if ($errors->has('email'))
-                                    <span class="error">{{ $errors->first('email') }}</span>
-                                @endif
+                                <!-- @ if ($errors->has('email')) -->
+                                    <span class="error"></span>
+                                <!-- @ endif -->
                                 <input type="email" placeholder="{{__('Email')}}" name="email" name="email">
 
                                 <p class="my-3">{{__("You will be able to register after making a purchase.")}}</p>
@@ -816,6 +816,26 @@
                     location.reload();
                 }).fail(function (res) {
                     console.log(res);
+                });
+            });
+                $('.order-no-registration button').click(function (e) {
+
+                var data = $('.order-no-registration').serialize();
+
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('regOnlyEmail')}}",
+                    data: data
+
+                }).done(function (res) {
+                    console.log(res);
+                    location.reload();
+                }).fail(function (res) {
+                    // var errors = $.parseJSON(res);
+                    $('.order-no-registration .valid').addClass('error');
+                    $('.order-no-registration span.error').text(res.responseJSON.errors.email[0]);
+                    console.log(res.responseJSON.errors.email[0]);
                 });
             });
 

@@ -88,7 +88,7 @@ class RegisterController extends Controller
         $validatedData = request()->validate([
             'email' => 'required|string|email|max:255|unique:users,email,NULL,id,deleted_at,NULL',
         ]);
-
+        // dd($validatedData);
         $user = User::create([
             'username' => ' ',
             'email' => $email,
@@ -101,7 +101,7 @@ class RegisterController extends Controller
         // $regOnlyEmail = Session::put('regOnlyEmail', 'regOnlyEmail');
         $regOnlyEmail = request()->session()->put(['regOnlyEmail' => '1']);
         // dd($regOnlyEmail);
-         return redirect()->route('checkout',[$regOnlyEmail]);
+         // return redirect()->route('checkout',[$regOnlyEmail]);
         // }
         // return 'error';
     }
