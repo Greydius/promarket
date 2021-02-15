@@ -270,7 +270,7 @@ class MainController extends Controller
     }
     public function exportView()
     {
-        return view('vendor.voyager.orders.export');
+        return view('vendor.voyager.Orders.export');
     }
     public function exportExcel(){
         $date = request('month').'-'.request('year');
