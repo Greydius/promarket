@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 
-use SMSGatewayMe\Client\ApiClient;
+use SMSGatewayMe\Client\Model\SendMessageRequest;
+use Artesaos\SEOTools\Facades\SEOTools;
 use SMSGatewayMe\Client\Configuration;
 use SMSGatewayMe\Client\Api\MessageApi;
-use SMSGatewayMe\Client\Model\SendMessageRequest;
 use Artesaos\SEOTools\Facades\SEOMeta;
-use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
+use SMSGatewayMe\Client\ApiClient;
 use App\Mail\SendOrderToClent;
+use App\Exports\OrderExport;
 use Spatie\Searchable\Search;
 use Illuminate\Http\Request;
 use App\Mail\UnderOrderMail;
@@ -191,7 +193,7 @@ class MainController extends Controller
     public function smsToClient($type, $order_id)
     {
 
-        // return view('sms.to-client');
+        return view('sms.to-client');
         $order = Order::where('id',$order_id)->first();
         $products = $order->products;
         if($type == 'cash'){
@@ -265,6 +267,15 @@ class MainController extends Controller
         }
 
 
+    }
+    public function exportView()
+    {
+        return view('vendor.voyager.orders.export');
+    }
+    public function exportExcel(){
+        $date = request('month').'-'.request('year');
+        return Excel::download(new OrderExport($date), 'orders.xlsx');
+        // dd($export);
     }
 
 }

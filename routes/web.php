@@ -155,6 +155,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/orders-payment', 'MainController@OrderPayment');
     Route::get('/fixing-orders-handle', 'MainController@FixingOrderHandle');
     Route::get('/fixing-orders-payment', 'MainController@FixingOrderPayment');
+    Route::post('/order-export', 'MainController@exportExcel')->name('exportOrder');
+    Route::get('/view-export', 'MainController@exportView');
 });
 Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('cache:clear');

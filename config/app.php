@@ -179,6 +179,7 @@ return [
         Softon\Sms\SmsServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -242,7 +243,7 @@ return [
         'JsonLdMulti'   => Artesaos\SEOTools\Facades\JsonLdMulti::class,
         // or
         // 'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
-
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

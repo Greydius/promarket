@@ -20,6 +20,7 @@
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
+        "maatwebsite/excel": "^3.1",
         "mad-web/laravel-robots": "^2.1",
         "mcamara/laravel-localization": "^1.6",
         "softon/sms": "^2.0",
