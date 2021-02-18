@@ -26,14 +26,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('test')->everyMinute();
+        $schedule->command('fixing:order')->everyMinute();
     }
 
-
-    protected function shortSchedule(\Spatie\ShortSchedule\ShortSchedule $shortSchedule)
-    {
-        // this artisan command will run every second
-        $shortSchedule->command('test')->everyDay();
-    }
     /**
      * Register the commands for the application.
      *
