@@ -169,25 +169,26 @@ class RemonlineController extends Controller
     private function findUpperCategory($product, $categories)
     {
         $currentCategory = $product['category'];
-        if (!$currentCategory['parent_id']) {
+        try {
+            while ($currentCategory['parent_id']) {
+                $category = array_filter($categories, function ($cat) use ($currentCategory) {
+                    if ($cat['id'] == $currentCategory['parent_id']) {
+                        return $cat;
+                    }
+                });
+                $currentCategory = array_values($category)[0];
+            }
+            $title = $currentCategory['title'];
+            if (
+                $title == 'Mobilo telefonu detaļas' ||
+                $title == 'Planšetdatoru detaļas'
+            ) {
+                return $currentCategory;
+            }
+            return null;
+        } catch (Exception $e) {
             return null;
         }
-        while ($currentCategory['parent_id']) {
-            $category = array_filter($categories, function ($cat) use ($currentCategory) {
-                if ($cat['id'] == $currentCategory['parent_id']) {
-                    return $cat;
-                }
-            });
-            $currentCategory = array_values($category)[0];
-        }
-        $title = $currentCategory['title'];
-        if (
-            $title == 'Mobilo telefonu detaļas' ||
-            $title == 'Planšetdatoru detaļas'
-        ) {
-            return $currentCategory;
-        }
-        return null;
     }
 
     private function createUpperCategory($upperCategory)
@@ -219,7 +220,7 @@ class RemonlineController extends Controller
             return $category['id'] == $productCategoryId;
         }));
 
-        $manufacturer = Manufacturer::where('remonline_id', Str::slug($upperCategory->name.$productCategory['title']))->first();
+        $manufacturer = Manufacturer::where('remonline_id', Str::slug($upperCategory->name . $productCategory['title']))->first();
 
         if ($manufacturer == null) {
 
@@ -229,7 +230,7 @@ class RemonlineController extends Controller
             $newManufacturer->code = Str::slug($productCategory['title'], '_');
             $newManufacturer->title = $productCategory['title'];
             $newManufacturer->fixing_type_id = $upperCategory->id;
-            $newManufacturer->remonline_id = Str::slug($upperCategory->name.$productCategory['title']);
+            $newManufacturer->remonline_id = Str::slug($upperCategory->name . $productCategory['title']);
             $newManufacturer->save();
 
             return $newManufacturer;
@@ -338,7 +339,6 @@ class RemonlineController extends Controller
         $manufacturer = '';
         $productColorId = 0;
         $productQualityId = 0;
-
 
 
         foreach ($colors as $color) {
