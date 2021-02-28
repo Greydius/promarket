@@ -11,6 +11,7 @@ class Category extends Model
     use Translatable;
 
     protected $translatable = ['name', 'title', 'breadcrumbs'];
+    protected $fillable = ['name', 'code', 'title', 'breadcrumbs', 'old_id'];
 
     public function subCategories()
     {
