@@ -178,17 +178,17 @@ class RemonlineController extends Controller
                 });
                 $currentCategory = array_values($category)[0];
             }
-            $title = $currentCategory['title'];
-            if (
-                $title == 'Mobilo telefonu detaļas' ||
-                $title == 'Planšetdatoru detaļas'
-            ) {
-                return $currentCategory;
-            }
-            return null;
-        } catch (Exception $e) {
+        } catch (Exception $e){
             return null;
         }
+        $title = $currentCategory['title'];
+        if (
+            $title == 'Mobilo telefonu detaļas' ||
+            $title == 'Planšetdatoru detaļas'
+        ) {
+            return $currentCategory;
+        }
+        return null;
     }
 
     private function createUpperCategory($upperCategory)
