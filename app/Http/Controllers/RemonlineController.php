@@ -57,8 +57,11 @@ class RemonlineController extends Controller
     {
         $token = $this->getToken();
         $res2 = Http::get("https://api.remonline.ru/warehouse/categories/?token=$token");
+        
         $resData = array_filter($res2['data'], function ($item) {
-            return $item['parent_id'] == null;
+            if (!isset($item['parent_id'])) {
+                return $item;
+            }
         });
         foreach ($resData as $category) {
             $isCategoryInDataBase = Category::where('old_id', $category['id'])->first();
@@ -73,6 +76,10 @@ class RemonlineController extends Controller
                     'old_id' => $category['id'],
                 ]);
             } else {
+                if (!isset($category['title'])) {
+                    dd($cateogry);
+                }
+                
                 $isCategoryInDataBase->update([
                     'name' => $category['title'],
                     'code' => Str::slug($category['title'], '_'),
@@ -89,7 +96,9 @@ class RemonlineController extends Controller
         $token = $this->getToken();
         $res2 = Http::get("https://api.remonline.ru/warehouse/categories/?token=$token");
         $resData = array_filter($res2['data'], function ($item) {
-            return $item['parent_id'] != null;
+            if (!isset($item['parent_id'])) {
+                return $item;
+            }
         });
 
         foreach ($resData as $category) {
