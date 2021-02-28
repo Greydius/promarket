@@ -154,6 +154,8 @@ class RemonlineController extends Controller
                 $fixingModel = $this->uploadForFixing($product, $allCategories);
                 if ($fixingModel != null) {
                     $this->uploadProducts($product, $fixingModel, $allCategories, $warehouse);
+                } else {
+                    $this->uploadProducts($product, null, $allCategories, $warehouse);
                 }
             }
         }
@@ -188,8 +190,7 @@ class RemonlineController extends Controller
         $title = $currentCategory['title'];
         if (
             $title == 'Mobilo telefonu detaļas' ||
-            $title == 'Planšetdatoru detaļas' /*||
-            $title == 'Gudro pulksteņu detaļas'*/
+            $title == 'Planšetdatoru detaļas'
         ) {
             return $currentCategory;
         }
