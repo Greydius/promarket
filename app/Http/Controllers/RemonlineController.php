@@ -139,16 +139,6 @@ class RemonlineController extends Controller
                 sleep(0.125);
 
             }
-
-            /*$filteredForDevProducts = array_slice($products, 0, 10);*/
-            /*$existingIds = [];
-            $filteredProducts = [];
-            foreach ($products as $product) {
-                if (!in_array($product['article'], $existingIds)) {
-                    array_push($existingIds, $product['article']);
-                    array_push($filteredProducts, $product);
-                }
-            }*/
             $allCategories = $this->getCategories();
             foreach ($products as $product) {
                 $fixingModel = $this->uploadForFixing($product, $allCategories);
@@ -179,6 +169,9 @@ class RemonlineController extends Controller
     private function findUpperCategory($product, $categories)
     {
         $currentCategory = $product['category'];
+        if (!$currentCategory['parent_id']) {
+            return null;
+        }
         while ($currentCategory['parent_id']) {
             $category = array_filter($categories, function ($cat) use ($currentCategory) {
                 if ($cat['id'] == $currentCategory['parent_id']) {
