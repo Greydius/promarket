@@ -169,17 +169,17 @@ class RemonlineController extends Controller
     private function findUpperCategory($product, $categories)
     {
         $currentCategory = $product['category'];
-        try {
-            while ($currentCategory['parent_id']) {
-                $category = array_filter($categories, function ($cat) use ($currentCategory) {
-                    if ($cat['id'] == $currentCategory['parent_id']) {
-                        return $cat;
-                    }
-                });
-                $currentCategory = array_values($category)[0];
+
+        while ($currentCategory['parent_id']) {
+            $category = array_filter($categories, function ($cat) use ($currentCategory) {
+                if ($cat['id'] == $currentCategory['parent_id']) {
+                    return $cat;
+                }
+            });
+            $currentCategory = array_values($category)[0];
+            if (!isset($currentCategory['parent_id'])) {
+                return null;
             }
-        } catch (Exception $e){
-            return null;
         }
         $title = $currentCategory['title'];
         if (
