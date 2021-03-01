@@ -199,9 +199,10 @@
                                         @csrf
                                         <input type="hidden" name="delivery" value="Paņemiet pakomātu, Omniva"><!-- Забрать почтомате, Omniva -->
                                         <select name="city" class="js-selectric">
-                                            <option value="city1">{{__('City')}} </option>
-                                            <option value="city2">{{__('City')}} </option>
-                                            <option value="city3">{{__('City')}} </option>
+                                            @foreach($points as $point)
+                                           
+                                            <option value="{{$point[1]}}">{{$point[1]}}</option>
+                                            @endforeach
                                         </select>
                                         {{--<div class="city-drop-down-wrapper">
                                             <div class="city-drop-down-trigger">
