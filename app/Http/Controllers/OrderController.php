@@ -219,6 +219,7 @@ class OrderController extends Controller
 
             // }
             if($inputs['delivery'] == "Paņemiet pakomātu, Omniva"){
+                 $client = new Client('prosadiga', 'Prosadiga1234');
                 $omnivaParcel = new Parcel();
                 $omnivaParcel
                     // ->setWeight($parcel->getWeightInKg())
@@ -230,6 +231,8 @@ class OrderController extends Controller
                     ->setPhone($order->telephone)
                     ->setCity($order->city);
                     // ->pickupPoint($order->city);
+                $response = $client->getLabel($omnivaParcel);
+                dd($response);
             }
 
             // dd($omnivaParcel);
@@ -310,7 +313,7 @@ class OrderController extends Controller
 
     public function omniva()
     {
-        $omniva = new Omniva;
+        // $omniva = new Omniva;
 
         // Ask for a service (see: Services)
         // $addressSearchService = $omniva->getService(AddressSearchInterface::class)
@@ -320,6 +323,21 @@ class OrderController extends Controller
         // $addresses = $addressSearchService->findAddresses('Tartu mnt 18');
         $client = new Client('prosadiga', 'Prosadiga1234');
         $parcel = Order::where('id', 7)->first();
+        $omnivaParcel = new Parcel();
+        $omnivaParcel
+            // ->setWeight($parcel->getWeightInKg())
+            ->setPartnerId($parcel->id)
+            ->setComment($parcel->comment);
+        $sender = new Address();
+        $sender
+            ->setName($parcel->fio)
+            ->setPhone($parcel->telephone);;
+            // ->setCity();
+            // ->pickupPoint($parcel->city);
+        $response = $client->getLabel($omnivaParcel);
+        dd($parcel->city);
+
+
         // $client->getLabel($parcel);
         // dd($parcel->products());
         $points = [];
