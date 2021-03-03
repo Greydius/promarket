@@ -43,11 +43,11 @@ class SendFixingOrderCron extends Command
         $date = date('Y-m-d');
         $fixingOrders = FixingOrder::all();
         foreach($fixingOrders as $order){
+            $today = date('Y-m-d', strtotime($date));
             $tomorrow = date('Y-m-d', strtotime($date .' +1 day'));
-            $after_tomorrow = date('Y-m-d', strtotime($date .' +2 day'));
             $remont_date = date('Y-m-d', strtotime($order->date));
             if($order->send_message =='0'){
-                if($tomorrow == $remont_date || $after_tomorrow == $remont_date) {
+                if($today == $remont_date || $tomorrow == $remont_date) {
                     Mail::to($order->email)->send(new FixingOrderDayMail($order));
                     // $update = FixingOrder::where('id',$order->id)->update(['send_message'=>1]);
                     $order->send_message = '1';

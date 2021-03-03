@@ -20,7 +20,7 @@ class MarketController extends Controller
        $mainCategory = Category::where('code', $categoryCode)->first();
         SEOMeta::setTitle($mainCategory->title);
         // SEOMeta::setDescription($mainCategory->resume);
-        SEOMeta::addMeta('article:published_time', $mainCategory->updated_at->toW3CString(), 'property');
+        SEOMeta::addMeta('article:published_time', $mainCategory->updated_at, 'property');
         // SEOMeta::addMeta('article:section', $post->category, 'property');
         // SEOMeta::addKeyword(['key1', 'key2', 'key3']);
 
@@ -41,7 +41,7 @@ class MarketController extends Controller
        $category = Category::where('code', $categoryCode)->first();
         SEOMeta::setTitle($category->title);
         // SEOMeta::setDescription($category->resume);
-        SEOMeta::addMeta('article:published_time', $category->updated_at->toW3CString(), 'property');
+        SEOMeta::addMeta('article:published_time', $category->updated_at, 'property');
        $products = $category->allProducts();
        $pageSize = 12;
         $products = CollectionHelper::paginate($products, $pageSize);
@@ -114,7 +114,7 @@ class MarketController extends Controller
         $category = Category::where('code', $categoryCode)->first();
         SEOMeta::setTitle($product->name);
         SEOMeta::setDescription($product->installation_description);
-        SEOMeta::addMeta('article:published_time', $product->updated_at->toW3CString(), 'property');
+        SEOMeta::addMeta('article:published_time', $product->updated_at, 'property');
         SEOTools::setTitle($product->name);
         SEOTools::setDescription($product->installation_description);
         $product->installation = FixingDetail::where('id', $product->fixing_id)->with('translations')->first();

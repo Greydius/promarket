@@ -34,7 +34,7 @@
                                 @if ($errors->has('email'))
                                     <span class="error">{{ $errors->first('email') }}</span>
                                 @endif
-                                <input type="email" placeholder="{{__('Email')}}" name="email" name="email">
+                                <input type="email" placeholder="{{__('Email')}}" name="email"  disabled name="email"  disabled
                                 @if ($errors->has('password'))
                                     <span class="error">{{ $errors->first('password') }}</span>
                                 @endif
@@ -53,7 +53,7 @@
                                 <!-- @ if ($errors->has('email')) -->
                                     <span class="error"></span>
                                 <!-- @ endif -->
-                                <input type="email" placeholder="{{__('Email')}}" name="email" name="email">
+                                <input type="email" placeholder="{{__('Email')}}" name="email"  disabled name="email"  disabled
 
                                 <p class="my-3">{{__("You will be able to register after making a purchase.")}}</p>
                                 <button type="submit" class="default-button mt-4">
@@ -134,7 +134,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="{{Auth::user()->email}}">
+                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled value="{{Auth::user()->email}}">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
@@ -199,9 +199,10 @@
                                         @csrf
                                         <input type="hidden" name="delivery" value="Paņemiet pakomātu, Omniva"><!-- Забрать почтомате, Omniva -->
                                         <select name="city" class="js-selectric">
-                                            <option value="city1">{{__('City')}} </option>
-                                            <option value="city2">{{__('City')}} </option>
-                                            <option value="city3">{{__('City')}} </option>
+                                            @foreach($points as $point)
+                                           
+                                            <option value="{{$point[1]}}">{{$point[1]}}</option>
+                                            @endforeach
                                         </select>
                                         {{--<div class="city-drop-down-wrapper">
                                             <div class="city-drop-down-trigger">
@@ -241,7 +242,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="{{Auth::user()->email}}">
+                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled value="{{Auth::user()->email}}">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
@@ -271,7 +272,7 @@
                                         </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
                                         <select class="js-selectric" name="payment_method" id="">
-                                            <option value="cash">{{__("Cash")}} </option>
+                                            
                                             <option value="card">{{__("By card")}} </option>
                                         </select>
                                         {{--<div class="payment-drop-down-wrapper">
@@ -362,7 +363,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="{{Auth::user()->email}}">
+                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled value="{{Auth::user()->email}}">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
@@ -392,7 +393,7 @@
                                         </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
                                         <select class="js-selectric" name="payment_method" id="">
-                                            <option value="cash">{{__("Cash")}} </option>
+                                           
                                             <option value="card">{{__("By card")}} </option>
                                         </select>
                                         {{--<div class="payment-drop-down-wrapper">
@@ -495,7 +496,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="">
+                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled value="">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
@@ -524,7 +525,7 @@
                                         </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
                                         <select class="js-selectric" name="payment_method" id="">
-                                            <option value="cash">{{__("Cash")}} </option>
+                                            
                                             <option value="card">{{__("By card")}} </option>
                                         </select>
                                         {{--<div class="payment-drop-down-wrapper">
@@ -559,7 +560,7 @@
                                           class="user-data user-data-omniva">
                                         @csrf
                                         <input type="hidden" name="delivery" value="Paņemiet pakomātu, Omniva"><!-- Забрать почтомате, Omniva -->
-                                        <select name="delivery" class="js-selectric">
+                                        <select name="city" class="js-selectric">
                                             <option value="city1">{{__('City')}} </option>
                                             <option value="city2">{{__('City')}} </option>
                                             <option value="city3">{{__('City')}} </option>
@@ -602,7 +603,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email">
+                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled/ >
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
@@ -632,7 +633,7 @@
                                         </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
                                         <select class="js-selectric" name="payment_method" id="">
-                                            <option value="cash">{{__("Cash")}} </option>
+                                            
                                             <option value="card">{{__("By card")}} </option>
                                         </select>
                                         {{--<div class="payment-drop-down-wrapper">
@@ -723,7 +724,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email">
+                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled />
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
@@ -753,7 +754,7 @@
                                         </div>
                                         <div class="small-title text-center mb-4 mt-5">{{__("PAYMENT METHOD")}}</div>
                                         <select class="js-selectric" name="payment_method" id="">
-                                            <option value="cash">{{__("Cash")}} </option>
+                                            
                                             <option value="card">{{__("By card")}} </option>
                                         </select>
                                         {{--<div class="payment-drop-down-wrapper">
