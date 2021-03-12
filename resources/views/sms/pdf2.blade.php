@@ -121,6 +121,7 @@ table b{
                     <td><b></b></td>
                 </tr>
             </table> 
+            <?php if($order->delivery == 'omniva') { ?>
             <hr>
             <table>
                 <tr>
@@ -142,22 +143,23 @@ table b{
                     <td><b></b></td>
                 </tr> -->
             </table> 
+            <?php } ?>
             <hr>
             <table>
                 <tr>
                     <td><span style="margin:0">Apmaksas termiņš</span></td>
                     <td><b><?php                  
                             $next_date =  strftime(' %d.%m.%Y', strtotime(' +3 day')); echo $next_date; ?></b></td>
-                    <td><span style="margin:0">Piegādes datums</span></td>
-                    <td><b> <?php echo strftime('%d.%m.%Y'); ?></b></td>
+                    <td><span style="margin:0"><!-- Piegādes datums --></span></td>
+                    <td><b> <?php //echo strftime('%d.%m.%Y'); ?></b></td>
                 </tr>
                 <tr>
                     <td><span style="margin:0">Apmaksas veids</span></td>
-                    <td><b>@if($order->payment_method == 'cash') Skaidra nauda @else Ar karti @endif</b></td>
+                    <td><b>@if($order->payment_method == 'cash') Skaidra nauda @else Pārskaitījums @endif</b></td>
                     <td><span style="margin:0"></span></td>
                     <td><b></b></td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td><span style="margin:0">Darījuma veids</span></td>
                     <td><b>@if($order->payment_method == 'cash') Skaidra nauda @else Ar karti @endif</b></td>
                     <td><span style="margin:0"></span></td>
@@ -174,7 +176,7 @@ table b{
                     <td><b>{{$order->orderStatus->name}}</b></td>
                     <td><span style="margin:0"></span></td>
                     <td><b></b></td>
-                </tr>
+                </tr> -->
             </table> 
             <table class="border" style="margin-top: 15px;">
                 <tr>
@@ -230,12 +232,14 @@ echo $digit->format($explode[0]); ?>  eiro {{$explode[1]}} cents(i)</b></div>
                                     <br><span style="padding-left: 85px;"><?php echo strftime('%d.%m.%Y'); ?></span></p>
         </div>
     </div>
+    <?php if($order->delivery == 'omniva') { ?>
         <div style="font-size: 9px;line-height: 15px; width: 33%; float: left;"> <p style="line-height: 10px;">Pieņēma
 pārvadāšanā:     ______________________________  
                                     </p>
                             <p style="">
                                 ______________________________<br><span style="padding-left: 55px;">(datums)</span></p>
     </div>
+<?php } ?>
         <div style="font-size: 9px;line-height: 15px; width: 33%; float: left;"> <p style="line-height: 10px;">Saņēma::     ______________________________
                                     <br><span style="padding-left: 55px;">(Vārds, uzvārds, paraksts)</span></p>
                             

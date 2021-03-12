@@ -108,7 +108,7 @@ table b{
                 <tr>
                     <td><span style="margin:0">Apmaksas termiņš</span></td>
                     <td><b><?php                  
-                            $next_date =  strftime('%Y. %d. %B', strtotime(' +3 day')); echo $next_date; ?></b></td>
+                            $next_date =  strftime('%Y. %d. %B', strtotime(' +3 day')); ?> gada <?php echo $next_date; ?></b></td>
                     <td><span style="margin:0">Piegādes datums</span></td>
                     <td><b> <?php echo date("Y."); ?> gada <?php echo strftime('%d. %B'); ?></b></td>
                 </tr>

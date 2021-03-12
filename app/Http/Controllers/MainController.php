@@ -41,9 +41,9 @@ class MainController extends Controller
     }
     public function contacts()
     {
-        SEOMeta::setTitle();
+        SEOMeta::setTitle(__("contacts"));
         SEOMeta::setDescription(__("we are professionally engaged in the repair of electronic equipment more than 15 years, providing quality service at a reasonable price"));
-        SEOMeta::setCanonical();
+        // SEOMeta::setCanonical();
         $our_teams = \DB::table('our_team')->get();
         $service_centers = \DB::table('service_centers')->get();
 
