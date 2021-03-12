@@ -34,7 +34,7 @@
                                 @if ($errors->has('email'))
                                     <span class="error">{{ $errors->first('email') }}</span>
                                 @endif
-                                <input type="email" placeholder="{{__('Email')}}" name="email"  disabled name="email"  disabled
+                                <input type="email" placeholder="{{__('Email')}}" name="email"  disabled name="email"  >
                                 @if ($errors->has('password'))
                                     <span class="error">{{ $errors->first('password') }}</span>
                                 @endif
