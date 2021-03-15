@@ -114,7 +114,7 @@ table b{
                 </tr>
                 <tr>
                     <td><span style="margin:0">Apmaksas veids</span></td>
-                    <td><b>@if($order->payment_method == 'cash') Skaidra nauda @else Ar karti @endif</b></td>
+                    <td><b>@if($order->payment_method == 'cash') Skaidra nauda @else Pārskaitījums @endif</b></td>
                     <td><span style="margin:0"></span></td>
                     <td><b></b></td>
                 </tr>
@@ -189,7 +189,7 @@ table b{
                 </tr>
             </table>
         </div>
-        <div class="" style="clear: both;font-size: 10px">Apmaksas summa vārdiem: <b><?php $digit = new \NumberFormatter("en", \NumberFormatter::SPELLOUT);
+        <div class="" style="clear: both;font-size: 10px">Apmaksas summa vārdiem: <b><?php $digit = new \NumberFormatter("lv", \NumberFormatter::SPELLOUT);
             $explode = explode(".", $total_amout);
 echo $digit->format($explode[0]); ?>  eiro {{$explode[1]}} cents(i)</b></div>
         <div style="font-size: 9px;line-height: 15px"> <p style="line-height: 10px;">Sastādīja:     ______________________________
