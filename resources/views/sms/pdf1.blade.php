@@ -77,7 +77,7 @@ table b{
                 </tr>
                 <tr>
                     <td><span style="margin:0">Izsniegšanas vieta</span></td>
-                    <td><b>Dammes iela 33-74, Rīga, Latvija, LV-1069</b></td>
+                    <td><b>Ģertrūdes iela 77, Rīga, Latvija, LV-1011</b></td>
                     <td><span style="margin:0"></span></td>
                     <td><b></b></td>
                 </tr>

@@ -184,7 +184,7 @@ class MainController extends Controller
             $products = $order->products;
             // dd($order);
             // $order = $order->toArray();
-            $pdf = \PDF::loadView('sms.pdf2', ['order' => $order, 'products' => $products]);
+            $pdf = \PDF::loadView('sms.pdf1', ['order' => $order, 'products' => $products]);
             // return $pdf->stream();
             // return view('sms.pdf2',['order' => $order, 'products' => $products]);
             return $pdf->stream();
