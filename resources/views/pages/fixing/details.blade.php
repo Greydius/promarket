@@ -176,7 +176,7 @@
                                         <div class="row">
                                             <?php $ii=1; ?>
                                             @foreach($details[0]->products[0]->subCategory[0]->category->category->allProducts() as $product)
-                                            <?php if($ii < 9) : ?>
+                                            <?php if($ii < 10) : ?>
                                                 <div class="col-lg-4 col-md-4 col-6">
                                                     @include('components.market.card', compact('product'))
                                                 </div>
