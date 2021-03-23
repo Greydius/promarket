@@ -142,6 +142,39 @@
 <script type="text/javascript">
      var url = '<?= Request::url(); ?>/0';
         $('.sorting_select').change(function () {
+
+            $(document).on("submit", "form.add-to-cart-form-submittion", function(e){
+                e.preventDefault();
+                var form = $(this);
+                var url = form.attr("action");
+                var formData = $(form).serializeArray();
+                $.post(url, formData).done(function (data) {
+                    var count = parseInt($('.header_cart_count').text());
+                    $('.header__cart_outer-wrapper').html(data);
+                    $('.header_cart_count').html(count +1)
+                    // alert();
+                    $.fancybox.open({
+                        src: `#added_good`,
+                        type: 'inline',
+                        opts: {
+                            afterShow: function (instance, current) {
+                                setTimeout(() => {
+                                    $.fancybox.close(true);
+                                }, 2000)
+                            }
+                        }
+                    });
+                });
+            });
+            
+            $(document).on("click", ".js-order-button", function(e){
+                 const productId = this.closest('.commodity-card-body').querySelector('[name="product_id"]').value
+                document.querySelector('.hidden_product_id').value = productId;
+                $.fancybox.open({
+                    src: `.order-modal`,
+                    type: 'inline',
+                });
+            });
             var token = $('input[name="_token"]').val();
             var min_price = $('input[name="min_price"]').val();
             var max_price = $('input[name="max_price"]').val();
@@ -169,7 +202,15 @@
             $.each($(".filter-el input[name='color']:checked"), function () {
                 color.push($(this).val());
             });
-
+              $('form.add-to-cart-form-submittion').submit(function(e){
+                e.preventDefault();
+                var form = $(this);
+                  var url = form.attr("action");
+                var formData = $(form).serializeArray();
+                $.post(url, formData).done(function (data) {
+                    alert(data);
+                });
+           });
             data = {
                 'filter': '1',
                 'min_price': min_price,

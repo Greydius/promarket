@@ -150,7 +150,38 @@
 $(document).ready(function() {
 
         function ajaxSort(url){
-
+          $(document).on("submit", "form.add-to-cart-form-submittion", function(e){
+                e.preventDefault();
+                var form = $(this);
+                var url = form.attr("action");
+                var formData = $(form).serializeArray();
+                $.post(url, formData).done(function (data) {
+                    var count = parseInt($('.header_cart_count').text());
+                    $('.header__cart_outer-wrapper').html(data);
+                    $('.header_cart_count').html(count +1)
+                    // alert();
+                    $.fancybox.open({
+                        src: `#added_good`,
+                        type: 'inline',
+                        opts: {
+                            afterShow: function (instance, current) {
+                                setTimeout(() => {
+                                    $.fancybox.close(true);
+                                }, 2000)
+                            }
+                        }
+                    });
+                });
+            });
+          
+            $(document).on("click", ".js-order-button", function(e){
+                 const productId = this.closest('.commodity-card-body').querySelector('[name="product_id"]').value
+                document.querySelector('.hidden_product_id').value = productId;
+                $.fancybox.open({
+                    src: `.order-modal`,
+                    type: 'inline',
+                });
+            });
             var query = '<?php echo $search; ?>';
             var query2 = $('#search_text2').val();
             var min_price = $('input[name="min_price"]').val();

@@ -16,6 +16,7 @@ class MarketController extends Controller
 {
     public function shopMain($categoryCode, $subCategoryCode)
     {
+       // dd(request('order'));
        $category = '';
        $mainCategory = Category::where('code', $categoryCode)->first();
         SEOMeta::setTitle($mainCategory->title);
@@ -51,6 +52,7 @@ class MarketController extends Controller
 
     public function sortAjax($categoryCode, $subCategoryCode)
     {
+
        // $category = SubCategory::where('code', $subCategoryCode)->first();
        $query = request('query2');
        if($subCategoryCode =='0'){
