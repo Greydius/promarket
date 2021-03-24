@@ -56,10 +56,10 @@ class FixingController extends Controller
         // dd($accessories);
         SEOMeta::setTitle($model->name);
         // SEOMeta::setDescription($model->description);
-        SEOMeta::addMeta('article:published_time', $model->updated_at->toW3CString(), 'property');
+        // SEOMeta::addMeta('article:published_time', $model->updated_at->toW3CString(), 'property');
         SEOTools::setTitle($model->name);
         // SEOTools::setDescription($model->description);
-        return view('pages.fixing.model', compact('model'));
+        return view('pages.fixing.model', compact('model','accessories'));
     }
 
     public function fixingModelDetail($type, $brand, $modelName, $detailName)

@@ -202,9 +202,9 @@ $(document).ready(function() {
                     });
                 });
             });
-            
+
             $(document).on("click", ".js-order-button", function(e){
-                 const productId = this.closest('.commodity-card-body').querySelector('[name="product_id"]').value
+                const productId = this.closest('.commodity-card-body').querySelector('[name="product_id"]').value
                 document.querySelector('.hidden_product_id').value = productId;
                 $.fancybox.open({
                     src: `.order-modal`,

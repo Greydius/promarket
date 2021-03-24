@@ -178,5 +178,13 @@
  	"Please open the email and follow the link to complete your account registration." : "Пожалуйста откройте письмо и пройдите по ссылке, чтобы завершить регистрацию аккаунта.",
     "no-orders": "У вас нет активных заказов",
     "More" : "Еше",
-    "See more" : "Смотреть ещё"
+    "See more" : "Смотреть ещё",
+    "We wish to inform you that the following product that you were interested in, is now back in stock" : "Сообщаем вам, что следующий товар, который вас заинтересовал, снова в наличии.",
+    "hello" : "Привет",
+    "Please click this link to see product detailed information" : "Щелкните эту ссылку, чтобы просмотреть подробную информацию о продукте",
+    "Dear Customer" : "Уважаемый клиент",
+    "Let's remind you that today" : "Напомним, что сегодня",
+    "at" : "в",
+    "Your device is logged for service" : "Ваше устройство зарегистрировано для обслуживания",
+    "Let's remind you that it goes" : "Напомним, что идет"
  }

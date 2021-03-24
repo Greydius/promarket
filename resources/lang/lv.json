@@ -177,5 +177,13 @@
 	"Please open the email and follow the link to complete your account registration." : "Lūdzu, atveriet e-pastu un izpildiet saiti, lai pabeigtu konta reģistrāciju.",
 	"no-orders" : "Jums nav aktīvu pasūtījumu",
 	"More" : "vairāk",
-	"See more" : "Redzēt vairāk"
+	"See more" : "Redzēt vairāk",
+	"hello" : "Sveiki",
+	"We wish to inform you that the following product that you were interested in, is now back in stock" : "Mēs vēlamies jūs informēt, ka šāds jūs interesējošais produkts tagad ir pieejams noliktavā",
+	"Please click this link to see product detailed information" : "Lūdzu, noklikšķiniet uz šīs saites, lai skatītu detalizētu informāciju par produktu",
+	"Dear Customer" : "God. klient",
+	"Let's remind you that today" : "Atgadinam, ka sodien",
+	"at" : "plkst",
+	"Your device is logged for service" : "Jusu ierīce ir pieteikta servisa",
+	"Let's remind you that it goes" : "Atgadinam, ka rit"
 }
