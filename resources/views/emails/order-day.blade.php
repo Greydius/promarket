@@ -11,6 +11,6 @@
 <?php }else{
         if($tomorrow == $remont_date) {
     ?>
-    <h2>God. klient!<br> Atgadinam, ka rit, <span>{{$details->date}}</span> {{__("at")}}. <b>{{$details->time}}</b> {{__("Your device is logged for service")}} {{$details->branch_name}}. Promarket.lv</h2>
+    <h2>{{__("Dear Customer")}}!<br> {{__("Let's remind you that it goes")}} , <span>{{$details->date}}</span> {{__("at")}}. <b>{{$details->time}}</b> {{__("Your device is logged for service")}} {{$details->branch_name}}. Promarket.lv</h2>
     <? } } ?>
 </div>
