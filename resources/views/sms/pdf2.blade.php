@@ -52,7 +52,7 @@ table b{
 <body>
     <?php setlocale(LC_TIME, 'lv.UTF-8'); ?>
     <div class="wrapper" >
-        <h2 style="font-size: 24px;text-align: center;"><b>PAVADZĪME Nr. <?php echo date("dmy"); ?>{{$order->id}}</b></h2>
+        <h2 style="font-size: 24px;text-align: center;"><b>PAVADZĪME Nr. AV<?php echo date("dmy"); ?>{{$order->id}}</b></h2>
         <h3 style="font-size: 17px;text-align: left;"><b> <?php echo date("Y."); ?> gada <?php echo strftime('%d. %B'); ?></b></h3>
         <hr>
         <div class="columns">           
