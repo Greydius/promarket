@@ -29,6 +29,9 @@ class FixingController extends Controller
     public function fixingType($type)
     {
         $fixingType = FixingType::where('code', $type)->with('translations')->first();
+         if(!$fixingType){
+            abort(404);
+        }
          SEOMeta::setTitle($fixingType->name);
         SEOMeta::setDescription($fixingType->description);
         SEOMeta::addMeta('article:published_time', $fixingType->updated_at->toW3CString(), 'property');
