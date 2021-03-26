@@ -40,7 +40,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="{{ route('logout') }}"
+                            <a href="{{  \LaravelLocalization::localizeURL('/logout') }}"
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <img src="{{ asset('assets/img/lk/quit_icon.svg') }}" alt="">
                                 <span>
@@ -48,7 +48,7 @@
                                 </span>
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{  \LaravelLocalization::localizeURL('/logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
                         </li>

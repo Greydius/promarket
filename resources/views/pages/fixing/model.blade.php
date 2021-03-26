@@ -55,11 +55,13 @@
                                 </h3>
 
                                 <div class="row">
-                                    @foreach($category->products($model) as $product)
-
+                                    <?php $c = 1; ?>
+                                    @foreach($category->products($model->model_name) as $product)
+                                        <?php if($c < 7) : ?>
                                         <div class="col-lg-4 col-md-4 col-6">
                                             @include('components.market.card', compact('product'))
                                         </div>
+                                    <?php endif; $c++; ?>
                                     @endforeach
                                 </div>
 

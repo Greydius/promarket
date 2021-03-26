@@ -67,7 +67,7 @@ class LoginController extends Controller
 
         session()->put('orderId', $data);
 
-        return $this->loggedOut($request) ?: redirect('/');
+        return $this->loggedOut($request) ?: redirect('/'.app()->getLocale());
     }
 
   
