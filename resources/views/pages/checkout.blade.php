@@ -34,7 +34,7 @@
                                 @if ($errors->has('email')) 
                                     <span class="error">{{ $errors->first('email') }}</span>
                                 @endif
-                                <input type="email" placeholder="{{__('Email')}}" name="email"  disabled name="email"  >
+                                <input type="email" placeholder="{{__('Email')}}" name="email" name="email"  >
                                 @if ($errors->has('password'))
                                     <span class="error">{{ $errors->first('password') }}</span>
                                 @endif
@@ -53,7 +53,7 @@
                                 <!-- @ if ($errors->has('email')) -->
                                     <span class="error"></span>
                                 <!-- @ endif -->
-                                <input type="email" placeholder="{{__('Email')}}" name="email"  disabled name="email"  disabled
+                                <input type="email" placeholder="{{__('Email')}}" name="email" name="email">
 
                                 <p class="my-3">{{__("You will be able to register after making a purchase.")}}</p>
                                 <button type="submit" class="default-button mt-4">
@@ -134,7 +134,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled value="{{Auth::user()->email}}">
+                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="{{Auth::user()->email}}">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
@@ -242,7 +242,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled value="{{Auth::user()->email}}">
+                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="{{Auth::user()->email}}">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
@@ -363,7 +363,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled value="{{Auth::user()->email}}">
+                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="{{Auth::user()->email}}">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
@@ -496,7 +496,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled value="">
+                                            <input type="email" placeholder="{{__('Email')}}" name="email" value="">
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
@@ -603,7 +603,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled/ >
+                                            <input type="email" placeholder="{{__('Email')}}" name="email"/ >
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
@@ -724,7 +724,7 @@
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
-                                            <input type="email" placeholder="{{__('Email')}}" name="email"  disabled />
+                                            <input type="email" placeholder="{{__('Email')}}" name="email" />
                                         </label>
                                         <label>
                                             <span class="errormessage"></span>   
