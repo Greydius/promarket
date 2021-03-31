@@ -170,7 +170,7 @@ table b{
                 <tr>
                     <td>Atlaide % (EUR)</td>
                     <td><?php echo $skidka = $order->total_amout / 10; ?></td>
-                </tr>
+                </tr> 
                 <tr>
                     <td>ar PVN 21% apl. summa (EUR)</td>
                     <td>{{$order->total_amout}}</td>
