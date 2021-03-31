@@ -31,7 +31,7 @@
                             <button class="enter-via-gmail show-for-mobile">{{__("Login with")}} Google</button>
                             <form method="POST" class="order-login">
                                 @csrf
-                                @if ($errors->has('email'))
+                                @if ($errors->has('email')) 
                                     <span class="error">{{ $errors->first('email') }}</span>
                                 @endif
                                 <input type="email" placeholder="{{__('Email')}}" name="email"  disabled name="email"  >
