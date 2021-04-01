@@ -57,7 +57,7 @@ class RemonlineController extends Controller
     {
         $token = $this->getToken();
         $res2 = Http::get("https://api.remonline.ru/warehouse/categories/?token=$token");
-        
+
         $resData = array_filter($res2['data'], function ($item) {
             if (!isset($item['parent_id'])) {
                 return $item;
@@ -79,7 +79,7 @@ class RemonlineController extends Controller
                 if (!isset($category['title'])) {
                     dd($cateogry);
                 }
-                
+
                 $isCategoryInDataBase->update([
                     'name' => $category['title'],
                     'code' => Str::slug($category['title'], '_'),
@@ -96,13 +96,14 @@ class RemonlineController extends Controller
         $token = $this->getToken();
         $res2 = Http::get("https://api.remonline.ru/warehouse/categories/?token=$token");
         $resData = array_filter($res2['data'], function ($item) {
-            if (!isset($item['parent_id'])) {
+            if (isset($item['parent_id'])) {
                 return $item;
             }
         });
 
         foreach ($resData as $category) {
             $bigCategory = Category::where('old_id', $category['parent_id'])->first();
+
             if ($bigCategory != null) {
                 $subCategory = SubCategory::where('old_id', $category['id'])->first();
                 if ($subCategory == null) {
@@ -131,7 +132,6 @@ class RemonlineController extends Controller
     public function uploadProductsFromWarehouses()
     {
         foreach ($this->warehouses as $warehouse) {
-            dump($warehouse);
             $token = $this->getToken();
             $page = 1;
             $products = [];
@@ -146,8 +146,8 @@ class RemonlineController extends Controller
                     break;
                 }
                 sleep(0.125);
-
             }
+
             $allCategories = $this->getCategories();
             foreach ($products as $product) {
                 $fixingModel = $this->uploadForFixing($product, $allCategories);
@@ -309,26 +309,33 @@ class RemonlineController extends Controller
     {
 
         $returningValue = '';
-        foreach ($categories as $category) {
-            if ($category['old_id'] == $product['category']['parent_id']) {
+
+        foreach ($categories as $cat) {
+            if ($cat['old_id'] == $product['category']['parent_id']) {
                 $returningValue = SubCategory::where('old_id', $product['category']['parent_id'])->first();
+                break;
                 return $returningValue;
-            } else {
-                $parentCategory = '';
-                foreach ($allCategories as $category) {
-                    if ($category['id'] == $product['category']['parent_id']) {
-                        $parentCategory = $category;
-                    }
-                }
-
-
-                $returningValue = SubCategory::where('old_id', $parentCategory['parent_id'])->first();
-
-                return ($returningValue);
-
+            } else if ($cat['old_id'] == $product['category']['id']) {
+                $returningValue = SubCategory::where('old_id', $product['category']['id'])->first();
+                break;
+                return $returningValue;
 
             }
-
+            else {
+                $parentCategories = [];
+                $category = $product['category'];
+                array_push($parentCategories, $category);
+                while(isset($category['parent_id'])) {
+                    foreach($allCategories as $remCategories) {
+                        if ($category['parent_id'] == $remCategories['id']) {
+                            array_push($parentCategories, $remCategories);
+                            $category = $remCategories;
+                            break;
+                        }
+                    }
+                }
+                $returningValue = SubCategory::where('old_id', $parentCategories[count($parentCategories) - 2]['id'])->first();
+            }
         }
         return $returningValue;
     }

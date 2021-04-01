@@ -108,7 +108,7 @@
     </div>
 </div> -->
 
-<div class="filter-el checkbox-filter">
+<div class="filter-el manufacturer-filter checkbox-filter">
     <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
         <p>
             {{__("brand")}}
@@ -130,7 +130,7 @@
     </div>
 </div>
 
-<div class="filter-el checkbox-filter">
+<div class="filter-el model-filter checkbox-filter">
     <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
         <p>
             {{__("model")}}
@@ -141,7 +141,7 @@
     <div class="pol_content">
        @foreach($models as $model)
         <label class="checkbox-label">
-            <input type="checkbox" name="model" value="{{$model->model}}">
+            <input type="checkbox" data-marka="{{$model->manufacturer}}" name="model" value="{{$model->model}}">
             <span>
 			   {{$model->model}}
 			</span>
@@ -173,9 +173,9 @@
 </div>
 
 </div>
-	
+
     <script type="text/javascript">
-        
+
 $(document).ready(function() {
 
         function ajaxSort(url){
@@ -255,7 +255,7 @@ $(document).ready(function() {
                 data: data
             }).done(function (data) {
                 $('#sort').html(data);
-                 setTimeout(function(){ 
+                 setTimeout(function(){
                     var currentPage = $('a.pagination-bullet.active span').text();
                     var countPage = per_page * currentPage;
                     $('span.count_products').text(countPage);

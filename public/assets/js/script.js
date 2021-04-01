@@ -10418,3 +10418,28 @@ function openOrderModal() {
         type: 'inline',
     });
 }
+let manufacturerFilterInputs = document.querySelectorAll('.manufacturer-filter input');
+let modelFilterInput = document.querySelectorAll('.model-filter input');
+Array.from(manufacturerFilterInputs).forEach(input => {
+    input.addEventListener('change', removeNotNeededModels);
+})
+
+function removeNotNeededModels() {
+    let activeInputs = [];
+    Array.from(manufacturerFilterInputs).forEach(input => {
+        if(input.checked) {
+            activeInputs.push(input.getAttribute('value'));
+        }
+    })
+    Array.from(modelFilterInput).forEach(input => {
+        let dataManufacturer = input.getAttribute('data-marka');
+        if (activeInputs.indexOf(dataManufacturer) == -1) {
+            input.closest('label').classList.add('hidden')
+        } else {
+            input.closest('label').classList.remove('hidden')
+        }
+
+    })
+
+
+}
