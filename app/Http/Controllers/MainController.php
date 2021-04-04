@@ -232,6 +232,9 @@ class MainController extends Controller
                          $message->subject('PAVADZĪME');
                          $message->attachData($pdf->output(), "pavadzime.pdf");
                 });
+            $order->updated_at = $order->updated_at;
+            $order->date_send = 'AV'.date("dmy").$order->id;
+            $order->save();
             // dd($send);
             $sms = Sms::gateway('nexmo')->send($order->telephone,'sms.to-client',['from'=>'Promarket.lv']);
             // return $pdf->download('pdf');
