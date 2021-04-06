@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Поздравляем вы успешно зарегистрировались</title>
+    <title>{{__("Congratulations, you have successfully registered.")}}</title>
 </head>
 <body>
-        <h2>Поздравляем вы успешно зарегистрировались</h2>
-        <p>Ваш пароль : {{$password}} , пожалуйста подтвердите регистрацию.</p>
+        <h2>{{__("Congratulations, you have successfully registered.")}}</h2>
+        <p>{{__("Password")}} : {{$password}} , {{__("please confirm registration")}}.</p>
 </body>
 </html>

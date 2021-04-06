@@ -185,5 +185,15 @@
 	"Let's remind you that today" : "Atgadinam, ka sodien",
 	"at" : "plkst",
 	"Your device is logged for service" : "Jusu ierīce ir pieteikta servisa",
-	"Let's remind you that it goes" : "Atgadinam, ka rit"
+	"Let's remind you that it goes" : "Atgadinam, ka rit",
+	"Dear" : "dārgs",
+	"Our manager is currently checking your order and will send you an invoice shortly." : "Mūsu menedžeris pašlaik pārbauda jūsu pasūtījumu un drīz nosūtīs jums rēķinu.",
+	"Product name" : "Produkta nosaukums",
+	"your comment" : "jūsu komentārs",
+	"Best regards team" : "Ar cieņu komanda",
+	"We are waiting for you in our branch" : "Mēs gaidām jūs mūsu filiālē",
+	"Klent's phone" : "Klenta tālrunis",
+	"New application received" : "Saņemts jauns pieteikums",
+	"Congratulations, you have successfully registered." : "Apsveicam, jūs esat veiksmīgi reģistrējies.",
+	"please confirm registration" : "lūdzu, apstipriniet reģistrāciju"
 }

@@ -1,27 +1,26 @@
 <div>
-    <h3>Уважаемый {{ $order->fio }}, Наш менеджер на данный момент проверяет ваш заказ и в ближайшее время
-        вышлет вам счет-фактуру
+    <h3>{{__("Dear")}} {{ $order->fio }}, {{__("Our manager is currently checking your order and will send you an invoice shortly.")}}
     </h3>
 
-    <h2> Детали заказа </h2>
+    <h2>  {{__("Order details")}} </h2>
     @foreach($order->products as $detail)
-        <span>Название товара: {{$detail->name}}</span> <br>
-        <span>Цена товара: {{$detail->price}} €</span> <br>
+        <span>{{__("Product name")}}: {{$detail->name}}</span> <br>
+        <span>{{__("Price")}}: {{$detail->price}} €</span> <br>
         @isset($detail->color)
-            <span>Цвет товара: {{$detail->color['name']}}</span> <br>
+            <span>{{__("Color")}}: {{$detail->color['name']}}</span> <br>
         @endisset
         <br>
     @endforeach
     <br>
     <br>
-        <span>Ваш комментарий</span> <br>
+        <span>{{__("comment")}}</span> <br>
         <span>{{$order->comment}}</span>
     <br>
     <br>
-    <span>Мы вас ждем в нашем филиале: {{$order->address}}</span> <br>
-    <span>Дата: {{$order->created_at}} </span><br>
-    <span>Итого: {{$order->total_amount}}</span><br>
+    <span>{{__("We are waiting for you in our branch")}}: {{$order->address}}</span> <br>
+    <span>{{__("date")}}: {{$order->created_at}} </span><br>
+    <span>{{__("total")}}: {{$order->total_amount}}</span><br>
 
-    <span>Спасибо,</span> <br>
-    <span>С уважением команда Promarket</span>
+    <span>{{__("THANK YOU FOR THE ORDER")}},</span> <br>
+    <span>{{__("Best regards team")}} Promarket</span>
 </div>
