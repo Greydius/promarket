@@ -18,6 +18,7 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
+Route::get('/test-mail', 'RobotsController@testMail');
 
 
     Route::get('/', 'MainController@main')->name('main-page');
@@ -110,6 +111,8 @@ Route::get('robots.txt', 'RobotsController');
 
 });
 Route::get('/test-sms', 'MainController@sms')->name('sms');
+
+
 Route::get('/test-omniva', 'OrderController@omniva')->name('test-omniva');
 
 Route::get('/message-to-client/{tip}/{order_id}', 'MainController@smsToClient')->name('smsToClient');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use MadWeb\Robots\Robots;
+use App\Order;
 
 class RobotsController extends Controller
 {
@@ -24,5 +25,14 @@ class RobotsController extends Controller
         }
 
         return response($robots->generate(), 200, ['Content-Type' => 'text/plain']);
+    }
+
+
+    public function testMail()
+    {
+        $request_details = Order::where('id',7)->with('products')->first();
+        // dd($request_details);
+        $request_details['clientOrder'] = $request_details->products;
+        return view('emails.manager-mail',compact('request_details'));
     }
 }
