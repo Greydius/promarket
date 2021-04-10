@@ -29,19 +29,19 @@ class OrderExport implements FromQuery, WithMapping, WithHeadings,ShouldAutoSize
             'Id',
             'Date',
             'Name',
-            'name_company',
+            'Name company',
             'Order status',
-            'Totalamout',
-            // 'createdAt',
-            // 'updatedAt',
+            'Total amout',
+            'Номер авансового счета',
+            'Номер накладной',
         ];
     }
     public function query()
     {
     	// dd($this->date);
-        return Order::query()->select('updated_at','id','fio','name_company','order_status_id' ,'total_amout')->with(['orderStatus' => function($query) {
+        return Order::query()->select('updated_at','id','fio','name_company','order_status_id' ,'total_amout','created_at','date_send')->with(['orderStatus' => function($query) {
 			    $query->select('id', 'name');
-			}])->where('order_status_id','!=', '0')->whereMonth('updated_at', '=', $this->date);
+			}])->where('order_status_id','=', '3')->whereMonth('updated_at', '=', $this->date);
         /*you can use condition in query to get required result
          return Bulk::query()->whereRaw('id > 5');*/
     }
@@ -57,6 +57,8 @@ class OrderExport implements FromQuery, WithMapping, WithHeadings,ShouldAutoSize
 			$order->name_company,
 			$order->orderStatus->name,
 			$order->total_amout,
+            'AV'.$order->updated_at->format("dmy").$order->id,
+            $order->date_send,
             // Date::dateTimeToExcel($bulk->created_at),
             // Date::dateTimeToExcel($bulk->updated_at),
         ];

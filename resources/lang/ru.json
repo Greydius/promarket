@@ -186,5 +186,15 @@
     "Let's remind you that today" : "Напомним, что сегодня",
     "at" : "в",
     "Your device is logged for service" : "Ваше устройство зарегистрировано для обслуживания",
-    "Let's remind you that it goes" : "Напомним, что идет"
+    "Let's remind you that it goes" : "Напомним, что идет",
+    "Dear" : "Уважаемый(ая)",
+    "Our manager is currently checking your order and will send you an invoice shortly." : "Наш менеджер на данный момент проверяет ваш заказ и в ближайшее время вышлет вам счет-фактуру",
+    "Product name" : "Название товар",
+    "your comment" : "Ваш комментарий",
+    "Best regards team" : "С уважением команда",
+    "We are waiting for you in our branch" : "Мы вас ждем в нашем филиале",
+    "Klent's phone" : "Телефон клента",
+    "New application received" : "Поступила новая заявка",
+    "Congratulations, you have successfully registered." : "Поздравляем вы успешно зарегистрировались",
+    "please confirm registration" : "пожалуйста подтвердите регистрацию"
  }
