@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendProductOrderToClient extends Mailable
+class SendNewOrderManager extends Mailable
 {
     use Queueable, SerializesModels;
     public $order;
@@ -28,6 +28,6 @@ class SendProductOrderToClient extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.product-order-to-client');
+        return $this->view('emails.new-order-to-manager');
     }
 }
