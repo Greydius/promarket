@@ -123,6 +123,8 @@ Route::post('/profile/avatar', 'ProfileController@avatarStore')->name('avatarSto
 
 Route::get('/cat', 'RemonlineController@uploadCategories')->name('uploadCategories');
 
+Route::get('/getCat', 'RemonlineController@getCategories')->name('getCat');
+
 Route::get('/sub', 'RemonlineController@uploadSubCategories')->name('upload-sub');
 
 Route::get('/get-token', 'RemonlineController@getToken')->name('get-token');

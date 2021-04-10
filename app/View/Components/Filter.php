@@ -39,8 +39,8 @@ class Filter extends Component
                $category = $sub;
            }
         }
-       
-        $models = $category->products()->groupBy('model')->select('model')->orderBy('model','asc')->get();
+
+        $models = $category->products()->groupBy('model')->select('model', 'manufacturer')->orderBy('model','asc')->get();
         $quantity = $category->products()->groupBy('quantity')->select('quantity')->orderBy('quantity','asc')->get();
         $manufacturer = $category->products()->groupBy('manufacturer')->select('manufacturer')->orderBy('manufacturer','asc')->get();
         $color_ids = $category->products()->groupBy('color_id')->select('color_id')->pluck('color_id')->toArray();
