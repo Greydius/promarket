@@ -57,7 +57,7 @@
                                     <!-- Доставка в почтовый автомат 3,95 €. Предполагаемая доставка 15 мая -->
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-12 ">
+                                <div class="col-lg-6 col-md-12 commodity-card-body">
                                     <div class="row align-items-end">
                                         <div class="col-6">
                                             <div class="commodity-card-parameter commodity-card-inner-parameter">
@@ -97,10 +97,17 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button type="submit"
-                                                        class="submit-form default-button add-to-cart">
-                                                    {{__("Add to cart")}}
-                                                </button>
+                                                 @if ($product->quantity != 0)
+                                                    <button type="submit"
+                                                            class="default-button add-to-cart">
+                                                        {{__("Add to cart")}}
+                                                    </button>
+                                                @else
+                                                    <button type="button"
+                                                            class="default-button js-order-button">
+                                                        {{__("To order")}}
+                                                    </button>
+                                                @endif
                                             </form>
                                         </div>
                                     </div>

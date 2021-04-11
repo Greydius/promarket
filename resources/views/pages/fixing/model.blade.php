@@ -45,13 +45,16 @@
                             </div>
                             <div class="additional-commodities-wrapper">
                                 <?php
+                                // dd();
+                                if(!is_null($model->details[0]->products[0]->subCategory[0]->category->category)) :
                                 $category = $model->details[0]->products[0]->subCategory[0]->category->category;
                                 // $model->accessories = $model->model_name;
                                 // dd($model->products($model->model_name));
                                 ?>
                                 <h3 class="small-title">
 
-                                    {{$category->getTranslatedAttribute('name', app()->getLocale(), 'lv')}} {{__("for")}} {{$model->getTranslatedAttribute('title', app()->getLocale(), 'lv')}}
+                                    {{$category->getTranslatedAttribute('name', app()->getLocale(), 'lv')}} {{__("for")}} 
+                                    {{$model->getTranslatedAttribute('title', app()->getLocale(), 'lv')}}
                                 </h3>
 
                                 <div class="row">
@@ -65,7 +68,7 @@
                                     @endforeach
                                 </div>
 
-                                <a href="{{route('shop-main-cat', $category->code)}}" class="additional-link">{{__("See all parts")}} </a>
+                                <a href="{{route('shop-main-cat', $category->code)}}" class="additional-link">{{__("See all parts")}} </a><?php endif; ?>
                             </div>
                         </div>
                     </div>

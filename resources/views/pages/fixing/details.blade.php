@@ -166,10 +166,11 @@
                                     </div>
                                 </form>
                             </div>
-
+                            @if(!is_null($details[0]->products[0]->subCategory[0]->category->category))
                             <section class="additional-commodities-wrapper service-inner-commodity commodity mt-5">
                                 <div class="">
                                     <h3 class="small-title">
+
                                         {{$details[0]->products[0]->subCategory[0]->category->category->name}}
                                     </h3>
                                     <div class="">
@@ -186,7 +187,7 @@
                                     </div>
                                 </div>
                             </section>
-
+                            @endif
 
                         </div>
                     </div>

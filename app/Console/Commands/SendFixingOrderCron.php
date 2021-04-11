@@ -52,11 +52,11 @@ class SendFixingOrderCron extends Command
                     // $update = FixingOrder::where('id',$order->id)->update(['send_message'=>1]);
                     $order->send_message = '1';
                     $update= $order->save();
-                     \Log::info($update);
+                     // \Log::info($update);
 
                 }else{
-                     \Log::info('Remont kuni hali kemagan yoki o`tib ketgan');
-                     dump('Remont kuni hali kemagan yoki o`tib ketgan');
+                     // \Log::info('Remont kuni hali kemagan yoki o`tib ketgan');
+                     // dump('Remont kuni hali kemagan yoki o`tib ketgan');
                 }
             }
         }
