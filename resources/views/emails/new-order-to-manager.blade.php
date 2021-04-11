@@ -564,7 +564,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
 															<th style="min-width:80px;text-align:left;">{{__("Product code")}} </th>
 															<th style="min-width:80px;text-align:left;">{{__("Product")}}</th>
 															<th style="min-width:60px;text-align:left;">{{__("Price")}}</th>
-															<th style="min-width:45px;text-align:left;">{{__("Count")}}</th>
+															<th style="min-width:80px;text-align:left;">{{__("Count")}}</th>
 															<th align="right" style="min-width:60px;text-align:right;">Kopā</th>
 														</tr>
 														@foreach($order->products as $product)
@@ -592,8 +592,8 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
 														<tr>
 															<td></td>
 															<td></td>
-															<td style="border-top:1px solid #555555;" colspan="2"><b>{{__("total price")}}</b></td>
-															<td style="border-top:1px solid #555555;" align="right"><b>159,95 €</b></td>
+															<td style="border-top:1px solid #555555;" colspan="2"><b>{{__("total")}}</b></td>
+															<td style="border-top:1px solid #555555;" align="right"><b><?php echo $orde->$order->total_amout + 27,76;  ?> €</b></td>
 														</tr>
 													</tbody>
 												</table>
