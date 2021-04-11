@@ -11362,9 +11362,9 @@ div.search-result>div:nth-child(2) {
     /* Style adjustments for high resolution devices */
 }
 
-.delivery-tabs .selectric-items ul, .selectric-items li {
+.delivery-tabs .selectric-items li {
     list-style: none;
-    padding: 0;
+    padding: 20px;
     margin: 0;
     font-size: 16px;
     line-height: 20px;
