@@ -336,7 +336,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
 										</tr>
 										<tr>
 											<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-												<div style="font-family:Lato, sans-serif;font-size:14px;font-weight:normal;line-height:20px;text-align:left;color:#323232;"> {{__("Thank you for your purchase in the Xnet online store. Your order has been processed. We will inform you as soon as")}} <?php if($order->payment_method == 'cash'){echo __("the invoice"); } ?> {{__("and ordered goods are ready.")}}
+	<div style="font-family:Lato, sans-serif;font-size:14px;font-weight:normal;line-height:20px;text-align:left;color:#323232;"> {{__("Thank you for your purchase in the promarket online store. Your order has been processed. We will inform you as soon as")}} <?php if($order->payment_method != 'cash'){echo __("the invoice"); } ?> {{__("and ordered goods are ready.")}}
 													<br>
 													<!-- <br> Ja izvēlējāties apmaksu saņemšanas brīdī, apmaksa būs iespējama tikai ar maksājumu karti. Lai samazinātu kontaktu un ievērotu stingrās higienas prasības, kurjerdienests skaidru naudu nepieņems.  -->
 												</div>
@@ -498,7 +498,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
 														<tr>
 															<td><b>{{__("Delivery method")}}:</b></td>
 															<td>{{$order->delivery}} -  {{$order->region}} {{$order->delivery_address}}</td>
-															<!-- <td> Xnet Pickup punkts - Dzirnieku iela 24, Mārupe (katru dienu no 8:00 līdz 17:00)</td> -->
+															<!-- <td> promarket Pickup punkts - Dzirnieku iela 24, Mārupe (katru dienu no 8:00 līdz 17:00)</td> -->
 														</tr>
 														<!-- <tr>
 															<td><b>Plānotais piegādes datums:</b></td>
@@ -580,20 +580,20 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
 														<tr>
 															<td></td>
 															<td></td>
-															<td colspan="2"><b> PIEGĀDE</b></td>
+															<td colspan="2"><b> {{__("delivery")}}</b></td>
 															<td align="right">0 €</td>
 														</tr>
 														<tr>
 															<td></td>
 															<td></td>
-															<td colspan="2"><b>PVN</b></td>
+															<td colspan="2"><b>{{__("PVN")}}</b></td>
 															<td align="right">27,76 €</td>
 														</tr>
 														<tr>
 															<td></td>
 															<td></td>
 															<td style="border-top:1px solid #555555;" colspan="2"><b>{{__("total price")}}</b></td>
-															<td style="border-top:1px solid #555555;" align="right"><b>159,95 €</b></td>
+															<td style="border-top:1px solid #555555;" align="right"><b>{{$order->total_amount}} €</b></td>
 														</tr>
 													</tbody>
 												</table>
@@ -656,7 +656,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
 										</tr>
 										<tr>
 											<td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:12px;line-height:14px;text-align:center;color:#ffffff;"> {{__("Pay when you receive the product or")}} <a href="www.xnet.lv">www.xnet.lv</a> </div>
+												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:12px;line-height:14px;text-align:center;color:#ffffff;"> {{__("Pay when you receive the product or")}} <a href="www.promarket.lv">www.promarket.lv</a> </div>
 											</td>
 										</tr>
 									</tbody>
@@ -760,17 +760,17 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
 										</tr>
 										<tr>
 											<td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;">{{__("Phone")}}: 6765 1234 </div>
+												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;">{{__("Phone")}}: 25519270 </div>
 											</td>
 										</tr>
 										<tr>
 											<td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> P-S 8.00 - 20.00 Sv 9.00 - 18.00 </div>
+												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> {{__("Working days")}} 9.00-18.00 {{__("Saturday")}} 11.00-15.00 </div>
 											</td>
 										</tr>
 										<tr>
 											<td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> xnet@xnet.lv </div>
+												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> info@promarket.lv </div>
 											</td>
 										</tr>
 									</tbody>

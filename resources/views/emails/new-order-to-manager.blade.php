@@ -580,13 +580,13 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
 														<tr>
 															<td></td>
 															<td></td>
-															<td colspan="2"><b> PIEGĀDE</b></td>
+															<td colspan="2"><b> {{__("delivery")}}</b></td>
 															<td align="right">0 €</td>
 														</tr>
 														<tr>
 															<td></td>
 															<td></td>
-															<td colspan="2"><b>PVN</b></td>
+															<td colspan="2"><b>{{__("PVN")}}</b></td>
 															<td align="right">27,76 €</td>
 														</tr>
 														<tr>
@@ -760,17 +760,17 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
 										</tr>
 										<tr>
 											<td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;">{{__("Phone")}}: 6765 1234 </div>
+												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;">{{__("Phone")}}: 25519951 </div>
 											</td>
 										</tr>
 										<tr>
 											<td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> P-S 8.00 - 20.00 Sv 9.00 - 18.00 </div>
+												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> {{__("Working days")}}: 9.00-18.00 {{__("Saturday")}}: 11.00-15.00 </div>
 											</td>
 										</tr>
 										<tr>
 											<td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> xnet@xnet.lv </div>
+												<div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> info@promarket.lv </div>
 											</td>
 										</tr>
 									</tbody>

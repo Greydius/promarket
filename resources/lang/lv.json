@@ -205,7 +205,7 @@
 	"Product code" : "Preces kods",
 	"Product" : "Preces",
 	"Count" : "Skaits",
-	"Thank you for your purchase in the Xnet online store. Your order has been processed. We will inform you as soon as" : "Paldies par veikto pirkumu Xnet interneta veikalā. Ir sākta Jūsu pasūtījuma apstrāde. Informēsim Jūs, tiklīdz",
+	"Thank you for your purchase in the promarket online store. Your order has been processed. We will inform you as soon as" : "Paldies par veikto pirkumu Promarket interneta veikalā. Ir sākta Jūsu pasūtījuma apstrāde. Informēsim Jūs, tiklīdz",
 	"the invoice" : "priekšapmaksas rēķins un",
 	"the invoice" : "pasūtītās preces tiks sagatavotas.",
 	"CONVENIENT PAYMENTS" : "ĒRTI NORĒĶINI",
@@ -216,5 +216,6 @@
 	"Items marked with the fastest" : "Preces ar atzīmi saņem visātrāk",
 	"Customer service" : "Klientu serviss",
 	"Phone" : "Tālrunis",
-	"We have a new order!" : "Mums ir jauns pasūtījums!"
+	"We have a new order!" : "Mums ir jauns pasūtījums!",
+	"PVN" : "PVN"
 }

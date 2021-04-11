@@ -206,7 +206,7 @@
     "Product code" : "Код продукта",
     "Product" : "Продукт",
     "Count" : "Количество",
-    "Thank you for your purchase in the Xnet online store. Your order has been processed. We will inform you as soon as" : "Спасибо за покупку в интернет-магазине Xnet. Ваш заказ был обработан. Мы проинформируем вас, как только",
+    "Thank you for your purchase in the promarket online store. Your order has been processed. We will inform you as soon as" : "Спасибо за покупку в интернет-магазине Promarket. Ваш заказ был обработан. Мы проинформируем вас, как только",
     "the invoice" : "авансовый счёт и",
     "and ordered goods are ready." : "заказанный товар будут готовы.",
     "CONVENIENT PAYMENTS" : "УДОБНЫЕ ПЛАТЕЖИ",
@@ -217,5 +217,6 @@
     "Items marked with the fastest" : "Товар с отметкой приходит быстрее всех",
     "Customer service" : "Обслуживание клиентов",
     "Phone" : "Телефон",
-    "We have a new order!" : "У нас новый заказ!"
+    "We have a new order!" : "У нас новый заказ!",
+    "PVN" : "НДС"
  }

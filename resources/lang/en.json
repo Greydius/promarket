@@ -205,7 +205,7 @@
     "Product code" : "Product code",
     "Product" : "Product",
     "Count" : "Count",
-    "Thank you for your purchase in the Xnet online store. Your order has been processed. We will inform you as soon as" : "Thank you for your purchase in the Xnet online store. Your order has been processed. We will inform you as soon as",
+    "Thank you for your purchase in the promarket online store. Your order has been processed. We will inform you as soon as" : "Thank you for your purchase in the Promarket online store. Your order has been processed. We will inform you as soon as",
     "the invoice" : "the invoice",
     "and ordered goods are ready." : "and ordered goods are ready.",
     "CONVENIENT PAYMENTS" : "CONVENIENT PAYMENTS",
@@ -216,5 +216,6 @@
     "Items marked with the fastest" : "Items marked with the fastest",
     "Customer service" : "Customer service",
     "Phone" : "Phone",
-    "We have a new order!" : "We have a new order!"
+    "We have a new order!" : "We have a new order!",
+    "PVN" : "PVN"
 }  
