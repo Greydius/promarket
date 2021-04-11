@@ -11398,3 +11398,6 @@ div.search-result>div:nth-child(2) {
     color: rgba(32, 32, 32, 0.54);
     margin-bottom: 24px;
 }
+.delivery-tabs .selectric .button {
+    height: 68px;
+}
