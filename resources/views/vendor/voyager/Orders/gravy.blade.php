@@ -14,7 +14,14 @@
                                                                                                 Name
                                                                                             : активировать для сортировки столбца по возрастанию"
                             style="width: 65.1389px;">
-                            Address
+                            ID заказа
+                        </th>
+
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="
+                                                                                                Name
+                                                                                            : активировать для сортировки столбца по возрастанию"
+                            style="width: 65.1389px;">
+                            Ф.И.О
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="
                                                                                                 colors
@@ -26,7 +33,7 @@
                                                                                                 qualities
                                                                                             : активировать для сортировки столбца по возрастанию"
                             style="width: 55.1389px;">
-                            Price
+                            Телефон
                         </th>
                         <th class="actions text-right sorting_disabled" rowspan="1" colspan="1"
                             aria-label="Доступные действия" style="width: 82.9167px;">Доступные действия
@@ -39,14 +46,19 @@
                         <tr role="row" class="odd">
                             <td>
                                 <input type="hidden" data-i18n="true" name="name132_i18n" id="name132_i18n"
+                                       value="">
+                                <div>{{$order->id}}</div>
+                            </td>
+                            <td>
+                                <input type="hidden" data-i18n="true" name="name132_i18n" id="name132_i18n"
                                        value="{&quot;en&quot;:&quot;Samsung Galaxy S9 SM-G960 LCD displejs ar skarienj\u016bt\u012bgo ekranu un r\u0101m\u012bti melns&quot;,&quot;ru&quot;:&quot;Samsung Galaxy S9 SM-G960 LCD displejs ar skarienj\u016bt\u012bgo ekranu un r\u0101m\u012bti melns&quot;,&quot;lv&quot;:&quot;Samsung Galaxy S9 SM-G960 LCD displejs ar skarienj\u016bt\u012bgo ekranu un r\u0101m\u012bti melns&quot;}">
-                                <div>{{$order->address}}</div>
+                                <div>{{$order->fio}}</div>
                             </td>
                             <td>
                                 <div>{{$order->orderStatus->name}}</div>
                             </td>
                             <td>
-                                <div>{{$order->getFullPrice()}}</div>
+                                <div>{{$order->telephone}}</div>
                             </td>
                             <td class="no-sort no-click bread-actions">
                                
@@ -63,7 +75,7 @@
                                     <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">Просмотр</span>
                                 </a>
 
-                                @if($order->payment_method == "cash")
+                                <!-- @if($order->payment_method == "cash")
                                 <a href="/message-to-client/cash/{{$order->id}}" title="отправить смс клиенту" class="btn btn-sm btn-success pull-right" style="margin-right: 5px;">
                                     <i class="voyager-message"></i> <span class="hidden-xs hidden-sm">отправить смс клиенту</span>
                                 </a>
@@ -72,7 +84,7 @@
                                 <a href="/message-to-client/card/{{$order->id}}" title="отправить счет фактура" class="btn btn-sm btn-success pull-right" style="margin-right: 5px;">
                                     <i class="voyager-message"></i> <span class="hidden-xs hidden-sm">отправить счет фактура</span>
                                 </a>
-                                @endif
+                                @endif -->
                             </td>
                         </tr>
                     @endforeach
