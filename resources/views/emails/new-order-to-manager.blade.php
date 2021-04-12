@@ -593,7 +593,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
 															<td></td>
 															<td></td>
 															<td style="border-top:1px solid #555555;" colspan="2"><b>{{__("total")}}</b></td>
-															<td style="border-top:1px solid #555555;" align="right"><b><?php echo $orde->$order->total_amout + 27,76;  ?> €</b></td>
+															<td style="border-top:1px solid #555555;" align="right"><b><?php echo $order->total_amout + 27.76;  ?> €</b></td>
 														</tr>
 													</tbody>
 												</table>

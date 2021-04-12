@@ -198,8 +198,9 @@ class OrderController extends Controller
 
         $order->payment_method = $inputs['payment_method'];
         $order->total_amout = $order->getFullPrice();
-
+        // dd($order->getFullPrice());
         $order->user_id = $userid;
+        // return view('emails.new-order-to-manager',compact('order'));        
         $save = $order->save();
         if ($save) {
             if($order->payment_method == 'cash'){

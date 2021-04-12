@@ -30,9 +30,9 @@ class RobotsController extends Controller
 
     public function testMail()
     {
-        $order = Order::where('id',7)->with('products')->first();
+        $order = Order::where('id',57)->with('products')->first();
         // dd($order);
         $order['clientOrder'] = $order->products;
-        return view('emails.product-order-to-client',compact('order'));
+        return view('emails.new-order-to-manager',compact('order'));
     }
 }

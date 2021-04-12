@@ -119,9 +119,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <h3 class="small-title">
+                            <h1 class="small-title">
                                 {{ $category->name }}
-                            </h3>
+                            </h1>
                             <div id="sort">
                                 <div class="row additional-commodities-wrapper">
                                     @foreach($products as $product)

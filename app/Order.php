@@ -15,9 +15,11 @@ class Order extends Model
     public function getFullPrice() {
         $fullPrice = 0;
         foreach ($this->products as $product) {
+            // dump($product->price);
             $price = $product->pivot->count * $product->price;
             $fullPrice += floatval($price);
         }
+        // dd($fullPrice);
         return $fullPrice;
     }
     public function orderStatus() {
