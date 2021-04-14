@@ -10438,8 +10438,12 @@ function removeNotNeededModels() {
         } else {
             input.closest('label').classList.remove('hidden')
         }
-
     })
+    if (activeInputs.length == 0) {
+        Array.from(modelFilterInput).forEach(input => {
+            input.closest('label').classList.remove('hidden');
+        })
+    }
 
 
 }

@@ -5601,7 +5601,8 @@ main.main.lk-main {
 }
 
 .filter-content .pol_content {
-    height: 350px;
+    height: auto;
+    max-height: 350px;
 }
 
 button.view_all {
@@ -5613,6 +5614,7 @@ button.view_all {
 
 .pol_content.full {
     height: 100%;
+    max-height: initial;
 }
 
 .cost-slider {
