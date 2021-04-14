@@ -45,7 +45,8 @@
                             </div>
                             <div class="additional-commodities-wrapper">
                                 <?php
-                                $category = $model->details[0]->products[0]->subCategory[0]->category->category;
+                                $category = $model->details[0]->products[0]->subCategory[0]->category;
+                                /*dd($model->details[0]->products[0]->subCategory[0]->category)*/
                                 // $model->accessories = $model->model_name;
                                 // dd($model->products($model->model_name));
                                 ?>

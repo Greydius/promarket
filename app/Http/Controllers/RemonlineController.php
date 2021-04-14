@@ -148,6 +148,11 @@ class RemonlineController extends Controller
                 sleep(0.125);
             }
 
+            /*$productsQuery = Http::get("https://api.remonline.ru/warehouse/goods/$warehouse?token=$token&page=$page");
+            $productsQuery['data'];
+            $pageProducts = $productsQuery['data'];
+            $products = array_merge($products, $pageProducts);*/
+
             $allCategories = $this->getCategories();
             foreach ($products as $product) {
                 $fixingModel = $this->uploadForFixing($product, $allCategories);
@@ -187,7 +192,7 @@ class RemonlineController extends Controller
             });
             $currentCategory = array_values($category)[0];
             if (!isset($currentCategory['parent_id'])) {
-                return null;
+                break;
             }
         }
         $title = $currentCategory['title'];

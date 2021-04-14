@@ -170,12 +170,12 @@
                             <section class="additional-commodities-wrapper service-inner-commodity commodity mt-5">
                                 <div class="">
                                     <h3 class="small-title">
-                                        {{$details[0]->products[0]->subCategory[0]->category->category->name}}
+                                        {{$details[0]->products[0]->subCategory[0]->category->name}}
                                     </h3>
                                     <div class="">
                                         <div class="row">
                                             <?php $ii=1; ?>
-                                            @foreach($details[0]->products[0]->subCategory[0]->category->category->allProducts() as $product)
+                                            @foreach($details[0]->products[0]->subCategory[0]->category->allProducts() as $product)
                                             <?php if($ii < 10) : ?>
                                                 <div class="col-lg-4 col-md-4 col-6">
                                                     @include('components.market.card', compact('product'))
