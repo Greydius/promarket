@@ -50,9 +50,9 @@ table b{
     </style>
 </head>
 <body>
-    <?php setlocale(LC_TIME, 'lv.UTF-8'); ?>
+    <?php setlocale(LC_TIME, 'lv-LV.UTF-8'); ?>
     <div class="wrapper" >
-        <h2 style="font-size: 24px;text-align: center;"><b>PAVADZĪME Nr. AV<?php echo date("dmy"); ?>{{$order->id}}</b></h2>
+        <h2 style="font-size: 24px;text-align: center;"><b>PAVADZĪME Nr. <?php echo date("dmy"); ?>{{$order->id}}</b></h2>
         <h3 style="font-size: 17px;text-align: left;"><b> <?php echo date("Y."); ?> gada <?php echo strftime('%d. %B'); ?></b></h3>
         <hr>
         <div class="columns">           
@@ -149,6 +149,7 @@ table b{
                 <tr>
                     <td><span style="margin:0">Apmaksas termiņš</span></td>
                     <td><b><?php                  
+
                             $next_date =  strftime(' %d.%m.%Y', strtotime(' +3 day')); echo $next_date; ?></b></td>
                     <td><span style="margin:0"><!-- Piegādes datums --></span></td>
                     <td><b> <?php //echo strftime('%d.%m.%Y'); ?></b></td>

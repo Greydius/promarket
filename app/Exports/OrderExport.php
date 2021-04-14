@@ -57,7 +57,7 @@ class OrderExport implements FromQuery, WithMapping, WithHeadings,ShouldAutoSize
 			$order->name_company,
 			$order->orderStatus->name,
 			$order->total_amout,
-            'AV'.$order->updated_at->format("dmy").$order->id,
+            $order->updated_at->format("dmy").$order->id,
             $order->date_send,
             // Date::dateTimeToExcel($bulk->created_at),
             // Date::dateTimeToExcel($bulk->updated_at),

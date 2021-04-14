@@ -59,7 +59,7 @@ class DemoCron extends Command
             }
 
         }
-         \Log::info($underOrderProducts);
+         // \Log::info($underOrderProducts);
 
 
         // $fixingOrders = UnderOrderProduct::all();

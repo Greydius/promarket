@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendOrderToClent;
+use App\Mail\SendNewOrderManager;
 use App\Mail\FixingMailInfoToManager;
+use App\Mail\SendProductOrderToClient;
 use Illuminate\Http\Request;
 use App\Order;
 use Illuminate\Support\Facades\Auth;
@@ -196,8 +198,9 @@ class OrderController extends Controller
 
         $order->payment_method = $inputs['payment_method'];
         $order->total_amout = $order->getFullPrice();
-
+        // dd($order->getFullPrice());
         $order->user_id = $userid;
+        // return view('emails.new-order-to-manager',compact('order'));        
         $save = $order->save();
         if ($save) {
             if($order->payment_method == 'cash'){
@@ -238,10 +241,8 @@ class OrderController extends Controller
 
             // dd($omnivaParcel);
             $request->session()->forget('orderId');
-             Mail::to($order->email)->send(new SendOrderToClent($order));
-             $request_details = $order;
-             $request_details['clientOrder'] = $request_details->products;
-             Mail::to($order->email)->send(new FixingMailInfoToManager($request_details));
+             Mail::to($order->email)->send(new SendProductOrderToClient($order));
+             Mail::to('giyosiddinmirzaboyev@gmail.com')->send(new SendNewOrderManager($order));
             
             session()->flash('success', 'Ваш заказ принят в обработку!');
 

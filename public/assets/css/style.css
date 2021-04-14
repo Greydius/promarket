@@ -11362,3 +11362,42 @@ div.search-result>div:nth-child(2) {
     /* Style adjustments for high resolution devices */
 }
 
+.delivery-tabs .selectric-items li {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    min-height: 20px;
+}
+
+.delivery-tabs .selectric .label {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 38px 0 10px;
+    font-size: 16px;
+    line-height: 38px;
+    color: #444;
+    height: 38px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.delivery-tabs .selectric {
+    border-radius: 0px;
+    background: #F8F8F8;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    padding: 15px 30px;
+    border: 2px solid #E2E2E2;
+    color: rgba(32, 32, 32, 0.54);
+    margin-bottom: 24px;
+}
+.delivery-tabs .selectric .button {
+    height: 68px;
+}

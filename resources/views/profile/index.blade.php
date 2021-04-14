@@ -234,7 +234,7 @@
                                                                value="{{ Auth::user()->delivery_address }}">
                                                     </label>
                                                     <label>
-                                                        <input type="number" name="postcode"
+                                                        <input type="text" name="postcode"
                                                                placeholder="{{__('Postcode')}} " class="auth_control"
                                                                value="{{ Auth::user()->postcode }}">
                                                     </label>
