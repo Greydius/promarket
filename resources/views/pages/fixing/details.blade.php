@@ -195,6 +195,4 @@
         </div>
     </main>
 
-<div id="response"></div>
-
 @endsection

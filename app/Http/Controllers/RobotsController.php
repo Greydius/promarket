@@ -37,6 +37,6 @@ class RobotsController extends Controller
         $request_details['clientOrder'] = $request_details->products;
         // dd($order);
         // $order['clientOrder'] = $order->products;
-        return view('emails.product-order-to-client',compact('request_details','order'));
+        return view('emails.manager-mail',compact('request_details','order'));
     }
 }
