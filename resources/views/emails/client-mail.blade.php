@@ -124,7 +124,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
         <tr>      
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:600px;">
+        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:850px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;background-color:#ffffff;width:100%;">
                 <tbody>
                     <tr>
@@ -147,7 +147,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                                     <tbody>
                                                         <tr>
                                                             <td style="">
-                                                                <a href="#" target="_blank" > <img alt="Xnet logo logo" height="auto" src="{{asset('assets/img/common/logo.svg')}}" style="border: 0px; display: block; text-decoration: none; width: 100%;" width="109"> </a>
+                                                                 <a href="#" target="_blank" > <img alt="Xnet logo logo" height="auto" src="http://betta3.hardweb.pro/assets/img/common/logo.svg" style="border: 0px; display: block; text-decoration: none; width: 100%;" width="109"> </a>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -179,7 +179,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                                                     <tbody>
                                                                         <tr>
                                                                             <td style="font-size:0;height:30px;vertical-align:middle;width:30px;">
-                                                                                <a href="#" target="_blank"> <img height="30" src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/colored/facebook@2x.png" style="border-radius:3px;" width="30"> </a>
+                                                                                <a href="https://www.facebook.com/pg/promarketriga/reviews/?ref=page_internal" target="_blank"> <img height="30" src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/colored/facebook@2x.png" style="border-radius:3px;" width="30"> </a>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -200,7 +200,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                                                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:3px;width:30px;">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td style="font-size:0;height:30px;vertical-align:middle;width:30px;"> <a href="#" target="_blank">sss
+                                                                            <td style="font-size:0;height:30px;vertical-align:middle;width:30px;"> <a href="http://promarket.lv" target="_blank">sss
                                           <img height="30"
                                             src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/colored/instagram@2x.png"
                                             style="border-radius:3px;" width="30">
@@ -217,23 +217,6 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
             
               <td>
             <![endif]-->
-                                                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td style="padding:4px;">
-                                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:3px;width:30px;">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td style="font-size:0;height:30px;vertical-align:middle;width:30px;">
-                                                                                <a href="#" target="_blank"> <img height="30" src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/circle-color/blogger@2x.png" style="border-radius:3px;" width="30"> </a>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
                                                 <!--[if mso | IE]>
               </td>
             
@@ -266,7 +249,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:600px;">
+        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:850px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;background-color:#ffffff;width:100%;">
                 <tbody>
                     <tr>
@@ -324,7 +307,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:600px;">
+        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:850px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;background-color:#ffffff;width:100%;">
                 <tbody>
                     <tr>
@@ -403,39 +386,42 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
       >
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-      <![endif]--><div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:600px;">
-       <div class="mj-column-per-50 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100% !important; padding: 0 15px">
-                                <table object border="0" style="cellspacing:0;color:#000;font-family:lato, sans-serif;font-size:13px;line-height:22px;table-layout:fixed;width:100%;">
+      <![endif]--><div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:850px;">
+       <div class="mj-column-per-50 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100% !important;">
+                                <table object border="0" style="margin:0 auto;color:#000;font-family:lato, sans-serif;font-size:13px;line-height:22px;table-layout:fixed;width:95%; border-collapse: collapse;">
                                     <tbody>
                                             <tr>
-                                                <td><h2> {{__("Order details")}} </h2></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td style="padding:15px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;" colspan="4"><h2> {{__("Order details")}} </h2></td>
+                                            </tr>
+                                            <tr>
+                                                <th style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;"  colspan="2">{{__("Product name")}}:</th>
+                                                <th style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;" >{{__("Price")}}:</th>
+                                                <th style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;" >{{__("Color")}}:</th>
                                             </tr>
                                             @foreach($request_details['clientOrder'] as $detail)
                                                <tr> 
-                                                <td><div class="big">{{__("Product name")}}:</div> {{$detail->name}}</td> 
-                                                <td><div class="big">{{__("Price")}}:</div> {{$detail->price}} €</td> 
+                                                <td style="padding:15px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;" colspan="2"><div class="big"></div>{{$detail->name}}</td> 
+                                                <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;"><div class="big"></div> {{$detail->price}} €</td> 
+                                                <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;">
+                                                    <div class="big"></div> asdasdasd{{$detail->color}}
                                                 @isset($detail->color)
-                                                <td><div class="big">{{__("Color")}}:</div> {{$detail->color}}</td>
                                                 @endisset
+                                                </td>
                                                 </tr>
                                             @endforeach
                                             <tr>
-                                                <td><div class="big">{{__("your comment")}}:</div></td> 
-                                                <td class="i">{{$request_details->comment}}</td>
-                                         
-                                            <td><div class="big">{{__("We are waiting for you in our branch")}}:</div> {{$request_details->address}}</td>
+                                                <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;"><div class="big">{{__("your comment")}}:</div><br>{{$request_details->comment}}</td> 
+                                            <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;">
+                                                <div class="big">{{__("We are waiting for you in our branch")}}:</div> {{$request_details->branch_name}}</td>
+                                                <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;" class="i"><div class="big">{{__("Date")}}:</div> {{$request_details->date}} </td>
+                                                 <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;"><div class="big">{{__("Repair time")}}:</div> {{$request_details->time}}</td>
+                                            
                                             </tr>
                                             <tr> 
-                                            <td><div class="big">{{__("Date")}}:</div> {{$request_details->date}} </td>
-                                            <td><div class="big">{{__("Repair time")}}:</div> {{$request_details->time}}</td>
-                                            <td>{{__("THANK YOU FOR THE ORDER")}},</td>
+                                                <td colspan="4" style="padding-top: 40px;padding-left: 30px">{{__("THANK YOU FOR THE ORDER")}},</td>
                                             </tr>
                                             <tr>
-                                            <td>{{__("Best regards team")}} Promarket</td>
-                                            <td></td>
-                                            <td></td>
+                                                 <td colspan="4" style="padding-left: 30px">{{__("Best regards team")}} Promarket</td>
                                             </tr>
                                     </tbody>
                                 </table>
@@ -455,7 +441,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:600px;">
+        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:850px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;background-color:#ffffff;width:100%;">
                 <tbody>
                     <tr>
@@ -502,7 +488,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:600px;">
+        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:850px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;background-color:#ffffff;width:100%;">
                 <tbody>
                     <tr>
@@ -612,7 +598,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:600px;">
+        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:850px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;background-color:#ffffff;width:100%;">
                 <tbody>
                     <tr>
@@ -698,7 +684,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-        <div style="background:#555555;background-color:#555555;margin:0px auto;max-width:600px;">
+        <div style="background:#555555;background-color:#555555;margin:0px auto;max-width:850px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#555555;background-color:#555555;width:100%;">
                 <tbody>
                     <tr>
@@ -709,6 +695,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
       
             <td style="vertical-align:top;width:200px;">
           <![endif]-->
+                           
                             <div class="mj-column-per-33 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
                                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                                     <tbody>
@@ -725,12 +712,12 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                         </tr>
                                         <tr>
                                             <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:15px;line-height:18px;text-align:center;color:#ffffff;"> <strong>ĒRTI NORĒĶINI</strong> </div>
+                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:15px;line-height:18px;text-align:center;color:#ffffff;"> <strong>{{__("CONVENIENT PAYMENTS")}}</strong> </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:12px;line-height:14px;text-align:center;color:#ffffff;"> Maksā, saņemot preci vai www.xnet.lv </div>
+                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:12px;line-height:14px;text-align:center;color:#ffffff;"> {{__("Pay when you receive the product or")}} <a href="www.promarket.lv">www.promarket.lv</a> </div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -757,8 +744,8 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                         <tr>
                                             <td align="center" style="font-size: 0px; padding: 0px 25px; word-break: break-word;">
                                                 <div style="font-family:Roboto, sans-serif;font-size:13px;line-height:1;text-align:center;color:#fff;">
-                                                    <p style="font-size: 14px; font-weight: bold;">AP 200 000 PREČU</p>
-                                                    <p >Izvēlies vajadzīgo, mēs piegādāsim</p>
+                                                    <p style="font-size: 14px; font-weight: bold;">{{__("AP 200,000 GOODS")}}</p>
+                                                    <p >{{__("Choose what you need, we will deliver")}}</p>
                                                 </div>
                                             </td>
                                         </tr>
@@ -785,12 +772,12 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                         </tr>
                                         <tr>
                                             <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:15px;line-height:18px;text-align:center;color:#ffffff;"> <strong>ĀTRA PIEGĀDE</strong> </div>
+                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:15px;line-height:18px;text-align:center;color:#ffffff;"> <strong>{{__("FAST DELIVERY")}}</strong> </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:12px;line-height:14px;text-align:center;color:#ffffff;"> Preces ar atzīmi saņem visātrāk </div>
+                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:12px;line-height:14px;text-align:center;color:#ffffff;">{{__("Items marked with the fastest")}} </div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -814,7 +801,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:600px;">
+        <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:850px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;background-color:#ffffff;width:100%;">
                 <tbody>
                     <tr>
@@ -829,22 +816,22 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                     <tbody>
                                         <tr>
                                             <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> <strong>Klientu serviss</strong> </div>
+                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> <strong>{{__("Customer service")}}</strong> </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> Tālrunis: 6765 1234 </div>
+                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;">{{__("Phone")}}: 25519270 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> P-S 8.00 - 20.00 Sv 9.00 - 18.00 </div>
+                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> {{__("Working days")}} 9.00-18.00 {{__("Saturday")}} 11.00-15.00 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> xnet@xnet.lv </div>
+                                                <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#000000;"> info@promarket.lv </div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -868,7 +855,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-        <div style="background:#fff;background-color:#fff;margin:0px auto;max-width:600px;">
+        <div style="background:#fff;background-color:#fff;margin:0px auto;max-width:850px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#fff;background-color:#fff;width:100%;">
                 <tbody>
                     <tr>
@@ -897,7 +884,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                                                     <tbody>
                                                                         <tr>
                                                                             <td style="font-size:0;height:30px;vertical-align:middle;width:30px;">
-                                                                                <a href="#" target="_blank"> <img height="30" src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/circle-color/facebook@2x.png" style="border-radius:3px;" width="30"> </a>
+                                                                                <a href="https://www.facebook.com/pg/promarketriga/reviews/?ref=page_internal" target="_blank"> <img height="30" src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/circle-color/facebook@2x.png" style="border-radius:3px;" width="30"> </a>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -910,24 +897,11 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
               </td>            
               <td>
             <![endif]-->
-                                                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td style="padding:4px;">
-                                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:3px;width:30px;">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td style="font-size:0;height:30px;vertical-align:middle;width:30px;">
-                                                                                <a href="#" target="_blank"> <img height="30" src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/circle-color/youtube@2x.png" style="border-radius:3px;" width="30"> </a>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <!--[if mso | IE]>
+        <!--[if mso | IE]>
+              </td>            
+              <td>
+            <![endif]-->
+<!--[if mso | IE]>
               </td>            
               <td>
             <![endif]-->
@@ -939,28 +913,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                                                     <tbody>
                                                                         <tr>
                                                                             <td style="font-size:0;height:30px;vertical-align:middle;width:30px;">
-                                                                                <a href="#" target="_blank"> <img height="30" src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/circle-color/blogger@2x.png" style="border-radius:3px;" width="30"> </a>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <!--[if mso | IE]>
-              </td>            
-              <td>
-            <![endif]-->
-                                                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td style="padding:4px;">
-                                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:3px;width:30px;">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td style="font-size:0;height:30px;vertical-align:middle;width:30px;">
-                                                                                <a href="#" target="_blank"> <img height="30" src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/colored/instagram@2x.png" style="border-radius:3px;" width="30"> </a>
+                                                                                <a href="http://promarket.lv" target="_blank"> <img height="30" src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/colored/instagram@2x.png" style="border-radius:3px;" width="30"> </a>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -998,7 +951,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-        <div style="margin:0px auto;max-width:600px;">
+        <div style="margin:0px auto;max-width:850px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
                 <tbody>
                     <tr>

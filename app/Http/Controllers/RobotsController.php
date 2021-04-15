@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use MadWeb\Robots\Robots;
 use App\Order;
+use App\FixingOrder;
 
 class RobotsController extends Controller
 {
@@ -31,8 +32,11 @@ class RobotsController extends Controller
     public function testMail()
     {
         $order = Order::where('id',57)->with('products')->first();
+        $request_details = FixingOrder::where('id',6)->with('products')->first();
+        // dd();
+        $request_details['clientOrder'] = $request_details->products;
         // dd($order);
-        $order['clientOrder'] = $order->products;
-        return view('emails.new-order-to-manager',compact('order'));
+        // $order['clientOrder'] = $order->products;
+        return view('emails.product-order-to-client',compact('request_details','order'));
     }
 }
