@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\FixingOrder;
+use Illuminate\Console\Command;
 use App\Mail\FixingOrderDayMail;
 use Illuminate\Support\Facades\Mail;
 

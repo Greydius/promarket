@@ -197,29 +197,6 @@ class MainController extends Controller
         $order = Order::where('id',$order_id)->first();
         $products = $order->products;
         if($type == 'cash'){
-               // Authorisation details.
-    // $username = "promarket@hardweb.pro";
-    // $hash = "e5b7040de288627a570814d15ff83e50888265a0d7feab8a71e9bb232f58cc53";
-
-    // // Config variables. Consult http://api.txtlocal.com/docs for more info.
-    // $test = "0";
-
-    // // Data for text message. This is the text message data.
-    // $sender = "promarket"; // This is who the message appears to be from.
-    // $numbers = "998999163844"; // A single number or a comma-seperated list of numbers
-    // $message = "This is a test message from the PHP API script. G'iyosiddin";
-    // // 612 chars or less
-    // // A single number or a comma-seperated list of numbers
-    // $message = urlencode($message);
-    // $data = "username=".$username."&hash=".$hash."&message=".$message."&sender=".$sender."&numbers=".$numbers."&test=".$test;
-    // $ch = curl_init('http://api.txtlocal.com/send/?');
-    // curl_setopt($ch, CURLOPT_POST, true);
-    // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    // $result = curl_exec($ch); // This is the result from the API
-    // curl_close($ch);
-
-    // echo($result);
             $sms = Sms::gateway('nexmo')->send($order->telephone,'sms.to-client',['from'=>'Promarket.lv']);
             // dd($sms);
         }elseif($type == 'card'){
