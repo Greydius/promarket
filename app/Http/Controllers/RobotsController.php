@@ -6,6 +6,7 @@ use App\Order;
 use App\FixingOrder;
 use MadWeb\Robots\Robots;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\FixingMailInfoToClient;
 use App\Mail\FixingMailInfoToManager;
 
