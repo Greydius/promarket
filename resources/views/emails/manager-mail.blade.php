@@ -377,11 +377,11 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                                         </tr>
                                                         <tr>
                                                             <td><b>{{__("Phone")}}:</b></td>
-                                                            <td>{{$request_details->phone}}</td>
+                                                            <td><?php echo $request_details->phone; ?></td>
                                                         </tr>
                                                         <tr>
                                                             <td><b>{{__("Date")}}:</b></td>
-                                                            <td>{{$request_details->updated_at}}</td>
+                                                            <td><?php echo $request_details->updated_at; ?></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -435,8 +435,8 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                                 <td style="padding:15px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;" colspan="2"><div class="big"></div>{{$detail->name}}</td> 
                                                 <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;"><div class="big"></div> {{$detail->price}} €</td> 
                                                 <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;">
-                                                    <div class="big"></div> {{$detail->color}}
                                                 @isset($detail->color)
+                                                    <div class="big"></div> {{$detail->color}}
                                                 @endisset
                                                 </td>
                                                 </tr>
@@ -444,7 +444,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                             <tr>
                                                 <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;"><div class="big">{{__("your comment")}}:</div><br>{{$request_details->comment}}</td> 
                                             <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;">
-                                                <div class="big">{{__("We are waiting for you in our branch")}}:</div> {{$request_details->branch_name}}</td>
+                                                <div class="big">{{__("We are waiting for you in our branch")}}:</div> <?php echo $request_details->branch_name; ?></td>
                                                 <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;" class="i"><div class="big">{{__("Date")}}:</div> {{$request_details->date}} </td>
                                                  <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;"><div class="big">{{__("Repair time")}}:</div> {{$request_details->time}}</td>
                                             

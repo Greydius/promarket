@@ -412,7 +412,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                             <tr>
                                                 <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;"><div class="big">{{__("your comment")}}:</div><br>{{$request_details->comment}}</td> 
                                             <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;">
-                                                <div class="big">{{__("We are waiting for you in our branch")}}:</div> {{$request_details->branch_name}}</td>
+                                                <div class="big">{{__("We are waiting for you in our branch")}}:</div> <?php echo $request_details->branch_name; ?></td>
                                                 <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;" class="i"><div class="big">{{__("Date")}}:</div> {{$request_details->date}} </td>
                                                  <td style="padding:8px;border-collapse: collapse;border: 1px solid #000;border-spacing: 0px;"><div class="big">{{__("Repair time")}}:</div> {{$request_details->time}}</td>
                                             
