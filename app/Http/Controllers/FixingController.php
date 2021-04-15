@@ -165,6 +165,7 @@ class FixingController extends Controller
 
         $newFixingOrder->products()->attach($requestedDetailsRow);
         $request_details = $newFixingOrder;
+          $request_details['clientOrder'] = $details;
         Mail::to('m1ckey94@yandex.ru')->send(new FixingMailInfoToManager($request_details));
 
         Mail::to($newFixingOrder->email)->send(new FixingMailInfoToClient($request_details));
