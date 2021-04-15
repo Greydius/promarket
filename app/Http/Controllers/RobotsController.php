@@ -42,7 +42,7 @@ class RobotsController extends Controller
         // $order['clientOrder'] = $order->products;
          Mail::to('gmirzaboyev@yandex.ru')->send(new FixingMailInfoToManager($request_details));
 
-        Mail::to($newFixingOrder->email)->send(new FixingMailInfoToClient($request_details));
+        Mail::to($request_details->email)->send(new FixingMailInfoToClient($request_details));
         return view('emails.client-mail',compact('request_details','order'));
     }
 }
