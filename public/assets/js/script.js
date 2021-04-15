@@ -9473,6 +9473,11 @@ function Collapser(collapsTriggerClassName, collapsingClass, parentClassName,) {
             if (el.style.maxHeight) {
                 el.style.maxHeight = ''
             } else {
+                if (el.scrollHeight < 350) {
+                    parent.classList.add('clear_more');
+                } else {
+                    parent.classList.remove('clear_more');
+                }
                 el.style.maxHeight = el.scrollHeight + 'px'
             }
         })
