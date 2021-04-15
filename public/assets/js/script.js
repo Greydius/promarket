@@ -10081,12 +10081,16 @@ $('.reservation-form').validate({
             .post(form.getAttribute('data-url'), formData)
             .then(response => {
                 console.log(response)
-                $.fancybox.open({
-                    src: `.inquiry-modal`,
-                    type: 'inline',
-                });
+                // $.fancybox.open({
+                //     src: `.inquiry-modal`,
+                //     type: 'inline',
+                // });
                 setTimeout(() => {
-                    document.location.href="/";
+                    // var obj = JSON.parse(response);
+                    console.log(response);
+                    let = response2 = document.getElementById("response");
+                    response2.append(response);
+                    // document.location.href="/";
                 }, 5000);
             })
             .catch(error => {
