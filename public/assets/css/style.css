@@ -5616,7 +5616,9 @@ button.view_all {
     height: 100%;
     max-height: initial;
 }
-
+.clear_more .view_all{
+    display: none;
+}
 .cost-slider {
     margin-bottom: 25px;
     padding-top: 10px;
