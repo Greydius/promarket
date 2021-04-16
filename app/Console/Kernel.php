@@ -27,6 +27,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->command('test')->everyMinute();
         $schedule->command('fixing:order')->everyMinute();
+        $schedule->command('change_order_status')->everyMinute();
     }
 
     /**

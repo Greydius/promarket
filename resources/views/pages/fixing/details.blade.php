@@ -16,7 +16,7 @@
                                 <div class="detail-block-wrapper"
                                      data-start-cost="{{$detail->price}}" data-cost="{{$detail->price}}"
                                      data-id="{{$detail->id}}"
-                                     data-color="{{$detail->products[0]->color->name ?? 'Нет цвета'}}"
+                                     data-color="{{$detail->products[0]->color->name ?? __('Not color')}}"
                                 >
                                     <div class="main-title title-for-mobile">{{$detail->getTranslatedAttribute('name', app()->getLocale(), 'lv')}} {{$detail->manufacturerModel->getTranslatedAttribute('name', app()->getLocale(), 'lv')}}</div>
 
@@ -194,7 +194,5 @@
             </div>
         </div>
     </main>
-
-<div id="response"></div>
 
 @endsection
