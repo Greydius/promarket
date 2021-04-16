@@ -15,7 +15,7 @@
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
 
-                            @foreach($order->products[0]->subCategory[0]->products as $product)
+                            @foreach($order->products[0]->subCategory[0]->products->slice(0, 4)  as $product)
                                 <div class="swiper-slide">
                                     @include('components.market.card', compact('product'))
                                 </div>
@@ -33,7 +33,7 @@
                     </h3>
                     <div class="">
                         <div class="row market-detail-card-row fixing-type-for-device-row">
-                            @foreach($order->products[0]->subCategory[0]->products as $product)
+                            @foreach($order->products[0]->subCategory[0]->products->slice(0, 4) as $product)
                                 <div class="col-6">
                                     @include('components.market.card', compact('product'))
                                 </div>
