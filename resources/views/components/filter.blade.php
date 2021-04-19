@@ -178,32 +178,7 @@
 $(document).ready(function() {
     var old_title = $(document).prop('title'); 
     $('.filter-el input').change(function () {
-        var new_title = $(document).prop('title'); 
-            vall = $(this).val();
-        // function changeTitle() {
-        //     if (title.indexOf('>>>') == -1) {
-        //         setTimeout(changeTitle, 3000);  
-        //         $(document).prop('title', '>'+title);
-        //     }
-        // }
-        if($(this).attr("name") === 'model' || $(this).attr("name") === 'manufacturer'){
-            if($(this).is(':checked')){
-                // page_query.set('attrs['+ $(this).attr("name") +'][]', $(this).val());
-                if (new_title.indexOf(vall) == -1) {
-                    $(document).prop('title', new_title + ' | ' + vall);
-                }
-            }else{
-                var favorite = [];
-                $.each($("input[name='manufacturer']:checked"), function(){
-                    favorite.push($(this).val());
-                });
-                $(document).prop('title', old_title + ' | ' + favorite.join("| "));
-                // page_query.remove('attrs['+ $(this).attr("name") +'][]');
-            }
-            // changeTitle();
-        }else{
-            // page_query.set($(this).attr("name"), $(this).val());   
-        }
+        
         var url = '<?= Request::url(); ?>';
 
         ajaxSort(url);
