@@ -76,10 +76,10 @@ class ChangeOrderStatus extends Command
                         $save = $order->save();
                         // dd($sms);
                     // \Log::info($save);
-                    \Log::info($order->date_send);
+                    // \Log::info($order->date_send);
                     }
                 }{
-                    \Log::info('Not changed orders!');
+                    // \Log::info('Not changed orders!');
                 }
             }
         }

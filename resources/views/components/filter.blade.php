@@ -107,7 +107,6 @@
         </label>
     </div>
 </div> -->
-
 <div class="filter-el manufacturer-filter checkbox-filter">
     <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
         <p>
@@ -177,113 +176,52 @@
     <script type="text/javascript">
 
 $(document).ready(function() {
-
-        function ajaxSort(url){
-            $(document).on("submit", "form.add-to-cart-form-submittion", function(e){
-                e.preventDefault();
-                var form = $(this);
-                var url = form.attr("action");
-                var formData = $(form).serializeArray();
-                $.post(url, formData).done(function (data) {
-                    var count = parseInt($('.header_cart_count').text());
-                    $('.header__cart_outer-wrapper').html(data);
-                    $('.header_cart_count').html(count +1)
-                    // alert();
-                    $.fancybox.open({
-                        src: `#added_good`,
-                        type: 'inline',
-                        opts: {
-                            afterShow: function (instance, current) {
-                                setTimeout(() => {
-                                    $.fancybox.close(true);
-                                }, 2000)
-                            }
-                        }
-                    });
-                });
-            });
-
-            $(document).on("click", ".js-order-button", function(e){
-                const productId = this.closest('.commodity-card-body').querySelector('[name="product_id"]').value
-                document.querySelector('.hidden_product_id').value = productId;
-                $.fancybox.open({
-                    src: `.order-modal`,
-                    type: 'inline',
-                });
-            });
-            var query = $('#search_text2').val();
-            var min_price = $('input[name="min_price"]').val();
-            var max_price = $('input[name="max_price"]').val();
-            var order = $('#order').children("option:selected").val();
-            var per_page = $('#per_page').children("option:selected").val();
-            var quantity = [];
-            var manufacturer = [];
-            var model = [];
-            var color = [];
-            $.each($(".filter-el input[name='quantity']:checked"), function () {
-                quantity.push($(this).val());
-            });
-            $.each($(".filter-el input[name='manufacturer']:checked"), function () {
-                manufacturer.push($(this).val());
-            });
-            $.each($(".filter-el input[name='model']:checked"), function () {
-                model.push($(this).val());
-            });
-            $.each($(".filter-el input[name='color']:checked"), function () {
-                color.push($(this).val());
-            });
-
-            data = {
-                'filter': '1',
-                'min_price': min_price,
-                'max_price': max_price,
-                'order': order,
-                'per_page': per_page,
-                'quantity': quantity,
-                'color': color,
-                'query2': query,
-                'attrs': {
-                    'manufacturer': manufacturer,
-                    'model': model,
+    var old_title = $(document).prop('title'); 
+    $('.filter-el input').change(function () {
+        var new_title = $(document).prop('title'); 
+            vall = $(this).val();
+        // function changeTitle() {
+        //     if (title.indexOf('>>>') == -1) {
+        //         setTimeout(changeTitle, 3000);  
+        //         $(document).prop('title', '>'+title);
+        //     }
+        // }
+        if($(this).attr("name") === 'model' || $(this).attr("name") === 'manufacturer'){
+            if($(this).is(':checked')){
+                // page_query.set('attrs['+ $(this).attr("name") +'][]', $(this).val());
+                if (new_title.indexOf(vall) == -1) {
+                    $(document).prop('title', new_title + ' | ' + vall);
                 }
-            };
-            // console.log(data);
+            }else{
+                var favorite = [];
+                $.each($("input[name='manufacturer']:checked"), function(){
+                    favorite.push($(this).val());
+                });
+                $(document).prop('title', old_title + ' | ' + favorite.join("| "));
+                // page_query.remove('attrs['+ $(this).attr("name") +'][]');
+            }
+            // changeTitle();
+        }else{
+            // page_query.set($(this).attr("name"), $(this).val());   
+        }
+        var url = '<?= Request::url(); ?>';
 
-            $.ajax({
-                type: 'POST',
-                url: url,
-                data: data
-            }).done(function (data) {
-                $('#sort').html(data);
-                 setTimeout(function(){
-                    var currentPage = $('a.pagination-bullet.active span').text();
-                    var countPage = per_page * currentPage;
-                    $('span.count_products').text(countPage);
-                }, 1000);
-            });
-        };
+        ajaxSort(url);
 
+    });
+    $('#search_text2').on('keyup',function() {
+        var url = '<?= Request::url(); ?>';
+        page_query.set($(this).attr("name"), $(this).val())
+        ajaxSort(url);
+    });
 
+    $(".sidebar-search").submit(function(e){
+        return false;
+    });
 
-        $('.filter-el input').change(function () {
-            var url = '<?= Request::url(); ?>';
-
-            ajaxSort(url);
-
-        });
-        $('#search_text2').on('keyup',function() {
-            var url = '<?= Request::url(); ?>';
-            ajaxSort(url);
-        });
-
-        $(".sidebar-search").submit(function(e){
-            return false;
-        });
-
-        $('button.view_all').click(function(e){
-            $(this).prev('.pol_content').toggleClass('full');
-        })
-
+    $('button.view_all').click(function(e){
+        $(this).prev('.pol_content').toggleClass('full');
+    })
 
 });
 

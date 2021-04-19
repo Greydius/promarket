@@ -35,14 +35,14 @@ class RobotsController extends Controller
     public function testMail()
     {
         $order = Order::where('id',57)->with('products')->first();
-        $request_details = FixingOrder::where('id',15)->with('products')->first();
+        $request_details = FixingOrder::where('id',6)->with('products')->first();
         // dd();
         $request_details['clientOrder'] = $request_details->products;
         // dd($order);
         // $order['clientOrder'] = $order->products;
-         Mail::to('gmirzaboyev@yandex.ru')->send(new FixingMailInfoToManager($request_details));
+        //  Mail::to('gmirzaboyev@yandex.ru')->send(new FixingMailInfoToManager($request_details));
 
-        Mail::to($request_details->email)->send(new FixingMailInfoToClient($request_details));
-        return view('emails.client-mail',compact('request_details','order'));
+        // Mail::to($request_details->email)->send(new FixingMailInfoToClient($request_details));
+        return view('emails.product-order-to-client',compact('request_details','order'));
     }
 }

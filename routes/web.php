@@ -53,8 +53,11 @@ Route::get('/test-mail', 'RobotsController@testMail');
 
 
     Route::get('/market/{category}', 'MarketController@shopMainCat')->name('shop-main-cat');
+    
     Route::get('/market/{category}/{subcategory}', 'MarketController@shopMain')->name('shop-main');
+    
     Route::post('/market/{category}', 'MarketController@sortAjax');
+
     Route::post('/market/{category}/{subcategory}', 'MarketController@sortAjax')->name('sort-main');
 
     Route::get('/market/{category}/{subcategory}/{modelCode}', 'MarketController@shopInner')->name('shop-inner');
