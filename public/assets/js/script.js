@@ -9760,7 +9760,7 @@ try {
         }
     }
 } catch (e) {
-    void(e)
+    void (e)
 }
 
 function ChooseOne(elementsClassName, parentElementClassName) {
@@ -10026,17 +10026,24 @@ function FixingDetailCostManager(fixingElementSelector, mainPriceSelector, oldPr
     }
 
     function changeCostElementsValue() {
-        self.costElement.innerText = self.cost;
-        self.oldCostElement.innerText = (self.cost * 1.1).toFixed();
+        let overAllCost = 0;
+        let allDetails = document.querySelectorAll('.detail-block-wrapper');
+        Array.from(allDetails).forEach(detail => {
+            overAllCost += +(detail.getAttribute('data-cost'));
+        })
+        self.costElement.innerText = overAllCost;
+        self.oldCostElement.innerText = overAllCost.toFixed();
     }
 
     function changeCost() {
         let cost = this.getAttribute('data-cost');
         self.allCosts[this.getAttribute('data-id')] = cost
+        let parentId = this.closest('.detail-block-wrapper').getAttribute('data-id');
         self.cost = 0;
         Object.values(self.allCosts).forEach(cost => {
             self.cost += Number(cost);
         });
+        console.log(self.allCosts);
         if (this.closest(`${fixingElementSelector}`) == null) {
             return;
         }
@@ -10086,7 +10093,7 @@ $('.reservation-form').validate({
                     type: 'inline',
                 });
                 setTimeout(() => {
-                    document.location.href="/";
+                    document.location.href = "/";
                 }, 5000);
             })
             .catch(error => {
@@ -10415,6 +10422,7 @@ let orderButtons = document.querySelectorAll('.js-order-button');
 Array.from(orderButtons).forEach(btn => {
     btn.addEventListener('click', openOrderModal)
 })
+
 function openOrderModal() {
     const productId = this.closest('.commodity-card-body').querySelector('[name="product_id"]').value
     document.querySelector('.hidden_product_id').value = productId;
@@ -10423,6 +10431,7 @@ function openOrderModal() {
         type: 'inline',
     });
 }
+
 let manufacturerFilterInputs = document.querySelectorAll('.manufacturer-filter input');
 let modelFilterInput = document.querySelectorAll('.model-filter input');
 Array.from(manufacturerFilterInputs).forEach(input => {
@@ -10432,7 +10441,7 @@ Array.from(manufacturerFilterInputs).forEach(input => {
 function removeNotNeededModels() {
     let activeInputs = [];
     Array.from(manufacturerFilterInputs).forEach(input => {
-        if(input.checked) {
+        if (input.checked) {
             activeInputs.push(input.getAttribute('value'));
         }
     })
