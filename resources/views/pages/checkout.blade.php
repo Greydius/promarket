@@ -39,8 +39,8 @@
                                     <span class="error">{{ $errors->first('password') }}</span>
                                 @endif
                                 <input type="password" placeholder="{{__('Password')}}" name="password">
-                                <p class="my-3">{{__("I forgot password!")}} <a href="#">{{__("Rebuild it soon")}} </a></p>
-                                <p class="my-3"> {{__("Don't have an account?")}}<a href="#"> {{__("Register now")}}</a></p>
+                                <p class="my-3">{{__("I forgot password!")}} <a href="{{ route('password.request') }}">{{__("Rebuild it soon")}} </a></p>
+                                <p class="my-3"> {{__("Don't have an account?")}}<a href="{{ route('register') }}"> {{__("Register now")}}</a></p>
                                 <button type="submit" class="default-button mt-4 order-login-btn">
                                     {{__("Login")}}
                                 </button>

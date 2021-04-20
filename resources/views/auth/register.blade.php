@@ -49,14 +49,14 @@
 
 <script>
     $(function() {
-  $('.accepted').change(function() {
-        console.log(this);
-        if ($(this).is(':checked')) {
-            $(this).val('1');
-        }else{
-            $(this).val('');
-        }
-    });
+      $('.accepted').change(function() {
+            console.log(this);
+            if ($(this).is(':checked')) {
+                $(this).val('1');
+            }else{
+                $(this).val('');
+            }
+        });
       /*  var app = {
             DOM: {},
             init: function () {
