@@ -31,14 +31,14 @@
                             <button class="enter-via-gmail show-for-mobile">{{__("Login with")}} Google</button>
                             <form method="POST" class="order-login">
                                 @csrf
-                                @if ($errors->has('email')) 
+                                <!-- @ if ($errors->has('email'))  -->
                                     <span class="error">{{ $errors->first('email') }}</span>
-                                @endif
+                                <!-- @ endif -->
                                 <input type="email" placeholder="{{__('Email')}}" name="email" name="email"  >
                                 @if ($errors->has('password'))
                                     <span class="error">{{ $errors->first('password') }}</span>
                                 @endif
-                                <input type="password" placeholder="{{__('Password')}}" name="password">
+                                <input type="password" placeholder="{{__('Password')}}" name="password" class="valid">
                                 <p class="my-3">{{__("I forgot password!")}} <a href="{{ route('password.request') }}">{{__("Rebuild it soon")}} </a></p>
                                 <p class="my-3"> {{__("Don't have an account?")}}<a href="{{ route('register') }}"> {{__("Register now")}}</a></p>
                                 <button type="submit" class="default-button mt-4 order-login-btn">
@@ -816,7 +816,9 @@
                     console.log(res);
                     location.reload();
                 }).fail(function (res) {
-                    console.log(res);
+                    console.log(res.responseJSON.errors);
+                    $('.order-login .valid').addClass('error');
+                    $('.order-login span.error').text(res.responseJSON.errors.email[0]);
                 });
             });
                 $('.order-no-registration button').click(function (e) {

@@ -10517,14 +10517,38 @@ function ajaxSort(url){
     // }
     page_query.remove('page');
    
-    var favorite = [];
+    var manufacturer = [];
+    var model = [];
+    var color = [];
 
     $.each($("input[name='manufacturer']:checked"), function(){
-        favorite.push($(this).val());
+        manufacturer.push($(this).val());
     });
-    $('h1.small-title').text(page_title + ' ' + favorite.join(", "))
-    $(document).prop('title', site_title + ' | ' + favorite.join("| "));
-     document.head.querySelector('meta[name="description"]').content = site_title + ' | ' + favorite.join("| ") + ' - ' + meta_desc;
+     $.each($("input[name='model']:checked"), function(){
+        model.push($(this).val());
+    });
+     $.each($("input[name='color']:checked"), function(){
+        color.push($(this).val());
+    });
+     // alert(manufacturer);
+    if(manufacturer != ''){
+        page_query.set('manufacturer', manufacturer);
+    }else{
+        page_query.remove('manufacturer');
+    }
+    if(model != ''){
+        page_query.set('model', model);
+    }else{
+        page_query.remove('model');
+    }
+    if(color != ''){
+        page_query.set('color', color);
+    }else{
+        page_query.remove('color');
+    }
+    $('h1.small-title').text(page_title + ' - ' + manufacturer.join(", "))
+    $(document).prop('title', site_title + ' | ' + manufacturer.join("| "));
+     document.head.querySelector('meta[name="description"]').content = site_title + ' | ' + manufacturer.join("| ") + ' - ' + meta_desc;
     // alert(meta_desc);
     // page_query.remove('attrs['+ $(this).attr("name") +'][]');
         // vall = $(this).val();

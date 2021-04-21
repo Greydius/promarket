@@ -16,10 +16,13 @@ class MarketController extends Controller
 {
     public function shopMain($categoryCode, $subCategoryCode)
     {
-       // dd(request('order'));
+       // dump(request('manufacturer'));
+       $manufacturer = explode(',', request('manufacturer'));
+       $model = explode(',', request('model'));
+       $color = explode(',', request('color'));
+       // dd($manufacturer);
        $category = '';
        $mainCategory = Category::where('code', $categoryCode)->first();
-        SEOMeta::setTitle($mainCategory->title);
         // SEOMeta::setDescription($mainCategory->resume);
         SEOMeta::addMeta('article:published_time', $mainCategory->updated_at, 'property');
         // SEOMeta::addMeta('article:section', $post->category, 'property');
@@ -30,16 +33,15 @@ class MarketController extends Controller
                $category = $sub;
            }
        }
+        SEOMeta::setTitle($mainCategory->title);
 
 
        // $products = $category->products()->withTranslations()->paginate(12);
 
-
-
-
         $query = request('query2');
        
         $products = $category->products();
+        
        // if(isset(request()->attrs)){
         //     foreach(request()->attrs as $key => $val){
         //        $products = $products->whereIn($key, $val);
@@ -47,15 +49,15 @@ class MarketController extends Controller
 
         // }
         if(isset(request()->manufacturer)){
-               $products = $products->whereIn('manufacturer', request()->manufacturer);
+               $products = $products->whereIn('manufacturer', $manufacturer);
 
         }
         if(isset(request()->model)){
-               $products = $products->whereIn('model', request()->model);
+               $products = $products->whereIn('model', $model);
 
         }
         if(isset(request()->color)){
-               $products = $products->whereIn('color_id', request()->color);
+               $products = $products->whereIn('color_id', $color);
         }
         if(isset(request()->quantity)){
           $c=count(request()->quantity);
@@ -82,15 +84,17 @@ class MarketController extends Controller
         }else{
           $sort = 'ASC';
         }
+        $products = $products->where('name', 'LIKE', "%$query%")->orderBy('price',$sort)->paginate(12);
 
-        $products = $products->where('name', 'LIKE', "%$query%")->orderBy('price',$sort)->paginate(request()->per_page)->onEachSide(2);
-
-
+        // dd($products);
        return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85]);
     }
 
     public function shopMainCat($categoryCode)
     {
+       $manufacturer = explode(',', request('manufacturer'));
+       $model = explode(',', request('model'));
+       $color = explode(',', request('color'));
        $category = '';
        $products = '';
        $category = Category::where('code', $categoryCode)->first();
@@ -113,13 +117,13 @@ class MarketController extends Controller
        
         // $products = $category->products();
         if(isset(request()->manufacturer)){
-          $products = $products->whereIn('manufacturer', request()->manufacturer);
+          $products = $products->whereIn('manufacturer', $manufacturer);
         }
         if(isset(request()->model)){
-          $products = $products->whereIn('model', request()->model);
+          $products = $products->whereIn('model', $model);
         }
         if(isset(request()->color)){
-          $products = $products->whereIn('color_id', request()->color);
+          $products = $products->whereIn('color_id', $color);
         }
         if(isset(request()->quantity)){
           $c=count(request()->quantity);
@@ -147,7 +151,7 @@ class MarketController extends Controller
           $sort = 'ASC';
         }
 
-        $products = $products->where('name', 'LIKE', "%$query%")->orderBy('price',$sort)->paginate(request()->per_page)->onEachSide(2);
+        $products = $products->where('name', 'LIKE', "%$query%")->orderBy('price',$sort)->paginate(12)->onEachSide(2);
 
 
         // $products = CollectionHelper::paginate($products, $pageSize);
@@ -180,7 +184,7 @@ class MarketController extends Controller
              }
               $products = $category->products();
           }
-       
+        // dd($products->get());
         if(isset(request()->manufacturer)){
                $products = $products->whereIn('manufacturer', request()->manufacturer);
         }
