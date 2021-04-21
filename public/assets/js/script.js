@@ -10522,9 +10522,9 @@ function ajaxSort(url){
     $.each($("input[name='manufacturer']:checked"), function(){
         favorite.push($(this).val());
     });
-   
+    $('h1.small-title').text(page_title + ' ' + favorite.join(", "))
     $(document).prop('title', site_title + ' | ' + favorite.join("| "));
-    document.head.querySelector('meta[name="description"]').content = site_title + ' | ' + favorite.join("| ") + ' - ' + meta_desc;
+     document.head.querySelector('meta[name="description"]').content = site_title + ' | ' + favorite.join("| ") + ' - ' + meta_desc;
     // alert(meta_desc);
     // page_query.remove('attrs['+ $(this).attr("name") +'][]');
         // vall = $(this).val();
