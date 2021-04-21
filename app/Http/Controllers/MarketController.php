@@ -87,7 +87,7 @@ class MarketController extends Controller
         $products = $products->where('name', 'LIKE', "%$query%")->orderBy('price',$sort)->paginate(12);
 
         // dd($products);
-       return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85]);
+       return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85, 'filter' => [$manufacturer, $color,$model]]);
     }
 
     public function shopMainCat($categoryCode)

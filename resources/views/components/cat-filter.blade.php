@@ -79,34 +79,6 @@
     </div>
 </div>
 <input type="hidden" name="hidden_page" id="hidden_page" value="1" />
-<!-- <div class="filter-el checkbox-filter">
-    <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
-        <p>
-            устройство
-        </p>
-        <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
-    </div>
-    <div class="filter-content">
-        <label class="checkbox-label">
-            <input type="checkbox" name="device" value="phone">
-            <span>
-   				Телефоны
-			</span>
-        </label>
-        <label class="checkbox-label">
-            <input type="checkbox" name="device" value="tablet">
-            <span>
-               Планшеты
-            </span>
-        </label>
-        <label class="checkbox-label">
-            <input type="checkbox" name="device" value="notebook">
-            <span>
-               Ноутбуки
-            </span>
-        </label>
-    </div>
-</div> -->
 
 <div class="filter-el checkbox-filter">
     <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
@@ -117,6 +89,7 @@
     </div>
     <div class="filter-content">
         <div class="pol_content">
+          
         @foreach($manufacturer as $manufacturer)
         <label class="checkbox-label">
             <input type="checkbox" name="manufacturer" value="{{$manufacturer->manufacturer}}">

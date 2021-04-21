@@ -1,3 +1,9 @@
+<?php 
+    $fil_man = explode(',', request()->manufacturer);
+    $fil_mod = explode(',', request()->model);
+    $fil_color = explode(',', request()->color );
+
+ ?>
 <div class="shop-sidebar-inner-wrap">
 	@csrf
 <div class="cancel-filters">
@@ -79,34 +85,6 @@
     </div>
 </div>
 <input type="hidden" name="hidden_page" id="hidden_page" value="1" />
-<!-- <div class="filter-el checkbox-filter">
-    <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
-        <p>
-            устройство
-        </p>
-        <img src="{{asset('assets/img/common/chevron-down.svg')}}" alt="">
-    </div>
-    <div class="filter-content">
-        <label class="checkbox-label">
-            <input type="checkbox" name="device" value="phone">
-            <span>
-   				Телефоны
-			</span>
-        </label>
-        <label class="checkbox-label">
-            <input type="checkbox" name="device" value="tablet">
-            <span>
-               Планшеты
-            </span>
-        </label>
-        <label class="checkbox-label">
-            <input type="checkbox" name="device" value="notebook">
-            <span>
-               Ноутбуки
-            </span>
-        </label>
-    </div>
-</div> -->
 <div class="filter-el manufacturer-filter checkbox-filter">
     <div class="cost-filter-trigger justify-content-between d-flex align-items-center">
         <p>
@@ -116,9 +94,10 @@
     </div>
     <div class="filter-content">
         <div class="pol_content">
+
         @foreach($manufacturer as $manufacturer)
         <label class="checkbox-label">
-            <input type="checkbox" name="manufacturer" value="{{$manufacturer->manufacturer}}">
+            <input type="checkbox" <?php if(in_array($manufacturer->manufacturer, $fil_man)){ echo "checked"; } ?> name="manufacturer" value="{{$manufacturer->manufacturer}}">
             <span>
 			   {{$manufacturer->manufacturer}}
 			</span>
@@ -140,7 +119,7 @@
     <div class="pol_content">
        @foreach($models as $model)
         <label class="checkbox-label">
-            <input type="checkbox" data-marka="{{$model->manufacturer}}" name="model" value="{{$model->model}}">
+            <input type="checkbox" data-marka="{{$model->manufacturer}}" name="model" <?php if(in_array($model->model, $fil_mod)){ echo "checked"; } ?> value="{{$model->model}}">
             <span>
 			   {{$model->model}}
 			</span>
@@ -162,7 +141,7 @@
     <div class="filter-content">
     	@foreach($color as $color)
         <label class="checkbox-label">
-            <input type="checkbox" name="color" value="{{$color->id}}">
+            <input type="checkbox" name="color"  <?php if(in_array($color->color, $fil_color)){ echo "checked"; } ?> value="{{$color->id}}">
             <span>
                {{$color->name}}
             </span>
