@@ -10546,7 +10546,7 @@ function ajaxSort(url){
     }else{
         page_query.remove('color');
     }
-    $('h1.small-title').text(page_title + ' - ' + manufacturer.join(", ") + model.join(", ") + color.join(", "))
+    $('h1.small-title').text(page_title + ' - ' + manufacturer.join(", ") + ' ' + model.join(", "))
     $(document).prop('title', site_title + ' | ' + manufacturer.join("| "));
      document.head.querySelector('meta[name="description"]').content = site_title + ' | ' + manufacturer.join("| ") + ' - ' + meta_desc;
     // alert(meta_desc);
