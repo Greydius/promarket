@@ -9150,7 +9150,7 @@
 
 
 let comSwiperFirst = new Swiper('.commodity-1 .swiper-container', {
-    loop: true,
+    loop: false,
     spaceBetween: 30,
     pagination: {
         el: '.commodity-pagination-1',
@@ -9159,7 +9159,7 @@ let comSwiperFirst = new Swiper('.commodity-1 .swiper-container', {
     slidesPerView: 4,
 });
 let comSwiperSecond = new Swiper('.commodity-2 .swiper-container', {
-    loop: true,
+    loop: false,
     spaceBetween: 30,
     pagination: {
         el: '.commodity-pagination-2',
@@ -10434,7 +10434,9 @@ const page_query = {
     window.history.replaceState({}, '', url);
   }
 }
- var site_title = $(document).prop('title'); 
+var site_title = $(document).prop('title'); 
+var page_title = $('h1.small-title').text();
+var meta_desc = document.head.querySelector('meta[name="description"]').content;
 function ajaxSort(url){
     $(document).on("submit", "form.add-to-cart-form-submittion", function(e){
         e.preventDefault();
@@ -10499,10 +10501,10 @@ function ajaxSort(url){
         'quantity': quantity,
         'color': color,
         'query2': query,
-        'attrs': {
-            'manufacturer': manufacturer,
-            'model': model,
-        }
+        'manufacturer': manufacturer,
+        'model': model,
+        // 'attrs': {
+        // }
     };
     // var loc_url = page_query.get();
     // const arrayAttrs = Object.entries(data);
@@ -10516,10 +10518,14 @@ function ajaxSort(url){
     page_query.remove('page');
    
     var favorite = [];
+
     $.each($("input[name='manufacturer']:checked"), function(){
         favorite.push($(this).val());
     });
+   
     $(document).prop('title', site_title + ' | ' + favorite.join("| "));
+    document.head.querySelector('meta[name="description"]').content = site_title + ' | ' + favorite.join("| ") + ' - ' + meta_desc;
+    // alert(meta_desc);
     // page_query.remove('attrs['+ $(this).attr("name") +'][]');
         // vall = $(this).val();
         // if($(this).attr("name") === 'model' || $(this).attr("name") === 'manufacturer'){
@@ -10544,6 +10550,7 @@ function ajaxSort(url){
             var currentPage = $('a.pagination-bullet.active span').text();
             var countPage = per_page * currentPage;
             $('span.count_products').text(countPage);
+
         }, 1000);
     });
 };

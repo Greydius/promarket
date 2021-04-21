@@ -73,10 +73,12 @@ class MainController extends Controller
         $query2 = request('query2');
         $products = Product::query();
         $products = $products->where('name', 'LIKE', "%$query%");
-        if(isset(request()->attrs)){
-            foreach(request()->attrs as $key => $val){
-               $products = $products->whereIn($key, $val);
-            }
+         if(isset(request()->manufacturer)){
+               $products = $products->whereIn('manufacturer', request()->manufacturer);
+
+        }
+        if(isset(request()->model)){
+               $products = $products->whereIn('model', request()->model);
 
         }
         if(isset(request()->color)){

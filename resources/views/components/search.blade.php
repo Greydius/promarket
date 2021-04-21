@@ -98,9 +98,9 @@
                             </div>
                         </div>
                     </div>
-                    <h3 class="small-title">
+                    <h1 class="small-title">
                        {{__("RESULTS WERE FOUND FOR THE REQUEST", ['attribute' => request('query'),'count' => $results->total()])}}
-                    </h3>
+                    </h1>
                     <div id="sort">
                         <div class="row additional-commodities-wrapper">
                                 <!-- <h2>{{-- ucfirst($type) --}}</h2> -->

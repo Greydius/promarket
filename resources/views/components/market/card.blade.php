@@ -5,7 +5,11 @@
     $product->subCategory[0]->code,
     $product->code
 ])}}" class="commodity-image-wrapper">
-        <img src="{{$product->img}}" alt="">
+        @if(!empty($product->img))
+            <img src="{{$product->img}}" alt="">
+        @else
+            <img src="{{asset('assets\img\no-image.jpg')}}" alt="">        
+        @endif
     </a>
     <div class="commodity-card-body">
         <a href="{{route('shop-inner', [

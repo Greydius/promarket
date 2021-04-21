@@ -40,11 +40,18 @@ class MarketController extends Controller
         $query = request('query2');
        
         $products = $category->products();
-       
-        if(isset(request()->attrs)){
-            foreach(request()->attrs as $key => $val){
-               $products = $products->whereIn($key, $val);
-            }
+       // if(isset(request()->attrs)){
+        //     foreach(request()->attrs as $key => $val){
+        //        $products = $products->whereIn($key, $val);
+        //     }
+
+        // }
+        if(isset(request()->manufacturer)){
+               $products = $products->whereIn('manufacturer', request()->manufacturer);
+
+        }
+        if(isset(request()->model)){
+               $products = $products->whereIn('model', request()->model);
 
         }
         if(isset(request()->color)){
@@ -105,15 +112,14 @@ class MarketController extends Controller
         $query = request('query2');
        
         // $products = $category->products();
-       
-        if(isset(request()->attrs)){
-            foreach(request()->attrs as $key => $val){
-               $products = $products->whereIn($key, $val);
-            }
-
+        if(isset(request()->manufacturer)){
+          $products = $products->whereIn('manufacturer', request()->manufacturer);
+        }
+        if(isset(request()->model)){
+          $products = $products->whereIn('model', request()->model);
         }
         if(isset(request()->color)){
-               $products = $products->whereIn('color_id', request()->color);
+          $products = $products->whereIn('color_id', request()->color);
         }
         if(isset(request()->quantity)){
           $c=count(request()->quantity);
@@ -174,13 +180,12 @@ class MarketController extends Controller
              }
               $products = $category->products();
           }
-
-
-        if(isset(request()->attrs)){
-            foreach(request()->attrs as $key => $val){
-               $products = $products->whereIn($key, $val);
-            }
-
+       
+        if(isset(request()->manufacturer)){
+               $products = $products->whereIn('manufacturer', request()->manufacturer);
+        }
+        if(isset(request()->model)){
+               $products = $products->whereIn('model', request()->model);
         }
         if(isset(request()->color)){
                $products = $products->whereIn('color_id', request()->color);

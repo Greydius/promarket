@@ -325,7 +325,7 @@
                                             <option value="city2">{{__('City')}} </option>
                                             <option value="city3">{{__('City')}} </option>
                                         </select>
-                                        <input type="text" placeholder="{{__('City')}} " name="city">
+                                        <!-- <input type="text" placeholder="{{__('City')}} " name="city"> -->
                                         <input type="text" placeholder="{{__('DELIVERY ADDRESS')}} "
                                                name="delivery_address">
                                         <input type="text" placeholder="{{__('Postcode')}} " name="postcode">

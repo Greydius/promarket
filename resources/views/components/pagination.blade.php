@@ -127,8 +127,11 @@
         var url = $(this).attr('href');
         ajaxSort(url);
         
-          
-        page_query.set('page', $(this).text()); // page queryga yangi value beradi
+          if($(this).text() === '1'){
+            page_query.remove('page'); // page queryga yangi value beradi
+          }else{
+            page_query.set('page', $(this).text()); // page queryga yangi value beradi
+          }
         // query.get('page'); // page queryni return qiladi
 
 
