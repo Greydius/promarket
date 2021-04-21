@@ -10532,17 +10532,17 @@ function ajaxSort(url){
     });
      // alert(manufacturer);
     if(manufacturer != ''){
-        page_query.set('manufacturer', manufacturer);
+        page_query.set('manufacturer', manufacturer.join(','));
     }else{
         page_query.remove('manufacturer');
     }
     if(model != ''){
-        page_query.set('model', model);
+        page_query.set('model', model.join(','));
     }else{
         page_query.remove('model');
     }
     if(color != ''){
-        page_query.set('color', color);
+        page_query.set('color', color.join(','));
     }else{
         page_query.remove('color');
     }
