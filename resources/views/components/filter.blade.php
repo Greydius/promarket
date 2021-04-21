@@ -2,7 +2,7 @@
     $fil_man = explode(',', request()->manufacturer);
     $fil_mod = explode(',', request()->model);
     $fil_color = explode(',', request()->color );
-
+    // dd($fil_color);
  ?>
 <div class="shop-sidebar-inner-wrap">
 	@csrf
@@ -141,7 +141,7 @@
     <div class="filter-content">
     	@foreach($color as $color)
         <label class="checkbox-label">
-            <input type="checkbox" name="color"  <?php if(in_array($color->color, $fil_color)){ echo "checked"; } ?> value="{{$color->id}}">
+            <input type="checkbox" name="color"  <?php if(in_array($color->id, $fil_color)){ echo "checked"; } ?> value="{{$color->id}}">
             <span>
                {{$color->name}}
             </span>
