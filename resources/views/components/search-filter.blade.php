@@ -1,3 +1,9 @@
+<?php 
+    $fil_man = explode(',', request()->manufacturer);
+    $fil_mod = explode(',', request()->model);
+    $fil_color = explode(',', request()->color );
+    // dd($fil_color);
+ ?>
 <div class="shop-sidebar-inner-wrap">
 	@csrf
 <div class="cancel-filters">
