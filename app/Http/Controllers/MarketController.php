@@ -14,13 +14,11 @@ use Artesaos\SEOTools\Facades\SEOTools;
 
 class MarketController extends Controller
 {
-    public function shopMain($categoryCode, $subCategoryCode)
+    public function shopMain($categoryCode, $subCategoryCode, $filters = null)
     {
        // dump(request('manufacturer'));
-       $manufacturer = explode(',', request('manufacturer'));
-       $model = explode(',', request('model'));
-       $color = explode(',', request('color'));
        // dd($manufacturer);
+       $filters_array = [];
        $category = '';
        $mainCategory = Category::where('code', $categoryCode)->first();
         // SEOMeta::setDescription($mainCategory->resume);
@@ -48,17 +46,22 @@ class MarketController extends Controller
         //     }
 
         // }
-        if(isset(request()->manufacturer)){
-               $products = $products->whereIn('manufacturer', $manufacturer);
 
-        }
-        if(isset(request()->model)){
-               $products = $products->whereIn('model', $model);
+        // Filters
+        if($filters) {
+          $current_filters = explode('-and-', $filters);
 
-        }
-        if(isset(request()->color)){
-               $products = $products->whereIn('color_id', $color);
-        }
+          foreach($current_filters as $current_filter) {
+            $current_filter_data = explode('-is-', $current_filter);
+    
+            $current_filter_name = $current_filter_data[0];
+            $current_filter_variants = explode('-or-', $current_filter_data[1]);
+            $filters_array[$current_filter_name] = $current_filter_variants;
+
+            $products = $products->whereIn($current_filter_name, $current_filter_variants);
+          }
+        }     
+
         if(isset(request()->quantity)){
           $c=count(request()->quantity);
           if($c == 1){
@@ -87,14 +90,12 @@ class MarketController extends Controller
         $products = $products->where('name', 'LIKE', "%$query%")->orderBy('price',$sort)->paginate(12);
 
         // dd($products);
-       return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85, 'filter' => [$manufacturer, $color,$model]]);
+       return view('pages.market.main', ['category' => $category,'products'=>$products, 'nds' => 0.85, 'filters' => $filters_array]);
     }
 
-    public function shopMainCat($categoryCode)
+    public function shopMainCat($categoryCode, $filters = null)
     {
-       $manufacturer = explode(',', request('manufacturer'));
-       $model = explode(',', request('model'));
-       $color = explode(',', request('color'));
+      $filters_array = [];
        $category = '';
        $products = '';
        $category = Category::where('code', $categoryCode)->first();
@@ -114,17 +115,22 @@ class MarketController extends Controller
        $pageSize = 12;
        
         $query = request('query2');
-       
-        // $products = $category->products();
-        if(isset(request()->manufacturer)){
-          $products = $products->whereIn('manufacturer', $manufacturer);
+
+        // Filters
+        if($filters) {
+          $current_filters = explode('-and-', $filters);
+
+          foreach($current_filters as $current_filter) {
+            $current_filter_data = explode('-is-', $current_filter);
+    
+            $current_filter_name = $current_filter_data[0];
+            $current_filter_variants = explode('-or-', $current_filter_data[1]);
+            $filters_array[$current_filter_name] = $current_filter_variants;
+
+            $products = $products->whereIn($current_filter_name, $current_filter_variants);
+          }
         }
-        if(isset(request()->model)){
-          $products = $products->whereIn('model', $model);
-        }
-        if(isset(request()->color)){
-          $products = $products->whereIn('color_id', $color);
-        }
+
         if(isset(request()->quantity)){
           $c=count(request()->quantity);
           if($c == 1){
@@ -156,11 +162,11 @@ class MarketController extends Controller
 
         // $products = CollectionHelper::paginate($products, $pageSize);
         // dd($products);
-       return view('pages.market.category', ['category' => $category,'products'=>$products, 'nds' => 0.85]);
+       return view('pages.market.category', ['category' => $category,'products'=>$products, 'nds' => 0.85, 'filters' => $filters_array]);
 
     }
 
-    public function sortAjax($categoryCode, $subCategoryCode)
+    public function sortAjax($categoryCode, $subCategoryCode, $filters = null)
     {
       if(!$subCategoryCode){
           $subCategoryCode = 0;
@@ -184,16 +190,21 @@ class MarketController extends Controller
              }
               $products = $category->products();
           }
-        // dd($products->get());
-        if(isset(request()->manufacturer)){
-               $products = $products->whereIn('manufacturer', request()->manufacturer);
+        
+        if($filters) {
+          $current_filters = explode('-and-', $filters);
+
+          foreach($current_filters as $current_filter) {
+            $current_filter_data = explode('-is-', $current_filter);
+    
+            $current_filter_name = $current_filter_data[0];
+            $current_filter_variants = explode('-or-', $current_filter_data[1]);
+            $filters_array[$current_filter_name] = $current_filter_variants;
+
+            $products = $products->whereIn($current_filter_name, $current_filter_variants);
+          }
         }
-        if(isset(request()->model)){
-               $products = $products->whereIn('model', request()->model);
-        }
-        if(isset(request()->color)){
-               $products = $products->whereIn('color_id', request()->color);
-        }
+
         if(isset(request()->quantity)){
           $c=count(request()->quantity);
           if($c == 1){

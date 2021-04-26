@@ -11,15 +11,18 @@ class Filter extends Component
 {
     public $category;
     public $subcategory;
+    public $filters;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($category, $subcategory)
+    public function __construct($category, $subcategory, $filters)
     {
         $this->category = $category;
         $this->subcategory = $subcategory;
+        $this->filters = $filters;
     }
 
     /**
@@ -48,6 +51,8 @@ class Filter extends Component
         $minprice = $category->products()->min('price');
         $maxprice = $category->products()->max('price');
 
-        return view('components.filter', compact('models','quantity','manufacturer','color', 'minprice', 'maxprice'));
+        $filters = $this->filters;
+
+        return view('components.filter', compact('models','quantity','manufacturer','color', 'minprice', 'maxprice', 'filters'));
     }
 }

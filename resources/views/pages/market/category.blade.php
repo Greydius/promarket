@@ -1,7 +1,6 @@
 @extends('system.master')
 
 @section('content')
-
     <main class="main">
         <div class="fixing-container">
             <div class="container">
@@ -9,8 +8,7 @@
                     <div class="col-lg-3 shop-sidebar login-content sidebar">
 
                         <div class="shop-sidebar-wrapper">
-
-                            <x-cat-filter category="{{request()->route()->parameters['category']}}"/>
+                            <x-cat-filter :filters="$filters" category="{{request()->route()->parameters['category']}}"/>
 
                         </div>
 
@@ -142,7 +140,7 @@
 <script type="text/javascript">
     var url = '<?= Request::url(); ?>/0';
     $('.sorting_select').change(function () {
-      ajaxSort(url);
+      ajaxSort('/0');
     });
 </script>
 @endsection

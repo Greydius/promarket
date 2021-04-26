@@ -11,14 +11,16 @@ class CatFilter extends Component
 {
     public $category;
     public $subcategory;
+    public $filters;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($category)
+    public function __construct($category, $filters)
     {
         $this->category = $category;
+        $this->filters = $filters;
     }
 
     /**
@@ -42,7 +44,9 @@ class CatFilter extends Component
             $color = Color::whereIn('id', $color_ids)->orderBy('name','asc')->get();
             $minprice = $products->min('price');
             $maxprice = $products->max('price');
+
+            $filters = $this->filters;
        
-        return view('components.cat-filter', compact('models','quantity','manufacturer','color', 'minprice', 'maxprice'));
+        return view('components.cat-filter', compact('models','quantity','manufacturer','color', 'minprice', 'maxprice', 'filters'));
     }
 }

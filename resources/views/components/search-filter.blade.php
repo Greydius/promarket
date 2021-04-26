@@ -1,7 +1,7 @@
 <?php 
-    $fil_man = explode(',', request()->manufacturer);
-    $fil_mod = explode(',', request()->model);
-    $fil_color = explode(',', request()->color );
+     $fil_man = isset($filters['manufacturer']) ? $filters['manufacturer'] : [];
+    $fil_mod = isset($filters['model']) ? $filters['model'] : [];
+    $fil_color = isset($filters['color_id']) ? $filters['color_id'] : [];
     // dd($fil_color);
  ?>
 <div class="shop-sidebar-inner-wrap">
@@ -21,7 +21,7 @@
 
 <form class="sidebar-search" action="{{ route('search') }}" method="POST" >
     <label class="position-relative">
-        <input type="text" placeholder="{{__('search')}}" class="auth_control"  name="query" id="search_text2">
+        <input type="text" placeholder="{{__('search')}}" class="auth_control"  name="query" id="search_text2" value="{{request('query')}}">
         <button type="button" class="search_form_submit">
             <img src="{{ asset('/assets/img/common/search.svg') }}" alt="">
         </button>

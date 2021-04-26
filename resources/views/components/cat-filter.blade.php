@@ -1,8 +1,7 @@
 <?php 
-    $fil_man = explode(',', request()->manufacturer);
-    $fil_mod = explode(',', request()->model);
-    $fil_color = explode(',', request()->color );
-    // dd($fil_color);
+    $fil_man = isset($filters['manufacturer']) ? $filters['manufacturer'] : [];
+    $fil_mod = isset($filters['model']) ? $filters['model'] : [];
+    $fil_color = isset($filters['color_id']) ? $filters['color_id'] : [];
  ?>
 <div class="shop-sidebar-inner-wrap">
 	@csrf
@@ -244,7 +243,7 @@ $(document).ready(function() {
         $('.filter-el input').change(function () {
             var url = window.location.pathname + "/0";
             // alert(url);
-            ajaxSort(url);
+            ajaxSort(url, '/0');
 
         });
         $('#search_text2').on('keyup',function() {

@@ -52,12 +52,16 @@ Route::get('/test-mail', 'RobotsController@testMail');
     Route::post('/fixingOrder', 'FixingController@fixingDetailOrderRequest')->name('handle-fixing');
 
 
+    Route::get('/market/{category}/filters-{filters}', 'MarketController@shopMainCat')->name('shop-main-cat');
     Route::get('/market/{category}', 'MarketController@shopMainCat')->name('shop-main-cat');
-    
+
+    Route::get('/market/{category}/{subcategory}/filters-{filters}', 'MarketController@shopMain')->name('shop-main');
     Route::get('/market/{category}/{subcategory}', 'MarketController@shopMain')->name('shop-main');
     
+    Route::post('/market/{category}/filters-{filters}', 'MarketController@sortAjax');
     Route::post('/market/{category}', 'MarketController@sortAjax');
 
+    Route::post('/market/{category}/{subcategory}/filters-{filters}', 'MarketController@sortAjax')->name('sort-main');
     Route::post('/market/{category}/{subcategory}', 'MarketController@sortAjax')->name('sort-main');
 
     Route::get('/market/{category}/{subcategory}/{modelCode}', 'MarketController@shopInner')->name('shop-inner');

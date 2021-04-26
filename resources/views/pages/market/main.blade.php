@@ -1,7 +1,6 @@
 @extends('system.master')
 
 @section('content')
-
     <main class="main">
         <div class="fixing-container">
             <div class="container">
@@ -11,7 +10,7 @@
                         <div class="shop-sidebar-wrapper">
 
 
-                            <x-filter category="{{request()->route()->parameters['category']}}" :subcategory="request()->route()->parameters['subcategory']"/>
+                            <x-filter :filters="$filters" category="{{request()->route()->parameters['category']}}" :subcategory="request()->route()->parameters['subcategory']"/>
 
                         </div>
 
