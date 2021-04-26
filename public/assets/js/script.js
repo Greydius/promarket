@@ -10565,9 +10565,10 @@ function ajaxSort(url, sub_url){
     
 
     window.history.pushState({}, '', new_url)
-
-    $('h1.small-title').text(page_title + ' - ' + manufacturer.join(", ") + ' ' + model.join(", "))
-    $(document).prop('title', site_title + ' | ' + manufacturer.join("| "));
+    const site_title_a = site_title.split('-');
+    console.log(site_title_a);
+    $('h1.small-title').text(page_title + ' - ' + manufacturer.join(", ") + ' ' + model.join(", "));
+    $(document).prop('title', site_title_a[0] + ' | ' + manufacturer.join("| ") +' - '+ site_title_a[1]);
      document.head.querySelector('meta[name="description"]').content = site_title + ' | ' + manufacturer.join("| ") + ' - ' + meta_desc;
     // alert(meta_desc);
     // page_query.remove('attrs['+ $(this).attr("name") +'][]');
