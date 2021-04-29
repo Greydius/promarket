@@ -1,4 +1,4 @@
-<?php 
+<?php
      $fil_man = isset($filters['manufacturer']) ? $filters['manufacturer'] : [];
     $fil_mod = isset($filters['model']) ? $filters['model'] : [];
     $fil_color = isset($filters['color_name']) ? $filters['color_name'] : [];
@@ -151,9 +151,9 @@
 </div>
 
 </div>
-	
+
     <script type="text/javascript">
-        
+
 $(document).ready(function() {
 
         // function ajaxSort(url){
@@ -180,7 +180,7 @@ $(document).ready(function() {
         //             });
         //         });
         //     });
-          
+
         //     $(document).on("click", ".js-order-button", function(e){
         //          const productId = this.closest('.commodity-card-body').querySelector('[name="product_id"]').value
         //         document.querySelector('.hidden_product_id').value = productId;
@@ -263,9 +263,7 @@ $(document).ready(function() {
 
 </script>
 <style type="text/css">
-    .filter-content .pol_content {
-    height: 340px;
-}
+    
 button.view_all {
     background: none;
     border: none;

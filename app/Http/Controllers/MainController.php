@@ -138,7 +138,7 @@ class MainController extends Controller
             ->registerModel(Product::class, 'name')
             ->perform($request->input('query'));
             return view('components.search-ajax',compact('data'));
-            }else {
+            } else {
                 return false;
             }
         }
