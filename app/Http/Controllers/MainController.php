@@ -69,8 +69,11 @@ class MainController extends Controller
     public function search(Request $request)
     {
     if($request->ajax()){
-        $query = request('query');
-        $query2 = request('query2');
+        if(request('query')){
+            $query = request('query');
+        }else{
+            $query = request('query2');
+        }
         $products = Product::query();
         $products = $products->where('name', 'LIKE', "%$query%");
          if(isset(request()->manufacturer)){
@@ -104,7 +107,12 @@ class MainController extends Controller
           $products = $products->where('price','>=', request()->min_price);
           $products = $products->where('price','<=', request()->max_price);
         }
-          $products = $products->where('name', 'LIKE', "%$query2%")->orderBy('price',request()->order)->paginate(request()->per_page)->onEachSide(2);
+        if(request()->order){
+            $order = request()->order;
+        }else{
+            $order = 'ASC';
+        }
+          $products = $products->where('name', 'LIKE', "%$query%")->orderBy('price',$order)->paginate(request()->per_page)->onEachSide(2);
            return view('components.market.sort', compact('products'));
         }else{
            $searchResults = (new Search())
@@ -114,7 +122,7 @@ class MainController extends Controller
                 $results = $searchResults;
             $search = $request->input('query');
 
-            $results = Product::where('name', 'LIKE', '%' . $search . '%')->paginate(12);
+            $results = Product::where('name', 'LIKE', '%' . $search . '%')->orderBy('price','ASC')->paginate(12);
 
             return view('components.search', compact('searchResults', 'results'));
         }

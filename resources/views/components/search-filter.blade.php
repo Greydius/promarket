@@ -1,7 +1,7 @@
 <?php 
      $fil_man = isset($filters['manufacturer']) ? $filters['manufacturer'] : [];
     $fil_mod = isset($filters['model']) ? $filters['model'] : [];
-    $fil_color = isset($filters['color_id']) ? $filters['color_id'] : [];
+    $fil_color = isset($filters['color_name']) ? $filters['color_name'] : [];
     // dd($fil_color);
  ?>
 <div class="shop-sidebar-inner-wrap">
@@ -141,7 +141,7 @@
     <div class="filter-content">
         @foreach($color as $color)
         <label class="checkbox-label">
-            <input type="checkbox" name="color"  <?php if(in_array($color->id, $fil_color)){ echo "checked"; } ?> value="{{$color->id}}">
+            <input type="checkbox" name="color"  <?php if(in_array($color->id, $fil_color)){ echo "checked"; } ?> value="{{$color->name}}">
             <span>
                {{$color->name}}
             </span>
@@ -189,7 +189,7 @@ $(document).ready(function() {
         //             type: 'inline',
         //         });
         //     });
-        //     var query = '<?php echo $search; ?>';
+        //     var query = '<?php //echo $search; ?>';
         //     var query2 = $('#search_text2').val();
         //     var min_price = $('input[name="min_price"]').val();
         //     var max_price = $('input[name="max_price"]').val();
@@ -239,15 +239,15 @@ $(document).ready(function() {
         // };
 
 
+            var sub_url = 'search';
 
         $('.filter-el input').change(function () {
             var url = '<?= Request::url(); ?>';
-
-            ajaxSort(url);
+            ajaxSort2(url);
         });
         $('#search_text2').on('keyup',function() {
             var url = '<?= Request::url(); ?>';
-            ajaxSort(url);
+            ajaxSort2(url);
         });
 
         $(".sidebar-search").submit(function(e){

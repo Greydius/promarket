@@ -121,62 +121,9 @@
 
 <script type="text/javascript">
      var url = '<?= Request::url(); ?>';
+     var sub_url = 'search';
         $('.sorting_select').change(function () {
-            var token = $('input[name="_token"]').val();
-            var min_price = $('input[name="min_price"]').val();
-            var max_price = $('input[name="max_price"]').val();
-            var order = $('#order').children("option:selected").val();
-            var per_page = $('#per_page').children("option:selected").val();
-            // console.log(order);
-            // console.log(per_page);
-            var quantity = [];
-            var device = [];
-            var manufacturer = [];
-            var model = [];
-            var color = [];
-            $.each($(".filter-el input[name='quantity']:checked"), function () {
-                quantity.push($(this).val());
-            });
-            $.each($(".filter-el input[name='device']:checked"), function () {
-                device.push($(this).val());
-            });
-            $.each($(".filter-el input[name='manufacturer']:checked"), function () {
-                manufacturer.push($(this).val());
-            });
-            $.each($(".filter-el input[name='model']:checked"), function () {
-                model.push($(this).val());
-            });
-            $.each($(".filter-el input[name='color']:checked"), function () {
-                color.push($(this).val());
-            });
-
-            data = {
-                'filter': '1',
-                'min_price': min_price,
-                'max_price': max_price,
-                'order': order,
-                'per_page': per_page,
-                'attrs': {
-                    'quantity': quantity,
-                    'manufacturer': manufacturer,
-                    'model': model,
-                    'color': color,
-                }
-            };
-            console.log(data);
-            $.ajax({
-                type: 'POST',
-                url: url,
-                data: data
-            }).done(function (data) {
-                $('#sort').html(data);
-                 setTimeout(function(){
-                var per_page = $('#per_page').children("option:selected").val();
-                var currentPage = $('a.pagination-bullet.active span').text();
-                var countPage = per_page * currentPage;
-                $('span.count_products').text(countPage);
-            }, 1000);
-            });
+           ajaxSort(url,sub_url);
 
         });
 </script>
