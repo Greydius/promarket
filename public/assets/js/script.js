@@ -10435,7 +10435,7 @@ const page_query = {
   }
 }
 var site_title = $(document).prop('title'); 
-var page_title = $('h1.small-title').text();
+var page_title = $('h1.small-title span').text();
 var meta_desc = document.head.querySelector('meta[name="description"]').content;
 function ajaxSort(url, sub_url){
     $(document).on("submit", "form.add-to-cart-form-submittion", function(e){

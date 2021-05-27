@@ -118,7 +118,26 @@
                                 </div>
                             </div>
                             <h1 class="small-title">
-                                {{ $category->name }}
+                                <span>
+                                {{ $category->name }}                                    
+                                </span>
+                                <?php 
+                                 $filters = request('filters');
+
+                                 if($filters) {
+                                    echo " - ";
+                                      $current_filters = explode('-and-', $filters);
+                                      foreach($current_filters as $current_filter) {
+                                        $current_filter_data = explode('-is-', $current_filter);
+                                
+                                        $current_filter_name = $current_filter_data[0];
+                                        $current_filter_variants = explode('-or-', $current_filter_data[1]);
+                                        $filters_array[$current_filter_name] = $current_filter_variants;
+                                        // dd($current_filter_variants);
+                                        foreach ($current_filter_variants as $variant) {echo $variant.', ';}
+                                      }
+                                    } 
+                                 ?>
                             </h1>
                             <div id="sort">
                                 <div class="row additional-commodities-wrapper">

@@ -200,7 +200,7 @@ body, table, td, p, span, h2, div, li {font-family: Verdana, Helvetica, sans-ser
                                                                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:3px;width:30px;">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td style="font-size:0;height:30px;vertical-align:middle;width:30px;"> <a href="#" target="_blank">sss
+                                                                            <td style="font-size:0;height:30px;vertical-align:middle;width:30px;"> <a href="#" target="_blank">
                                           <img height="30"
                                             src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/colored/instagram@2x.png"
                                             style="border-radius:3px;" width="30">
