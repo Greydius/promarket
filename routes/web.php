@@ -52,19 +52,19 @@ Route::get('/test-mail', 'RobotsController@testMail');
     Route::post('/fixingOrder', 'FixingController@fixingDetailOrderRequest')->name('handle-fixing');
 
 
-    Route::get('/market/{category}/filters-{filters}', 'MarketController@shopMainCat')->name('shop-main-cat');
-    Route::get('/market/{category}', 'MarketController@shopMainCat')->name('shop-main-cat');
+    Route::get(LaravelLocalization::transRoute('routes.shop-main-cat-filter'), 'MarketController@shopMainCat')->name('shop-main-cat');
+    Route::get(LaravelLocalization::transRoute('routes.shop-main-cat'), 'MarketController@shopMainCat')->name('shop-main-cat');
 
-    Route::get('/market/{category}/{subcategory}/filters-{filters}', 'MarketController@shopMain')->name('shop-main');
-    Route::get('/market/{category}/{subcategory}', 'MarketController@shopMain')->name('shop-main');
+    Route::get(LaravelLocalization::transRoute('routes.shop-main-filter'), 'MarketController@shopMain')->name('shop-main');
+    Route::get(LaravelLocalization::transRoute('routes.shop-main'), 'MarketController@shopMain')->name('shop-main');
     
-    Route::post('/market/{category}/filters-{filters}', 'MarketController@sortAjax');
-    Route::post('/market/{category}', 'MarketController@sortAjax');
+    Route::post(LaravelLocalization::transRoute('routes.sortAjax-filter'), 'MarketController@sortAjax');
+    Route::post(LaravelLocalization::transRoute('routes.sortAjax'), 'MarketController@sortAjax');
 
-    Route::post('/market/{category}/{subcategory}/filters-{filters}', 'MarketController@sortAjax')->name('sort-main');
-    Route::post('/market/{category}/{subcategory}', 'MarketController@sortAjax')->name('sort-main');
+    Route::post(LaravelLocalization::transRoute('routes.sort-main-filter'), 'MarketController@sortAjax')->name('sort-main');
+    Route::post(LaravelLocalization::transRoute('routes.sort-main'), 'MarketController@sortAjax')->name('sort-main');
 
-    Route::get('/market/{category}/{subcategory}/{modelCode}', 'MarketController@shopInner')->name('shop-inner');
+    Route::get(LaravelLocalization::transRoute('routes.shop-inner'), 'MarketController@shopInner')->name('shop-inner');
 
     Route::get('/cart', 'OrderController@cart')->name('cart');
 
