@@ -231,8 +231,24 @@ class MarketController extends Controller
        return view('components.market.sort',compact('products','category','sort'));
     }
 
-    public function shopInner($categoryCode, $subcategoryCode, $modelCode)
+    public function shopInner(Request $request, $categoryCode, $subcategoryCode, $modelCode)
     {
+
+        $productCode = $request->i;
+
+        if(isset($productCode)) {
+          $subcategoryCode = str_replace('-', '_', $categoryCode);
+          $subcategory = SubCategory::where('code', $subcategoryCode)->first();
+          $category = Category::find($subcategory->category_id);
+
+          $productCode = str_replace('-', '_', $productCode);
+          $product = Product::where('code', $productCode)->first();
+
+          if($product) {
+            return redirect()->route('shop-inner', ["category" => $category->code, "subcategory" => $subcategory->code, "modelCode" => $product->code]);
+          }  
+        }
+
         $details='';
         $accessuars='';
         $product = Product::where('code', $modelCode)->with('translations')->first();

@@ -11,6 +11,6 @@ return [
 
     "sort-main-filter" => "magazin/{category}/{subcategory}/filters-{filters}",
     "sort-main" => "magazin/{category}/{subcategory}",
-    
+
     "shop-inner"    =>  "magazin/{category}/{subcategory}/{modelCode}",
 ];
