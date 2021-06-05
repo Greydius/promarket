@@ -246,6 +246,24 @@ class MarketController extends Controller
 
           if($product) {
             return redirect()->route('shop-inner', ["category" => $category->code, "subcategory" => $subcategory->code, "modelCode" => $product->code]);
+            // $locale = \App::getLocale();
+            // $marketLocale = '';
+
+            // switch($locale) {
+            //   case 'ru':
+            //     $marketLocale = 'magazin';
+            //     break;
+            //   case 'en':
+            //     $marketLocale = 'market';
+            //     break;
+            //   case 'lv':
+            //     $marketLocale = 'veikals';
+            //     break;
+            //   default:
+            //     $marketLocale = 'veikals';
+            // }
+
+            // return redirect("/$locale/$marketLocale/$category->code/$subcategory->code/$product->code");
           }  
         }
 

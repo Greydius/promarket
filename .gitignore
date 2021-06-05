@@ -13,3 +13,8 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.git
+
+betta3.hardweb.pro.*
+
+/public_html
+/public_html_old

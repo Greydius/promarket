@@ -16,7 +16,7 @@ Route::post('/send-feedback', 'MainController@sendFeedback')->name('send-feedbac
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    'middleware' => []
 ], function () {
 Route::get('/test-mail', 'RobotsController@testMail');
 

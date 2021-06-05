@@ -218,6 +218,48 @@ class OrderController extends Controller
                          $message->attachData($pdf->output(), "invoice.pdf");
                     });
             }
+
+            // The data to send to the API
+            $lang = \App::getLocale();
+            $texts = [
+                "ru" => "Здравствуйте, ваш заказ($order->id) обрабатывается. Счет отправлен на электронную почту. После оплаты мы отправим его указанным способом доставки. Ваш Promarket.lv! ",
+                "en" => "Hello, your order($order->id) is processing. The invoice has been sent to the email. After payment, we will send it with the indicated delivery method. Your Promarket.lv!",
+                "lv" => "Labdien, Jūsu pasūtījums ($order->id) gatavojas. Rēķins ir aizsūtīts uz epastu. Pēc apmaksas atsūtīsim ar noradīto piegades veidu. Tavs Promarket.lv!",
+            ];
+
+            $postData = array(
+                'api_key' => '3k47zv4011t5i6xjcvsp34vqweh6c7cz',
+                'user_name' => 'torsherio@gmail.com',
+                'action' => 'calls.send_sms',
+                'to' => $order->telephone,
+                'text' => $texts[$lang]
+            );
+
+            // Setup cURL
+            $ch = curl_init('https://prosadiga.moizvonki.ru/api/v1');
+            curl_setopt_array($ch, array(
+                CURLOPT_POST => TRUE,
+                CURLOPT_RETURNTRANSFER => TRUE,
+                CURLOPT_HTTPHEADER => array(
+                    'Content-Type: application/json'
+                ),
+                CURLOPT_POSTFIELDS => json_encode($postData)
+            ));
+
+            // Send the request
+            $response = curl_exec($ch);
+
+            // Check for errors
+            if($response === FALSE){
+                die(curl_error($ch));
+            }
+
+            // Decode the response
+            $responseData = json_decode($response, TRUE);
+
+            // Close the cURL handler
+            curl_close($ch);
+
             // foreach($order->products as $product)
             // {
 
@@ -238,6 +280,47 @@ class OrderController extends Controller
                 $response = $client->getLabel($omnivaParcel);
                 dd($response);
             }
+
+            // The data to send to the API
+            $lang = \App::getLocale();
+            $texts = [
+                "ru" => "Новый $order->id требует обработки.",
+                "en" => "The new $order->id needs to be processed.",
+                "lv" => "Jaunais $order->id ir jāapstrādā.",
+            ];
+
+            $postData = array(
+                'api_key' => '3k47zv4011t5i6xjcvsp34vqweh6c7cz',
+                'user_name' => 'torsherio@gmail.com',
+                'action' => 'calls.send_sms',
+                'to' => '998911667347',
+                'text' => $texts[$lang]
+            );
+
+            // Setup cURL
+            $ch = curl_init('https://prosadiga.moizvonki.ru/api/v1');
+            curl_setopt_array($ch, array(
+                CURLOPT_POST => TRUE,
+                CURLOPT_RETURNTRANSFER => TRUE,
+                CURLOPT_HTTPHEADER => array(
+                    'Content-Type: application/json'
+                ),
+                CURLOPT_POSTFIELDS => json_encode($postData)
+            ));
+
+            // Send the request
+            $response = curl_exec($ch);
+
+            // Check for errors
+            if($response === FALSE){
+                die(curl_error($ch));
+            }
+
+            // Decode the response
+            $responseData = json_decode($response, TRUE);
+
+            // Close the cURL handler
+            curl_close($ch);
 
             // dd($omnivaParcel);
             $request->session()->forget('orderId');
